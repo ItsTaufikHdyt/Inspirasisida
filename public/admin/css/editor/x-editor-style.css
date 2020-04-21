@@ -1,0 +1,106 @@
+.x-editor-custom .popover{
+	border-radius: 0px;
+	border: 1px solid #af6cf7; 
+	padding:0px;
+}
+.x-editor-custom .input-sm{
+	font-size:13px;
+	border-radius: 0px;
+}
+.x-editor-custom .form-control:focus{
+	font-size:13px;
+	border-radius: 0px;
+	box-shadow: none; 
+	border-color: #af6cf7;
+}
+.x-editor-custom .form-control{
+	border-radius: 0px;
+}
+.x-editor-custom .btn-primary{
+	background-color: #af6cf7;
+    border-color: #af6cf7;
+}
+.x-editor-custom .btn-default{
+	background-color: #303030;
+    border-color: #303030;
+	color:#fff;
+}
+.x-editor-custom .btn-primary:hover, .x-editor-custom .btn-primary:focus{
+	background-color: #303030;
+    border-color: #303030;
+}
+.x-editor-custom .btn-default:hover, .x-editor-custom .btn-default:focus{
+	background-color: #af6cf7;
+    border-color: #af6cf7;
+}
+.x-editor-custom .popover-title{
+	background:#af6cf7;
+	color:#fff;
+	border-radius: 0px;
+	padding:10px 15px;
+}
+.x-editor-custom .datepicker table tr td.active, .x-editor-custom .datetimepicker table tr td.active{
+	background-color: #af6cf7;
+    background-image: -moz-linear-gradient(top, #af6cf7, #af6cf7);
+    background-image: -ms-linear-gradient(top, #af6cf7, #af6cf7);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#af6cf7), to(#af6cf7));
+    background-image: -webkit-linear-gradient(top, #0088cc, #af6cf7);
+    background-image: -o-linear-gradient(top, #0088cc, #af6cf7);
+    background-image: linear-gradient(top, #0088cc, #af6cf7);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#af6cf7', GradientType=0);
+    border-color: #af6cf7 #af6cf7 #002a80;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.x-editor-custom .select2-container .select2-choice{
+	border: 0px solid #aaa;
+	color: #fff;
+	border-radius: 0px;
+	background-color: #af6cf7;
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #af6cf7), color-stop(0.5, #af6cf7));
+    background-image: -webkit-linear-gradient(center bottom, #af6cf7 0%, #af6cf7 50%);
+    background-image: -moz-linear-gradient(center bottom, #af6cf7 0%, #af6cf7 50%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#af6cf7', endColorstr = '#af6cf7', GradientType = 0);
+    background-image: linear-gradient(top, #af6cf7 0%, #af6cf7 50%);
+}
+.x-editor-custom .select2-container .select2-choice .select2-arrow{
+	border-left: 0px solid #aaa;
+	border-radius: 0;
+	    background: #303030;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #303030), color-stop(0.6, #303030));
+    background-image: -webkit-linear-gradient(center bottom, #303030 0%, #303030 60%);
+    background-image: -moz-linear-gradient(center bottom, #303030 0%, #303030 60%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#303030', endColorstr = '#303030', GradientType = 0);
+    background-image: linear-gradient(303030);
+}
+.x-editor-custom .select2-container-multi .select2-choices{
+	border: 1px solid #af6cf7;
+}
+.x-editor-custom .select2-container-multi .select2-choices .select2-search-choice{
+    color: #fff;
+    border: 1px solid #af6cf7;
+    border-radius: 0px;
+    -webkit-box-shadow: 0 0 2px #af6cf7 inset, 0 1px 0 #af6cf7;
+    box-shadow: 0 0 2px #af6cf7 inset, 0 1px 0 #af6cf7;
+    background-color: #af6cf7;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#af6cf7', endColorstr='#af6cf7', GradientType=0);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #af6cf7), color-stop(50%, #af6cf7), color-stop(52%, #af6cf7), color-stop(100%, #af6cf7));
+    background-image: -webkit-linear-gradient(top, #af6cf7 20%, #af6cf7 50%, #af6cf7 52%, #af6cf7 100%);
+    background-image: -moz-linear-gradient(top, #af6cf7 20%, #af6cf7 50%, #af6cf7 52%, #af6cf7 100%);
+    background-image: linear-gradient(top, #af6cf7 20%, #af6cf7 50%, #af6cf7 52%, #af6cf7 100%);
+}
+.x-editor-custom .datetimepicker table tr td span.active{
+	    background-color: #af6cf7;
+    background-image: -moz-linear-gradient(top, #af6cf7, #af6cf7);
+    background-image: -ms-linear-gradient(top, #af6cf7, #af6cf7);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(af6cf7), to(#af6cf7));
+    background-image: -webkit-linear-gradient(top, #af6cf7, #af6cf7);
+    background-image: -o-linear-gradient(top, #af6cf7, #af6cf7);
+    background-image: linear-gradient(top, #af6cf7, #af6cf7);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#af6cf7', endColorstr='#af6cf7', GradientType=0);
+    border-color: #af6cf7 #af6cf7 #af6cf7;
+}
