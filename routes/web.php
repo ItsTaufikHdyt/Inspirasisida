@@ -25,12 +25,12 @@ Route::get('/verify/{token}', 'Auth\VerifyController@VerifyEmail')->name('verify
 
 //--------------- Admin -------------------
 Route::group(["prefix"=>"admin/"], function(){
-    Route::get('dashboard', 'AdminController@index');
+    Route::get('dashboard', 'AdminController@index')->name('adminDashboard');
 });
     
      //--------------- Sipena -------------------
 Route::group(["prefix"=>"sipeena/"], function(){
-    Route::get('/', 'SipeenaController@index');
+    Route::get('/', 'SipeenaController@index')->name('sipeena');
     //--------------- Invovasi -------------------
     Route::get('/inovasi', 'SipeenaController@inovasi')->name('inovasi');;
     Route::get('/inovasi/form-ind-inovasi', 'SipeenaController@formIndInovasi')->name('formIndInovasi');

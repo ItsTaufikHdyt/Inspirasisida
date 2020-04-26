@@ -69,7 +69,7 @@ class LoginController extends Controller
 
         $user = User::where('email',$request->email)->first();
 
-        if($user->email_verified == 1){
+        if($user->email_verified == 1 && $user->level == 1){
 
         if (auth()->attempt($credentials)) {
 
@@ -79,13 +79,25 @@ class LoginController extends Controller
 
                  $user->save();
 
-                 return redirect()->route('home');
+                 return redirect()->route('adminDashboard');
 
             }
            
+        }else if($user->email_verified == 1 && $user->level == 2){
+            if (auth()->attempt($credentials)) {
+
+                $user = auth()->user();
+
+                $user->last_login = Carbon::now();
+
+                $user->save();
+
+                return redirect()->route('sipeena');
+
+           }
         }
 
-        session()->flash('message', 'Invalid Credentials');
+        session()->flash('message', 'Data Yang Anda Masukkan Salah, Silahkan Periksa Kembali');
 
         session()->flash('type', 'danger');
 
