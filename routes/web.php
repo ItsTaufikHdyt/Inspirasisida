@@ -26,10 +26,10 @@ Route::get('/verify/{token}', 'Auth\VerifyController@VerifyEmail')->name('verify
 //--------------- Admin -------------------
 Route::group(["prefix"=>"admin/"], function(){
     Route::get('dashboard', 'AdminController@index');
-    });
+});
     
      //--------------- Sipena -------------------
-    Route::group(["prefix"=>"sipeena/"], function(){
+Route::group(["prefix"=>"sipeena/"], function(){
     Route::get('/', 'SipeenaController@index');
     //--------------- Invovasi -------------------
     Route::get('/inovasi', 'SipeenaController@inovasi')->name('inovasi');;
@@ -56,6 +56,6 @@ Route::group(["prefix"=>"admin/"], function(){
     //--------------- Profil -------------------
     Route::get('/profil', 'SipeenaController@profil')->name('profil');
     //--------------- Profil -------------------
-    });
+});
     
-    Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
