@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class pendaftaran extends Model
 {
-    protected $table ='perorangan';
+    protected $table ='pendaftaran';
     
     protected  $fillable = [
         'nama', 	
@@ -25,14 +25,10 @@ class pendaftaran extends Model
         'proposal',	
         'proposal_akhr', 	
         'url_proposal', 		
-        'ket' 	 	
-    ];
-
-    protected $hidden = [
+        'ket',
         'verifikasi',
         'kelompok',
-        'kategori_peena',	
-        'tgl_input', 	
-        'tgl_edit'
+        'kategori_peena' 	 	
     ];
+
 }

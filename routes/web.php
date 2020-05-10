@@ -34,6 +34,7 @@ Route::group(["prefix"=>"sipeena/"], function(){
     //--------------- Invovasi -------------------
     Route::get('/inovasi', 'SipeenaController@inovasi')->name('inovasi');;
     Route::get('/inovasi/form-ind-inovasi', 'SipeenaController@formIndInovasi')->name('formIndInovasi');
+    Route::post('store-form-ind-inovasi', 'SipeenaController@storeFormIndInovasi')->name('storeFormIndInovasi');
     Route::get('/inovasi/form-klp-inovasi', 'SipeenaController@formKlpInovasi')->name('formKlpInovasi');
     Route::get('/inovasi/form-lmb-inovasi', 'SipeenaController@formLmbInovasi')->name('formLmbInovasi');
     //--------------- Invovasi -------------------
