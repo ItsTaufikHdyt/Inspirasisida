@@ -23,5 +23,6 @@ class lembaga extends Model
     'kategori_peena', 	
     'tgl_input', 	
     'tgl_edit', 	
-    'proposal_akhr' 	
+    'proposal_akhr'
+    ];	
 }

@@ -20,21 +20,9 @@
           <div class="col-lg-4 col-md-6 col-xs-12">
             <ul class="events">
               <li>
-                <time datetime="10:03">10:06</time> 
-                <span><strong>Bat &amp; Ball</strong> On time</span></li>
-              <li>
-              <li>
-                <time datetime="10:03">10:03</time> 
-                <span><strong>Bat &amp; Ball</strong> On time</span></li>
-              <li>
-              <li>
-                <time datetime="10:03">10:03</time> 
-                <span><strong>Bat &amp; Ball</strong> On time</span></li>
-              <li>
-              <li>
-                <time datetime="10:03">10:03</time> 
-                <span><strong>Bat &amp; Ball</strong> On time</span></li>
-              <li>
+                <time>{{$created_at_user->diffForHumans()}}</time> 
+                <span><strong>Create Account</strong></span>
+              </li>
               <li>
                 <time datetime="10:03">10:03</time> 
                 <span><strong>Bat &amp; Ball</strong> On time</span></li>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Pendaftaran;
 use Auth;
 
 class SipeenaController extends Controller
@@ -27,6 +29,14 @@ class SipeenaController extends Controller
     {
         return view ('user.daftar-peena.inovasi.form-ind-inovasi');
     }
+
+    public function storeFormIndInovasi()
+    {
+
+        return view ('user.daftar-peena.inovasi.form-ind-inovasi');
+    }
+
+
     public function formKlpInovasi()
     {
         return view ('user.daftar-peena.inovasi.form-klp-inovasi');
@@ -63,7 +73,8 @@ class SipeenaController extends Controller
    // ---------------- Riwayat ------------------------
    public function riwayat()
     {
-        return view ('user.akun.riwayat');
+        $created_at_user = Auth::user()->created_at;
+        return view ('user.akun.riwayat',['created_at_user' => $created_at_user]);
     }
 
    // ---------------- Profil ------------------------
