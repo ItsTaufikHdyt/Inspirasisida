@@ -33,7 +33,24 @@ class SipeenaController extends Controller
 
     public function storeFormIndInovasi(Request $request)
     {
-        
+        $request->validate([
+            'nama'               =>'required',
+            'ttl'                =>'required',
+            'agama'              =>'required',
+            'pekerjaan'          =>'required',
+            'email'              =>'required|email:rfc,dns',
+            'pendidikan'         =>'required',
+            'nation'             =>'required',
+            'ktp'                =>'required|mimes:jpeg,jpg|size:512',
+            'telp'               =>'required',
+            'izin_ortu'          =>'required|mimes:jpeg,jpg|size:512',
+            'izin_sekolah'       =>'required|mimes:jpeg,jpg|size:512',
+            'surat_pernyataan'   =>'required|mimes:jpeg,jpg|size:512',
+            'alamat'             =>'required',
+            'proposal'           =>'required|mimes:pdf|size:5024',
+            'url_proposal'       =>'required'
+        ]);
+
         $nama = str_replace(' ','-',$request->nama);
         $today = Carbon::today()->toDateString();
         $date = str_replace('-','',$today);
