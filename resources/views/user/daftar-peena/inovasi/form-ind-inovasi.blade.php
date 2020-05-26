@@ -5,6 +5,15 @@
 @endsection
 
 @section('main-content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <section id="contact" class="section">      
       <div class="contact-form">
         <div class="container">
