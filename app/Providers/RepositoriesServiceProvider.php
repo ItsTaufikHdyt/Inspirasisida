@@ -25,6 +25,6 @@ class RepositoriesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind(FormIndRepositoryInterface::class, FormIndRepository::class);
+        $this->app->bind(FormIndInovasiRepositoryInterface::class, FormIndInovasiRepository::class);
     }
 }

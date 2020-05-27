@@ -4,7 +4,7 @@ namespace App\Repositories\Core;
 
 use Illuminate\Http\Request;
 
-interface FormIndRepositoryInterface {
+interface FormIndInovasiRepositoryInterface {
 
     public function storeIndForm($request);
     

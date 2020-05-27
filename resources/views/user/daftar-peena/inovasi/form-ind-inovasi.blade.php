@@ -38,7 +38,7 @@
 	<table width="100%">
 		<tr>
 			<td width="20%" height="45px" valign="top">Nama Lengkap <small><font color="red">*</font></small></td>
-			<td width="30%" height="45px" valign="top"><input name="nama" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="text" required></td>
+			<td width="30%" height="45px" valign="top"><input name="nama" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="text" ></td>
 			<td width="20%" height="45px" valign="top">Tempat/Tanggal Lahir <small><font color="red">*</font></small></td>
 			<td width="30%" height="45px" valign="top"><input name="ttl" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="date" required></td>
 		</tr>

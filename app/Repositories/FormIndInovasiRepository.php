@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 // use Illuminate\Database\Eloquent\Model;
-use App\Repositories\Core\FormIndRepositoryInterface;
+use App\Repositories\Core\FormIndInovasiRepositoryInterface;
 use Illuminate\Http\Request;
 use App\User;
 use App\pendaftaran;
@@ -11,7 +11,7 @@ use Auth;
 use Storage;
 use Carbon\Carbon;
 
-class FormIndRepository implements FormIndRepositoryinterface
+class FormIndInovasiRepository implements FormIndInovasiRepositoryinterface
 {
 
     protected $pendaftaran;
