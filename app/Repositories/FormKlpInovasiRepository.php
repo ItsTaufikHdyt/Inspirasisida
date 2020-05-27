@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 // use Illuminate\Database\Eloquent\Model;
-use App\Repositories\Core\FormIndInovasiRepositoryInterface;
+use App\Repositories\Core\FormKlpInovasiRepositoryInterface;
 use Illuminate\Http\Request;
 use App\User;
 use App\pendaftaran;
@@ -11,7 +11,7 @@ use Auth;
 use Storage;
 use Carbon\Carbon;
 
-class FormIndInovasiRepository implements FormIndInovasiRepositoryinterface
+class FormKlpInovasiRepository implements FormKlpInovasiRepositoryinterface
 {
 
     protected $pendaftaran;
@@ -21,7 +21,7 @@ class FormIndInovasiRepository implements FormIndInovasiRepositoryinterface
         $this->pendaftaran = $pendaftaran;
     }
 
-    public function storeIndForm($request)
+    public function storeKlpInovasiForm($request)
     {
             $nama = str_replace(' ','-',$request->nama);
             $today = Carbon::today()->toDateString();
@@ -60,7 +60,7 @@ class FormIndInovasiRepository implements FormIndInovasiRepositoryinterface
             'proposal'           =>$request->file('proposal')->storeAs('proposal', $proposal_file),
             'url_proposal'       =>$request->url_proposal,
             'verifikasi'         => 0,
-            'kelompok'           => 0,
+            'kelompok'           => 1,
             'kategori_peena'      =>'inovasi'
             ]);
     }

@@ -21,7 +21,7 @@ class FormIndInovasiRepository implements FormIndInovasiRepositoryinterface
         $this->pendaftaran = $pendaftaran;
     }
 
-    public function storeIndForm($request)
+    public function storeIndInovasiForm($request)
     {
             $nama = str_replace(' ','-',$request->nama);
             $today = Carbon::today()->toDateString();

@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use App\Repositories\FormIndRepository;
-use App\Repositories\Core\FormIndRepositoryInterface;
+use App\Repositories\FormIndInovasiRepository;
+use App\Repositories\Core\FormIndInovasiRepositoryInterface;
+use App\Repositories\FormKlpInovasiRepository;
+use App\Repositories\Core\FormKlpInovasiRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoriesServiceProvider extends ServiceProvider
@@ -25,6 +27,7 @@ class RepositoriesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind(FormIndInovasiRepositoryInterface::class, FormIndInovasiRepository::class);
+        $this->app->bind(FormIndInovasiRepositoryInterface::class, FormIndInovasiRepository::class, 
+                         FormKlpInovasiRepositoryInterface::class, FormKlpInovasiRepository::class);
     }
 }
