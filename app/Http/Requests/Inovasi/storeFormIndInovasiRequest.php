@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Inovasi;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Auth;

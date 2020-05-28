@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
-use App\Repositories\FormIndInovasiRepository;
-use App\Repositories\Core\FormIndInovasiRepositoryInterface;
-use App\Repositories\FormKlpInovasiRepository;
-use App\Repositories\Core\FormKlpInovasiRepositoryInterface;
+use App\Repositories\Inovasi\FormIndInovasiRepository;
+use App\Repositories\Core\Inovasi\FormIndInovasiRepositoryInterface;
+use App\Repositories\Inovasi\FormKlpInovasiRepository;
+use App\Repositories\Core\Inovasi\FormKlpInovasiRepositoryInterface;
+use App\Repositories\Inovasi\FormLmbInovasiRepository;
+use App\Repositories\Core\Inovasi\FormLmbInovasiRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoriesServiceProvider extends ServiceProvider

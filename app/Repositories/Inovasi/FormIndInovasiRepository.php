@@ -1,9 +1,9 @@
 <?php 
 
-namespace App\Repositories;
+namespace App\Repositories\Inovasi;
 
 // use Illuminate\Database\Eloquent\Model;
-use App\Repositories\Core\FormIndInovasiRepositoryInterface;
+use App\Repositories\Core\Inovasi\FormIndInovasiRepositoryInterface;
 use Illuminate\Http\Request;
 use App\User;
 use App\pendaftaran;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Core;
+namespace App\Repositories\Core\Inovasi;
 
 use Illuminate\Http\Request;
 

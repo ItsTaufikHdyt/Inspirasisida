@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\storeFormIndInovasiRequest;
-use App\Http\Requests\storeFormKlpInovasiRequest;
-use App\Http\Requests\storeFormLmbInovasiRequest;
-use App\Repositories\FormIndInovasiRepository;
-use App\Repositories\FormKlpInovasiRepository;
-use App\Repositories\FormLmbInovasiRepository;
+use App\Http\Requests\Inovasi\storeFormIndInovasiRequest;
+use App\Http\Requests\Inovasi\storeFormKlpInovasiRequest;
+use App\Http\Requests\Inovasi\storeFormLmbInovasiRequest;
+use App\Repositories\Inovasi\FormIndInovasiRepository;
+use App\Repositories\Inovasi\FormKlpInovasiRepository;
+use App\Repositories\Inovasi\FormLmbInovasiRepository;
 
 
 
