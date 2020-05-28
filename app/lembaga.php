@@ -9,8 +9,8 @@ class lembaga extends Model
     protected $table ='lembaga';
     
     protected  $fillable = [
-    'nama_lembaga', 	
     'nama', 	
+    'nama_lembaga', 	
     'alamat', 	
     'email', 	
     'telp', 	

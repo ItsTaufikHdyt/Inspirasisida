@@ -5,21 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\storeFormIndInovasiRequest;
 use App\Http\Requests\storeFormKlpInovasiRequest;
+use App\Http\Requests\storeFormLmbInovasiRequest;
 use App\Repositories\FormIndInovasiRepository;
 use App\Repositories\FormKlpInovasiRepository;
+use App\Repositories\FormLmbInovasiRepository;
+
+
 
 
 class SipeenaController extends Controller
 {
     protected $formIndInovasiRepository;
     protected $formKlpInovasiRepository;
+    protected $formLmbInovasiRepository;
 
     public function __construct(FormIndInovasiRepository $formIndInovasiRepository,
-    FormKlpInovasiRepository $formKlpInovasiRepository)
+    FormKlpInovasiRepository $formKlpInovasiRepository,FormLmbInovasiRepository $formLmbInovasiRepository )
     {
         $this->middleware('auth');
         $this->formIndInovasiRepository = $formIndInovasiRepository;
         $this->formKlpInovasiRepository = $formKlpInovasiRepository;
+        $this->formLmbInovasiRepository = $formLmbInovasiRepository;
     }
     
     public function index()
@@ -54,11 +60,18 @@ class SipeenaController extends Controller
     {
         $pendaftaran = $this->formKlpInovasiRepository->storeKlpInovasiForm($request);
 
-        return view ('user.daftar-peena.inovasi.form-ind-inovasi');
+        return view ('user.daftar-peena.inovasi.form-klp-inovasi');
     }
 
     public function formLmbInovasi()
     {
+        return view ('user.daftar-peena.inovasi.form-lmb-inovasi');
+    }
+
+    public function storeFormLmbInovasi(storeFormLmbInovasiRequest $request)
+    {
+        $lembaga = $this->formLmbInovasiRepository->storeLmbInovasiForm($request);
+
         return view ('user.daftar-peena.inovasi.form-lmb-inovasi');
     }
 

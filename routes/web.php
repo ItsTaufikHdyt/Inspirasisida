@@ -38,6 +38,7 @@ Route::group(["prefix"=>"sipeena/"], function(){
     Route::get('/inovasi/form-klp-inovasi', 'SipeenaController@formKlpInovasi')->name('formKlpInovasi');
     Route::post('store-form-klp-inovasi', 'SipeenaController@storeFormKlpInovasi')->name('storeFormKlpInovasi');
     Route::get('/inovasi/form-lmb-inovasi', 'SipeenaController@formLmbInovasi')->name('formLmbInovasi');
+    Route::post('store-form-lmb-inovasi', 'SipeenaController@storeFormLmbInovasi')->name('storeFormLmbInovasi');
     //--------------- Invovasi -------------------
     
     //--------------- Penelitian -------------------
