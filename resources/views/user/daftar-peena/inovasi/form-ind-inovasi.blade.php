@@ -104,7 +104,7 @@
 			</td>
 		</tr>
 	</table>
-</form><!-- <center>--- Form Pendaftaran ---</center> -->
+</form>
 	        </div>
           </div>
       	</div>

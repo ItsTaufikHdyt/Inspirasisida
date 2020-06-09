@@ -44,8 +44,11 @@ Route::group(["prefix"=>"sipeena/"], function(){
     //--------------- Penelitian -------------------
     Route::get('/penelitian', 'SipeenaController@penelitian')->name('penelitian');
     Route::get('/penelitian/form-ind-research', 'SipeenaController@formIndPenelitian')->name('formIndPenelitian');
+    Route::post('store-form-ind-research', 'SipeenaController@storeFormIndPenelitian')->name('storeFormIndPenelitian');
     Route::get('/penelitian/form-klp-research', 'SipeenaController@formKlpPenelitian')->name('formKlpPenelitian');
+    Route::post('store-form-klp-research', 'SipeenaController@storeFormKlpPenelitian')->name('storeFormKlpPenelitian');
     Route::get('/penelitian/form-lmb-research', 'SipeenaController@formLmbPenelitian')->name('formLmbPenelitian');
+    Route::post('store-form-lmb-research', 'SipeenaController@storeFormLmbPenelitian')->name('storeFormLmbPenelitian');
     //--------------- Penelitian -------------------
     
     //--------------- SKPD -------------------

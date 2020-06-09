@@ -10,6 +10,13 @@ use App\Repositories\Inovasi\FormIndInovasiRepository;
 use App\Repositories\Inovasi\FormKlpInovasiRepository;
 use App\Repositories\Inovasi\FormLmbInovasiRepository;
 
+use App\Http\Requests\Penelitian\storeFormIndPenelitianRequest;
+use App\Http\Requests\Penelitian\storeFormKlpPenelitianRequest;
+use App\Http\Requests\Penelitian\storeFormLmbPenelitianRequest;
+use App\Repositories\Penelitian\FormIndPenelitianRepository;
+use App\Repositories\Penelitian\FormKlpPenelitianRepository;
+use App\Repositories\Penelitian\FormLmbPenelitianRepository;
+
 
 
 
@@ -19,13 +26,28 @@ class SipeenaController extends Controller
     protected $formKlpInovasiRepository;
     protected $formLmbInovasiRepository;
 
-    public function __construct(FormIndInovasiRepository $formIndInovasiRepository,
-    FormKlpInovasiRepository $formKlpInovasiRepository,FormLmbInovasiRepository $formLmbInovasiRepository )
+    protected $formIndPenelitianRepository;
+    protected $formKlpPenelitianRepository;
+    protected $formLmbPenelitianRepository;
+
+    public function __construct(
+        FormIndInovasiRepository $formIndInovasiRepository,
+        FormKlpInovasiRepository $formKlpInovasiRepository,
+        FormLmbInovasiRepository $formLmbInovasiRepository, 
+
+        FormIndPenelitianRepository $formIndPenelitianRepository,
+        FormKlpPenelitianRepository $formKlpPenelitianRepository,
+        FormLmbPenelitianRepository $formLmbPenelitianRepository
+    )
     {
         $this->middleware('auth');
         $this->formIndInovasiRepository = $formIndInovasiRepository;
         $this->formKlpInovasiRepository = $formKlpInovasiRepository;
         $this->formLmbInovasiRepository = $formLmbInovasiRepository;
+
+        $this->formIndPenelitianRepository = $formIndPenelitianRepository;
+        $this->formKlpPenelitianRepository = $formKlpPenelitianRepository;
+        $this->formLmbPenelitianRepository = $formLmbPenelitianRepository;
     }
     
     public function index()
@@ -84,12 +106,35 @@ class SipeenaController extends Controller
    {
        return view ('user.daftar-peena.penelitian.form-ind-research');
    }
+
+   public function storeFormIndPenelitian(storeFormIndPenelitianRequest $request)
+    {
+        $pendaftaran = $this->formIndPenelitianRepository->storeIndPenelitianForm($request);
+      
+        return view ('user.daftar-peena.penelitian.form-ind-research');
+    }
+
    public function formKlpPenelitian()
    {
        return view ('user.daftar-peena.penelitian.form-klp-research');
    }
+
+   public function storeFormKlpPenelitian(storeFormKlpPenelitianRequest $request)
+   {
+       $pendaftaran = $this->formKlpPenelitianRepository->storeKlpPenelitianForm($request);
+
+       return view ('user.daftar-peena.penelitian.form-klp-research');
+   }
+
    public function formLmbPenelitian()
    {
+       return view ('user.daftar-peena.penelitian.form-lmb-research');
+   }
+
+   public function storeFormLmbPenelitian(storeFormLmbPenelitianRequest $request)
+   {
+       $lembaga = $this->formLmbPenelitianRepository->storeLmbPenelitianForm($request);
+
        return view ('user.daftar-peena.penelitian.form-lmb-research');
    }
 
