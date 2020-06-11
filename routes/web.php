@@ -51,9 +51,13 @@ Route::group(["prefix"=>"sipeena/"], function(){
     Route::post('store-form-lmb-research', 'SipeenaController@storeFormLmbPenelitian')->name('storeFormLmbPenelitian');
     //--------------- Penelitian -------------------
     
-    //--------------- SKPD -------------------
-    Route::get('/skpd', 'SipeenaController@skpd')->name('skpd');
-    //--------------- SKPD -------------------
+    //--------------- OPD-------------------
+    Route::get('/opd', 'SipeenaController@opd')->name('opd');
+    //--------------- OPD -------------------
+
+    //--------------- Captcha-------------------
+    Route::get('/refreshcaptcha', 'SipeenaController@refreshCaptcha');
+    //--------------- Captcha -------------------
     
     //--------------- Riwayat -------------------
     Route::get('/riwayat', 'SipeenaController@riwayat')->name('riwayat');

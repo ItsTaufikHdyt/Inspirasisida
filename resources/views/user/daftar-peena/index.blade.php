@@ -35,7 +35,7 @@
             </a>
           </div>
           <div class="col-lg-4 col-md-6 col-xs-12">
-            <a href="{{route('skpd')}}">
+            <a href="{{route('opd')}}">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.6s">
                 <div class="icon color-6">
                   <i class="lni-briefcase"></i>

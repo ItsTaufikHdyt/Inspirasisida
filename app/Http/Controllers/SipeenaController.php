@@ -17,6 +17,8 @@ use App\Repositories\Penelitian\FormIndPenelitianRepository;
 use App\Repositories\Penelitian\FormKlpPenelitianRepository;
 use App\Repositories\Penelitian\FormLmbPenelitianRepository;
 
+use App\unitkerja;
+
 
 
 
@@ -139,9 +141,16 @@ class SipeenaController extends Controller
    }
 
    // ---------------- Skpd ------------------------
-   public function skpd()
+   public function opd()
     {
-        return view ('user.daftar-peena.skpd.index');
+        $unitkerja = unitkerja::all();
+        return view ('user.daftar-peena.opd.index',compact('unitkerja'));
+    }
+
+    // ---------------- refreshCaptcha ------------------------
+    public function refreshCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
     }
 
    // ---------------- Riwayat ------------------------
