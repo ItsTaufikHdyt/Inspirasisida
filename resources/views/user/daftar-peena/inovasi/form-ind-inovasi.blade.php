@@ -95,14 +95,18 @@
 			<td width="30%" height="45px" valign="top"><input name="url_proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="text" required></td>
 		</tr>
 		<tr>
-			<td colspan="4" align="center">
-				<img src="../captcha/captcha.php"><br>
-	        <input class="form-control" name="captcha" type="text" value="Hasilnya Adalah: " onBlur="if(this.value=='') this.value='Hasilnya Adalah: '" onFocus="if(this.value =='Hasilnya Adalah: ' ) this.value=''" required/>
-	        
-            <button name="simpan" type="submit" class="btn btn-common btn-effect">Simpan</button>
-            <!-- <button type="reset" class="btn btn-default btn-effect">Reset</button> -->
-			</td>
-		</tr>
+	        <td colspan="4" align="center">
+				<div class="captcha">
+					<span>{!! captcha_img() !!}</span>
+					<button type="button" class="btn btn-common btn-effect" id="refresh">
+						<i class="fa fa-sync-alt" id="refresh"></i>
+					</button>
+				</div>
+					<input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">     
+			         <button name="simpan" type="submit" class="btn btn-common btn-effect">Simpan</button>
+			                <!-- <button type="reset" class="btn btn-default btn-effect">Reset</button> -->
+	        </td>
+	    </tr>
 	</table>
 </form>
 	        </div>
@@ -112,7 +116,17 @@
   	</section>
 @endsection
 @section('custom_scripts')
-<script>
+<script type="text/javascript">
+$('#refresh').click(function(){
+  $.ajax({
+     type:'GET',
+     url:'{{url("sipeena/refreshcaptcha")}}',
+     success:function(data){
+		 console.log("succes");
+        $(".captcha span").html(data.captcha);
+     }
+  });
+});
      function TampilMhs(str) {
           if (str == "") {
               document.getElementById("MhsData").innerHTML = "--- Form Pendaftaran ---";

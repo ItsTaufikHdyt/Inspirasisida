@@ -10,6 +10,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('fontawesome/css/all.css')}}">
     <link rel="stylesheet" href="{{asset('css/line-icons.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.css')}}">

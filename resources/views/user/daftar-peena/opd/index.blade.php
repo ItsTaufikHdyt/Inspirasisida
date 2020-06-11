@@ -5,7 +5,16 @@
 @endsection
 
 @section('main-content')
-<section id="contact" class="section">      
+<section id="contact" class="section"> 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif     
       <div class="contact-form">
         <div class="container">
           <div class="section-header">          
@@ -58,7 +67,9 @@
 	          			<td colspan="4" align="center">
 						  <div class="captcha">
 							<span>{!! captcha_img() !!}</span>
-							<button type="button" class="btn btn-success" id="refresh"><i class="fas fa-refresh" id="refresh"></i></button>
+							<button type="button" class="btn btn-common btn-effect" id="refresh">
+								<i class="fa fa-sync-alt" id="refresh"></i>
+							</button>
 						</div>
 							<input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
 					        
@@ -79,9 +90,8 @@
 $('#refresh').click(function(){
   $.ajax({
      type:'GET',
-     url:'refreshcaptcha',
+     url:'{{url("sipeena/refreshcaptcha")}}',
      success:function(data){
-		 console.log("succes");
         $(".captcha span").html(data.captcha);
      }
   });
