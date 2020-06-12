@@ -24,8 +24,9 @@
           </div>
           <div class="row">
           	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-mb-12">
-          	  <form action="sv-skpd.php" name="form1" method="post" enctype="multipart/form-data">
-          		<table width="100%">
+          	  <form action="{{url('sipeena/store-opd')}}" name="form1" method="post" enctype="multipart/form-data">
+          		@csrf
+				  <table width="100%">
 	          		<tr>
 	          			<td width="20%" height="45px" valign="top">Nama Perangkat Daerah <small><font color="red">*</font></small></td>
 	          			<td width="30%" height="45px" valign="top">
@@ -66,7 +67,7 @@
 	          		<tr>
 	          			<td colspan="4" align="center">
 						  <div class="captcha">
-							<span>{!! captcha_img() !!}</span>
+							<span>{!! captcha_img('math') !!}</span>
 							<button type="button" class="btn btn-common btn-effect" id="refresh">
 								<i class="fa fa-sync-alt" id="refresh"></i>
 							</button>

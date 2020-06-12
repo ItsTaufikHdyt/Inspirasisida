@@ -53,6 +53,8 @@ Route::group(["prefix"=>"sipeena/"], function(){
     
     //--------------- OPD-------------------
     Route::get('/opd', 'SipeenaController@opd')->name('opd');
+    Route::post('store-opd', 'SipeenaController@storeOpd')->name('storeOpd');
+
     //--------------- OPD -------------------
 
     //--------------- Captcha-------------------

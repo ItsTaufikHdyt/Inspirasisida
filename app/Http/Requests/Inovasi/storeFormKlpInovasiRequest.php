@@ -39,7 +39,8 @@ class storeFormKlpInovasiRequest extends FormRequest
             'surat_pernyataan'   =>'required|mimes:jpeg,jpg,png|max:512',
             'alamat'             =>'required',
             'proposal'           =>'required|mimes:pdf|max:5024',
-            'url_proposal'       =>'required'
+            'url_proposal'       =>'required',
+            'captcha'            => 'required|captcha'
         ];
     }
 

@@ -17,7 +17,11 @@ use App\Repositories\Penelitian\FormIndPenelitianRepository;
 use App\Repositories\Penelitian\FormKlpPenelitianRepository;
 use App\Repositories\Penelitian\FormLmbPenelitianRepository;
 
+use App\Repositories\Opd\PenaOpdRepository;
+use App\Http\Requests\Opd\penaOpdRequest;
+
 use App\unitkerja;
+use Auth;
 
 
 
@@ -32,6 +36,8 @@ class SipeenaController extends Controller
     protected $formKlpPenelitianRepository;
     protected $formLmbPenelitianRepository;
 
+    protected $penaOpdRepository;
+
     public function __construct(
         FormIndInovasiRepository $formIndInovasiRepository,
         FormKlpInovasiRepository $formKlpInovasiRepository,
@@ -39,7 +45,9 @@ class SipeenaController extends Controller
 
         FormIndPenelitianRepository $formIndPenelitianRepository,
         FormKlpPenelitianRepository $formKlpPenelitianRepository,
-        FormLmbPenelitianRepository $formLmbPenelitianRepository
+        FormLmbPenelitianRepository $formLmbPenelitianRepository,
+
+        PenaOpdRepository $penaOpdRepository
     )
     {
         $this->middleware('auth');
@@ -50,6 +58,8 @@ class SipeenaController extends Controller
         $this->formIndPenelitianRepository = $formIndPenelitianRepository;
         $this->formKlpPenelitianRepository = $formKlpPenelitianRepository;
         $this->formLmbPenelitianRepository = $formLmbPenelitianRepository;
+
+        $this->penaOpdRepository = $penaOpdRepository;
     }
     
     public function index()
@@ -147,10 +157,17 @@ class SipeenaController extends Controller
         return view ('user.daftar-peena.opd.index',compact('unitkerja'));
     }
 
+    public function storeOpd(PenaOpdRequest $request)
+    {
+        $unitkerja = unitkerja::all();
+        $penaopd = $this->penaOpdRepository->storePenaOpd($request);
+        return view ('user.daftar-peena.opd.index',compact('unitkerja'));
+    }
+
     // ---------------- refreshCaptcha ------------------------
     public function refreshCaptcha()
     {
-        return response()->json(['captcha'=> captcha_img()]);
+        return response()->json(['captcha'=> captcha_img('math')]);
     }
 
    // ---------------- Riwayat ------------------------

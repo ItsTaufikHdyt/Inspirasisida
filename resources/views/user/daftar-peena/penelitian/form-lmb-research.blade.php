@@ -71,7 +71,7 @@
 		<tr>
 	        <td colspan="4" align="center">
 				<div class="captcha">
-					<span>{!! captcha_img() !!}</span>
+					<span>{!! captcha_img('math') !!}</span>
 					<button type="button" class="btn btn-common btn-effect" id="refresh">
 						<i class="fa fa-sync-alt" id="refresh"></i>
 					</button>
