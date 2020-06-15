@@ -63,102 +63,26 @@
         </div>
 
         <div class="row pricing-tables">
+        @forelse($prosedur as $data)
               <div class="col-lg-4 col-md-4 col-xs-12">
                 <div class="pricing-table">
                   <div class="pricing-details">
-                    <h2>Judul</h2>
+                    <h2>{{$data->judul_prosedur}}</h2>
                     <div class="price">
                       <span>
-                        Dibuat 20/01/202
-                        | New Posting
+                      {{$data->created_at->format('Y-m-d')}}
+                        | {{$data->created_at->diffForHumans()}}
                         </span> 
                     </div>
                   </div>
                   <div class="plan-button">
-                    <a href="#" class="btn btn-common btn-effect">Read More</a>
-                  </div>
-                </div>
-              </div>   
-              <div class="col-lg-4 col-md-4 col-xs-12">
-                <div class="pricing-table">
-                  <div class="pricing-details">
-                    <h2>Judul</h2>
-                    <div class="price">
-                      <span>
-                        Dibuat 20/01/202
-                        | New Posting
-                        </span> 
-                    </div>
-                  </div>
-                  <div class="plan-button">
-                    <a href="#" class="btn btn-common btn-effect">Read More</a>
+                    <a href="{{url('prosedur/more/'.$data->id)}}" class="btn btn-common btn-effect">Read More</a>
                   </div>
                 </div>
               </div>  
-              <div class="col-lg-4 col-md-4 col-xs-12">
-                <div class="pricing-table">
-                  <div class="pricing-details">
-                    <h2>Judul</h2>
-                    <div class="price">
-                      <span>
-                        Dibuat 20/01/202
-                        | New Posting
-                        </span> 
-                    </div>
-                  </div>
-                  <div class="plan-button">
-                    <a href="#" class="btn btn-common btn-effect">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-4 col-xs-12">
-                <div class="pricing-table">
-                  <div class="pricing-details">
-                    <h2>Judul</h2>
-                    <div class="price">
-                      <span>
-                        Dibuat 20/01/202
-                        | New Posting
-                        </span> 
-                    </div>
-                  </div>
-                  <div class="plan-button">
-                    <a href="#" class="btn btn-common btn-effect">Read More</a>
-                  </div>
-                </div>
-              </div>  
-              <div class="col-lg-4 col-md-4 col-xs-12">
-                <div class="pricing-table">
-                  <div class="pricing-details">
-                    <h2>Judul</h2>
-                    <div class="price">
-                      <span>
-                        Dibuat 20/01/202
-                        | New Posting
-                        </span> 
-                    </div>
-                  </div>
-                  <div class="plan-button">
-                    <a href="#" class="btn btn-common btn-effect">Read More</a>
-                  </div>
-                </div>
-              </div>   
-              <div class="col-lg-4 col-md-4 col-xs-12">
-                <div class="pricing-table">
-                  <div class="pricing-details">
-                    <h2>Judul</h2>
-                    <div class="price">
-                      <span>
-                        Dibuat 20/01/202
-                        | New Posting
-                        </span> 
-                    </div>
-                  </div>
-                  <div class="plan-button">
-                    <a href="#" class="btn btn-common btn-effect">Read More</a>
-                  </div>
-                </div>
-              </div>   
+        @empty
+        Postingan Belum tersedia
+        @endforelse    
         </div>
         <br><center>
 <a href="" class="btn-common">1</a>

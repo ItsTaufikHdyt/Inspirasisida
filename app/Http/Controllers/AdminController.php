@@ -38,8 +38,10 @@ class AdminController extends Controller
 
 
     public function index()
-    {
-        return view ('admin.index');
+    {   $inovasi = pendaftaran::where('kategori_peena','=', 'inovasi')->count();
+        $penelitian = pendaftaran::where('kategori_peena','=','penelitian')->count();
+        $penaopd = penaopd::count();
+        return view ('admin.index',['inovasi' => $inovasi,'penelitian' => $penelitian, 'penaopd' => $penaopd]);
     }
 
     // ---------------- Data SiPeena ------------------------
@@ -149,4 +151,11 @@ class AdminController extends Controller
         $unitkerja = $this->dataOpdRepository->destroyOpd($id);
         return redirect()->route('admin.opd');
     }
+
+    // ---------------- Database ------------------------
+    public function database()
+    {
+        return view ('admin.database.index');
+    }
+
 }

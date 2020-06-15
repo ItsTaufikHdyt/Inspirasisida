@@ -12,9 +12,9 @@
 */
 Auth::routes();
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'HomeController@index')->name('index');
+Route::get('prosedur/more/{id}', 'HomeController@showMore')->name('home.showMore');
+Route::get('prosedur/download/{id}', 'HomeController@downloadProsedur')->name('home.downloadProsedur');
 
 //--------------- Verify -------------------
 Route::get('/user-register', 'Auth\RegisterController@ShowRegisterForm')->name('userRegister');
@@ -42,6 +42,8 @@ Route::group(["prefix"=>"admin/"], function(){
     Route::post('store-data-opd', 'AdminController@storeOpd')->name('admin.storeOpd');
     Route::put('update-data-opd/{id}', 'AdminController@updateOpd')->name('admin.updateOpd');
     Route::delete('delete-data-opd/{id}', 'AdminController@destroyOpd')->name('admin.destroyOpd');
+//--------------- Database ---------------------
+Route::get('database', 'AdminController@database')->name('admin.database');
 });
     
      //--------------- Sipena -------------------

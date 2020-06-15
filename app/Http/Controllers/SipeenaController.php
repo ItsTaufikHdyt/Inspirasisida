@@ -64,6 +64,7 @@ class SipeenaController extends Controller
     
     public function index()
     {
+        $prosedur = prosedur::all();
         return view ('user.daftar-peena.index');
     }
 

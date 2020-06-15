@@ -4,7 +4,7 @@
 	eLitbang | Admin
 @endsection
 @section('main-content')
-<h4>Rekap Pendaftaran siPeena Tahun <?php echo date('Y'); ?></h4>
+<h4>Rekap Pendaftaran siPeena Tahun @php echo date('Y'); @endphp</h4>
 <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
         <div class="hpanel widget-int-shape responsive-mg-b-30">
@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="m-t-xl widget-cl-1">
-                    <h3 class="text-success">0</h3>
+                    <h3 class="text-success">{{$inovasi ?? '0'}}</h3>
                     <small>
                         Lorem Ipsum is simply dummy text of the printing and Lorem <strong>typesetting industry</strong> spa.
                     </small>
@@ -30,7 +30,7 @@
                 </div>
     
                 <div class="m-t-xl widget-cl-1">
-                    <h3 class="text-success">0</h3>
+                    <h3 class="text-success">{{$penelitian ?? '0'}}</h3>
                     <small>
                         Lorem Ipsum is simply dummy text of the printing and Lorem <strong>typesetting industry</strong> spa.
                     </small>
@@ -46,7 +46,7 @@
                 </div>
                 
                 <div class="m-t-xl widget-cl-1">
-                    <h3 class="text-success">0</h3>
+                    <h3 class="text-success">{{$penaopd ?? '0'}}</h3>
                     <small>
                         Lorem Ipsum is simply dummy text of the printing and Lorem <strong>typesetting industry</strong> spa.
                     </small>
