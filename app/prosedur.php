@@ -12,7 +12,7 @@ class prosedur extends Model
         'judul_prosedur',
         'narasi', 	
         'berkas', 	
-        'tgl_input', 	
-        'tgl_edit' 	
+        'created_at', 	
+        'updated_at' 	
     ];
 }

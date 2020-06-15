@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Admin\Opd\storeDataOpdRequest;
 use App\Repositories\Admin\Opd\DataOpdRepository;
 
+use App\Http\Requests\Admin\Prosedur\storeProsedurRequest;
+use App\Repositories\Admin\Prosedur\ProsedurRepository;
+
 use App\Repositories\Admin\DataSipeena\DataSipeenaRepository;
 
 use App\prosedur;
@@ -17,17 +20,20 @@ use App\penaopd;
 
 class AdminController extends Controller
 {
-    protected $dataOpdRepository;
     protected $dataSipeenaRepository;
+    protected $dataOpdRepository;
+    protected $prosedurRepository;
 
     public function __construct(
+        DataSipeenaRepository $dataSipeenaRepository,
         DataOpdRepository $dataOpdRepository,
-        DataSipeenaRepository $dataSipeenaRepository
+        ProsedurRepository $prosedurRepository
     )
     {
         $this->middleware('auth');
-        $this->dataOpdRepository = $dataOpdRepository;
         $this->dataSipeenaRepository = $dataSipeenaRepository;
+        $this->dataOpdRepository = $dataOpdRepository;
+        $this->prosedurRepository = $prosedurRepository;
     }
 
 
@@ -99,6 +105,24 @@ class AdminController extends Controller
     {
         $prosedur = prosedur::all();
         return view ('admin.prosedur.index',compact('prosedur'));
+    }
+
+    public function storeProsedur(storeProsedurRequest $request)
+    {
+        $prosedur = $this->prosedurRepository->storeProsedur($request);
+        return redirect()->route('admin.prosedur');
+    }
+
+    public function updateProsedur(storeProsedurRequest $request,$id)
+    {
+        $unitkerja = $this->prosedurRepository->updateProsedur($request,$id);
+        return redirect()->route('admin.prosedur');
+    }
+
+    public function destroyProsedur($id)
+    {
+        $prosedur = $this->prosedurRepository->destroyProsedur($id);
+        return redirect()->route('admin.prosedur');
     }
 
     // ---------------- OPD ------------------------

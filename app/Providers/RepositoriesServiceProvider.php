@@ -16,10 +16,12 @@ use App\Repositories\Core\Penelitian\FormKlpPenelitianRepositoryInterface;
 use App\Repositories\Penelitian\FormLmbPenelitianRepository;
 use App\Repositories\Core\Penelitian\FormLmbPenelitianRepositoryInterface;
 
-use App\Repositories\Admin\Opd\DataOpdRepository;
-use App\Repositories\Admin\Core\Opd\DataOpdRepositoryInterface;
 use App\Repositories\Admin\DataSipeena\DataSipeenaRepository;
 use App\Repositories\Admin\Core\DataSipeena\DataSipeenaRepositoryInterface;
+use App\Repositories\Admin\Opd\DataOpdRepository;
+use App\Repositories\Admin\Core\Opd\DataOpdRepositoryInterface;
+use App\Repositories\Admin\Prosedur\ProsedurRepository;
+use App\Repositories\Admin\Core\Prosedur\ProsedurRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoriesServiceProvider extends ServiceProvider
@@ -47,8 +49,9 @@ class RepositoriesServiceProvider extends ServiceProvider
                          FormIndPenelitianRepositoryInterface::class, FormIndPenelitianRepository::class, 
                          FormKlpPenelitianRepositoryInterface::class, FormKlpPenelitianRepository::class,
                          FormLmbPenelitianRepositoryInterface::class, FormLmbPenelitianRepository::class,
+                         DataSipeenaRepositoryInterface::class, DataSipeenaRepository::class,
                          DataOpdRepositoryInterface::class, DataOpdRepository::class,
-                         DataSipeenaRepositoryInterface::class, DataSipeenaRepository::class
+                         ProsedurRepositoryInterface::class, ProsedurRepository::class
                         );
     }
 }

@@ -32,7 +32,10 @@ Route::group(["prefix"=>"admin/"], function(){
     Route::delete('delete-data-sipeena-lembaga/{id}', 'AdminController@destroySipeenaLembaga')->name('admin.destroySipeenaLembaga');
     Route::delete('delete-data-sipeena-opd/{id}', 'AdminController@destroySipeenaOpd')->name('admin.destroySipeenaOpd');
 //--------------- Prosedur ---------------------
-    Route::get('prosedur', 'AdminController@prosedur')->name('admin.pengumuman');
+    Route::get('prosedur', 'AdminController@prosedur')->name('admin.prosedur');
+    Route::post('storeProsedur', 'AdminController@storeProsedur')->name('admin.storeProsedur');
+    Route::put('update-prosedur/{id}', 'AdminController@updateProsedur')->name('admin.updateProsedur');
+    Route::delete('delete-prosedur/{id}', 'AdminController@destroyProsedur')->name('admin.destroyProsedurS');
 
 //--------------- OPD ---------------------
     Route::get('data-opd', 'AdminController@opd')->name('admin.opd');

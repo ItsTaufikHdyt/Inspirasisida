@@ -4,6 +4,15 @@
 	eLitbang | Admin
 @endsection
 @section('main-content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <h4>List Pengumuman</h4>
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -16,8 +25,9 @@
 					<div id="PrimaryModalalert" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                            	<form method="post" enctype="multipart/form-data">
-                                <div class="modal-close-area modal-close-df">
+                            	<form action="{{url('admin/storeProsedur')}}" method="post" enctype="multipart/form-data">
+                                @csrf
+								<div class="modal-close-area modal-close-df">
                                     <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
                                 </div>
                                 <div class="modal-body">
@@ -26,7 +36,7 @@
                                 			<td>Judul Pengumuman</td>
                                 		</tr>
                                 		<tr>
-                                			<td><input type="text" name="judul" class="form-control" placeholder="Narasi pengumuman..." required></td>
+                                			<td><input type="text" name="judul_prosedur" class="form-control" placeholder="Judul pengumuman..." required></td>
                                 		</tr>
                                 		<tr>
                                 			<td>Narasi</td>
@@ -47,7 +57,7 @@
                                                     <div class="input prepend-small-btn">
                                                         <div class="file-button">
                                                             Browse
-                                                            <input type="file" name="file" required onchange="document.getElementById('prepend-small-btn2').value = this.value;">
+                                                            <input type="file" name="berkas" required onchange="document.getElementById('prepend-small-btn2').value = this.value;">
                                                         </div>
                                                         <input type="text" name="file" id="prepend-small-btn2" placeholder="no file selected" required>
                                                     </div>
@@ -77,22 +87,24 @@
 	                    </tr>
 	                </thead>
 	                <tbody>
-                    @php 
-                        $no = 1;
-                    @endphp
-                   @forelse($prosedur as $data)
+					@php
+						$no = 1;
+					@endphp
+						@foreach($prosedur as $data)
 	                    <tr>
 	                    			<td>{{$no++}}</td>
 	                    			<td>{{$data->judul_prosedur}}</td>
 	                    			<td width="30%">{{substr($data->narasi, 0, 100)}}...</td>
-	                    			<td>{{data->created_at}}</td>
+	                    			<td>{{$data->created_at}}</td>
 	                    			<td>
 	                    				<button type="button" class="btn btn-custon-four btn-primary btn-xs" data-toggle="modal" data-target="#PrimaryModalalert{{$data->id}}"><i class="fa fa-pencil"></i></button>
 	                    				<div id="PrimaryModalalert{{$data->id}}" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
 				                            <div class="modal-dialog">
 				                                <div class="modal-content">
-				                                    <form method="post" enctype="multipart/form-data">
-			                                    	<div class="modal-close-area modal-close-df">
+				                                    <form action="{{url('admin/update-prosedur/'.$data->id)}}"  method="post" enctype="multipart/form-data">
+			                                    		<input type="hidden" name="_method" value="PUT">
+														@csrf
+													<div class="modal-close-area modal-close-df">
 				                                        <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
 				                                    </div>
 				                                    <div class="modal-body">
@@ -103,7 +115,7 @@
 				                                    		<tr>
 				                                    			<td>
 				                                    				<input type="hidden" name="id" class="form-control" value="{{$data->id}}">
-				                                    				<input type="text" name="judul" class="form-control" value="<?php echo $row['judul_prosedur']; ?>" autofocus required>
+				                                    				<input type="text" name="judul_prosedur" class="form-control" value="{{$data->judul_prosedur}}" autofocus required>
 				                                    			</td>
 				                                    		</tr>
 				                                    		<tr>
@@ -111,7 +123,7 @@
 				                                    		</tr>
 				                                    		<tr>
 				                                    			<td>
-				                                    				<textarea name="narasi" cols="60" rows="10" placeholder="Narasi pengumuman..." required><?php echo $row['narasi']; ?></textarea>
+				                                    				<textarea name="narasi" cols="60" rows="10" placeholder="Narasi pengumuman..." required>{{$data->narasi}}</textarea>
 				                                    			</td>
 				                                    		</tr>
 				                                    		<tr>
@@ -123,9 +135,9 @@
 					                                                    <div class="input prepend-small-btn">
 					                                                        <div class="file-button">
 					                                                            Browse
-					                                                            <input type="file" name="file" onchange="document.getElementById('prepend-small-btn').value = this.value;">
+					                                                            <input type="file" name="berkas" onchange="document.getElementById('prepend-small-btn').value = this.value;">
 					                                                        </div>
-					                                                        <input type="text" name="file" id="prepend-small-btn" value="<?php echo $row['berkas']; ?>" required placeholder="no file selected">
+					                                                        <input type="text" name="berkas" id="prepend-small-btn" value="{{$data->berkas}}" required placeholder="no file selected">
 					                                                    </div>
 					                                                </div>
 										                        </td>
@@ -145,13 +157,15 @@
 	                    				<div id="DangerModalalert{{$data->id}}" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
 				                            <div class="modal-dialog">
 				                                <div class="modal-content">
-				                                	<form method="post">
-				                                    <div class="modal-close-area modal-close-df">
+				                                	<form action="{{url('admin/delete-prosedur/'.$data->id)}}" method="post">
+														<input type="hidden" name="_method" value="DELETE">
+				                                    	@csrf
+													<div class="modal-close-area modal-close-df">
 				                                        <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
 				                                    </div>
 				                                    <div class="modal-body">
 				                                        <input type="hidden" name="id" class="form-control" value="{{$data->id}}">
-				                                        <p>Yakin akan menghapus data unit kerja <?php echo $row['judul_prosedur']; ?>?</p>
+				                                        <p>Yakin akan menghapus data unit kerja {{$data->judul_prosedur}}?</p>
 				                                    </div>
 				                                    <div class="modal-footer danger-md">
 				                                        <button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
@@ -162,12 +176,8 @@
 				                            </div>
 				                        </div>
 	                    			</td>
-	                    </tr>
-	                    @empty
-                        <tr>
-                            <td colspan="5" align="center">Data Tidak Ada</td>
-                        </tr>
-	                @endforelse
+	                    		</tr>
+	                    @endforeach
 	                </tbody>
 	            </table>
 	        </div>
