@@ -52,6 +52,11 @@ Route::group(["prefix"=>"admin/"], function(){
     Route::delete('delete-data-sipeena-pendaftaran/{id}', 'AdminController@destroySipeenaPendaftaran')->name('admin.destroySipeenaPendaftaran');
     Route::delete('delete-data-sipeena-lembaga/{id}', 'AdminController@destroySipeenaLembaga')->name('admin.destroySipeenaLembaga');
     Route::delete('delete-data-sipeena-opd/{id}', 'AdminController@destroySipeenaOpd')->name('admin.destroySipeenaOpd');
+//----------------------------- Finalis --------------------
+    Route::get('final-pendaftaran/{id}', 'AdminController@finalPendaftaran')->name('admin.FinalPendaftaran');
+    Route::get('final-opd/{id}', 'AdminController@finalOpd')->name('admin.FinalOpd');
+    Route::get('final-lembaga/{id}', 'AdminController@finalLembaga')->name('admin.FinalLembaga');
+
 //--------------- Prosedur ---------------------
     Route::get('prosedur', 'AdminController@prosedur')->name('admin.prosedur');
     Route::post('storeProsedur', 'AdminController@storeProsedur')->name('admin.storeProsedur');

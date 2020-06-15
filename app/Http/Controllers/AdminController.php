@@ -147,6 +147,24 @@ class AdminController extends Controller
         $opd->save();
         return redirect()->route('admin.verifikasi');
     }
+//-------------------- Finalis -------------------
+    public function finalPendaftaran($id)
+    { 
+        $pendaftaran = pendaftaran::find($id);
+        return view ('admin.data-sipeena.verifikasi.final-pendaftaran',compact('pendaftaran'));
+    }
+
+    public function finalLembaga($id)
+    { 
+        $lembaga = lembaga::find($id);
+        return view ('admin.data-sipeena.verifikasi.final-lembaga',compact('lembaga'));
+    }
+
+    public function finalOpd($id)
+    { 
+        $penaopd = penaopd::find($id);
+        return view ('admin.data-sipeena.verifikasi.final-opd',compact('penaopd'));
+    }
 //----------------------- Destroy -----------------------
     public function destroySipeenaPendaftaran($id)
     {
@@ -202,7 +220,7 @@ class AdminController extends Controller
                                 ->get(); 
         $lembaga = lembaga::where('verifikasi', 2)->get();
         $pena_opd = penaopd::where('verifikasi', 2)->get();         
-        return view ('admin.data-sipeena.ditolak',compact('perorangan','kelompok','lembaga','pena_opd'));
+        return view ('admin.data-sipeena.finalis',compact('perorangan','kelompok','lembaga','pena_opd'));
     }
 
     // ---------------- Prosedur ------------------------
