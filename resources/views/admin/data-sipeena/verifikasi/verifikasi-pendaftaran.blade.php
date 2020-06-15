@@ -12,8 +12,10 @@
 <div id="DangerModalalert" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post">
-            <div class="modal-close-area modal-close-df">
+            <form action="{{url('admin/update-verifikasi-pendaftaran/'.$pendaftaran->id)}}" method="post">
+            <input type="hidden" name="_method" value="PUT">
+			@csrf
+			<div class="modal-close-area modal-close-df">
                 <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
             </div>
             <div class="modal-body">
@@ -125,11 +127,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="content-profile">
-                                            
-                                                
-                                                    <center><img src="{{asset('$pendaftaran->ktp')}}"></center>
-                                               
-                                            
+ 
                                         </div>
                                     </div>
                                 </div>

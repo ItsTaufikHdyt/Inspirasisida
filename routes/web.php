@@ -31,7 +31,15 @@ Route::group(["prefix"=>"admin/"], function(){
     Route::get('diterima', 'AdminController@diterima')->name('admin.diterima');
     Route::get('ditolak', 'AdminController@ditolak')->name('admin.ditolak');
     Route::get('finalis', 'AdminController@finalis')->name('admin.finalis');
+//--------------- Verifikasi -----------------------
     Route::get('verifikasi-pendaftaran/{id}', 'AdminController@verifikasiPendaftaran')->name('admin.verifikasiPendaftaran');
+    Route::get('verifikasi-opd/{id}', 'AdminController@verifikasiOpd')->name('admin.verifikasiOpd');
+    Route::get('verifikasi-lembaga/{id}', 'AdminController@verifikasiLembaga')->name('admin.verifikasiLembaga');
+    
+    Route::put('update-verifikasi-pendaftaran/{id}', 'AdminController@updateVerifikasiPendaftaran')->name('admin.updateVerifikasiPendaftaran');
+    Route::put('update-verifikasi-opd/{id}', 'AdminController@updateVerifikasiOpd')->name('admin.updateVerifikasiOpd');
+    Route::put('update-verifikasi-lembaga/{id}', 'AdminController@updateVerifikasiLembaga')->name('admin.updateVerifikasiLembaga');
+    
     Route::delete('delete-data-sipeena-pendaftaran/{id}', 'AdminController@destroySipeenaPendaftaran')->name('admin.destroySipeenaPendaftaran');
     Route::delete('delete-data-sipeena-lembaga/{id}', 'AdminController@destroySipeenaLembaga')->name('admin.destroySipeenaLembaga');
     Route::delete('delete-data-sipeena-opd/{id}', 'AdminController@destroySipeenaOpd')->name('admin.destroySipeenaOpd');

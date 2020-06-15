@@ -4,7 +4,7 @@
 	eLitbang | Admin
 @endsection
 @section('main-content')
-<h4>Data Verifikasi Pendaftaran SiPeena</h4>
+<h4>Data Diterima Pendaftaran SiPeena</h4>
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
@@ -121,7 +121,7 @@
 	                                    			<td>{{$data->email}}</td>
 	                                    			<td>{{$data->ttl}}</td>
 	                                    			<td>{{$data->kategori_peena}}</td>
-	                                    			<td><a href="index.php?halaman=verif-penelitian-ind&idverif={{$data->id}}" target="_blank">
+	                                    			<td><a href="{{url('admin/verifikasi-pendaftaran/'.$data->id)}}" target="_blank">
 	                                    				<button class="btn btn-custon-four btn-warning btn-xs">
 												        <i class="fa fa-eye"></i>
 												    	</button></a>
@@ -192,7 +192,7 @@
 	                                    			<td>{{$data->nama_lembaga}}</td>
 	                                    			<td>{{$data->email}}</td>
 	                                    			<td>{{$data->kategori_peena}}</td>
-	                                    			<td><a href="index.php?halaman=verif-penelitian-lmb&idverif={{$data->id}}" target="_blank">
+	                                    			<td><a href="{{url('admin/verifikasi-lembaga/'.$data->id)}}" target="_blank">
 	                                    				<button class="btn btn-custon-four btn-warning btn-xs">
 												        <i class="fa fa-eye"></i>
 												    	</button></a>
@@ -265,7 +265,7 @@
 	                                    			<td>{{$data->nip}}</td>
 	                                    			<td>{{$data->email}}</td>
 	                                    			<td>{{$data->telp}}</td>
-	                                    			<td><a href="index.php?halaman=verif-penelitian-opd&idverif={{$data->id}}" target="_blank">
+	                                    			<td><a href="{{url('admin/verifikasi-opd/'.$data->id)}}" target="_blank">
 	                                    				<button class="btn btn-custon-four btn-warning btn-xs">
 												        <i class="fa fa-eye"></i>
 												    	</button></a>

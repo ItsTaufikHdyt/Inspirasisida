@@ -64,6 +64,72 @@ class AdminController extends Controller
         return view ('admin.data-sipeena.verifikasi.verifikasi-pendaftaran',compact('pendaftaran'));
     }
 
+    public function verifikasiLembaga($id)
+    { 
+        $lembaga = lembaga::find($id);
+        return view ('admin.data-sipeena.verifikasi.verifikasi-lembaga',compact('lembaga'));
+    }
+
+    public function verifikasiOpd($id)
+    { 
+        $penaopd = penaopd::find($id);
+        return view ('admin.data-sipeena.verifikasi.verifikasi-opd',compact('penaopd'));
+    }
+//--------------------- Update Verifikasi --------------
+    public function updateVerifikasiPendaftaran(Request $request, $id)
+    { 
+        $pendaftaran = pendaftaran::find($id);
+        $pendaftaran->verifikasi = $request->kdverif;
+        $pendaftaran->ket = $request->komen;
+        $pendaftaran->save();
+        return redirect()->route('admin.verifikasi');
+    }
+
+    public function updateVerifikasiLembaga(Request $request, $id)
+    { 
+        $lembaga = lembaga::find($id);
+        $lembaga->verifikasi = $request->kdverif;
+        $lembaga->ket = $request->komen;
+        $lembaga->save();
+        return redirect()->route('admin.verifikasi');
+    }
+
+    public function updateVerifikasiOpd(Request $request, $id)
+    { 
+        $opd = penaopd::find($id);
+        $opd->verifikasi = $request->kdverif;
+        $opd->ket = $request->komen;
+        $opd->save();
+        return redirect()->route('admin.verifikasi');
+    }
+//--------------------- Update ACC --------------
+    public function updateAccPendaftaran(Request $request, $id)
+    { 
+        $pendaftaran = pendaftaran::find($id);
+        $pendaftaran->verifikasi = $request->kdverif;
+        $pendaftaran->ket = $request->komen;
+        $pendaftaran->save();
+        return redirect()->route('admin.verifikasi');
+    }
+
+    public function updateAccLembaga(Request $request, $id)
+    { 
+        $lembaga = lembaga::find($id);
+        $lembaga->verifikasi = $request->kdverif;
+        $lembaga->ket = $request->komen;
+        $lembaga->save();
+        return redirect()->route('admin.verifikasi');
+    }
+
+    public function updateAccOpd(Request $request, $id)
+    { 
+        $opd = penaopd::find($id);
+        $opd->verifikasi = $request->kdverif;
+        $opd->ket = $request->komen;
+        $opd->save();
+        return redirect()->route('admin.verifikasi');
+    }
+//----------------------- Destroy -----------------------
     public function destroySipeenaPendaftaran($id)
     {
         $pendaftaran = $this->dataSipeenaRepository->destroySipeenaPendaftaran($id);
