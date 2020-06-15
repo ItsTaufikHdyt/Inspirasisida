@@ -25,7 +25,14 @@ Route::get('/verify/{token}', 'Auth\VerifyController@VerifyEmail')->name('verify
 
 //--------------- Admin -------------------
 Route::group(["prefix"=>"admin/"], function(){
-    Route::get('dashboard', 'AdminController@index')->name('adminDashboard');
+    Route::get('dashboard', 'AdminController@index')->name('admin.dashboard');
+//--------------- Data SiPeena ---------------------
+    Route::get('verifikasi', 'AdminController@verifikasi')->name('admin.verifikasi');
+    Route::delete('delete-data-sipeena-pendaftaran/{id}', 'AdminController@destroySipeenaPendaftaran')->name('admin.destroySipeenaPendaftaran');
+    Route::delete('delete-data-sipeena-lembaga/{id}', 'AdminController@destroySipeenaLembaga')->name('admin.destroySipeenaLembaga');
+    Route::delete('delete-data-sipeena-opd/{id}', 'AdminController@destroySipeenaOpd')->name('admin.destroySipeenaOpd');
+//--------------- Prosedur ---------------------
+    Route::get('prosedur', 'AdminController@prosedur')->name('admin.pengumuman');
 
 //--------------- OPD ---------------------
     Route::get('data-opd', 'AdminController@opd')->name('admin.opd');

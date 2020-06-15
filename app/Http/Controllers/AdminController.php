@@ -7,25 +7,98 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Admin\Opd\storeDataOpdRequest;
 use App\Repositories\Admin\Opd\DataOpdRepository;
 
+use App\Repositories\Admin\DataSipeena\DataSipeenaRepository;
 
+use App\prosedur;
 use App\unitkerja;
+use App\pendaftaran;
+use App\lembaga;
+use App\penaopd;
 
 class AdminController extends Controller
 {
     protected $dataOpdRepository;
+    protected $dataSipeenaRepository;
 
     public function __construct(
-        DataOpdRepository $dataOpdRepository
+        DataOpdRepository $dataOpdRepository,
+        DataSipeenaRepository $dataSipeenaRepository
     )
     {
         $this->middleware('auth');
         $this->dataOpdRepository = $dataOpdRepository;
+        $this->dataSipeenaRepository = $dataSipeenaRepository;
     }
 
 
     public function index()
     {
         return view ('admin.index');
+    }
+
+    // ---------------- Data SiPeena ------------------------
+    public function verifikasi()
+    {   
+        $perorangan = pendaftaran::where('kelompok','=', 0)
+                                 ->where('verifikasi','=', 0)
+                                 ->get();
+        $kelompok = pendaftaran::where('kelompok','=',1)
+                                ->where('verifikasi','=', 0)                       
+                                ->get(); 
+        $lembaga = lembaga::where('verifikasi', 0)->get();
+        $pena_opd = penaopd::where('verifikasi', 0)->get();         
+        return view ('admin.data-sipeena.verifikasi',compact('perorangan','kelompok','lembaga','pena_opd'));
+    }
+
+    public function destroySipeenaPendaftaran($id)
+    {
+        $pendaftaran = $this->dataSipeenaRepository->destroySipeenaPendaftaran($id);
+        return redirect()->route('admin.verifikasi');
+    }
+
+    public function destroySipeenaLembaga($id)
+    {
+        $lembaga = $this->dataSipeenaRepository->destroySipeenaLembaga($id);
+        return redirect()->route('admin.verifikasi');
+    }
+
+    public function destroySipeenaOpd($id)
+    {
+        $opd = $this->dataSipeenaRepository->destroySipeenaOpd($id);
+        return redirect()->route('admin.verifikasi');
+    }
+
+    public function diterima()
+    {   
+        $perorangan = pendaftaran::where('kelompok','=', 0)
+                                 ->where('verifikasi','=', 1)
+                                 ->get();
+        $kelompok = pendaftaran::where('kelompok','=',1)
+                                ->where('verifikasi','=', 1)                       
+                                ->get(); 
+        $lembaga = lembaga::where('verifikasi', 1)->get();
+        $pena_opd = penaopd::where('verifikasi', 1)->get();         
+        return view ('admin.data-sipeena.verifikasi',compact('perorangan','kelompok','lembaga','pena_opd'));
+    }
+
+    public function ditolak()
+    {   
+        $perorangan = pendaftaran::where('kelompok','=', 0)
+                                 ->where('verifikasi','=', -1)
+                                 ->get();
+        $kelompok = pendaftaran::where('kelompok','=',1)
+                                ->where('verifikasi','=', -1)                       
+                                ->get(); 
+        $lembaga = lembaga::where('verifikasi', -1)->get();
+        $pena_opd = penaopd::where('verifikasi', -1)->get();         
+        return view ('admin.data-sipeena.verifikasi',compact('perorangan','kelompok','lembaga','pena_opd'));
+    }
+
+    // ---------------- Prosedur ------------------------
+    public function prosedur()
+    {
+        $prosedur = prosedur::all();
+        return view ('admin.prosedur.index',compact('prosedur'));
     }
 
     // ---------------- OPD ------------------------

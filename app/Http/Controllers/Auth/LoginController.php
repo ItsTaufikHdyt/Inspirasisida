@@ -79,7 +79,7 @@ class LoginController extends Controller
 
                  $user->save();
 
-                 return redirect()->route('adminDashboard');
+                 return redirect()->route('admin.dashboard');
 
             }
            
