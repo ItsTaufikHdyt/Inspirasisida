@@ -57,7 +57,7 @@ class AdminController extends Controller
         $pena_opd = penaopd::where('verifikasi', 0)->get();         
         return view ('admin.data-sipeena.verifikasi',compact('perorangan','kelompok','lembaga','pena_opd'));
     }
-
+//-------------------- Verifikasi -------------------
     public function verifikasiPendaftaran($id)
     { 
         $pendaftaran = pendaftaran::find($id);
@@ -101,6 +101,24 @@ class AdminController extends Controller
         $opd->ket = $request->komen;
         $opd->save();
         return redirect()->route('admin.verifikasi');
+    }
+    //-------------------- ACC -------------------
+    public function accPendaftaran($id)
+    { 
+        $pendaftaran = pendaftaran::find($id);
+        return view ('admin.data-sipeena.verifikasi.acc-pendaftaran',compact('pendaftaran'));
+    }
+
+    public function accLembaga($id)
+    { 
+        $lembaga = lembaga::find($id);
+        return view ('admin.data-sipeena.verifikasi.acc-lembaga',compact('lembaga'));
+    }
+
+    public function accOpd($id)
+    { 
+        $penaopd = penaopd::find($id);
+        return view ('admin.data-sipeena.verifikasi.acc-opd',compact('penaopd'));
     }
 //--------------------- Update ACC --------------
     public function updateAccPendaftaran(Request $request, $id)
