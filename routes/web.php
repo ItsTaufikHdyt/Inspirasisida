@@ -26,6 +26,12 @@ Route::get('/verify/{token}', 'Auth\VerifyController@VerifyEmail')->name('verify
 //--------------- Admin -------------------
 Route::group(["prefix"=>"admin/"], function(){
     Route::get('dashboard', 'AdminController@index')->name('adminDashboard');
+
+//--------------- OPD ---------------------
+    Route::get('data-opd', 'AdminController@opd')->name('admin.opd');
+    Route::post('store-data-opd', 'AdminController@storeOpd')->name('admin.storeOpd');
+    Route::put('update-data-opd/{id}', 'AdminController@updateOpd')->name('admin.updateOpd');
+    Route::delete('delete-data-opd/{id}', 'AdminController@destroyOpd')->name('admin.destroyOpd');
 });
     
      //--------------- Sipena -------------------

@@ -15,6 +15,9 @@ use App\Repositories\Penelitian\FormKlpPenelitianRepository;
 use App\Repositories\Core\Penelitian\FormKlpPenelitianRepositoryInterface;
 use App\Repositories\Penelitian\FormLmbPenelitianRepository;
 use App\Repositories\Core\Penelitian\FormLmbPenelitianRepositoryInterface;
+
+use App\Repositories\Admin\Opd\DataOpdRepository;
+use App\Repositories\Admin\Core\Opd\DataOpdRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoriesServiceProvider extends ServiceProvider

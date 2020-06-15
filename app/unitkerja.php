@@ -11,4 +11,6 @@ class unitkerja extends Model
     protected  $fillable = [
         'nama_uk'
     ];
+
+    public $timestamps = false;
 }

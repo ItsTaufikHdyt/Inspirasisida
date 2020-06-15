@@ -30,7 +30,7 @@
                             <a href="#" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Pengumuman</span></a>
                         </li>
                         <li>
-                            <a href="#" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Data SKPD</span></a>
+                            <a href="{{url('admin/data-opd')}}" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Data OPD</span></a>
                         </li>
                         <li>
                             <a class="has-arrow" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Laporan</span></a>
