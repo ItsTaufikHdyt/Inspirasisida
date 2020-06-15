@@ -28,6 +28,10 @@ Route::group(["prefix"=>"admin/"], function(){
     Route::get('dashboard', 'AdminController@index')->name('admin.dashboard');
 //--------------- Data SiPeena ---------------------
     Route::get('verifikasi', 'AdminController@verifikasi')->name('admin.verifikasi');
+    Route::get('diterima', 'AdminController@diterima')->name('admin.diterima');
+    Route::get('ditolak', 'AdminController@ditolak')->name('admin.ditolak');
+    Route::get('finalis', 'AdminController@finalis')->name('admin.finalis');
+    Route::get('verifikasi-pendaftaran/{id}', 'AdminController@verifikasiPendaftaran')->name('admin.verifikasiPendaftaran');
     Route::delete('delete-data-sipeena-pendaftaran/{id}', 'AdminController@destroySipeenaPendaftaran')->name('admin.destroySipeenaPendaftaran');
     Route::delete('delete-data-sipeena-lembaga/{id}', 'AdminController@destroySipeenaLembaga')->name('admin.destroySipeenaLembaga');
     Route::delete('delete-data-sipeena-opd/{id}', 'AdminController@destroySipeenaOpd')->name('admin.destroySipeenaOpd');

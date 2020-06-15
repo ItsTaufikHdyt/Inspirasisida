@@ -18,9 +18,9 @@
                             <a class="has-arrow" href="" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Data siPeena</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a href="{{url('admin/verifikasi')}}"><span class="mini-sub-pro">Verifikasi</span></a></li>
-                                <li><a href="#"><span class="mini-sub-pro">Diterima</span></a></li>
-                                <li><a href="#"><span class="mini-sub-pro">Ditolak</span></a></li>
-                                <li><a href="#"><span class="mini-sub-pro">Finalis</span></a></li>
+                                <li><a href="{{url('admin/diterima')}}"><span class="mini-sub-pro">Diterima</span></a></li>
+                                <li><a href="{{url('admin/ditolak')}}"><span class="mini-sub-pro">Ditolak</span></a></li>
+                                <li><a href="{{url('admin/finalis')}}"><span class="mini-sub-pro">Finalis</span></a></li>
                             </ul>
                         </li>
                         <li>

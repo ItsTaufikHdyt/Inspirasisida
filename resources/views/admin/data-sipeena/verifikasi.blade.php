@@ -50,7 +50,7 @@
 	                                    			<td>{{$data->email}}</td>
 	                                    			<td>{{$data->ttl}}</td>
 	                                    			<td>{{$data->kategori_peena}}</td>
-	                                    			<td><a href="index.php?halaman=verif-penelitian-ind&idverif={{$data->id}}" target="_blank">
+	                                    			<td><a href="{{url('admin/verifikasi-pendaftaran/'.$data->id)}}" target="_blank">
 	                                    				<button class="btn btn-custon-four btn-warning btn-xs">
 												        <i class="fa fa-eye"></i>
 												    	</button></a>

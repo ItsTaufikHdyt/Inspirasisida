@@ -58,6 +58,12 @@ class AdminController extends Controller
         return view ('admin.data-sipeena.verifikasi',compact('perorangan','kelompok','lembaga','pena_opd'));
     }
 
+    public function verifikasiPendaftaran($id)
+    { 
+        $pendaftaran = pendaftaran::find($id);
+        return view ('admin.data-sipeena.verifikasi.verifikasi-pendaftaran',compact('pendaftaran'));
+    }
+
     public function destroySipeenaPendaftaran($id)
     {
         $pendaftaran = $this->dataSipeenaRepository->destroySipeenaPendaftaran($id);
@@ -86,7 +92,7 @@ class AdminController extends Controller
                                 ->get(); 
         $lembaga = lembaga::where('verifikasi', 1)->get();
         $pena_opd = penaopd::where('verifikasi', 1)->get();         
-        return view ('admin.data-sipeena.verifikasi',compact('perorangan','kelompok','lembaga','pena_opd'));
+        return view ('admin.data-sipeena.diterima',compact('perorangan','kelompok','lembaga','pena_opd'));
     }
 
     public function ditolak()
@@ -99,7 +105,20 @@ class AdminController extends Controller
                                 ->get(); 
         $lembaga = lembaga::where('verifikasi', -1)->get();
         $pena_opd = penaopd::where('verifikasi', -1)->get();         
-        return view ('admin.data-sipeena.verifikasi',compact('perorangan','kelompok','lembaga','pena_opd'));
+        return view ('admin.data-sipeena.ditolak',compact('perorangan','kelompok','lembaga','pena_opd'));
+    }
+
+    public function finalis()
+    {   
+        $perorangan = pendaftaran::where('kelompok','=', 0)
+                                 ->where('verifikasi','=', 2)
+                                 ->get();
+        $kelompok = pendaftaran::where('kelompok','=',1)
+                                ->where('verifikasi','=', 2)                       
+                                ->get(); 
+        $lembaga = lembaga::where('verifikasi', 2)->get();
+        $pena_opd = penaopd::where('verifikasi', 2)->get();         
+        return view ('admin.data-sipeena.ditolak',compact('perorangan','kelompok','lembaga','pena_opd'));
     }
 
     // ---------------- Prosedur ------------------------
