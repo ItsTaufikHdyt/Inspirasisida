@@ -12,7 +12,7 @@
 <div id="DangerModalalert" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="{{url('admin/update-acc-opd/'.$opd->id)}}" method="post">
+            <form action="{{url('admin/update-acc-opd/'.$penaopd->id)}}" method="post">
             <input type="hidden" name="_method" value="PUT">
 			@csrf
 			<div class="modal-close-area modal-close-df">
