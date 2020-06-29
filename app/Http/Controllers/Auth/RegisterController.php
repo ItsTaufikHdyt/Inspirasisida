@@ -27,6 +27,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    // ---------------- refreshCaptcha ------------------------
+    public function refreshCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img('math')]);
+    }
+
     public function ShowRegisterForm()
     {
     	return view('auth.pageregister');
@@ -37,6 +43,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'nama' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            
             
         ]);
     }

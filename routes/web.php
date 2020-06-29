@@ -22,6 +22,9 @@ Route::post('/user-register', 'Auth\RegisterController@HandleRegister')->name('p
 Route::get('/user-login', 'Auth\LoginController@ShowLoginForm')->name('userLogin');
 Route::post('/user-login', 'Auth\LoginController@HandleLogin')->name('prosesLogin');
 Route::get('/verify/{token}', 'Auth\VerifyController@VerifyEmail')->name('verify');
+//--------------- Captcha-------------------
+Route::get('login/refreshcaptcha', 'Auth\LoginController@refreshCaptcha');
+Route::get('register/refreshcaptcha', 'Auth\RegisterController@refreshCaptcha');
 
 //--------------- Admin -------------------
 Route::group(["prefix"=>"admin/"], function(){
@@ -113,5 +116,7 @@ Route::group(["prefix"=>"sipeena/"], function(){
     Route::get('/profil', 'SipeenaController@profil')->name('profil');
     //--------------- Profil -------------------
 });
+
+
     
 Route::get('/home', 'HomeController@index')->name('home');

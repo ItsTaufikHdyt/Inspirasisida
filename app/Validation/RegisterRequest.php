@@ -11,6 +11,7 @@ Trait RegisterRequest
            'name' => 'required',
            'email' => 'required',
            'password' => 'required|min:6|confirmed',
+           'captcha' => 'required|captcha'
         ]);
         
         if($validator->fails()){
@@ -26,6 +27,7 @@ Trait RegisterRequest
     {
         $validator = Validator::make($data, [    
            'email' => 'required',
+           'captcha' => 'required|captcha',
            'password' => 'required|min:6|confirmed',   
         ]);
         

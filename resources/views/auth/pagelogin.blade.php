@@ -45,6 +45,18 @@
                       </div>
                     </div>
                     <div class="col-12">
+                      <div class="form-group">
+                      <div class="captcha">
+                        <span>{!! captcha_img('math') !!}</span>
+                        <button type="button" class="btn btn-common btn-effect" id="refresh">
+                          <i class="fa fa-sync-alt" id="refresh"></i>
+                        </button>
+                      </div>
+                      <div>
+                        <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">     
+                      </div>
+                    </div>
+                    <div class="col-12">
                       <div class="form-submit">
                         <button type="submit" class="btn btn-common btn-effect" name="login">Login</button>
                       </div>
@@ -61,5 +73,17 @@
     </div>
     <!-- Subcribe Section End -->
     @include('homepage::layouts.partials.scripts')
+    <script type="text/javascript">
+        $('#refresh').click(function(){
+          $.ajax({
+            type:'GET',
+            url:'{{url("login/refreshcaptcha")}}',
+            success:function(data){
+            console.log("succes");
+                $(".captcha span").html(data.captcha);
+            }
+          });
+        });
+    </script>
   </body>
   </html>

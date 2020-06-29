@@ -74,7 +74,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 
 .bg-defult {
   background: url('../img/slider/bg-login.jpg');
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 /* ==========================================================================
@@ -2331,6 +2331,7 @@ footer .menu li a:hover {
   background: url(../img/bg/bg-login.jpg);
   background-size: cover;
   background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
   position: relative;
 }

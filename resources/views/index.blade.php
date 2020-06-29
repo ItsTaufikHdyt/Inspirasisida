@@ -222,5 +222,25 @@
       </div>
     </section>
     <!-- Map Section End -->
+   
+    <div class="modal fade" id="poster" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+ 
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        <div class="modal-body">
+        <img src="{{asset('img/poster.jpeg')}}" width="100%">
+        </div>
+      </div>
+    </div>
+</div>
+@endsection
+@section('custom_scripts')
+<script type="text/javascript">
+  $('#poster').modal('show');
+</script>
 @endsection
 

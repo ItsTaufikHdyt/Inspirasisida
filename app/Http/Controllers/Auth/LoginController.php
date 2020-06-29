@@ -55,6 +55,12 @@ class LoginController extends Controller
         return redirect('/');
     }
 
+    // ---------------- refreshCaptcha ------------------------
+    public function refreshCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img('math')]);
+    }
+
     public function ShowLoginForm()
     {
     	return view('auth.pagelogin');
