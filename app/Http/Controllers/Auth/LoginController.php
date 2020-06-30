@@ -7,9 +7,10 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use App\User;
-use App\Validation\RegisterRequest;
+use App\Validation\AuthRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Http\Requests\Auth\loginRequest;
 
 class LoginController extends Controller
 {
@@ -24,7 +25,7 @@ class LoginController extends Controller
     |
     */
 
-    use RegisterRequest, AuthenticatesUsers;
+    use AuthRequest, AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
@@ -66,12 +67,12 @@ class LoginController extends Controller
     	return view('auth.pagelogin');
     }
 
-    public function HandleLogin(Request $request)
+    public function HandleLogin(loginRequest $request)
     {
     	
-    	$this->loginDataSanitization($request->except(['_token']));
+        $this->loginDataSanitization($request->except(['_token']));
 
-        $credentials = $request->except(['_token','login']);
+        $credentials = $request->except(['_token','login','captcha']);
 
         $user = User::where('email',$request->email)->first();
 

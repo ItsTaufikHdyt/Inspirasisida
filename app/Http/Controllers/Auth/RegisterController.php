@@ -6,17 +6,19 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Mail\VerificationEmail;
 use App\User;
-use App\Validation\RegisterRequest;
+use App\Validation\AuthRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\Auth\registerRequest;
+
 
 class RegisterController extends Controller
 {
   
 
-    use RegisterRequest;
+    use AuthRequest;
 
   
     protected $redirectTo = RouteServiceProvider::HOME;
@@ -38,18 +40,9 @@ class RegisterController extends Controller
     	return view('auth.pageregister');
     }
 
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'nama' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            
-            
-        ]);
-    }
+    
 
-
-    public function HandleRegister(Request $request)
+    public function HandleRegister(registerRequest $request)
     {
         $this->inputDataSanitization($request->all());
 
@@ -63,7 +56,7 @@ class RegisterController extends Controller
             
         \Mail::to($user->email)->send(new VerificationEmail($user));
 
-        session()->flash('message', 'Please check your email to activate your account');
+        session()->flash('message', 'Silahkan Cek Email Anda');
        
         return redirect()->back();
 

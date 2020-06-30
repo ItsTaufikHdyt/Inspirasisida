@@ -3,7 +3,7 @@ namespace App\Validation;
 
 use Illuminate\Support\Facades\Validator;
 
-Trait RegisterRequest 
+Trait AuthRequest 
 {
     public function inputDataSanitization($data)
     {

@@ -53,7 +53,7 @@
                         </button>
                       </div>
                       <div>
-                        <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">     
+                        <input id="captcha" type="text" class="form-control" required placeholder="Enter Captcha" name="captcha">     
                       </div>
                     </div>
                     <div class="col-12">
