@@ -21,5 +21,6 @@
     <link rel="stylesheet" href="{{asset('css/menu_sideslide.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">    
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap-toggle.min.css')}}">
 
   </head>

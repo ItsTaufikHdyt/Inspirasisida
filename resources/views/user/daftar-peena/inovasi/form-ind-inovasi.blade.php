@@ -85,15 +85,27 @@
 		<tr>
 			<td width="20%" height="45px" valign="top">Alamat <small><font color="red">*</font></small></td>
 			<td width="30%" height="45px" valign="top"><textarea name="alamat" class="form-control" style="padding: 3px 3px; border-radius: 15px;" rows="3" cols="30" required></textarea></td>
-			<td width="20%" height="45px" valign="top">File Proposal (.pdf) <small><font color="red">*</font></small></td>
-			<td width="30%" height="45px" valign="top"><input name="proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="file" required></td>
+			<td width="20%" height="45px" valign="top">
+				<label for="toge">
+					 Proposal (.pdf) <small><font color="red">*</font></small><br>
+					<small>**) Besar File Maksimal 5 MB,</small><br>
+					<small> Jika lebih silahkan isi url proposal dengan menchecklist checkbox berikut
+					<input type="checkbox" name="" value="a" id="toggle">
+					</small> 
+				</label>
+			</td>
+			<td width="30%" height="45px" valign="top">
+			<input id="if" name="proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="file" required>
+			<input id="iu" name="url_proposal" class="form-control" placeholder="http://..." style="padding: 3px 3px; border-radius: 15px; display: none;" type="text"  required >
+			</td> 
+			
 		</tr>
-		<tr>
+		<!-- <tr>
 			<td width="20%" height="45px" valign="top">&nbsp;</td>
 			<td width="30%" height="45px" valign="top">&nbsp;</td>
 			<td width="20%" height="45px" valign="top">Alamat URL Proposal <small><font color="red">*</font></small></td>
-			<td width="30%" height="45px" valign="top"><input name="url_proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="text" required></td>
-		</tr>
+			<td width="30%" height="45px" valign="top"><input id="iu" name="url_proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="text" required></td>
+		</tr> -->
 		<tr>
 	        <td colspan="4" align="center">
 				<div class="captcha">
@@ -117,6 +129,18 @@
 @endsection
 @section('custom_scripts')
 <script type="text/javascript">
+document.getElementById('toggle').addEventListener('change', function() {
+	// toge nya disini, sesuaikan aja mana yg mau
+  // di tampilin duluan input (file / url)
+  if (this.checked == true) {
+    document.getElementById('iu').style.display = 'block'
+    document.getElementById('if').style.display = 'none'
+  } else {
+    document.getElementById('iu').style.display = 'none'
+    document.getElementById('if').style.display = 'block'
+  }
+})
+
 $('#refresh').click(function(){
   $.ajax({
      type:'GET',

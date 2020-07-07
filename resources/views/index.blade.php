@@ -53,6 +53,56 @@
 @endsection
 @section('main-content')
 <h6 align="center"><b><font color="red">Pemberitahuan! Untuk mempermudah akses website eLitbang dimohon menggunakan PC/Laptop</font></b></h6>
+   <!-- Features Section Start -->
+   <section id="features" class="section">
+      <div class="container">
+        <div class="section-header">          
+          <h2 class="section-title">Main</h2>
+          <span>Data</span>
+          <p class="section-subtitle">Database lengkap mengenai siPeena dan inovasi.</p>
+        </div>
+        <div class="row">
+          <!-- Start featured -->
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <a href="#">
+              <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+                <div class="icon color-1">
+                  <i class="lni-database"></i>
+                </div>
+                <h4>Database Inovasi</h4>
+              </div>
+            </a>
+          </div>
+          <!-- End featured -->
+          <!-- Start featured -->
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <a href="#">
+              <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+                <div class="icon color-1">
+                  <i class="lni-pencil"></i>
+                </div>
+                <h4>Sipeena</h4>
+              </div>
+            </a>
+          </div>
+          <!-- End featured -->
+          <!-- Start featured -->
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <a href="#">
+              <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+                <div class="icon color-1">
+                  <i class="lni-database"></i>
+                </div>
+                <h4>Database Penelitian</h4>
+              </div>
+            </a>
+          </div>
+          <!-- End featured -->
+        </div>
+      </div>
+  </section>
+    <!-- Features Section End -->  
+    
     <!-- Start Pricing Table Section -->
     <div id="slider-area" class="section pricing-section">
       <div class="container">
@@ -90,70 +140,7 @@
       </div>
     </div>
     <!-- End Pricing Table Section -->
-<!-- Features Section Start -->
-<section id="features" class="section">
-      <div class="container">
-        <div class="section-header">          
-          <h2 class="section-title">Fasilitas</h2>
-          <span>Data</span>
-          <p class="section-subtitle">Database lengkap mengenai siPeena dan inovasi.</p>
-        </div>
-        <div class="row">
-          <!-- Start featured -->
-          <div class="col-lg-6 col-md-6 col-xs-12">
-            <div class="featured-box">
-              <div class="featured-icon">
-                <i class="lni-layout"></i>
-              </div>
-              <a href="database-penelitian.php">
-                <div class="featured-content">
-                  <div class="icon-o"><i class="lni-database"></i></div>
-                  <h4>Database Penelitian</h4>
-                  <p>Berisikan data dan berkas seputar penelitian.</p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!-- End featured -->
-          <!-- Start featured -->
-          <div class="col-lg-6 col-md-6 col-xs-12">
-            <div class="featured-box">
-              <div class="featured-icon">
-                <i class="lni-tab"></i>
-              </div>
-              <a href="database-inovasi.php">
-                <div class="featured-content">
-                  <div class="icon-o"><i class="lni-tab"></i></div>
-                  <h4>Database Inovasi</h4>
-                  <p>Berisikan data dan berkas seputar inovasi.</p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!-- End featured -->
-          <!-- Start featured -->
-          <div class="col-lg-6 col-md-6 col-xs-12">
-            <div class="featured-box">
-              <div class="featured-icon">
-                <i class="lni-leaf"></i>
-              </div>
-              <a href="data-penelitian.php">
-                <div class="featured-content">
-                  <div class="icon-o"><i class="lni-leaf"></i></div>
-                  <h4>Rekap Verifikasi siPeena</h4>
-                  <p>Berisikan data mengenai pendaftar siPeena Inovasi Masyarakat, 
-                  Penelitian Masyarakat, dan Inovasi Perangkat Daerah</p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!-- End featured -->
-        </div>
-      </div>
-    </section>
-    <!-- Features Section End --> 
- 
-
+    
     <!-- Contact Section Start -->
     <section id="contact" class="section">      
       <div class="contact-form">
