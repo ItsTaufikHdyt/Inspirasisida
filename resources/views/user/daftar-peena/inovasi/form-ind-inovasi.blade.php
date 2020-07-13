@@ -89,14 +89,14 @@
 				<label for="toge">
 					 Proposal (.pdf) <small><font color="red">*</font></small><br>
 					<small>**) Besar File Maksimal 5 MB,</small><br>
-					<small> Jika lebih silahkan isi url proposal dengan menchecklist checkbox berikut
+					<small> Jika file lebih dari 5 MB silahkan upload ke Cloud(Dropbox, Google Drive ) isi url proposal dengan menchecklist checkbox berikut
 					<input type="checkbox" name="" value="a" id="toggle">
 					</small> 
 				</label>
 			</td>
 			<td width="30%" height="45px" valign="top">
-			<input id="if" name="proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="file" required>
-			<input id="iu" name="url_proposal" class="form-control" placeholder="http://..." style="padding: 3px 3px; border-radius: 15px; display: none;" type="text"  required >
+			<input id="if" name="proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="file" >
+			<input id="iu" name="url_proposal" class="form-control" placeholder="http://..." style="padding: 3px 3px; border-radius: 15px; display: none;" type="text">
 			</td> 
 			
 		</tr>
