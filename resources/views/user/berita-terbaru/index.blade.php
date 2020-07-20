@@ -12,7 +12,7 @@
         </div>
         <div class="row">
           <!-- Start featured -->
-          <div class="col-lg-12 col-md-12 col-xs-12">
+          <div class="col-lg-8 md-8 col-xs-8">
             <div class="featured-box">
               <div class="featured-icon">
                 <i class="lni-pencil"></i>
@@ -25,7 +25,16 @@
             </div>
 
           </div>
-          Download File <a href="{{url('prosedur/download/'.$prosedur->id)}}" target="_blank">{{$prosedur->judul_prosedur}}</a>
+          <div class="col-lg-4 col-md-4 col-xs-4">
+            <div class="featured-box">
+              <div class="featured-content">
+                <image height="250" width="200" src="{{asset('img/pdf.png')}}">
+              </div>
+              <br><br>              
+            </div>
+
+          </div>
+          Download File &nbsp;<a href="{{url('prosedur/download/'.$prosedur->id)}}" target="_blank">{{$prosedur->judul_prosedur}}</a>
           
         </div>
       </div>
