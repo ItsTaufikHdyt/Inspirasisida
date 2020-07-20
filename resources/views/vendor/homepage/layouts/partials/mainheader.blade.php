@@ -15,11 +15,11 @@
               </li>
         
               <li class="navbar-nav justify-content-end">
-                <a class="nav-link page-scroll dropdown" href="#features">Fasilitas</a>
+                <a class="nav-link page-scroll dropdown" href="#features">Features</a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link page-scroll" href="#akun">AkunPeena</a>
-              </li>
+              </li> -->
 
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="#contact">Contact</a>

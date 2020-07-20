@@ -54,12 +54,13 @@
 @section('main-content')
 <h6 align="center"><b><font color="red">Pemberitahuan! Untuk mempermudah akses website eLitbang dimohon menggunakan PC/Laptop</font></b></h6>
    <!-- Features Section Start -->
-   <section id="features" class="section">
+   <!-- <div id="particles-js"></div> -->
+    <section id="features" class="section">
       <div class="container">
         <div class="section-header">          
-          <h2 class="section-title">Main</h2>
+          <h2 class="section-title">FEATURES</h2>
           <span>Data</span>
-          <p class="section-subtitle">Database lengkap mengenai siPeena dan inovasi.</p>
+          <p class="section-subtitle">Fitur-Fitur Utama Elitbang.</p>
         </div>
         <div class="row">
           <!-- Start featured -->
@@ -100,7 +101,7 @@
           <!-- End featured -->
         </div>
       </div>
-  </section>
+    </section>
     <!-- Features Section End -->  
     
     <!-- Start Pricing Table Section -->
@@ -135,7 +136,7 @@
         @endforelse    
         </div>
         <br><center>
-<a href="" class="btn-common">1</a>
+      <a href="" class="btn-common">1</a>
         </center>
       </div>
     </div>
@@ -209,7 +210,7 @@
       </div>
     </section>
     <!-- Map Section End -->
-   
+    </div>
     <div class="modal fade" id="poster" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -223,11 +224,15 @@
         </div>
       </div>
     </div>
-</div>
+
 @endsection
 @section('custom_scripts')
 <script type="text/javascript">
   $('#poster').modal('show');
+  
+  particlesJS.load('particles-js','{{asset('particlesjs/particles.json')}}', function() {
+        console.log('particles.json loaded...');
+      })
 </script>
 @endsection
 

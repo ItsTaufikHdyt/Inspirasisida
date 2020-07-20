@@ -19,5 +19,6 @@
     <script src="{{asset('js/contact-form-script.js')}}"></script>   
     <script src="{{asset('js/main.js')}}"></script>
     <script src="{{asset('js/bootstrap-toggle.min.js')}}"></script>
+    <script src="{{asset('particlesjs/particles.min.js')}}"></script>
     
 @yield('custom_scripts')
