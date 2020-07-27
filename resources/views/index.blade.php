@@ -52,9 +52,10 @@
       </div>  
 @endsection
 @section('main-content')
-<h6 align="center"><b><font color="red">Pemberitahuan! Untuk mempermudah akses website eLitbang dimohon menggunakan PC/Laptop</font></b></h6>
+<!-- <div id="particles-js"></div> -->
+
    <!-- Features Section Start -->
-   <!-- <div id="particles-js"></div> -->
+   <section id="bg"></section>
     <section id="features" class="section">
       <div class="container">
         <div class="section-header">          
@@ -223,6 +224,7 @@
         <img src="{{asset('img/poster.jpeg')}}" width="100%">
         </div>
       </div>
+    </div>
     </div>
 
 @endsection

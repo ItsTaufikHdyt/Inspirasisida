@@ -22,7 +22,7 @@
                     <button type="button" class="btn btn-custon-four btn-primary" data-toggle="modal" data-target="#PrimaryModalalert">
 						<i class="fa fa-plus-circle"></i> Input Data
 					</button>
-					<div id="PrimaryModalalert" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
+					<div id="PrimaryModalalert" class="modal modal-xl  fade" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
                             	<form action="{{url('admin/storeProsedur')}}" method="post" enctype="multipart/form-data">
@@ -45,7 +45,7 @@
                                 			<td>
                                 				<!-- <div id="summernote2" name="narasi">
                                 				</div> -->
-				                            <textarea name="narasi" cols="60" rows="10" placeholder="Narasi pengumuman..." required></textarea>
+				                            <textarea id="konten"  name="narasi" cols="60" rows="10" placeholder="Narasi pengumuman..." required></textarea>
 					                        </td>
                                 		</tr>
                                 		<tr>
@@ -98,7 +98,7 @@
 	                    			<td>{{$data->created_at}}</td>
 	                    			<td>
 	                    				<button type="button" class="btn btn-custon-four btn-primary btn-xs" data-toggle="modal" data-target="#PrimaryModalalert{{$data->id}}"><i class="fa fa-pencil"></i></button>
-	                    				<div id="PrimaryModalalert{{$data->id}}" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
+	                    				<div id="PrimaryModalalert{{$data->id}}" class="modal modal-xl  fade" role="dialog">
 				                            <div class="modal-dialog">
 				                                <div class="modal-content">
 				                                    <form action="{{url('admin/update-prosedur/'.$data->id)}}"  method="post" enctype="multipart/form-data">
@@ -123,7 +123,7 @@
 				                                    		</tr>
 				                                    		<tr>
 				                                    			<td>
-				                                    				<textarea name="narasi" cols="60" rows="10" placeholder="Narasi pengumuman..." required>{{$data->narasi}}</textarea>
+				                                    				<textarea id="konten"  name="narasi" cols="60" rows="10" placeholder="Narasi pengumuman..." required>{{$data->narasi}}</textarea>
 				                                    			</td>
 				                                    		</tr>
 				                                    		<tr>
@@ -184,4 +184,13 @@
 	    </div>
     </div>
 </div>
+@endsection
+@section('custom_scripts')
+<script type="text/javascript">
+  var konten = document.getElementById("konten");
+    CKEDITOR.replace(konten,{
+    language:'en-gb'
+  });
+  CKEDITOR.config.allowedContent = true;
+</script>
 @endsection

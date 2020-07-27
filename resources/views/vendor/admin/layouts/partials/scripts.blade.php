@@ -75,3 +75,5 @@
     <script src="{{asset('admin/js/editable/bootstrap-datetimepicker.js')}}"></script>
     <script src="{{asset('admin/js/editable/bootstrap-editable.js')}}"></script>
     <script src="{{asset('admin/js/editable/xediable-active.js')}}"></script>
+    <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+@yield('custom_scripts')

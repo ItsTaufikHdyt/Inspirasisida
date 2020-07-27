@@ -19,7 +19,7 @@
               </div>
               <div class="featured-content">
                 <div class="icon-o"><i class="lni-pencil"></i></div>
-                <p>{{$prosedur->narasi}}</p>
+                <p>{!!$prosedur->narasi!!}</p>
               </div>
               <br><br>              
             </div>
