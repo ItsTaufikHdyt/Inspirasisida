@@ -18,8 +18,8 @@
               <img src="{{asset('img/slider/bg-11.jpg')}}" width="100%">
               <div class="carousel-caption text-left">
                 <!-- <h3>&nbsp;</h3> -->
-                <h2 class="wow fadeInRight" data-wow-delay="0.2s"><font color="#af6cf7">eLitbang</font></h2>
-                <h4 class="wow fadeInRight" data-wow-delay="0.4s"><font color="#af6cf7">Badan Perencanaan, Penelitian, dan Pengembangan</font></h4>
+                <h2 class="wow fadeInRight" data-wow-delay="0.2s"><font color="#af6cf7" style="-webkit-text-stroke: 1px white;">eLitbang</font></h2>
+                <h4 class="wow fadeInRight" data-wow-delay="0.4s"><font color="#ffffff">Badan Perencanaan, Penelitian, dan Pengembangan</font></h4>
                 
               </div>
             </div>
@@ -27,16 +27,16 @@
               <img src="{{asset('img/slider/bg-22.jpg')}}" width="100%">
               <div class="carousel-caption text-center">
                 <!-- <h3>&nbsp;</h3> -->
-                <h2 class="wow bounceIn" data-wow-delay="0.3s"><font color="#af6cf7">SiPeena</font></h2> 
-                <h4 class="wow fadeInUp" data-wow-delay="0.6s"><font color="#af6cf7">Inovasi, Penelitian, dan Teknologi Tepat Guna</font></h4>
+                <h2 class="wow bounceIn" data-wow-delay="0.3s"><font color="#af6cf7" style="-webkit-text-stroke: 1px white;">SiPeena</font></h2> 
+                <h4 class="wow fadeInUp" data-wow-delay="0.6s"><font color="#ffffff" >Inovasi, Penelitian, dan Teknologi Tepat Guna</font></h4>
               </div>
             </div>
             <div class="carousel-item">
               <img src="{{asset('img/slider/bg-33.jpg')}}" width="100%">
               <div class="carousel-caption text-center">
                 <!-- <h3>&nbsp;</h3> -->
-                <h2 class="wow fadeInRight" data-wow-delay="0.3s"><font color="#af6cf7">Databases</font></h2> 
-                <h4 class="wow fadeInUp" data-wow-delay="0.6s"><font color="af6cf7">Database Penelitian dan Inovasi</font></h4>
+                <h2 class="wow fadeInRight" data-wow-delay="0.3s"><font color="#af6cf7" style="-webkit-text-stroke: 1px white;">Databases</font></h2> 
+                <h4 class="wow fadeInUp" data-wow-delay="0.6s"><font color="#ffffff" >Database Penelitian dan Inovasi</font></h4>
               </div>
             </div>
           </div>
