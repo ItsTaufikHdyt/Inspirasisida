@@ -56,13 +56,8 @@
 
    <!-- Features Section Start -->
    <section id="bg"></section>
-    <section id="features" class="section">
+    <div id="features" class="section">
       <div class="container">
-        <div class="section-header">          
-          <h2 class="section-title">FEATURES</h2>
-          <span>Data</span>
-          <p class="section-subtitle">Fitur-Fitur Utama Elitbang.</p>
-        </div>
         <div class="row">
           <!-- Start featured -->
           <div class="col-lg-4 col-md-6 col-xs-12">
@@ -102,11 +97,11 @@
           <!-- End featured -->
         </div>
       </div>
-    </section>
+    </div>
     <!-- Features Section End -->  
     
     <!-- Start Pricing Table Section -->
-    <div id="slider-area" class="section pricing-section">
+    <div id="slider-area" class="section">
       <div class="container">
         <div class="section-header">          
           <h2 class="section-title">Berita Terbaru</h2>
@@ -144,7 +139,7 @@
     <!-- End Pricing Table Section -->
     
     <!-- Contact Section Start -->
-    <section id="contact" class="section">      
+    <div id="contact" class="section">      
       <div class="contact-form">
         <div class="container">
           <div class="section-header">          
@@ -197,20 +192,10 @@
           </div>
         </div>
       </div>            
-    </section>
+    </div>
     <!-- Contact Section End -->
     
-    <!-- Map Section Start -->
-    <section id="google-map-area">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12 padding-0">
-            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7979.630852826366!2d117.44259233488769!3d0.06900890000001055!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x320a0eac4cfb59e5%3A0x7cbf53536c3c4fc9!2sGraha+Taman+Praja!5e0!3m2!1sid!2sid!4v1521722017504" width="1500" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Map Section End -->
+    
     </div>
     <div class="modal fade" id="poster" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
