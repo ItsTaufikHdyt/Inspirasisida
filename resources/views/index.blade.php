@@ -55,7 +55,7 @@
 <!-- <div id="particles-js"></div> -->
 
    <!-- Features Section Start -->
-   <section id="bg"></section>
+   <!-- <section id="bg"></section> -->
     <div id="features" class="section">
       <div class="container">
         <div class="row">
@@ -138,6 +138,60 @@
       </div>
     </div>
     <!-- End Pricing Table Section -->
+
+    <!-- Gallery Section Start -->
+    <div id="gallery" class="section">      
+      <div class="contact-form">
+        <div class="container">
+          <div class="section-header">          
+            <h2 class="section-title">Galeri Foto</h2>
+            <span>Galeri</span>
+          </div>
+          <div class="row">
+            <div class="col-lg-8 col-md-8 col-xs-12">
+              <div id="galeri" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img class="d-block w-100" style="height: 420px;" src="{{asset('img/instagram/gate-btg.jpg')}}">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" style="height: 420px;" src="{{asset('img/instagram/cafe-singapore.jpg')}}" >
+                    </div>
+                  <a class="carousel-control-prev" href="#galeri" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#galeri" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-6">
+              <div id="galeri_poster" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner card" >
+                      <div class="carousel-item active">
+                        <image style="height: 420px; width: 350px; object-fit: fill;" src="{{asset('img/poster.jpeg')}}">
+                      </div>
+                      <div class="carousel-item">
+                        <image style="height: 420px; width: 350px; object-fit: fill;" src="{{asset('img/poster2.jpg')}}">
+                      </div>
+                      <a class="carousel-control-prev" href="#galeri_poster" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#galeri_poster" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+              </div>
+            </div>
+        </div>
+      </div>            
+    </div>
+    <!-- Gallery Section End -->
     
     <!-- Contact Section Start -->
     <div id="contact" class="section">      
@@ -195,6 +249,8 @@
       </div>            
     </div>
     <!-- Contact Section End -->
+
+    
     
     
     </div>

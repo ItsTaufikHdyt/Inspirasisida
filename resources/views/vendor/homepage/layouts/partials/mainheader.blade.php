@@ -14,9 +14,6 @@
                 <a class="nav-link page-scroll" href="#slider-area">Home</a>
               </li>
         
-              <li class="navbar-nav justify-content-end">
-                <a class="nav-link page-scroll dropdown" href="#features">Features</a>
-              </li>
               <!-- <li class="nav-item">
                 <a class="nav-link page-scroll" href="#akun">AkunPeena</a>
               </li> -->
