@@ -73,7 +73,7 @@
           <!-- End featured -->
           <!-- Start featured -->
           <div class="col-lg-4 col-md-6 col-xs-12">
-            <a href="#">
+            <a href="{{route('sipeena')}}">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
                 <div class="icon color-1">
                   <i class="lni-pencil"></i>
@@ -116,6 +116,7 @@
                   <div class="pricing-details">
                     <h2>{{$data->judul_prosedur}}</h2>
                     <div class="price">
+                    <image height="150" width="130" src="{{asset('img/pdf.png')}}"><br>
                       <span>
                       {{$data->created_at->format('Y-m-d')}}
                         | {{$data->created_at->diffForHumans()}}
