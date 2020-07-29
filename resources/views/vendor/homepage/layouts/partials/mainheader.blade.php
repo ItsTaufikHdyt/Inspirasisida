@@ -14,9 +14,9 @@
                 <a class="nav-link page-scroll" href="#slider-area">Home</a>
               </li>
         
-              <!-- <li class="nav-item">
-                <a class="nav-link page-scroll" href="#akun">AkunPeena</a>
-              </li> -->
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#berita">Berita</a>
+              </li>
 
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="#contact">Contact</a>

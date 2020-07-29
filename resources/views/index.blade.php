@@ -56,7 +56,7 @@
 
    <!-- Features Section Start -->
    <!-- <section id="bg"></section> -->
-    <div id="features" class="section">
+    <div id="features" class="section-home">
       <div class="container">
         <div class="row">
           <!-- Start featured -->
@@ -75,10 +75,10 @@
           <div class="col-lg-4 col-md-6 col-xs-12">
             <a href="{{route('sipeena')}}">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
-                <div class="icon color-1">
-                  <i class="lni-pencil"></i>
+                <div class="icon color-2">
+                  <img src="{{asset('img/logo/peenfin.png')}}" alt="">
                 </div>
-                <h4>Sipeena</h4>
+               
               </div>
             </a>
           </div>
@@ -101,7 +101,7 @@
     <!-- Features Section End -->  
     
     <!-- Start Pricing Table Section -->
-    <div id="slider-area" class="section">
+    <div id="berita" class="section-home">
       <div class="container">
         <div class="section-header">          
           <h2 class="section-title">Berita Terbaru</h2>
@@ -116,7 +116,7 @@
                   <div class="pricing-details">
                     <h2>{{$data->judul_prosedur}}</h2>
                     <div class="price">
-                    <image height="150" width="130" src="{{asset('img/pdf.png')}}"><br>
+                    <image height="150" width="130" src="{{asset('img/icon/pdf.png')}}"><br>
                       <span>
                       {{$data->created_at->format('Y-m-d')}}
                         | {{$data->created_at->diffForHumans()}}
@@ -140,7 +140,7 @@
     <!-- End Pricing Table Section -->
 
     <!-- Gallery Section Start -->
-    <div id="gallery" class="section">      
+    <div id="gallery" class="section-home">      
       <div class="contact-form">
         <div class="container">
           <div class="section-header">          
@@ -152,10 +152,10 @@
               <div id="galeri" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img class="d-block w-100" style="height: 420px;" src="{{asset('img/instagram/gate-btg.jpg')}}">
+                      <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{asset('img/instagram/gate-btg.jpg')}}">
                     </div>
                     <div class="carousel-item">
-                      <img class="d-block w-100" style="height: 420px;" src="{{asset('img/instagram/cafe-singapore.jpg')}}" >
+                      <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{asset('img/instagram/cafe-singapore.jpg')}}" >
                     </div>
                   <a class="carousel-control-prev" href="#galeri" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -194,7 +194,7 @@
     <!-- Gallery Section End -->
     
     <!-- Contact Section Start -->
-    <div id="contact" class="section">      
+    <div id="contact" class="section-home">      
       <div class="contact-form">
         <div class="container">
           <div class="section-header">          

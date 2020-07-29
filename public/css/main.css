@@ -81,8 +81,14 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
    2.1 Section Title
    ========================================================================== */
 .section {
+  padding: 80px 0;
+}
+
+.section-home {
   padding: 30px 0;
 }
+
+
 
 .section-header {
   color: #fff;
@@ -1139,7 +1145,6 @@ button:focus {
 .item-boxes {
   padding: 30px;
   border-radius: 4px;
-  border: 1px solid #eaeaea;
   margin: 15px 0;
   webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
