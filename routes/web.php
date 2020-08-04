@@ -72,7 +72,25 @@ Route::group(["prefix"=>"admin/"], function(){
     Route::put('update-data-opd/{id}', 'AdminController@updateOpd')->name('admin.updateOpd');
     Route::delete('delete-data-opd/{id}', 'AdminController@destroyOpd')->name('admin.destroyOpd');
 //--------------- Database ---------------------
-Route::get('database', 'AdminController@database')->name('admin.database');
+    Route::get('database', 'AdminController@database')->name('admin.database');
+//---------------- Database Inovasi Perangkat Daerah -------------
+    Route::post('store-dbopd', 'AdminController@storeDbOpd')->name('admin.storeDbOpd');
+    Route::put('update-dbopd', 'AdminController@updateDbOpd')->name('admin.updateDbOpd');
+    Route::delete('delete-dbopd','AdminController@destroyDbOpd')->name('admin.deleteDbOpd');
+// //---------------- Database Penilitian Perangkat Daerah -------------
+//     Route::post('store-dbopd-penelitian', 'AdminController@storeDbOpdPenelitian')->name('admin.storeDbOpdPenelitian');
+//     Route::put('update-dbopd-penelitian', 'AdminController@updateDbOpdPenelitian')->name('admin.updateDbOpdPenelitian');
+//     Route::delete('delete-dbopd-penelitian','AdminController@destroyDbOpdPenelitian')->name('admin.deleteDbOpdPenelitian');
+//---------------- Database Inovasi Perangkat Daerah -------------
+    Route::post('store-dbmasyarakat', 'AdminController@storeDbMasyarakat')->name('admin.storeDbMasyarakat');
+    Route::put('update-dbmasyarakat', 'AdminController@updateDbMasyarakat')->name('admin.updateDbMasyarakat');
+    Route::delete('delete-dbmasyarakat','AdminController@destroyDbMasyarakat')->name('admin.deleteDbMasyarakat');
+// //---------------- Database Inovasi Perangkat Daerah -------------
+//     Route::post('store-dbmasyarakat-penelitian', 'AdminController@storeDbMasyarakatPenelitian')->name('admin.storeDbMasyarakatPenelitian');
+//     Route::put('update-dbmasyarakat-penelitian', 'AdminController@updateDbMasyarakatPenelitian')->name('admin.updateDbMasyarakatPenelitian');
+//     Route::delete('delete-dbmasyarakat-penelitian','AdminController@destroyDbMasyarakatPenelitian')->name('admin.deleteDbMasyarakatPenelitian');
+    
+
 });
     
      //--------------- Sipena -------------------

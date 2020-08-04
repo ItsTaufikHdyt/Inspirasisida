@@ -22,6 +22,8 @@ use App\Repositories\Admin\Opd\DataOpdRepository;
 use App\Repositories\Admin\Core\Opd\DataOpdRepositoryInterface;
 use App\Repositories\Admin\Prosedur\ProsedurRepository;
 use App\Repositories\Admin\Core\Prosedur\ProsedurRepositoryInterface;
+use App\Repositories\Admin\Database\DatabaseRepository;
+use App\Repositories\Admin\Core\Database\DatabaseRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoriesServiceProvider extends ServiceProvider
@@ -51,7 +53,8 @@ class RepositoriesServiceProvider extends ServiceProvider
                          FormLmbPenelitianRepositoryInterface::class, FormLmbPenelitianRepository::class,
                          DataSipeenaRepositoryInterface::class, DataSipeenaRepository::class,
                          DataOpdRepositoryInterface::class, DataOpdRepository::class,
-                         ProsedurRepositoryInterface::class, ProsedurRepository::class
+                         ProsedurRepositoryInterface::class, ProsedurRepository::class,
+                         DatabaseRepositoryInterface::class, DatabaseRepository::class
                         );
     }
 }

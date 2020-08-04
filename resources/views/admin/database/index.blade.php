@@ -29,7 +29,7 @@
 										<div id="perangkatDaerah" class="modal modal-xl  fade" role="dialog">
 											<div class="modal-dialog">
 												<div class="modal-content">
-													<form action="#" method="post">
+													<form action="{{url('admin/store-dbopd')}}" method="post">
 													@csrf
 													<div class="modal-close-area modal-close-df">
 														<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
@@ -55,13 +55,17 @@
 																<td><input type="text" name="opd" class="form-control" placeholder="Perangkat Daerah..." required></td>
 															</tr>
 															<tr>
+																<td>Lokasi Daerah</td>
+															</tr>
+															<tr>
+																<td><input type="text" name="lokasi" class="form-control" placeholder="Lokasi Daerah..." required></td>
+															</tr>
+															<tr>
 																<td>Abstraksi / Profil Inovasi</td>
 															</tr>
 															<tr>
 																<td>
-																	<!-- <div id="summernote2" name="narasi">
-																	</div> -->
-																<textarea id="abstraksi"  name="narasi" cols="60" rows="10" placeholder="Abstraksi..." required></textarea>
+																<textarea id="abstraksi"  name="abstraksi" cols="60" rows="10" placeholder="Abstraksi..." required></textarea>
 																</td>
 															</tr>
 															<tr>
@@ -70,8 +74,8 @@
 															<tr>
 																<td>
 																<select name="kategori" class="form-control" id="">
-																	<option value="inovasi">Inovasi</option>
-																	<option value="penelitian">Penelitian</option>
+																	<option value="0">Inovasi</option>
+																	<option value="1">Penelitian</option>
 																</select>
 																</td>
 															</tr>
@@ -127,9 +131,66 @@
                                 <div class="row">
                                     <div class="col-lg-12">
 										<div class="bs-bars pull-left">
-											<button type="button" class="btn btn-custon-four btn-primary" data-toggle="modal" data-target="#PrimaryModalalert">
+											<button type="button" class="btn btn-custon-four btn-primary" data-toggle="modal" data-target="#masyarakat">
 												<i class="fa fa-plus-circle"></i> Input Data
 											</button>
+										</div>
+										<div id="masyarakat" class="modal modal-xl  fade" role="dialog">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<form action="{{url('admin/store-dbmasyarakat')}}" method="post">
+													@csrf
+													<div class="modal-close-area modal-close-df">
+														<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+													</div>
+													<div class="modal-body">
+														<table width="100%">
+															<tr>
+																<td>Judul</td>
+															</tr>
+															<tr>
+																<td><input type="text" name="judul" class="form-control" placeholder="Judul Inovasi / Penelitian..." required></td>
+															</tr>
+															<tr>
+																<td>Nama Peserta</td>
+															</tr>
+															<tr>
+																<td><input type="text" name="nama" class="form-control" placeholder="Nama Peserta..." required></td>
+															</tr>
+															<tr>
+																<td>Lokasi Kegiatan</td>
+															</tr>
+															<tr>
+																<td><input type="text" name="lokasi" class="form-control" placeholder="Lokasi Kegiatan..." required></td>
+															</tr>
+															<tr>
+																<td>Kriteria Peserta</td>
+															</tr>
+															<tr>
+																<td>
+																	<input type="text" name="kriteria" class="form-control" placeholder="Kriteria..." required>
+																</td>
+															</tr>
+															<tr>
+																<td>Kategori</td>
+															</tr>
+															<tr>
+																<td>
+																<select name="kategori" class="form-control" id="">
+																	<option value="0">Inovasi</option>
+																	<option value="1">Penelitian</option>
+																</select>
+																</td>
+															</tr>
+														</table>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+														<button type="submit" name="simpan" class="btn btn-custon-four btn-primary btn-md"><i class="fa fa-save"></i> Save</button>
+													</div>
+													</form>
+												</div>
+											</div>
 										</div>
                                     	<table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
 	                data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
