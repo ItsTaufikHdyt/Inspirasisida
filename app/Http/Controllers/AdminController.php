@@ -285,7 +285,9 @@ class AdminController extends Controller
     // ---------------- Database ------------------------
     public function database()
     {
-        return view ('admin.database.index');
+        $dbopd = dbopd::all();
+        $dbmasyarakat = dbmasyarakat::all();
+        return view ('admin.database.index',compact('dbopd','dbmasyarakat'));
     }
 
       // ---------------- Database OPD ------------------------
@@ -307,25 +309,6 @@ class AdminController extends Controller
         return redirect()->route('admin.database');
     }
 
-    //   // ---------------- Database OPD Penelitian ------------------------
-    //   public function storeDbOpdPenelitian(storeDbOpdRequest $request)
-    //   {
-    //       $dbopd = $this->databaseRepository->storeDbOpdPenelitian($request);
-    //       return redirect()->route('admin.database');
-    //   }
-  
-    //   public function updateDbOpdPenelitian(storeDbOpdRequest $request,$id)
-    //   {
-    //       $dbopd = $this->databaseRepository->updateDbOpdPenelitian($request);
-    //       return redirect()->route('admin.database');
-    //   }
-  
-    //   public function destroyDbOpdPenelitian($id)
-    //   {
-    //       $dbopd = $this->databaseRepository->destroyDbOpdPenelitian($id);
-    //       return redirect()->route('admin.database');
-    //   }
-
       // ---------------- Database Masyarakat Inovasi ------------------------
     public function storeDbMasyarakat(storeDbMasyarakatRequest $request)
     {
@@ -345,22 +328,5 @@ class AdminController extends Controller
         return redirect()->route('admin.database');
     }
 
-      // ---------------- Database Masyarakat Penelitian ------------------------
-    //   public function storeDbMasyarakatPenelitian(storeDbMasyarakatRequest $request)
-    //   {
-    //       $dbopd = $this->databaseRepository->storeDbOpdPenelitian($request);
-    //       return redirect()->route('admin.database');
-    //   }
-  
-    //   public function updateDbMasyarakatPenelitian(storeDbMasyarakatRequest $request,$id)
-    //   {
-    //       $dbopd = $this->databaseRepository->updateDbOpdPenelitian($request);
-    //       return redirect()->route('admin.database');
-    //   }
-  
-    //   public function destroyDbMasyarakatPenelitian($id)
-    //   {
-    //       $dbopd = $this->databaseRepository->destroyDbOpdPenelitian($id);
-    //       return redirect()->route('admin.database');
-    //   }
+     
 }

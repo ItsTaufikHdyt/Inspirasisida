@@ -65,7 +65,7 @@
 															</tr>
 															<tr>
 																<td>
-																<textarea id="abstraksi"  name="abstraksi" cols="60" rows="10" placeholder="Abstraksi..." required></textarea>
+																<textarea id="abstraksi"  name="abstraksi" class="form-control" cols="60" rows="10" placeholder="Abstraksi..." required></textarea>
 																</td>
 															</tr>
 															<tr>
@@ -104,18 +104,120 @@
 							                    </tr>
 							                </thead>
 							                <tbody>
-                                            
-								                <tr>
-								                						                    
-	                                    			<td style="width: 5px;"></td>
-	                                    			<td></td>
-	                                    			<td></td>
-	                                    			<td></td>
-													<td></td>
-	                                    			<td></td>
-													<td></td>
-	                                    			
-	                                    		</tr>                                               
+                                            @php 
+												$no = 1;
+											@endphp
+												@forelse($dbopd as $data)
+								                <tr>								                						                    
+	                                    			<td style="width: 5px;">{{$no++}}</td>
+	                                    			<td>{{$data->judul}}</td>
+	                                    			<td>{{$data->tahun}}</td>
+	                                    			<td>{{$data->opd}}</td>
+													<td>{{$data->lokasi}}</td>
+	                                    			<td>{!!$data->abstraksi!!}</td>
+													<td>
+														@if($data->kategori === 0)
+														<label class="label label-success">Inovasi</label>
+														@elseif($data->kategori === 1)
+														<label class="label label-warning">Penelitian</label>
+														@endif
+													</td>
+													<td>
+													<button type="button" class="btn btn-custon-four btn-primary btn-xs" data-toggle="modal" data-target="#PrimaryModalalert{{$data->id}}"><i class="fa fa-pencil"></i></button>
+													<div id="PrimaryModalalert{{$data->id}}" class="modal modal-xl  fade" role="dialog">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<form action="{{url('admin/update-dbopd/'.$data->id)}}"  method="post" enctype="multipart/form-data">
+																	<input type="hidden" name="_method" value="PUT">
+																	@csrf
+																<div class="modal-close-area modal-close-df">
+																	<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+																</div>
+																<div class="modal-body">
+																<table width="100%">
+																		<tr>
+																			<td>Judul</td>
+																		</tr>
+																		<tr>
+																			<td><input type="text" name="judul" value="{{$data->judul}}" class="form-control" placeholder="Judul Inovasi / Penelitian..." required></td>
+																		</tr>
+																		<tr>
+																			<td>Tahun</td>
+																		</tr>
+																		<tr>
+																			<td><input type="text" name="tahun" value="{{$data->tahun}}" class="form-control" placeholder="Tahun..." required></td>
+																		</tr>
+																		<tr>
+																			<td>Perangkat Daerah</td>
+																		</tr>
+																		<tr>
+																			<td><input type="text" name="opd" value="{{$data->opd}}" class="form-control" placeholder="Perangkat Daerah..." required></td>
+																		</tr>
+																		<tr>
+																			<td>Lokasi Daerah</td>
+																		</tr>
+																		<tr>
+																			<td><input type="text" name="lokasi" value="{{$data->lokasi}}" class="form-control" placeholder="Lokasi Daerah..." required></td>
+																		</tr>
+																		<tr>
+																			<td>Abstraksi / Profil Inovasi</td>
+																		</tr>
+																		<tr>
+																			<td>
+																			<textarea id="abstraksi"  name="abstraksi"  cols="60" rows="10" class="form-control" placeholder="Abstraksi..." required>{{$data->abstraksi}}</textarea>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>Kategori</td>
+																		</tr>
+																		<tr>
+																			<td>
+																			<select name="kategori" class="form-control" id="">
+																				<option value="0">Inovasi</option>
+																				<option value="1">Penelitian</option>
+																			</select>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+																	<button type="submit" name="edit" class="btn btn-custon-four btn-primary btn-md"><i class="fa fa-pencil"></i> Edit</button>
+																</div>
+																</form>
+															</div>
+														</div>
+													</div>
+
+													<button type="button" class="btn btn-custon-four btn-danger btn-xs" data-toggle="modal" data-target="#DangerModalalert{{$data->id}}"><i class="fa fa-trash"></i></button>
+													<div id="DangerModalalert{{$data->id}}" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<form action="{{url('admin/delete-dbopd/'.$data->id)}}" method="post">
+																	<input type="hidden" name="_method" value="DELETE">
+																	@csrf
+																<div class="modal-close-area modal-close-df">
+																	<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+																</div>
+																<div class="modal-body">
+																	<input type="hidden" name="id" class="form-control" value="{{$data->id}}">
+																	<p>Yakin akan menghapus {{$data->judul}}?</p>
+																</div>
+																<div class="modal-footer danger-md">
+																	<button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+																	<button type="submit" name="del" class="btn btn-custon-four btn-danger btn-md"><i class="fa fa-trash"></i> Delete</button>
+																</div>
+																</form>
+															</div>
+														</div>
+													</div>
+													</td>	                            
+	                                    		</tr>
+												@empty
+												<tr>
+													<td colspan="8" align="center">Data Tidak Ada</td>
+												</tr>
+												@endforelse                                                 
 	                                    	</tbody>
 	                                    </table>
                                     </div>
@@ -206,18 +308,114 @@
 							                    </tr>
 							                </thead>
 							                <tbody>
-                                            
+                                            @php 
+												$no = 1;
+											@endphp
+												@forelse($dbmasyarakat as $data)
 								                <tr>
 								                						                    
-	                                    			<td style="width: 5px;"></td>
-	                                    			<td></td>
-	                                    			<td></td>
-	                                    			<td></td>
-													<td></td>
-	                                    			<td></td>
-													<td></td>
-	                                    			
-	                                    		</tr>                                               
+	                                    			<td style="width: 5px;">{{$no++}}</td>
+	                                    			<td>{{$data->judul}}</td>
+	                                    			<td>{{$data->nama}}</td>
+	                                    			<td>{{$data->lokasi}}</td>
+													<td>{{$data->kriteria}}</td>
+	                                    			<td>
+														@if($data->kategori === 0)
+														<label class="label label-success">Inovasi</label>
+														@elseif($data->kategori === 1)
+														<label class="label label-warning">Penelitian</label>
+														@endif
+													</td>
+													<td>
+													<button type="button" class="btn btn-custon-four btn-primary btn-xs" data-toggle="modal" data-target="#PrimaryModalalert{{$data->id}}"><i class="fa fa-pencil"></i></button>
+													<div id="PrimaryModalalert{{$data->id}}" class="modal modal-xl  fade" role="dialog">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<form action="{{url('admin/update-dbmasyarakat/'.$data->id)}}"  method="post" enctype="multipart/form-data">
+																	<input type="hidden" name="_method" value="PUT">
+																	@csrf
+																<div class="modal-close-area modal-close-df">
+																	<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+																</div>
+																<div class="modal-body">
+																<table width="100%">
+															<tr>
+																<td>Judul</td>
+															</tr>
+															<tr>
+																<td><input type="text" name="judul" value="{{$data->judul}}" class="form-control" placeholder="Judul Inovasi / Penelitian..." required></td>
+															</tr>
+															<tr>
+																<td>Nama Peserta</td>
+															</tr>
+															<tr>
+																<td><input type="text" name="nama" value="{{$data->nama}}" class="form-control" placeholder="Nama Peserta..." required></td>
+															</tr>
+															<tr>
+																<td>Lokasi Kegiatan</td>
+															</tr>
+															<tr>
+																<td><input type="text" name="lokasi" value="{{$data->lokasi}}" class="form-control" placeholder="Lokasi Kegiatan..." required></td>
+															</tr>
+															<tr>
+																<td>Kriteria Peserta</td>
+															</tr>
+															<tr>
+																<td>
+																	<input type="text" name="kriteria" value="{{$data->kriteria}}" class="form-control" placeholder="Kriteria..." required>
+																</td>
+															</tr>
+															<tr>
+																<td>Kategori</td>
+															</tr>
+															<tr>
+																<td>
+																<select name="kategori" class="form-control" id="">
+																	<option value="0">Inovasi</option>
+																	<option value="1">Penelitian</option>
+																</select>
+																</td>
+															</tr>
+														</table>
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+																	<button type="submit" name="edit" class="btn btn-custon-four btn-primary btn-md"><i class="fa fa-pencil"></i> Edit</button>
+																</div>
+																</form>
+															</div>
+														</div>
+													</div>
+
+													<button type="button" class="btn btn-custon-four btn-danger btn-xs" data-toggle="modal" data-target="#DangerModalalert{{$data->id}}"><i class="fa fa-trash"></i></button>
+													<div id="DangerModalalert{{$data->id}}" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<form action="{{url('admin/delete-dbmasyarakat/'.$data->id)}}" method="post">
+																	<input type="hidden" name="_method" value="DELETE">
+																	@csrf
+																<div class="modal-close-area modal-close-df">
+																	<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+																</div>
+																<div class="modal-body">
+																	<input type="hidden" name="id" class="form-control" value="{{$data->id}}">
+																	<p>Yakin akan menghapus {{$data->judul}}?</p>
+																</div>
+																<div class="modal-footer danger-md">
+																	<button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+																	<button type="submit" name="del" class="btn btn-custon-four btn-danger btn-md"><i class="fa fa-trash"></i> Delete</button>
+																</div>
+																</form>
+															</div>
+														</div>
+													</div>
+													</td>	
+	                                    		</tr> 
+												@empty
+												<tr>
+												<td colspan="7" align="center">Data Tidak Ada</td>
+												</tr>
+												@endforelse                                              
 	                                    	</tbody>
 	                                    </table>
                                     </div>

@@ -51,36 +51,6 @@ protected $dbopd;
         $dbopd->delete();
     }
 
-    // //----------------- DB Opd Penelitian -----------------
-    // public function storeDbOpdPenelitian($request)
-    // {
-    //     $dbopd = dbopd::create([
-    //     'judul'  => $request->judul,
-    //     'tahun'  => $request->tahun,
-    //     'opd'  => $request->opd,
-    //     'lokasi'  => $request->lokasi,
-    //     'abstraksi'  => $request->abstraksi,
-    //     'kategori'  => 1,
-    //     ]);
-    // }
-
-    // public function updateDbOpdPenelitian($request, $id)
-    // {
-    //     $dbopd = dbopd::find($id);
-    //     $dbopd->judul = $request->input('judul');
-    //     $dbopd->tahun = $request->input('tahun');
-    //     $dbopd->opd = $request->input('opd');
-    //     $dbopd->lokasi = $request->input('lokasi');
-    //     $dbopd->abstraksi = $request->input('abstraksi');
-    //     $dbopd->kategori = $request->input(1);
-    //     $dbopd->save();
-    // }
-
-    // public function destroyDbOpdPenelitian($id)
-    // {
-    //     $dbopd = dbopd::find($id);
-    //     $dbopd->delete();
-    // }
 
     //----------------- DB Masyarakat -----------------
 
@@ -111,35 +81,5 @@ protected $dbopd;
         $dbmasyarakat = dbmasyarakat::find($id);
         $dbmasyarakat->delete();
     }
-
-    // //----------------- DB Masyarakat Penelitian -----------------
-
-    // public function storeDbMasyarakatPenelitian($request)
-    // {
-    //     $dbmasyarakat = dbmasyarakat::create([
-    //     'judul'      => $request->judul,
-    //     'nama'      => $request->nama,
-    //     'lokasi'     => $request->lokasi,
-    //     'kriteria'  => $request->kriteria,
-    //     'kategori'   => 1,
-    //     ]);
-    // }
-
-    // public function updateDbMasyarakatPenelitian($request, $id)
-    // {
-    //     $dbmasyarakat = dbmasyarakat::find($id);
-    //     $dbopd->judul = $request->input('judul');
-    //     $dbmasyarakat->nama = $request->input('nama');
-    //     $dbmasyarakat->lokasi = $request->input('lokasi');
-    //     $dbmasyarakat->kriteria = $request->input('kriteria');
-    //     $dbmasyarakat->kategori = 1;
-    //     $dbmasyarakat->save();
-    // }
-
-    // public function destroyDbMasyarakatPenelitian($id)
-    // {
-    //     $dbmasyarakat = dbmasyarakat::find($id);
-    //     $dbmasyarakat->delete();
-    // }
 
 }
