@@ -56,12 +56,12 @@
 
    <!-- Features Section Start -->
    <!-- <section id="bg"></section> -->
-    <div id="features" class="section-home">
+    <div id="features" class="section-home bg-home">
       <div class="container">
         <div class="row">
           <!-- Start featured -->
           <div class="col-lg-4 col-md-6 col-xs-12">
-            <a href="#">
+            <a href="#" data-toggle="modal" data-target="#dbinovasi">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
                 <div class="icon color-1">
                   <i class="lni-database"></i>
@@ -85,7 +85,7 @@
           <!-- End featured -->
           <!-- Start featured -->
           <div class="col-lg-4 col-md-6 col-xs-12">
-            <a href="#">
+            <a href="#" data-toggle="modal" data-target="#dbpenelitian">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
                 <div class="icon color-1">
                   <i class="lni-database"></i>
@@ -140,7 +140,7 @@
     <!-- End Pricing Table Section -->
 
     <!-- Gallery Section Start -->
-    <div id="gallery" class="section-home">      
+    <div id="gallery" class="section-home bg-gallery">      
       <div class="contact-form">
         <div class="container">
           <div class="section-header">          
@@ -190,6 +190,7 @@
             </div>
         </div>
       </div>            
+      </div>
     </div>
     <!-- Gallery Section End -->
     
@@ -250,33 +251,98 @@
     </div>
     <!-- Contact Section End -->
 
-    
-    
-    
-    </div>
+    <!--- Pop up Poster -->
     <div class="modal fade" id="poster" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
- 
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+  
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
 
-        <div class="modal-body">
-        <img src="{{asset('img/poster.jpeg')}}" width="100%">
+          <div class="modal-body">
+          <img src="{{asset('img/poster.jpeg')}}" width="100%">
+          </div>
         </div>
       </div>
     </div>
+    <!--- End up Poster -->
+
+    <!--- Pop Up Database Inovasi -->
+    <div class="modal fade" id="dbinovasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+  
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+
+          <div class="modal-body">
+            <div class="row d-flex justify-content-center">
+              <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+                  <div class="icon color-1">
+                  <img height="100" width="100" src="{{asset('img/icon/people.png')}}" alt="">
+                  </div>
+                  <h4>Perangkat Daerah</h4>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+                  <div class="icon color-1">
+                    <img height="100" width="100" src="{{asset('img/icon/government.webp')}}" alt="">
+                  </div>
+                  <h4>Masyarakat</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <!--- End Up Database Inovasi -->
+
+    <!--- Pop Up Database Penelitian -->
+    <div class="modal fade" id="dbpenelitian" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+  
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+
+          <div class="modal-body">
+          <div class="modal-body">
+            <div class="row d-flex justify-content-center">
+              <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+                  <div class="icon color-1">
+                  <img height="100" width="100" src="{{asset('img/icon/people.png')}}" alt="">
+                  </div>
+                  <h4>Perangkat Daerah</h4>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+                  <div class="icon color-1">
+                    <img height="100" width="100" src="{{asset('img/icon/government.webp')}}" alt="">
+                  </div>
+                  <h4>Masyarakat</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--- End Up Database Penelitian -->
 
 @endsection
 @section('custom_scripts')
 <script type="text/javascript">
   $('#poster').modal('show');
   
-  particlesJS.load('particles-js','{{asset('particlesjs/particles.json')}}', function() {
-        console.log('particles.json loaded...');
-      })
 </script>
 @endsection
 

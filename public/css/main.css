@@ -85,7 +85,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 
 .section-home {
-  padding: 30px 0;
+  padding: 30px ;
 }
 
 
@@ -1172,7 +1172,7 @@ button:focus {
 }
 
 .item-boxes:hover {
-  background: transparent;
+  background: #F8F8F8;
   box-shadow: 0px 10px 50px 0px rgba(84, 110, 122, 0.35);
 }
 
@@ -2189,7 +2189,7 @@ textarea {
 }
 
 footer .footer-Content {
-  background-color: #ffffff;
+  background-color:#F8F8F8;
   padding: 60px 0;
   color: #546E7A;
 }
@@ -2300,7 +2300,7 @@ footer .menu li a:hover {
 }
 
 #copyright {
-  background-color: #ffffff;
+  background-color: #F8F8F8;
   padding: 20px 0 10px;
   border-top: 1px solid #eaeaea;
   color: #546E7A;
@@ -2493,4 +2493,12 @@ footer .menu li a:hover {
 #bg{
   background-image: url('../img/bg/bg-login.jpg') no-repeat center center;
     /* opacity: 0.75; */
+}
+
+.bg-home{
+  background-image: url('../img/bg/main-pattern.webp') ;
+}
+
+.bg-gallery{
+  background-color: #F8F8F8;
 }
