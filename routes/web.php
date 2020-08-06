@@ -16,6 +16,12 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('prosedur/more/{id}', 'HomeController@showMore')->name('home.showMore');
 Route::get('prosedur/download/{id}', 'HomeController@downloadProsedur')->name('home.downloadProsedur');
 
+//------------------------ Database Masyarakat --------------------------
+Route::get('dbmasyarakatinovasi', 'HomeController@dbMasyarakatInovasi')->name('home.dbMasyarakatInovasi');
+Route::get('dbmasyarakatpenelitian', 'HomeController@dbMasyarakatPenelitian')->name('home.dbMasyarakatPenelitian');
+//------------------------ Database OPD --------------------------
+Route::get('dbopdinovasi', 'HomeController@dbOpdInovasi')->name('home.dbOpdInovasi');
+Route::get('dbopdpenelitian', 'HomeController@dbOpdPenelitian')->name('home.dbOpdPenelitian');
 //--------------- Verify -------------------
 Route::get('/user-register', 'Auth\RegisterController@ShowRegisterForm')->name('userRegister');
 Route::post('/user-register', 'Auth\RegisterController@HandleRegister')->name('prosesRegister');

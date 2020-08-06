@@ -5,7 +5,7 @@
 @endsection
 
 @section('main-content')
-<section id="features" class="section">
+<section id="features" class="section bg-home">
       <div class="container">
         <div class="section-header">          
           <h2 class="section-title">{{$prosedur->judul_prosedur}}</h2>
@@ -38,5 +38,5 @@
           
         </div>
       </div>
-    </section>
+</section>
 @endsection

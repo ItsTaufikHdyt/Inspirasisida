@@ -21,4 +21,8 @@
     <script src="{{asset('js/bootstrap-toggle.min.js')}}"></script>
     <script src="{{asset('particlesjs/particles.min.js')}}"></script>
     
+    <script src="{{asset('js/data-table/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('js/data-table/jquery.dataTables.min.js')}}"></script>
+   
+
 @yield('custom_scripts')

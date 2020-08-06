@@ -64,7 +64,7 @@
             <a href="#" data-toggle="modal" data-target="#dbinovasi">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
                 <div class="icon color-1">
-                  <i class="lni-database"></i>
+                <img src="{{asset('img/icon/tech.png')}}" height="188" width="188" alt="">
                 </div>
                 <h4>Database Inovasi</h4>
               </div>
@@ -78,7 +78,7 @@
                 <div class="icon color-2">
                   <img src="{{asset('img/logo/peenfin.png')}}" alt="">
                 </div>
-               
+                <h4>SiPEENA</h4>
               </div>
             </a>
           </div>
@@ -88,7 +88,7 @@
             <a href="#" data-toggle="modal" data-target="#dbpenelitian">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
                 <div class="icon color-1">
-                  <i class="lni-database"></i>
+                <img src="{{asset('img/icon/computer.png')}}" height="188" width="188" alt="">
                 </div>
                 <h4>Database Penelitian</h4>
               </div>
@@ -280,20 +280,24 @@
           <div class="modal-body">
             <div class="row d-flex justify-content-center">
               <div class="col-lg-6 col-md-6 col-xs-12">
-                <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
-                  <div class="icon color-1">
-                  <img height="100" width="100" src="{{asset('img/icon/people.png')}}" alt="">
+                <a href="{{Route('home.dbOpdInovasi')}}">
+                  <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+                    <div class="icon color-1">
+                      <img height="100" width="100" src="{{asset('img/icon/government.webp')}}" alt="">
+                    </div>
+                    <h4>Perangkat Daerah</h4>
                   </div>
-                  <h4>Perangkat Daerah</h4>
-                </div>
+                </a>
               </div>
               <div class="col-lg-6 col-md-6 col-xs-12">
-                <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
-                  <div class="icon color-1">
-                    <img height="100" width="100" src="{{asset('img/icon/government.webp')}}" alt="">
+                <a href="{{Route('home.dbMasyarakatInovasi')}}">
+                  <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+                    <div class="icon color-1">
+                      <img height="100" width="100" src="{{asset('img/icon/people.png')}}" alt="">
+                    </div>
+                    <h4>Masyarakat</h4>
                   </div>
-                  <h4>Masyarakat</h4>
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -312,23 +316,26 @@
             </button>
 
           <div class="modal-body">
-          <div class="modal-body">
             <div class="row d-flex justify-content-center">
               <div class="col-lg-6 col-md-6 col-xs-12">
-                <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
-                  <div class="icon color-1">
-                  <img height="100" width="100" src="{{asset('img/icon/people.png')}}" alt="">
+                <a href="{{Route('home.dbOpdPenelitian')}}">
+                  <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+                    <div class="icon color-1">
+                    <img height="100" width="100" src="{{asset('img/icon/government.webp')}}" alt="">
+                    </div>
+                    <h4>Perangkat Daerah</h4>
                   </div>
-                  <h4>Perangkat Daerah</h4>
-                </div>
+                </a>
               </div>
               <div class="col-lg-6 col-md-6 col-xs-12">
-                <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
-                  <div class="icon color-1">
-                    <img height="100" width="100" src="{{asset('img/icon/government.webp')}}" alt="">
+                <a href="{{Route('home.dbMasyarakatPenelitian')}}">
+                  <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+                    <div class="icon color-1">
+                    <img height="100" width="100" src="{{asset('img/icon/people.png')}}" alt="">
+                    </div>
+                    <h4>Masyarakat</h4>
                   </div>
-                  <h4>Masyarakat</h4>
-                </div>
+                </a>
               </div>
             </div>
           </div>

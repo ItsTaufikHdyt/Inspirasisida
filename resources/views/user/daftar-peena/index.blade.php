@@ -5,7 +5,7 @@
 @endsection
 
 @section('main-content')
-<section id="services" class="section">
+<section id="services" class="section bg-home">
       <div class="container">
         <h6 align="center"><b><font color="red">Pemberitahuan! Untuk mempermudah akses website eLitbang dimohon menggunakan PC/Laptop</font></b></h6>
         <div class="section-header">                    
@@ -48,7 +48,7 @@
         </div>
       </div>
 </section>
-<section id="akun" class="section">
+<section id="akun" class="section bg-gallery">
       <div class="container">
         <div class="section-header">          
           <h2 class="section-title">Akun siPeena</h2>
