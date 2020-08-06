@@ -42,15 +42,16 @@ class HomeController extends Controller
         $dbmasyarakat = dbmasyarakat::where('kategori',1)->get();
         return view('database.dbmasyarakatpenelitian',compact('dbmasyarakat'));
     }
-
+   
     public function dbOpdInovasi(){
         $dbopd = dbopd::where('kategori',0)->get();
         return view('database.dbopdinovasi',compact('dbopd'));
     }
-
+    
     public function dbOpdPenelitian(){
         $dbopd = dbopd::where('kategori',1)->get();
          return view('database.dbopdpenelitian',compact('dbopd'));
     }
+    
   
 }

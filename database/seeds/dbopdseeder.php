@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
-Use App\dbmasyarakat;
+use App\dbopd;
 
-class dbmasyarakatseeder extends Seeder
+class dbopdseeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,11 +18,12 @@ class dbmasyarakatseeder extends Seeder
     	for($i = 1; $i <= 50; $i++){
  
     	      // insert data ke table pegawai menggunakan Faker
-    		DB::table('dbmasyarakat')->insert([
-    			'judul' => $faker->sentence($nbWords = 6, $variableNbWords = true),
-    			'nama' => $faker->name,
-    			'lokasi' => $faker->address,
-                'kriteria' => $faker->name,
+    		DB::table('dbopd')->insert([
+                'judul' => $faker->sentence($nbWords = 6, $variableNbWords = true),
+                'tahun' => $faker->numberBetween(2015,2020),
+    			'opd' => $faker->company,
+    			'lokasi' => $faker->city,
+                'abstraksi' => $faker->realText($maxNbChars = 200, $indexSize = 2),
                 'kategori' => $faker->numberBetween(0,1)
     		]);
  

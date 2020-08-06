@@ -27,7 +27,7 @@
               <img src="{{asset('img/slider/bg-22.jpg')}}" width="100%">
               <div class="carousel-caption text-center">
                 <!-- <h3>&nbsp;</h3> -->
-                <h2 class="wow bounceIn" data-wow-delay="0.3s"><font color="#af6cf7" style="-webkit-text-stroke: 1px white;">SiPeena</font></h2> 
+                <h2 class="wow bounceIn" data-wow-delay="0.3s"><font color="#af6cf7" style="-webkit-text-stroke: 1px white;">SiPEENA</font></h2> 
                 <h4 class="wow fadeInUp" data-wow-delay="0.6s"><font color="#ffffff" >Inovasi, Penelitian, dan Teknologi Tepat Guna</font></h4>
               </div>
             </div>

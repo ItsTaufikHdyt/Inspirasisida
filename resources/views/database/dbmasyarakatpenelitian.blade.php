@@ -23,7 +23,53 @@ eLitbang
                 @forelse($dbmasyarakat as $data)
                 <tr>
                     <td>{{$no++}}</td>
-                    <td>{{$data->judul}}</td>
+                    <td>
+                    <a href="#" data-toggle="modal" data-target="#dbmasyarakatpenelitian{{$data->id}}">
+                    {{$data->judul}}
+                    </a>
+                    <!--- Pop Up Database -->
+                    <div class="modal fade" id="dbmasyarakatpenelitian{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                    
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+
+                            <div class="modal-body">
+                                <div class="row d-flex justify-content-center">
+                                <div class="col-lg-12 ">
+                                    <table class="table table-striped table-lg">
+                                        <tbody>
+                                       
+                                            <tr>
+                                                <td class="text-left" width="30%"><b>Judul</b></td>
+                                                <td>{{$data->judul}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left" width="30%"><b>Nama</b></td>
+                                                <td>{{$data->nama}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left" width="30%"><b>Lokasi</b></td>
+                                                <td>{{$data->lokasi}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left" width="30%"><b>Kriteria</b></td>
+                                                <td>{{$data->kriteria}}</td>
+                                            </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--- End Up Database -->
+                    </td>
                     <td>{{$data->nama}}</td>
                     <td>{{$data->kriteria}}</td>
                 </tr>
