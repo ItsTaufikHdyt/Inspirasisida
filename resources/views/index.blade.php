@@ -124,7 +124,7 @@
                     </div>
                   </div>
                   <div class="plan-button">
-                    <a href="{{url('prosedur/more/'.$data->id)}}" class="btn btn-common btn-effect">Read More</a>
+                    <a href="{{url('prosedur/more/'.$data->id)}}" class="btn btn-primary">Read More</a>
                   </div>
                 </div>
               </div>  
