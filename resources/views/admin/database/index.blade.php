@@ -65,7 +65,7 @@
 															</tr>
 															<tr>
 																<td>
-																<textarea id="abstraksi"  name="abstraksi" class="form-control" cols="60" rows="10" placeholder="Abstraksi..." required></textarea>
+																<textarea  name="abstraksi" class="form-control" cols="60" rows="10" placeholder="Abstraksi..." required></textarea>
 																</td>
 															</tr>
 															<tr>
@@ -164,7 +164,7 @@
 																		</tr>
 																		<tr>
 																			<td>
-																			<textarea id="abstraksi"  name="abstraksi"  cols="60" rows="10" class="form-control" placeholder="Abstraksi..." required>{{$data->abstraksi}}</textarea>
+																			<textarea   name="abstraksi"  cols="60" rows="10" class="form-control" placeholder="Abstraksi..." required>{{$data->abstraksi}}</textarea>
 																			</td>
 																		</tr>
 																		<tr>
@@ -173,8 +173,13 @@
 																		<tr>
 																			<td>
 																			<select name="kategori" class="form-control" id="">
-																				<option value="0">Inovasi</option>
+																			@if($data->kategori === 0)
+																				<option value="0" selected>Inovasi</option>
 																				<option value="1">Penelitian</option>
+																			@elseif($data->kategori === 1)
+																				<option value="0">Inovasi</option>
+																				<option value="1" selected>Penelitian</option>
+																			@endif
 																			</select>
 																			</td>
 																		</tr>
@@ -371,8 +376,13 @@
 															<tr>
 																<td>
 																<select name="kategori" class="form-control" id="">
-																	<option value="0">Inovasi</option>
+																@if($data->kategori === 0)
+																	<option value="0" selected>Inovasi</option>
 																	<option value="1">Penelitian</option>
+																@elseif($data->kategori === 1)
+																	<option value="0">Inovasi</option>
+																	<option value="1" selected>Penelitian</option>
+																@endif
 																</select>
 																</td>
 															</tr>
@@ -430,7 +440,7 @@
     </div>
 </div>
 @endsection
-@section('custom_scripts')
+<!-- @section('custom_scripts')
 <script type="text/javascript">
   var konten = document.getElementById("abstraksi");
     CKEDITOR.replace(konten,{
@@ -438,4 +448,4 @@
   });
   CKEDITOR.config.allowedContent = true;
 </script>
-@endsection
+@endsection -->
