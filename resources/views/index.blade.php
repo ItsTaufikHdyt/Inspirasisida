@@ -1,7 +1,55 @@
 @extends('homepage::layouts.app')
 
 @section('htmlheader_title')
-	eLitbang
+	Inspirasi Sida
+@endsection
+@section('navbar')
+<ul class="navbar-nav mr-auto w-100 justify-content-end">
+            @guest
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#slider-area">Home</a>
+              </li>
+        
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#berita">Berita</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#contact">Contact</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link page-scroll" href="{{Route('userRegister')}}">Registrasi</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link page-scroll" href="{{Route('userLogin')}}"><b>Login</b></a>
+              </li>
+              @auth
+               <li class="nav-item"><a href="#" title="Dashboard">Hi, {{Auth::user()->nama}}</a></li>                                                                                   
+                <li class="nav-item">
+                  <a class="nav-link page-scroll" href="#slider-area">Home</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link page-scroll" href="#akun">AkunPeena</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link page-scroll" href="#contact">Contact</a>
+                </li>
+                @endauth
+              @else
+              <li class="nav-item">
+              <a class="nav-link page-scroll" href="{{ route('logout') }}" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">Logout</a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+              </li>
+              @endguest  
+              </li>                               
+            </ul>
 @endsection
 @section('carousel')
 <!-- Main Carousel Section -->
@@ -18,7 +66,7 @@
               <img src="{{asset('img/slider/bg-11.jpg')}}" width="100%">
               <div class="carousel-caption text-left">
                 <!-- <h3>&nbsp;</h3> -->
-                <h2 class="wow fadeInRight" data-wow-delay="0.2s"><font color="#af6cf7" style="-webkit-text-stroke: 1px white;">eLitbang</font></h2>
+                <h2 class="wow fadeInRight" data-wow-delay="0.2s"><font color="#af6cf7" style="-webkit-text-stroke: 1px white;">Inspirasi Sida</font></h2>
                 <h4 class="wow fadeInRight" data-wow-delay="0.4s"><font color="#ffffff">Badan Perencanaan, Penelitian, dan Pengembangan</font></h4>
                 
               </div>
@@ -28,7 +76,7 @@
               <div class="carousel-caption text-center">
                 <!-- <h3>&nbsp;</h3> -->
                 <h2 class="wow bounceIn" data-wow-delay="0.3s"><font color="#af6cf7" style="-webkit-text-stroke: 1px white;">SiPEENA</font></h2> 
-                <h4 class="wow fadeInUp" data-wow-delay="0.6s"><font color="#ffffff" >Inovasi, Penelitian, dan Teknologi Tepat Guna</font></h4>
+                <h4 class="wow fadeInUp" data-wow-delay="0.6s"><font color="#ffffff" >Lomba Inovasi dan Penelitian</font></h4>
               </div>
             </div>
             <div class="carousel-item">
@@ -76,7 +124,7 @@
             <a href="{{route('sipeena')}}">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
                 <div class="icon color-2">
-                  <img src="{{asset('img/logo/peenfin.png')}}" alt="">
+                  <img src="{{asset('img/logo/peenfin2.png')}}" alt="">
                 </div>
                 <h4>SiPEENA</h4>
               </div>
@@ -152,10 +200,16 @@
               <div id="galeri" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{asset('img/instagram/gate-btg.jpg')}}">
+                      <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{asset('img/galeri/bp1.jpg')}}">
                     </div>
                     <div class="carousel-item">
-                      <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{asset('img/instagram/cafe-singapore.jpg')}}" >
+                      <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{asset('img/galeri/bp2.jpg')}}" >
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{asset('img/galeri/bp3.jpg')}}">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{asset('img/galeri/bp4.jpg')}}" >
                     </div>
                   <a class="carousel-control-prev" href="#galeri" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -172,11 +226,11 @@
               <div id="galeri_poster" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner card" >
                       <div class="carousel-item active">
-                        <image style="height: 420px; width: 350px; object-fit: fill;" src="{{asset('img/poster.jpeg')}}">
+                        <image style="height: 420px; width: 350px; object-fit: fill; border-radius: 5px;" src="{{asset('img/poster/poster2019.jpeg')}}">
                       </div>
-                      <div class="carousel-item">
+                      <!-- <div class="carousel-item">
                         <image style="height: 420px; width: 350px; object-fit: fill;" src="{{asset('img/poster2.jpg')}}">
-                      </div>
+                      </div> -->
                       <a class="carousel-control-prev" href="#galeri_poster" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
@@ -205,7 +259,7 @@
           </div>
           <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 col-mb-12">
-              <h3>e-Litbang</h3>
+              <h3>Inpirasi Sida</h3>
               <div class="textwidget">
                 <p>Aplikasi berbasis web yang memfasilitasi user 
                 untuk mendapatkan informasi seputar 
@@ -252,7 +306,7 @@
     <!-- Contact Section End -->
 
     <!--- Pop up Poster -->
-    <div class="modal fade" id="poster" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="poster" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
   
@@ -265,7 +319,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--- End up Poster -->
 
     <!--- Pop Up Database Inovasi -->

@@ -11,7 +11,8 @@ class prosedur extends Model
     protected  $fillable = [
         'judul_prosedur',
         'narasi', 	
-        'berkas', 	
+        'berkas',
+        'foto', 	
         'created_at', 	
         'updated_at' 	
     ];

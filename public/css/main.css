@@ -2482,14 +2482,6 @@ footer .menu li a:hover {
   transition: opacity .8s ease, transform 1.4s ease
 }
 
-#particles-js {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: -10;
-  top: 0;
-  left: 0
-}
 #bg{
   background-image: url('../img/bg/bg-login.jpg') no-repeat center center;
     /* opacity: 0.75; */
