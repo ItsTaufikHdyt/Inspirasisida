@@ -2,13 +2,13 @@
 
 namespace App\Repositories\Admin\User;
 
-use App\Repositories\Admin\Core\User\UserRepositoryinterface;
+use App\Repositories\Admin\Core\User\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use App\User;
 Use Carbon\Carbon;
 
 
-class UserRepository implements UserRepositoryinterface
+class UserRepository implements UserRepositoryInterface
 {
 
 protected $user;
@@ -18,20 +18,12 @@ protected $user;
         $this->user = $user;
     }
 
-    public function activatedUser(request $request, $id)
+    public function activatedUser($request, $id)
     {
-        $user = user::find(id);
-        $user->email_verified = 1;
+        $user = user::find($id);
+        $user->email_verified = $request->activated;
         $user->email_verification_token = '';
         $user->email_verified_at = Carbon::now();
-        $user->save();
-    }
-
-    public function inActivatedUser(request $request, $id)
-    {
-        $user = user::find(id);
-        $user->email_verified = 0;
-        $user->email_verification_token = Str::random(32);
         $user->save();
     }
 }

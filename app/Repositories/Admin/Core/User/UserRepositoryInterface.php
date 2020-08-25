@@ -7,7 +7,5 @@ use Illuminate\Http\Request;
 interface UserRepositoryInterface {
 
     public function activatedUser($request, $id);
-    public function inActivatedUser($request, $id)
-   
-    
+     
 }

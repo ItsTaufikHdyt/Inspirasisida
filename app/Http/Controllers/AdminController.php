@@ -16,9 +16,10 @@ use App\Repositories\Admin\DataSipeena\DataSipeenaRepository;
 
 use App\Repositories\Admin\Database\DatabaseRepository;
 
+use App\Http\Requests\Admin\Galeri\storeGaleriRequest;
 use App\Repositories\Admin\Galeri\GaleriRepository;
 
-// use App\Repositories\Admin\User\UserRepository;
+use App\Repositories\Admin\User\UserRepository;
 
 use App\prosedur;
 use App\unitkerja;
@@ -44,8 +45,8 @@ class AdminController extends Controller
         DataOpdRepository $dataOpdRepository,
         ProsedurRepository $prosedurRepository,
         DatabaseRepository $databaseRepository,
-        GaleriRepository $galeriRepository
-        // UserRepository $userRepository
+        GaleriRepository $galeriRepository,
+        UserRepository $userRepository
     )
     {
         $this->middleware('auth');
@@ -54,7 +55,7 @@ class AdminController extends Controller
         $this->prosedurRepository = $prosedurRepository;
         $this->databaseRepository = $databaseRepository;
         $this->galeriRepository = $galeriRepository;
-        // $this->userRepository = $userRepository;
+        $this->userRepository = $userRepository;
     }
 
 
@@ -340,25 +341,40 @@ class AdminController extends Controller
         return redirect()->route('admin.database');
     }
     // ---------------- Galeri ------------------------
+    public function galeri()
+    {
+        $galeri =  galeri::all();
+        return view ('admin.galeri.index',compact('galeri'));
+    }
 
+    public function storeGaleri(storeGaleriRequest $request)
+    {
+        $galeri = $this->galeriRepository->storeGaleri($request);
+        return redirect()->route('admin.galeri');
+    }
 
+    public function UpdateGaleri(storeGaleriRequest $request, $id)
+    {
+        $galeri = $this->galeriRepository->updateGaleri($request);
+        return redirect()->route('admin.galeri');
+    }
 
+    public function destroyGaleri(storeGaleriRequest $request)
+    {
+        $galeri = $this->galeriRepository->destroyGaleri($request);
+        return redirect()->route('admin.galeri');
+    }
     // ---------------- Activated User ------------------------
     public function user()
     {
-        $user =  user::all();
+        $user =  user::where('level', '=', 2)->get();
         return view ('admin.user.index',compact('user'));
     }
 
-    //  public function activatedUser(request $request,$id)
-    // {
-    //     $user = $this->userRepository->activatedUser($request);
-    //     return redirect()->route('admin.user');
-    // }
+     public function activatedUser(request $request,$id)
+    {
+        $user = $this->userRepository->activatedUser($request,$id);
+        return redirect()->route('admin.user');
+    }
 
-    // public function inActivatedUser(request $request,$id)
-    // {
-    //     $user = $this->userRepository->inActivatedUser($request);
-    //     return redirect()->route('admin.user');
-    // }
 }

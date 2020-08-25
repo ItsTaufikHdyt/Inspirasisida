@@ -15,65 +15,72 @@
 	                    <tr>
 	                        <th data-field="id">No.</th>
 	                        <th data-field="name">Nama</th>
-	                        <th data-field="email" width="30%">Status</th>
+	                        <th data-field="email" >Email</th>
+	                        <th data-field="status">Status</th>
+							<th data-field="aksi">Aksi</th>
 	                    </tr>
 	                </thead>
 	                <tbody>
 					@php
 						$no = 1;
 					@endphp
-						@foreach($user as $data)
+						@forelse($user as $data)
 	                    <tr>
 	                    			<td>{{$no++}}</td>
 	                    			<td>{{$data->nama}}</td>
+                                    <td>{{$data->email}}</td>
 	                    			<td>
-                                    <input data-id="{{$data->id}}" class="toggle-class" type="checkbox" 
-                                    data-onstyle="success" data-offstyle="danger" data-toggle="toggle" 
-                                    data-on="Active" data-off="InActive" {{ $data->email_verified ? 'checked' : '' }}>
+										@if($data->email_verified === 0 )
+                                    		<span class="label label-danger">
+											 Tidak Aktif
+											</span>
+										@else
+										<span class="label label-success">
+											 Aktif
+										</span>
+										@endif
                                     </td>
+									<td>
+									<button type="button" class="btn  btn-warning btn-xs" data-toggle="modal" data-target="#DangerModalalert{{$data->id}}"><i class="fa fa-pencil"></i></button>
+	                    				<div id="DangerModalalert{{$data->id}}" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
+				                            <div class="modal-dialog">
+				                                <div class="modal-content">
+				                                	<form action="{{url('admin/activated/'.$data->id)}}" method="post">
+														<input type="hidden" name="_method" value="PUT">
+				                                    	@csrf
+													<div class="modal-close-area modal-close-df">
+				                                        <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+				                                    </div>
+				                                    <div class="modal-body">
+				                                        <select name="activated" class="form-control" id="">
+															@if($data->email_verified === 0)
+															<option value="0" selected>Tidak Aktif</option>
+															<option value="1">Aktif</option>
+															@else
+															<option value="0">Tidak Aktif</option>
+															<option value="1" selected>Aktif</option>
+															@endif
+														</select>
+				                                    </div>
+				                                    <div class="modal-footer danger-md">
+				                                        <button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+                                    					<button type="submit" name="del" class="btn btn-custon-four btn-primary btn-md"><i class="fa fa-check"></i> Simpan </button>
+				                                    </div>
+				                                	</form>
+				                                </div>
+				                            </div>
+				                        </div>
+									</td>
 	                    		</tr>
-	                    @endforeach
+						@empty
+						<tr>
+						<td colsapan="5"><center>Tidak Ada Data</center></td>
+						</tr>
+	                    @endforelse
 	                </tbody>
 	            </table>
 	        </div>
 	    </div>
     </div>
 </div>
-@endsection
-@section('custom_scripts')
-<script type="text/javascript">
-
-$(function() {
-
-  $('.toggle-class').change(function() {
-
-      var status = $(this).prop('checked') == true ? 1 : 0; 
-
-      var user_id = $(this).data('id'); 
-
-       
-
-      $.ajax({
-
-          type: "GET",
-
-          dataType: "json",
-
-          url: '/changeStatus',
-
-          data: {'status': status, 'user_id': user_id},
-
-          success: function(data){
-
-            console.log(data.success)
-
-          }
-
-      });
-
-  })
-
-})
-
-</script>
 @endsection

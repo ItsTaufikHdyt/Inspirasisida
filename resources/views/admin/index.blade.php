@@ -15,9 +15,6 @@
 
                 <div class="m-t-xl widget-cl-1">
                     <h3 class="text-success">{{$inovasi ?? '0'}}</h3>
-                    <small>
-                        Lorem Ipsum is simply dummy text of the printing and Lorem <strong>typesetting industry</strong> spa.
-                    </small>
                 </div>
             </div>
         </div>
@@ -31,9 +28,6 @@
     
                 <div class="m-t-xl widget-cl-1">
                     <h3 class="text-success">{{$penelitian ?? '0'}}</h3>
-                    <small>
-                        Lorem Ipsum is simply dummy text of the printing and Lorem <strong>typesetting industry</strong> spa.
-                    </small>
                 </div>
             </div>
         </div>
@@ -47,9 +41,6 @@
                 
                 <div class="m-t-xl widget-cl-1">
                     <h3 class="text-success">{{$penaopd ?? '0'}}</h3>
-                    <small>
-                        Lorem Ipsum is simply dummy text of the printing and Lorem <strong>typesetting industry</strong> spa.
-                    </small>
                 </div>
             </div>
         </div>
