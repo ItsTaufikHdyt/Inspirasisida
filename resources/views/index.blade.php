@@ -255,7 +255,7 @@
           <div class="section-header">          
             <h2 class="section-title">Get In Touch</h2>
             <span>Contact</span>
-            <p class="section-subtitle">Informasi seputar eLitbang.</p>
+            <p class="section-subtitle">Informasi seputar inspirasi sida.</p>
           </div>
           <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 col-mb-12">

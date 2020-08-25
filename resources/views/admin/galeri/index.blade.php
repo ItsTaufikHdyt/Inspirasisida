@@ -80,9 +80,9 @@
 	                    			<td>{{$no++}}</td>
 	                    			<td><img src="{{url('storage/galeri/'.$data->foto)}}" width="300" height="300"></td>
 	                    			<td>@if($data->kategori === 0)
-											Foto
+											<span class="label label-success">Foto</span>	
 										@else
-											Poster
+										<span class="label label-warning">Poster</span>
 										@endif
 									</td>
 	                    			<td>
