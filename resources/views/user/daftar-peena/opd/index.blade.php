@@ -3,7 +3,24 @@
 @section('htmlheader_title')
 	eLitbang
 @endsection
-
+@section('navbar')
+<ul class="navbar-nav mr-auto w-100 justify-content-end">
+              @auth
+              <li class="nav-item"><a href="#" title="Dashboard">Hi, {{Auth::user()->nama}}</a></li>                                                                                   
+			  <li class="nav-item">
+                <a class="nav-link page-scroll" href="{{route('sipeena')}}">Home</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link page-scroll" href="{{ route('logout') }}" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">Logout</a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+              </li> 
+              </li>  
+              @endauth                             
+</ul>
+@endsection
 @section('main-content')
 <section id="contact" class="section"> 
 @if ($errors->any())
@@ -55,16 +72,25 @@
                 <tr>
                   <td width="20%" height="45px" valign="top">Surat Pernyataan Minat (.pdf) <small><font color="red">*</font></small></td>
                   <td width="30%" height="45px" valign="top"><input name="surat_pernyataan" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="file"></td>
-                  <td width="20%" height="45px" valign="top">File Proposal (.pdf) <small><font color="red">*</font></small></td>
-                  <td width="30%" height="45px" valign="top"><input name="proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="file" required></td>
                 </tr>
-	          		<tr>
-	          			<td width="20%" height="45px" valign="top">Alamat <small><font color="red">*</font></small></td>
-	          			<td width="30%" height="45px" valign="top"><textarea name="alamat" class="form-control" style="padding: 3px 3px; border-radius: 15px;" rows="3" cols="30" required></textarea></td>
-	          			<td width="20%" height="45px" valign="top">URL Proposal</td>
-	          			<td width="30%" height="45px" valign="top"><input name="url_proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="text" required></td>
-	          		</tr>
-	          		<tr>
+				<tr>
+					<td width="20%" height="45px" valign="top">Alamat <small><font color="red">*</font></small></td>
+					<td width="30%" height="45px" valign="top"><textarea name="alamat" class="form-control" style="padding: 3px 3px; border-radius: 15px;" rows="3" cols="30" required></textarea></td>
+					<td width="20%" height="45px" valign="top">
+						<label for="toge">
+							Proposal (.pdf) <small><font color="red">*</font></small><br>
+							<small>**) Besar File Maksimal 5 MB,</small><br>
+							<small> Jika file lebih dari 5 MB silahkan upload ke Cloud(Dropbox, Google Drive ) isi url proposal dengan menchecklist checkbox berikut
+							<input type="checkbox" name="" value="a" id="toggle">
+							</small> 
+						</label>
+					</td>
+					<td width="30%" height="45px" valign="top">
+					<input id="if" name="proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="file" >
+					<input id="iu" name="url_proposal" class="form-control" placeholder="http://..." style="padding: 3px 3px; border-radius: 15px; display: none;" type="text">
+					</td> 		
+				</tr>
+	          	<tr>
 	          			<td colspan="4" align="center">
 						  <div class="captcha">
 							<span>{!! captcha_img('math') !!}</span>
@@ -77,7 +103,7 @@
 			                <button name="simpan" type="submit" class="btn btn-common btn-effect">Simpan</button>
 			                <!-- <button type="reset" class="btn btn-default btn-effect">Reset</button> -->
 	          			</td>
-	          		</tr>
+	          	</tr>
 	          	</table>
 	          </form>	          	
 	        </div>
@@ -88,6 +114,18 @@
 @endsection
 @section('custom_scripts')
 <script type="text/javascript">
+document.getElementById('toggle').addEventListener('change', function() {
+	// toge nya disini, sesuaikan aja mana yg mau
+  // di tampilin duluan input (file / url)
+  if (this.checked == true) {
+    document.getElementById('iu').style.display = 'block'
+    document.getElementById('if').style.display = 'none'
+  } else {
+    document.getElementById('iu').style.display = 'none'
+    document.getElementById('if').style.display = 'block'
+  }
+})
+
 $('#refresh').click(function(){
   $.ajax({
      type:'GET',

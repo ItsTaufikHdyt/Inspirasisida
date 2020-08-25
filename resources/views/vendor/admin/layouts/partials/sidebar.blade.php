@@ -27,18 +27,16 @@
                             <a href="{{url('admin/database')}}" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Database</span></a>
                         </li>
                         <li>
-                            <a href="{{url('admin/prosedur')}}" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Pengumuman</span></a>
+                            <a href="{{url('admin/prosedur')}}" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Pengumuman</span></a>
                         </li>
                         <li>
                             <a href="{{url('admin/data-opd')}}" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Data OPD</span></a>
                         </li>
                         <li>
-                            <a class="has-arrow" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Laporan</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a href="#"><span class="mini-sub-pro">Library Assets</span></a></li>
-                                <li><a href="#"><span class="mini-sub-pro">Add Library Asset</span></a></li>
-                                <li><a href="#"><span class="mini-sub-pro">Edit Library Asset</span></a></li>
-                            </ul>
+                            <a href="{{url('admin/galeri')}}" aria-expanded="false"><span class="educate-icon educate-info icon-wrap"></span> <span class="mini-click-non">Galeri</span></a>
+                        </li>
+                        <li>
+                            <a href="{{url('admin/activateduser')}}" aria-expanded="false"><span class="educate-icon educate-project icon-wrap"></span> <span class="mini-click-non">Data User</span></a>
                         </li>
                     </ul>
                 </nav>

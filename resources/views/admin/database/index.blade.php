@@ -1,7 +1,7 @@
 @extends('admin::layouts.app')
 
 @section('htmlheader_title')
-	eLitbang | Admin
+	Inspirasi Sida | Admin
 @endsection
 @section('main-content')
 <h4>Database Penelitian dan Inovasi</h4>

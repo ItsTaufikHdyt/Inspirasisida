@@ -87,7 +87,9 @@ Route::group(["prefix"=>"admin/"], function(){
     Route::post('store-dbmasyarakat', 'AdminController@storeDbMasyarakat')->name('admin.storeDbMasyarakat');
     Route::put('update-dbmasyarakat/{id}', 'AdminController@updateDbMasyarakat')->name('admin.updateDbMasyarakat');
     Route::delete('delete-dbmasyarakat/{id}','AdminController@destroyDbMasyarakat')->name('admin.deleteDbMasyarakat');
-   
+//---------------- Activation User -------------
+    Route::get('activateduser', 'AdminController@user')->name('admin.user');
+    Route::post('activated', 'AdminController@activated')->name('admin.activated');  
 
 });
     

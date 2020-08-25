@@ -3,7 +3,24 @@
 @section('htmlheader_title')
 	eLitbang
 @endsection
-
+@section('navbar')
+<ul class="navbar-nav mr-auto w-100 justify-content-end">
+              @auth
+              <li class="nav-item"><a href="#" title="Dashboard">Hi, {{Auth::user()->nama}}</a></li>                                                                                   
+			  <li class="nav-item">
+                <a class="nav-link page-scroll" href="{{route('sipeena')}}">Home</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link page-scroll" href="{{ route('logout') }}" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">Logout</a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+              </li> 
+              </li>  
+              @endauth                             
+</ul>
+@endsection
 @section('main-content')
 <section id="contact" class="section">      
       <div class="contact-form">

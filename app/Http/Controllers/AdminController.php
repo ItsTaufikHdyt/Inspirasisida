@@ -16,6 +16,10 @@ use App\Repositories\Admin\DataSipeena\DataSipeenaRepository;
 
 use App\Repositories\Admin\Database\DatabaseRepository;
 
+use App\Repositories\Admin\Galeri\GaleriRepository;
+
+// use App\Repositories\Admin\User\UserRepository;
+
 use App\prosedur;
 use App\unitkerja;
 use App\pendaftaran;
@@ -23,6 +27,8 @@ use App\lembaga;
 use App\penaopd;
 use App\dbopd;
 use App\dbmasyarakat;
+Use App\galeri;
+Use App\user;
 
 class AdminController extends Controller
 {
@@ -30,12 +36,16 @@ class AdminController extends Controller
     protected $dataOpdRepository;
     protected $prosedurRepository;
     protected $databaseRepository;
+    protected $galeriRepository;
+    protected $userRepository;
 
     public function __construct(
         DataSipeenaRepository $dataSipeenaRepository,
         DataOpdRepository $dataOpdRepository,
         ProsedurRepository $prosedurRepository,
-        DatabaseRepository $databaseRepository
+        DatabaseRepository $databaseRepository,
+        GaleriRepository $galeriRepository
+        // UserRepository $userRepository
     )
     {
         $this->middleware('auth');
@@ -43,6 +53,8 @@ class AdminController extends Controller
         $this->dataOpdRepository = $dataOpdRepository;
         $this->prosedurRepository = $prosedurRepository;
         $this->databaseRepository = $databaseRepository;
+        $this->galeriRepository = $galeriRepository;
+        // $this->userRepository = $userRepository;
     }
 
 
@@ -327,6 +339,26 @@ class AdminController extends Controller
         $dbopd = $this->databaseRepository->destroyDbMasyarakat($id);
         return redirect()->route('admin.database');
     }
+    // ---------------- Galeri ------------------------
 
-     
+
+
+    // ---------------- Activated User ------------------------
+    public function user()
+    {
+        $user =  user::all();
+        return view ('admin.user.index',compact('user'));
+    }
+
+    //  public function activatedUser(request $request,$id)
+    // {
+    //     $user = $this->userRepository->activatedUser($request);
+    //     return redirect()->route('admin.user');
+    // }
+
+    // public function inActivatedUser(request $request,$id)
+    // {
+    //     $user = $this->userRepository->inActivatedUser($request);
+    //     return redirect()->route('admin.user');
+    // }
 }

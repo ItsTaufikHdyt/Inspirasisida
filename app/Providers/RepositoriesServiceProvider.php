@@ -24,6 +24,10 @@ use App\Repositories\Admin\Prosedur\ProsedurRepository;
 use App\Repositories\Admin\Core\Prosedur\ProsedurRepositoryInterface;
 use App\Repositories\Admin\Database\DatabaseRepository;
 use App\Repositories\Admin\Core\Database\DatabaseRepositoryInterface;
+use App\Repositories\Admin\Galeri\GaleriRepository;
+use App\Repositories\Admin\Core\Galeri\GaleriRepositoryInterface;
+use App\Repositories\Admin\User\UserRepository;
+use App\Repositories\Admin\Core\User\UserRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoriesServiceProvider extends ServiceProvider
@@ -54,7 +58,9 @@ class RepositoriesServiceProvider extends ServiceProvider
                          DataSipeenaRepositoryInterface::class, DataSipeenaRepository::class,
                          DataOpdRepositoryInterface::class, DataOpdRepository::class,
                          ProsedurRepositoryInterface::class, ProsedurRepository::class,
-                         DatabaseRepositoryInterface::class, DatabaseRepository::class
+                         DatabaseRepositoryInterface::class, DatabaseRepository::class,
+                         GaleriRepositoryInterface::class, GaleriRepository::class,
+                         UserRepositoryInterface::class, UserRepository::class
                         );
     }
 }
