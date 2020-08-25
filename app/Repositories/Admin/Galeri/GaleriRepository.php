@@ -5,7 +5,7 @@ namespace App\Repositories\Admin\Galeri;
 use App\Repositories\Admin\Core\Galeri\GaleriRepositoryInterface;
 use Illuminate\Http\Request;
 use App\galeri;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 
 
@@ -22,42 +22,33 @@ protected $galeri;
     public function storeGaleri($request)
     {
         
-        $no = 0;
-        $nama = "Bapelitbang".$no++;
+        $nama = str_replace(' ','',$request->file('foto')->getClientOriginalName());
         $today = Carbon::today()->toDateString();
         $date = str_replace('-','',$today);
 
         $ext_foto = $request->file('foto')->getClientOriginalExtension();
-        $foto_file = $date."-".$nama.".". $ext_foto;
+        $foto_file = $date."-".$nama;
+
+        $path = $request->file('foto')->storeAs('public/galeri', $foto_file);
 
         $galeri = galeri::create([
-        'foto'  => $request->file('foto')->storeAs('galeri', $foto_file),
+        'foto'  => $foto_file,
         'kategori' => $request->kategori,
         ]);
 
     }
 
-    public function updateGaleri($request, $id)
-    {
-        
-        $no=0;
-        $nama = "bapelitbang";
-        $today = Carbon::today()->toDateString();
-        $date = str_replace('-','',$today);
-
-        $ext_foto = $request->file('foto')->getClientOriginalExtension();
-        $foto_file = $date."-".$nama."-galeri"."".".". $ext_foto;
-
-        $galeri = galeri::find($id);
-        $galeri->foto = file('foto')->storeAs('galeri', $foto_file);
-        $galeri->kategori = $request->input('kategori');
-        $galeri->save();
-    }
 
     public function destroyGaleri($id)
     {
-        $galeri = galeri::find($id);
-        $galeri->delete();
+        try{
+            $galeri = galeri::find($id);
+            Storage::disk('local')->delete('public/galeri/' .$galeri->foto);
+            $galeri->delete();
+        }catch(\Exception $e){
+            return $e->getMessage();
+        }
+        
     }
 
     

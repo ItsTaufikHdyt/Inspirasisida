@@ -78,7 +78,7 @@
 						@forelse($galeri as $data)
 	                    <tr>
 	                    			<td>{{$no++}}</td>
-	                    			<td><img src=""></td>
+	                    			<td><img src="{{url('storage/galeri/'.$data->foto)}}" width="300" height="300"></td>
 	                    			<td>@if($data->kategori === 0)
 											Foto
 										@else
@@ -86,62 +86,6 @@
 										@endif
 									</td>
 	                    			<td>
-	                    				<button type="button" class="btn btn-custon-four btn-primary btn-xs" data-toggle="modal" data-target="#PrimaryModalalert{{$data->id}}"><i class="fa fa-pencil"></i></button>
-	                    				<div id="PrimaryModalalert{{$data->id}}" class="modal modal-xl  fade" role="dialog">
-				                            <div class="modal-dialog">
-				                                <div class="modal-content">
-				                                    <form action="{{url('admin/update-galeri/' .$data->id)}}"  method="post" enctype="multipart/form-data">
-			                                    		<input type="hidden" name="_method" value="PUT">
-														@csrf
-													<div class="modal-close-area modal-close-df">
-				                                        <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-				                                    </div>
-				                                    <div class="modal-body">
-				                                    	<table>																											
-														<tr>
-															<td>kategori</td>
-														</tr>
-														<tr>
-															<td>
-																<select name="kategori" class="form-control" id="">
-																	@if($data->kategori === 0)
-																	<option value="0" selected>Foto</option>
-																	<option value="1">Poster</option>
-																	@else
-																	<option value="0">Foto</option>
-																	<option value="1" selected>Poster</option>
-																	@endif
-																</select>
-															</td>	
-														</tr>
-
-														<tr>
-															<td>Upload Foto</td>
-														</tr>
-														<tr>
-															<td>
-																<div class="file-upload-inner ts-forms">
-																	<div class="input prepend-small-btn">
-																		<div class="file-button">
-																			Browse
-																			<input type="file" name="foto" required onchange="document.getElementById('prepend-small-btn2').value = this.value;">
-																		</div>
-																		<input type="text" name="file" id="prepend-small-btn2" value="{{$data->foto}}" placeholder="no file selected" required>
-																	</div>
-																</div>
-															</td>
-														</tr>
-				                                    	</table>
-				                                    </div>
-				                                    <div class="modal-footer">
-				                                        <button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
-                                    					<button type="submit" name="edit" class="btn btn-custon-four btn-primary btn-md"><i class="fa fa-pencil"></i> Edit</button>
-				                                    </div>
-				                                	</form>
-				                                </div>
-				                            </div>
-				                        </div>
-
 	                    				<button type="button" class="btn btn-custon-four btn-danger btn-xs" data-toggle="modal" data-target="#DangerModalalert{{$data->id}}"><i class="fa fa-trash"></i></button>
 	                    				<div id="DangerModalalert{{$data->id}}" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
 				                            <div class="modal-dialog">

@@ -353,15 +353,9 @@ class AdminController extends Controller
         return redirect()->route('admin.galeri');
     }
 
-    public function UpdateGaleri(storeGaleriRequest $request, $id)
+    public function destroyGaleri($id)
     {
-        $galeri = $this->galeriRepository->updateGaleri($request);
-        return redirect()->route('admin.galeri');
-    }
-
-    public function destroyGaleri(storeGaleriRequest $request)
-    {
-        $galeri = $this->galeriRepository->destroyGaleri($request);
+        $galeri = $this->galeriRepository->destroyGaleri($id);
         return redirect()->route('admin.galeri');
     }
     // ---------------- Activated User ------------------------

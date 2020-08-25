@@ -7,6 +7,7 @@ use App\prosedur;
 use Storage;
 Use App\dbmasyarakat;
 Use App\dbopd;
+Use App\galeri;
 
 
 class HomeController extends Controller
@@ -18,8 +19,10 @@ class HomeController extends Controller
 
     public function index()
     {
+        $galeri_foto = galeri::where('kategori','0')->get();
+        $galeri_poster = galeri::where('kategori','1')->get();
         $prosedur = prosedur::all();
-        return view('index',compact('prosedur'));
+        return view('index',compact('prosedur','galeri_foto','galeri_poster'));
     }
 
     public function showMore($id)
@@ -52,6 +55,7 @@ class HomeController extends Controller
         $dbopd = dbopd::where('kategori',1)->get();
          return view('database.dbopdpenelitian',compact('dbopd'));
     }
+
     
   
 }

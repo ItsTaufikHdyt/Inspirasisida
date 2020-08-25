@@ -90,7 +90,6 @@ Route::group(["prefix"=>"admin/"], function(){
 //---------------- Galeri-------------
     Route::get('galeri', 'AdminController@galeri')->name('admin.galeri');
     Route::post('store-galeri', 'AdminController@storeGaleri')->name('admin.storeGaleri');
-    Route::put('update-galeri/{id}', 'AdminController@updateGaleri')->name('admin.updateGaleri');
     Route::delete('delete-galeri/{id}', 'AdminController@destroyGaleri')->name('admin.destroyGaleri');
 //---------------- Activation User -------------
     Route::get('activateduser', 'AdminController@user')->name('admin.user');

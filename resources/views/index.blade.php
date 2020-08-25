@@ -202,15 +202,12 @@
                     <div class="carousel-item active">
                       <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{asset('img/galeri/bp1.jpg')}}">
                     </div>
+                    @forelse($galeri_foto as $data)
                     <div class="carousel-item">
-                      <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{asset('img/galeri/bp2.jpg')}}" >
+                      <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{url('storage/galeri/' .$data->foto)}}" >
                     </div>
-                    <div class="carousel-item">
-                      <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{asset('img/galeri/bp3.jpg')}}">
-                    </div>
-                    <div class="carousel-item">
-                      <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{asset('img/galeri/bp4.jpg')}}" >
-                    </div>
+                    @empty
+                    @endforelse
                   <a class="carousel-control-prev" href="#galeri" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -228,9 +225,12 @@
                       <div class="carousel-item active">
                         <image style="height: 420px; width: 350px; object-fit: fill; border-radius: 5px;" src="{{asset('img/poster/poster2019.jpeg')}}">
                       </div>
-                      <!-- <div class="carousel-item">
-                        <image style="height: 420px; width: 350px; object-fit: fill;" src="{{asset('img/poster2.jpg')}}">
-                      </div> -->
+                      @forelse($galeri_poster as $data)
+                      <div class="carousel-item">
+                        <image style="height: 420px; width: 350px; object-fit: fill; border-radius: 5px;" src="{{url('storage/galeri/' .$data->foto)}}">
+                      </div>
+                    @empty
+                    @endforelse
                       <a class="carousel-control-prev" href="#galeri_poster" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
