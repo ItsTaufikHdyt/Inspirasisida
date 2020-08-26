@@ -61,7 +61,7 @@
         </div>
       </div>
 </section>
-<section id="akun" class="section bg-gallery">
+<!-- <section id="akun" class="section bg-gallery">
       <div class="container">
         <div class="section-header">          
           <h2 class="section-title">Akun siPeena</h2>
@@ -92,7 +92,7 @@
           </div>
         </div>
       </div>
-    </section>
+</section> -->
     <!-- Contact Section Start -->
     <section id="contact" class="section">      
       <div class="contact-form">
@@ -150,16 +150,5 @@
     </section>
     <!-- Contact Section End -->
     
-    <!-- Map Section Start -->
-    <section id="google-map-area">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12 padding-0">
-            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7979.630852826366!2d117.44259233488769!3d0.06900890000001055!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x320a0eac4cfb59e5%3A0x7cbf53536c3c4fc9!2sGraha+Taman+Praja!5e0!3m2!1sid!2sid!4v1521722017504" width="1500" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Map Section End -->
 @endsection
 

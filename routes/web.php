@@ -33,7 +33,7 @@ Route::get('login/refreshcaptcha', 'Auth\LoginController@refreshCaptcha');
 Route::get('register/refreshcaptcha', 'Auth\RegisterController@refreshCaptcha');
 
 //--------------- Admin -------------------
-Route::group(["prefix"=>"admin/"], function(){
+Route::group(['middleware' => 'cekstatus',"prefix"=>"admin/"], function(){
     Route::get('dashboard', 'AdminController@index')->name('admin.dashboard');
 //--------------- Data SiPeena ---------------------
     Route::get('verifikasi', 'AdminController@verifikasi')->name('admin.verifikasi');

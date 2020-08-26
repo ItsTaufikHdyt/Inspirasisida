@@ -17,7 +17,9 @@
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="#contact">Contact</a>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#panduan">Panduan</a>
+              </li>
               <li class="nav-item">
                   <a class="nav-link page-scroll" href="{{Route('userRegister')}}">Registrasi</a>
               </li>
