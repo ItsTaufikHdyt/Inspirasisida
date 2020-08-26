@@ -48,6 +48,22 @@ Inspirasi Sida | Admin
 				                            <textarea id="konten" class="form-control"  name="narasi" cols="60" rows="10" placeholder="Narasi pengumuman..." required></textarea>
 					                        </td>
                                 		</tr>
+										<tr>
+                                			<td>Upload Foto</td>
+                                		</tr>
+                                		<tr>
+                                			<td>
+                                				<div class="file-upload-inner ts-forms">
+                                                    <div class="input prepend-small-btn">
+                                                        <div class="file-button">
+                                                            Browse
+                                                            <input type="file" name="foto" required onchange="document.getElementById('prepend-small-btn3').value = this.value;">
+                                                        </div>
+                                                        <input type="text" name="file" id="prepend-small-btn3" placeholder="no file selected" required>
+                                                    </div>
+                                                </div>
+					                        </td>
+                                		</tr>
                                 		<tr>
                                 			<td>Upload File</td>
                                 		</tr>
@@ -81,7 +97,8 @@ Inspirasi Sida | Admin
 	                    <tr>
 	                        <th data-field="id">No.</th>
 	                        <th data-field="name">Judul Pengumuman</th>
-	                        <th data-field="email" width="30%">Narasi</th>
+	                        <th data-field="narasi">Narasi</th>
+							<th data-field="foto" >Foto</th>
 	                        <th data-field="phone">Tanggal Dibuat</th>
 	                        <th data-field="action">Aksi</th>
 	                    </tr>
@@ -92,11 +109,12 @@ Inspirasi Sida | Admin
 					@endphp
 						@forelse($prosedur as $data)
 	                    <tr>
-	                    			<td>{{$no++}}</td>
-	                    			<td>{{$data->judul_prosedur}}</td>
-	                    			<td width="30%">{{substr($data->narasi, 0, 100)}}...</td>
-	                    			<td>{{$data->created_at}}</td>
-	                    			<td>
+							<td>{{$no++}}</td>
+	                    	<td>{{$data->judul_prosedur}}</td>
+	                    	<td>{{substr($data->narasi, 0, 100)}}...</td>
+							<td><img src="{{url('storage/foto_berita/'.$data->foto)}}" width="300" height="200"></td>
+	                    	<td>{{$data->created_at}}</td>
+	                    	<td>
 	                    				<button type="button" class="btn btn-custon-four btn-primary btn-xs" data-toggle="modal" data-target="#PrimaryModalalert{{$data->id}}"><i class="fa fa-pencil"></i></button>
 	                    				<div id="PrimaryModalalert{{$data->id}}" class="modal modal-xl  fade" role="dialog">
 				                            <div class="modal-dialog">
@@ -126,6 +144,22 @@ Inspirasi Sida | Admin
 				                                    				<textarea id="konten" class="form-control"  name="narasi" cols="60" rows="10" placeholder="Narasi pengumuman..." required>{{$data->narasi}}</textarea>
 				                                    			</td>
 				                                    		</tr>
+															<tr>
+																<td>Upload Foto</td>
+															</tr>
+															<tr>
+																<td>
+																	<div class="file-upload-inner ts-forms">
+																		<div class="input prepend-small-btn">
+																			<div class="file-button">
+																				Browse
+																				<input type="file" name="foto" required onchange="document.getElementById('prepend-small-btn5').value = this.value;">
+																			</div>
+																			<input type="text" name="file" id="prepend-small-btn5" value="{{$data->foto}}" placeholder="no file selected" required>
+																		</div>
+																	</div>
+																</td>
+															</tr>
 				                                    		<tr>
 					                                			<td>Upload File</td>
 					                                		</tr>
@@ -142,6 +176,9 @@ Inspirasi Sida | Admin
 					                                                </div>
 										                        </td>
 					                                		</tr>
+															<tr>
+																<font style="color:red;"> * Silahkan Upload Ulang Foto dan Berkas </font>
+															</tr>
 				                                    	</table>
 				                                    </div>
 				                                    <div class="modal-footer">
@@ -175,10 +212,10 @@ Inspirasi Sida | Admin
 				                                </div>
 				                            </div>
 				                        </div>
-	                    			</td>
-	                    		</tr>
+	                    			</td>		
+	                    </tr>
 	                    @empty
-						<tr><td colspan="5"><center>Data Tidak Ada</center></td></tr>
+						<tr><td colspan="6"><center>Data Tidak Ada</center></td></tr>
 						@endforelse
 	                </tbody>
 	            </table>

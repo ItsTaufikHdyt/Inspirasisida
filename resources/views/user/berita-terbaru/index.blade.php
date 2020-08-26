@@ -28,7 +28,7 @@
           <div class="col-lg-4 col-md-4 col-xs-4">
             <div class="featured-box">
               <div class="featured-content">
-                <image height="250" width="200" src="{{asset('img/icon/pdf.png')}}">
+                <image height="250" width="300" src="{{asset('storage/foto_berita/' .$prosedur->foto)}}">
               </div>
               <br><br>              
             </div>

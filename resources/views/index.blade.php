@@ -176,7 +176,7 @@
                   <div class="pricing-details">
                     <h2>{{$data->judul_prosedur}}</h2>
                     <div class="price">
-                    <image height="150" width="130" src="{{asset('img/icon/pdf.png')}}"><br>
+                    <image height="150" width="200" src="{{asset('storage/foto_berita/' .$data->foto)}}"><br>
                       <span>
                       {{$data->created_at->format('Y-m-d')}}
                         | {{$data->created_at->diffForHumans()}}
@@ -415,9 +415,9 @@
 
 @endsection
 @section('custom_scripts')
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $('#poster').modal('show');
   
-</script>
+</script> -->
 @endsection
 
