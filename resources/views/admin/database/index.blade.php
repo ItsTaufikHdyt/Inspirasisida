@@ -4,6 +4,18 @@
 	Inspirasi Sida | Admin
 @endsection
 @section('main-content')
+@if ($errors->any())
+    <div class="alert alert-warning alert-dismissible fade show">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+    </div>
+@endif
 <h4>Database Penelitian dan Inovasi</h4>
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -220,7 +232,7 @@
 	                                    		</tr>
 												@empty
 												<tr>
-													<td colspan="8" align="center">Data Tidak Ada</td>
+													<td colspan="8"><center>Data Tidak Ada</center></td>
 												</tr>
 												@endforelse                                                 
 	                                    	</tbody>
@@ -423,7 +435,7 @@
 	                                    		</tr> 
 												@empty
 												<tr>
-												<td colspan="7" align="center">Data Tidak Ada</td>
+												<td colspan="7"><center>Data Tidak Ada</center></td>
 												</tr>
 												@endforelse                                              
 	                                    	</tbody>

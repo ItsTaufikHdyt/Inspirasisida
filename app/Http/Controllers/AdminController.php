@@ -312,7 +312,7 @@ class AdminController extends Controller
 
     public function updateDbOpd(storeDbOpdRequest $request,$id)
     {
-        $dbopd = $this->databaseRepository->updateDbOpd($request);
+        $dbopd = $this->databaseRepository->updateDbOpd($request,$id);
         return redirect()->route('admin.database');
     }
 
@@ -331,7 +331,7 @@ class AdminController extends Controller
 
     public function updateDbMasyarakat(storeDbMasyarakatRequest $request,$id)
     {
-        $dbopd = $this->databaseRepository->updateDbMasyarakat($request);
+        $dbopd = $this->databaseRepository->updateDbMasyarakat($request,$id);
         return redirect()->route('admin.database');
     }
 

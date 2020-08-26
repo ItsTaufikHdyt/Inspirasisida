@@ -5,8 +5,8 @@ namespace App\Repositories\Admin\Prosedur;
 use App\Repositories\Admin\Core\Prosedur\ProsedurRepositoryinterface;
 use Illuminate\Http\Request;
 use App\prosedur;
+use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
-use Storage;
 
 class ProsedurRepository implements ProsedurRepositoryinterface
 {
@@ -59,8 +59,13 @@ protected $prosedur;
 
     public function destroyProsedur($id)
     {
-        $prosedur = prosedur::find($id);
-        Storage::delete($prosedur->berkas);
-        $prosedur->delete();
+        try{
+
+            $prosedur = prosedur::find($id);
+            Storage::delete($prosedur->berkas);
+            $prosedur->delete();
+        }catch(\Exception $e){
+            return $e->getMessage();
+        }
     }
 }

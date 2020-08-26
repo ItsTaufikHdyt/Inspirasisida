@@ -90,7 +90,7 @@ Inspirasi Sida | Admin
 					@php
 						$no = 1;
 					@endphp
-						@foreach($prosedur as $data)
+						@forelse($prosedur as $data)
 	                    <tr>
 	                    			<td>{{$no++}}</td>
 	                    			<td>{{$data->judul_prosedur}}</td>
@@ -177,7 +177,9 @@ Inspirasi Sida | Admin
 				                        </div>
 	                    			</td>
 	                    		</tr>
-	                    @endforeach
+	                    @empty
+						<tr><td colspan="5"><center>Data Tidak Ada</center></td></tr>
+						@endforelse
 	                </tbody>
 	            </table>
 	        </div>

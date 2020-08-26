@@ -68,7 +68,7 @@ protected $dbopd;
     public function updateDbMasyarakat($request, $id)
     {
         $dbmasyarakat = dbmasyarakat::find($id);
-        $dbopd->judul = $request->input('judul');
+        $dbmasyarakat->judul = $request->input('judul');
         $dbmasyarakat->nama = $request->input('nama');
         $dbmasyarakat->lokasi = $request->input('lokasi');
         $dbmasyarakat->kriteria = $request->input('kriteria');

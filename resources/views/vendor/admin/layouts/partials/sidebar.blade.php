@@ -2,7 +2,7 @@
 <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.php"><img class="main-logo" src="{{asset('admin/img/logo/logo.png')}}" width="180px"></a>
+                <a href="index.php"><img class="main-logo" src="{{asset('admin/img/logo/inspirasisida.png')}}" width="180px"></a>
                 <strong><a href="index.php"><img src="{{asset('admin/img/logo/logosn.png')}}" alt="" /></a></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">

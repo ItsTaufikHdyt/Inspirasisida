@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Grayrids">
     <title>@yield('htmlheader_title', 'Your title here')</title>
-    <link href="{{asset('img/elit-logo-2.png')}}" rel="shortcut icon">
+    <link href="{{asset('img/i-logo.png')}}" rel="shortcut icon">
      <!-- ============================================ -->
     <!-- <link rel="stylesheet" href="{{asset('css/data-table/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/data-table/bootstrap.css')}}"> -->

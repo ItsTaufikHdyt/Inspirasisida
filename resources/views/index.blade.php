@@ -189,7 +189,9 @@
                 </div>
               </div>  
         @empty
-        Postingan Belum tersedia
+        <center>
+          <h6>Postingan Belum Tersedia</h6>
+        </center>
         @endforelse    
         </div>
         <br><center>

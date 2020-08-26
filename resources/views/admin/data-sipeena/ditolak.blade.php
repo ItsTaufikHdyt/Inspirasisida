@@ -80,7 +80,7 @@ Inspirasi Sida | Admin
 	                                    		</tr>
                                                 @empty
                                                 <tr>
-                                                    <td colspan="6" align="center">Data Tidak Ada</td>
+                                                    <td colspan="6"><center>Data Tidak Ada</center></td>
                                                 </tr>
                                             @endforelse
 	                                    	</tbody>
@@ -151,7 +151,7 @@ Inspirasi Sida | Admin
 	                                    		</tr>
                                     			@empty
                                                 <tr>
-                                                    <td colspan="6" align="center">Data Tidak Ada</td>
+                                                    <td colspan="6"><center>Data Tidak Ada</center></td>
                                                 </tr>
                                             @endforelse
 	                                    	</tbody>
@@ -222,7 +222,7 @@ Inspirasi Sida | Admin
 	                                    		</tr>
                                                 @empty
                                                 <tr>
-                                                    <td colspan="6" align="center">Data Tidak Ada</td>
+                                                    <td colspan="6"><center>Data Tidak Ada</center></td>
                                                 </tr>
                                             @endforelse
 	                                    	</tbody>
@@ -295,7 +295,7 @@ Inspirasi Sida | Admin
 	                                    		</tr>
                                     			@empty
                                                 <tr>
-                                                    <td colspan="7" align="center">Data Tidak Ada</td>
+                                                    <td colspan="7"><center>Data Tidak Ada</center></td>
                                                 </tr>
                                             @endforelse
 	                                    	</tbody>
