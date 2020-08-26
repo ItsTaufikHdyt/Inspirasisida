@@ -50,6 +50,16 @@
               </form>
               </li>
               @endguest  
+              @can('isAdmin')
+              <li class="nav-item">
+                  <a class="nav-link page-scroll" href="{{Route('admin.dashboard')}}">Dashboard</a>
+              </li>
+              @elsecan('isUser')
+              <li class="nav-item">
+                  <a class="nav-link page-scroll" href="{{Route('sipeena')}}">Sipeena</a>
+              </li>
+              @else
+              @endcan
               </li>                               
             </ul>
 @endsection

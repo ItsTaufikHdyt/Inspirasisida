@@ -45,7 +45,7 @@ Inspirasi Sida | Admin
                                 			<td>
                                 				<!-- <div id="summernote2" name="narasi">
                                 				</div> -->
-				                            <textarea id="konten"  name="narasi" cols="60" rows="10" placeholder="Narasi pengumuman..." required></textarea>
+				                            <textarea id="konten" class="form-control"  name="narasi" cols="60" rows="10" placeholder="Narasi pengumuman..." required></textarea>
 					                        </td>
                                 		</tr>
                                 		<tr>
@@ -123,7 +123,7 @@ Inspirasi Sida | Admin
 				                                    		</tr>
 				                                    		<tr>
 				                                    			<td>
-				                                    				<textarea id="konten"  name="narasi" cols="60" rows="10" placeholder="Narasi pengumuman..." required>{{$data->narasi}}</textarea>
+				                                    				<textarea id="konten" class="form-control"  name="narasi" cols="60" rows="10" placeholder="Narasi pengumuman..." required>{{$data->narasi}}</textarea>
 				                                    			</td>
 				                                    		</tr>
 				                                    		<tr>
@@ -186,11 +186,11 @@ Inspirasi Sida | Admin
 </div>
 @endsection
 @section('custom_scripts')
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   var konten = document.getElementById("konten");
     CKEDITOR.replace(konten,{
     language:'en-gb'
   });
   CKEDITOR.config.allowedContent = true;
-</script>
+</script> -->
 @endsection
