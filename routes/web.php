@@ -15,6 +15,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('prosedur/more/{id}', 'HomeController@showMore')->name('home.showMore');
 Route::get('prosedur/download/{id}', 'HomeController@downloadProsedur')->name('home.downloadProsedur');
+Route::get('panduan', 'HomeController@panduan')->name('home.panduan');
+
 
 //------------------------ Database Masyarakat --------------------------
 Route::get('dbmasyarakatinovasi', 'HomeController@dbMasyarakatInovasi')->name('home.dbMasyarakatInovasi');

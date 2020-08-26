@@ -56,6 +56,9 @@ class HomeController extends Controller
          return view('database.dbopdpenelitian',compact('dbopd'));
     }
 
+    public function panduan(){
+        return response()->download(storage_path("app/panduan/panduan-sipeena.pdf"));
+    }
     
   
 }
