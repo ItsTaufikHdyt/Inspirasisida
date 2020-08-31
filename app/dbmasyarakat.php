@@ -9,6 +9,6 @@ class dbmasyarakat extends Model
    protected $table ='dbmasyarakat';
 
    protected $fillable = [
-       'judul', 'nama', 'lokasi', 'abstraksi', 'kategori'
+       'judul', 'nama', 'tahun', 'lokasi', 'abstraksi', 'kategori'
    ];
 }

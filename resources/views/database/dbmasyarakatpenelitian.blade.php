@@ -1,7 +1,7 @@
 @extends('homepage::layouts.app')
 
 @section('htmlheader_title')
-eLitbang
+Inpirasi Sida
 @endsection
 
 @section('main-content')
@@ -12,8 +12,8 @@ eLitbang
                 <tr>
                     <th data-field="no">No</th>
                     <th data-field="judul">Judul</th>
+                    <th data-field="thn">Tahun</th>
                     <th data-field="nama">Nama</th>
-                    <th data-field="kriteria">Kriteria</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,7 +56,7 @@ eLitbang
                                             </tr>
                                             <tr>
                                                 <td class="text-left" width="30%"><b>Kriteria</b></td>
-                                                <td>{{$data->kriteria}}</td>
+                                                <td>{{$data->abstraksi}}</td>
                                             </tr>
                                         
                                         </tbody>
@@ -70,6 +70,7 @@ eLitbang
                     </div>
                     <!--- End Up Database -->
                     </td>
+                    <td>{{$data->tahun}}</td>
                     <td>{{$data->nama}}</td>
                     <td>{{$data->kriteria}}</td>
                 </tr>

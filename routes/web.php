@@ -16,6 +16,7 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('prosedur/more/{id}', 'HomeController@showMore')->name('home.showMore');
 Route::get('prosedur/download/{id}', 'HomeController@downloadProsedur')->name('home.downloadProsedur');
 Route::get('panduan', 'HomeController@panduan')->name('home.panduan');
+Route::get('downloadDbOpd/{id}', 'HomeController@downloadDbOpd')->name('home.downloadDbOpd');
 
 
 //------------------------ Database Masyarakat --------------------------
@@ -85,6 +86,7 @@ Route::group(['middleware' => 'cekstatus',"prefix"=>"admin/"], function(){
     Route::post('store-dbopd', 'AdminController@storeDbOpd')->name('admin.storeDbOpd');
     Route::put('update-dbopd/{id}', 'AdminController@updateDbOpd')->name('admin.updateDbOpd');
     Route::delete('delete-dbopd/{id}','AdminController@destroyDbOpd')->name('admin.deleteDbOpd');
+    Route::get('download-dbopd/{id}','AdminController@downloadDbOpd')->name('admin.downloadDbOpd');
 //---------------- Database Inovasi Perangkat Daerah -------------
     Route::post('store-dbmasyarakat', 'AdminController@storeDbMasyarakat')->name('admin.storeDbMasyarakat');
     Route::put('update-dbmasyarakat/{id}', 'AdminController@updateDbMasyarakat')->name('admin.updateDbMasyarakat');

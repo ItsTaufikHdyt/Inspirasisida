@@ -9,6 +9,7 @@ interface DatabaseRepositoryInterface {
     public function storeDbOpd($request);
     public function updateDbOpd($request, $id);
     public function destroyDbOpd($id);
+    public function downloadDbOpd($id);
 
     // public function storeDbOpdPenelitian($request);
     // public function updateDbOpdPenelitian($request, $id);

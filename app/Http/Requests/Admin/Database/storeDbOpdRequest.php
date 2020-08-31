@@ -25,11 +25,12 @@ class storeDbOpdRequest extends FormRequest
     public function rules()
     {
         return [
-        'judul' => 'required',
-        'tahun'         => 'required',	
-        'opd'         => 'required',
+        'judul'          => 'required',
+        'tahun'          => 'required',	
+        'opd'            => 'required',
         'lokasi'         => 'required',	
-        'abstraksi'         => 'required',	
+        'abstraksi'      => 'required',	
+        // 'berkas'         => 'required|max:5024',
 
         ];
     }

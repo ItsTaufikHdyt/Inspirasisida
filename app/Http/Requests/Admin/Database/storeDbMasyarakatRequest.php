@@ -27,6 +27,7 @@ class storeDbMasyarakatRequest extends FormRequest
         return [
         'judul'      => 'required',
         'nama'      => 'required',	
+        'tahun'      => 'required',	
         'lokasi'     => 'required',	
         'abstraksi'  => 'required',	
 

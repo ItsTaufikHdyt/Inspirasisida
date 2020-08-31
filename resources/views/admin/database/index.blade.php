@@ -38,7 +38,7 @@
 										<div id="perangkatDaerah" class="modal modal-xl  fade" role="dialog">
 											<div class="modal-dialog">
 												<div class="modal-content">
-													<form action="{{url('admin/store-dbopd')}}" method="post">
+													<form action="{{url('admin/store-dbopd')}}" method="post" enctype="multipart/form-data">
 													@csrf
 													<div class="modal-close-area modal-close-df">
 														<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
@@ -88,6 +88,22 @@
 																</select>
 																</td>
 															</tr>
+															<tr>
+																<td>Upload File</td>
+															</tr>
+															<tr>
+																<td>
+																	<div class="file-upload-inner ts-forms">
+																		<div class="input prepend-small-btn">
+																			<div class="file-button">
+																				Browse
+																				<input type="file" name="berkas" required onchange="document.getElementById('prepend-small-btn').value = this.value;">
+																			</div>
+																			<input type="text" name="berkas" id="prepend-small-btn" placeholder="no file selected" required>
+																		</div>
+																	</div>
+																</td>
+															</tr>
 														</table>
 													</div>
 													<div class="modal-footer">
@@ -108,6 +124,7 @@
 							                        <th data-field="opd">Perangkat Daerah</th>
 							                        <th data-field="location">Lokasi Kegiatan</th>
 													<th data-field="abstraksi">Abstraksi/Profil Inovasi</th>
+													<th data-field="file">Berkas</th>
 													<th data-field="category">Kategori</th>
 							                        <th data-field="action">Aksi</th>
 							                    </tr>
@@ -123,7 +140,8 @@
 	                                    			<td>{{$data->tahun}}</td>
 	                                    			<td>{{$data->opd}}</td>
 													<td>{{$data->lokasi}}</td>
-	                                    			<td>{!!$data->abstraksi!!}</td>
+	                                    			<td>{{substr($data->abstraksi, 0, 100)}}...</td>
+													<td><a href="{{url('admin/download-dbopd/'.$data->id)}}" target="_blank"><img src="{{asset('img/icon/pdf.png')}}" width="50" height="100"  alt=""></a></td>
 													<td>
 														@if($data->kategori === 0)
 														<label class="label label-success">Inovasi</label>
@@ -191,6 +209,25 @@
 																			@endif
 																			</select>
 																			</td>
+																		</tr>
+																		<tr>
+																			<td>Upload File</td>
+																		</tr>
+																		<tr>
+																			<td>
+																				<div class="file-upload-inner ts-forms">
+																					<div class="input prepend-small-btn">
+																						<div class="file-button">
+																							Browse
+																							<input type="file" name="berkas" required onchange="document.getElementById('prepend-small-btn2').value = this.value;">
+																						</div>
+																						<input type="text" name="berkas" id="prepend-small-btn2" placeholder="no file selected" required>
+																					</div>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<font style="color:red;"> * Silahkan Upload Ulang Berkas </font>
 																		</tr>
 																	</table>
 																</div>
@@ -268,10 +305,16 @@
 																<td><input type="text" name="judul" class="form-control" placeholder="Judul Inovasi / Penelitian..." required></td>
 															</tr>
 															<tr>
+																<td>Tahun</td>
+															</tr>
+															<tr>
+																<td><input type="text" name="tahun" class="form-control" placeholder="Tahun..." required></td>
+															</tr>
+															<tr>
 																<td>Nama</td>
 															</tr>
 															<tr>
-																<td><input type="text" name="nama" class="form-control" placeholder="Nama Peserta..." required></td>
+																<td><input type="text" name="nama" class="form-control" placeholder="Nama..." required></td>
 															</tr>
 															<tr>
 																<td>Lokasi Kegiatan</td>
@@ -314,9 +357,10 @@
 							                    <tr>
 							                        <th data-field="id">No.</th>
 							                        <th data-field="name">Judul</th>
+													<th data-field="thn">Tahun</th>
 							                        <th data-field="opd">Nama Peserta</th>
 							                        <th data-field="location">Lokasi Kegiatan</th>
-							                        <th data-field="thn">Abstraksi</th>
+							                        <th data-field="abstraksi">Abstraksi</th>
 													<th data-field="category">Kategori</th>
 							                        <th data-field="action">Aksi</th>
 							                    </tr>
@@ -330,9 +374,10 @@
 								                						                    
 	                                    			<td style="width: 5px;">{{$no++}}</td>
 	                                    			<td>{{$data->judul}}</td>
+	                                    			<td>{{$data->tahun}}</td>
 	                                    			<td>{{$data->nama}}</td>
 	                                    			<td>{{$data->lokasi}}</td>
-													<td>{{$data->abstraksi}}</td>
+													<td>{{substr($data->abstraksi, 0, 100)}}...</td>
 	                                    			<td>
 														@if($data->kategori === 0)
 														<label class="label label-success">Inovasi</label>
@@ -358,6 +403,12 @@
 															</tr>
 															<tr>
 																<td><input type="text" name="judul" value="{{$data->judul}}" class="form-control" placeholder="Judul Inovasi / Penelitian..." required></td>
+															</tr>
+															<tr>
+																<td>Tahun</td>
+															</tr>
+															<tr>
+																<td><input type="text" name="tahun" value="{{$data->tahun}}" class="form-control" placeholder="Tahun..." required></td>
 															</tr>
 															<tr>
 																<td>Nama</td>

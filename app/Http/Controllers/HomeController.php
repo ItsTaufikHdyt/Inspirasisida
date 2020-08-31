@@ -37,23 +37,28 @@ class HomeController extends Controller
     }
 
     public function dbMasyarakatInovasi(){
-        $dbmasyarakat = dbmasyarakat::where('kategori',0)->get();
+        $dbmasyarakat = dbmasyarakat::where('kategori',0)->orderBy('tahun','desc')->get();
         return view('database.dbmasyarakatinovasi',compact('dbmasyarakat'));
     }
 
     public function dbMasyarakatPenelitian(){
-        $dbmasyarakat = dbmasyarakat::where('kategori',1)->get();
+        $dbmasyarakat = dbmasyarakat::where('kategori',1)->orderBy('tahun','desc')->get();
         return view('database.dbmasyarakatpenelitian',compact('dbmasyarakat'));
     }
    
     public function dbOpdInovasi(){
-        $dbopd = dbopd::where('kategori',0)->get();
+        $dbopd = dbopd::where('kategori',0)->orderBy('tahun','desc')->get();
         return view('database.dbopdinovasi',compact('dbopd'));
     }
     
     public function dbOpdPenelitian(){
-        $dbopd = dbopd::where('kategori',1)->get();
+        $dbopd = dbopd::where('kategori',1)->orderBy('tahun','desc')->get();
          return view('database.dbopdpenelitian',compact('dbopd'));
+    }
+
+    public function downloadDbOpd($id){
+        $dbopd = dbopd::find($id);
+        return storage::download($dbopd->berkas);
     }
 
     public function panduan(){

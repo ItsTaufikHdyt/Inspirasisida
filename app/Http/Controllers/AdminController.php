@@ -322,6 +322,11 @@ class AdminController extends Controller
         return redirect()->route('admin.database');
     }
 
+    public function downloadDbOpd($id)
+    {
+        $dbopd = $this->databaseRepository->downloadDbOpd($id);
+    }
+
       // ---------------- Database Masyarakat Inovasi ------------------------
     public function storeDbMasyarakat(storeDbMasyarakatRequest $request)
     {

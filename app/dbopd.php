@@ -9,6 +9,6 @@ class dbopd extends Model
     protected $table = 'dbopd';
 
     protected $fillable = [
-        'judul', 'tahun', 'opd', 'lokasi', 'abstraksi', 'kategori'
+        'judul', 'tahun', 'opd', 'lokasi', 'abstraksi', 'kategori', 'berkas'
     ];
 }

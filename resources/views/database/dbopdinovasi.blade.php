@@ -1,7 +1,7 @@
 @extends('homepage::layouts.app')
 
 @section('htmlheader_title')
-eLitbang
+Inpirasi Sida
 @endsection
 
 @section('main-content')
@@ -62,7 +62,13 @@ eLitbang
                                                 <td class="text-left" width="30%"><b>Abstraksi</b></td>
                                                 <td>{!!$data->abstraksi!!}</td>
                                             </tr>
-                                        
+                                            @if(is_null($data->berkas))
+                                            @else
+                                            <tr>
+                                                <td class="text-left" width="30%"><b>Download</b></td>
+                                                <td><a href="{{url('downloadDbOpd/'.$data->id)}}" target="_blank"><img src="{{asset('img/icon/pdf.png')}}" width="200" height="200" alt=""></a></td>
+                                            </tr>
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>
