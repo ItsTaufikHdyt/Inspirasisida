@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @section('htmlheader_title')
-	eLitbang | Register
+Inpirasi Sida | Register
 @endsection
 @include('homepage::layouts.partials.htmlheader')
   <body>

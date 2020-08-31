@@ -268,7 +268,7 @@
 																<td><input type="text" name="judul" class="form-control" placeholder="Judul Inovasi / Penelitian..." required></td>
 															</tr>
 															<tr>
-																<td>Nama Peserta</td>
+																<td>Nama</td>
 															</tr>
 															<tr>
 																<td><input type="text" name="nama" class="form-control" placeholder="Nama Peserta..." required></td>
@@ -280,11 +280,11 @@
 																<td><input type="text" name="lokasi" class="form-control" placeholder="Lokasi Kegiatan..." required></td>
 															</tr>
 															<tr>
-																<td>Kriteria Peserta</td>
+																<td>Abstraksi / Profil Inovasi</td>
 															</tr>
 															<tr>
 																<td>
-																	<input type="text" name="kriteria" class="form-control" placeholder="Kriteria..." required>
+																<textarea  name="abstraksi" class="form-control" cols="60" rows="10" placeholder="Abstraksi..." required></textarea>
 																</td>
 															</tr>
 															<tr>
@@ -316,8 +316,8 @@
 							                        <th data-field="name">Judul</th>
 							                        <th data-field="opd">Nama Peserta</th>
 							                        <th data-field="location">Lokasi Kegiatan</th>
-													<th data-field="abstraksi">Kriteria Peserta</th>
-							                        <th data-field="thn">Kategori</th>
+							                        <th data-field="thn">Abstraksi</th>
+													<th data-field="category">Kategori</th>
 							                        <th data-field="action">Aksi</th>
 							                    </tr>
 							                </thead>
@@ -332,7 +332,7 @@
 	                                    			<td>{{$data->judul}}</td>
 	                                    			<td>{{$data->nama}}</td>
 	                                    			<td>{{$data->lokasi}}</td>
-													<td>{{$data->kriteria}}</td>
+													<td>{{$data->abstraksi}}</td>
 	                                    			<td>
 														@if($data->kategori === 0)
 														<label class="label label-success">Inovasi</label>
@@ -360,7 +360,7 @@
 																<td><input type="text" name="judul" value="{{$data->judul}}" class="form-control" placeholder="Judul Inovasi / Penelitian..." required></td>
 															</tr>
 															<tr>
-																<td>Nama Peserta</td>
+																<td>Nama</td>
 															</tr>
 															<tr>
 																<td><input type="text" name="nama" value="{{$data->nama}}" class="form-control" placeholder="Nama Peserta..." required></td>
@@ -372,11 +372,11 @@
 																<td><input type="text" name="lokasi" value="{{$data->lokasi}}" class="form-control" placeholder="Lokasi Kegiatan..." required></td>
 															</tr>
 															<tr>
-																<td>Kriteria Peserta</td>
+																<td>Abstraksi / Profil Inovasi</td>
 															</tr>
 															<tr>
 																<td>
-																	<input type="text" name="kriteria" value="{{$data->kriteria}}" class="form-control" placeholder="Kriteria..." required>
+																<textarea  name="abstraksi" class="form-control" cols="60" rows="10" placeholder="Abstraksi..." required>{{$data->abstraksi}}</textarea>
 																</td>
 															</tr>
 															<tr>

@@ -60,7 +60,7 @@ protected $dbopd;
         'judul'      => $request->judul,
         'nama'      => $request->nama,
         'lokasi'     => $request->lokasi,
-        'kriteria'  => $request->kriteria,
+        'abstraksi'  => $request->abstraksi,
         'kategori'   => $request->kategori,
         ]);
     }
@@ -71,7 +71,7 @@ protected $dbopd;
         $dbmasyarakat->judul = $request->input('judul');
         $dbmasyarakat->nama = $request->input('nama');
         $dbmasyarakat->lokasi = $request->input('lokasi');
-        $dbmasyarakat->kriteria = $request->input('kriteria');
+        $dbmasyarakat->abstraksi = $request->input('abstraksi');
         $dbmasyarakat->kategori = $request->input('kategori');
         $dbmasyarakat->save();
     }

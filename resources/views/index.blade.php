@@ -79,7 +79,8 @@
               <div class="carousel-caption text-left">
                 <!-- <h3>&nbsp;</h3> -->
                 <h2 class="wow fadeInRight" data-wow-delay="0.2s"><font color="#af6cf7" style="-webkit-text-stroke: 1px white;">Inspirasi Sida</font></h2>
-                <h4 class="wow fadeInRight" data-wow-delay="0.4s"><font color="#ffffff">Badan Perencanaan, Penelitian, dan Pengembangan</font></h4>
+                <h4 class="wow fadeInRight" data-wow-delay="0.4s"><font color="#ffffff">
+                Sistem Informasi Penelitian, Pengembangan dan Kreasi Inovasi daerah</font></h4>
                 
               </div>
             </div>
@@ -124,7 +125,7 @@
             <a href="#" data-toggle="modal" data-target="#dbinovasi">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
                 <div class="icon color-1">
-                <img src="{{asset('img/icon/tech.png')}}" height="188" width="188" alt="">
+                <img src="{{asset('img/icon/dbinovasi.png')}}" height="188" width="188" alt="">
                 </div>
                 <h4>Database Inovasi</h4>
               </div>
@@ -148,7 +149,7 @@
             <a href="#" data-toggle="modal" data-target="#dbpenelitian">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
                 <div class="icon color-1">
-                <img src="{{asset('img/icon/computer.png')}}" height="188" width="188" alt="">
+                <img src="{{asset('img/icon/dbpenelitian.png')}}" height="188" width="188" alt="">
                 </div>
                 <h4>Database Penelitian</h4>
               </div>
@@ -276,8 +277,9 @@
               <h3>Inpirasi Sida</h3>
               <div class="textwidget">
                 <p>Aplikasi berbasis web yang memfasilitasi user 
-                untuk mendapatkan informasi seputar 
-                penelitian dan pengembangan, siPeena, serta database penelitian</p>
+                (Sistem Informasi Penelitian, Pengembangan dan Kreasi Inovasi Daerah) adalah sebuah aplikasi berbasis web untuk pendaftaran Lomba Inovasi dan Penelitian (Si PEENA) bagi Pemerintah Daerah dan masyarakat, 
+                serta untuk mendapatan informasi dan publikasi tentang inovasi dan penelitian yang dilakukan oleh Pemerintah Kota Bontang. 
+                <strong>INSIPIRASI</strong> dapat didefinisikan sebagai ''ide/gagasan", sedangkan <strong>SIDA</strong> dalam bahasa Kutai berarti "kita", sehingga <strong>INSPIRASI SIDA</strong> bermakna "ide atau gagasan kita bersama".</p>
               </div>
               <ul class="footer-social">
                 <li><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>

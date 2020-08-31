@@ -28,7 +28,7 @@ class storeDbMasyarakatRequest extends FormRequest
         'judul'      => 'required',
         'nama'      => 'required',	
         'lokasi'     => 'required',	
-        'kriteria'  => 'required',	
+        'abstraksi'  => 'required',	
 
         ];
     }
