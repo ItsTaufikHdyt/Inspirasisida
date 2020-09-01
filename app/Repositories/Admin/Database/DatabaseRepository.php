@@ -26,8 +26,18 @@ protected $dbopd;
 
     public function storeDbOpd($request)
     {
-        
-        if($request->kategori === '0'){
+        if($request->kategori === '0' && $request->berkas === null){
+        $dbopd = dbopd::create([
+        'judul'      => $request->judul,
+        'tahun'      => $request->tahun,
+        'opd'        => $request->opd,
+        'lokasi'     => $request->lokasi,
+        'abstraksi'  => $request->abstraksi,
+        'kategori'   => $request->kategori,
+        'berkas'     => null
+        ]);
+        }
+        elseif($request->kategori === '0' && $request->berkas != null){
         $nama = str_replace(' ','',$request->file('berkas')->getClientOriginalName());
         $today = Carbon::today()->toDateString();
         $date = str_replace('-','',$today);

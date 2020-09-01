@@ -142,9 +142,9 @@
 													<td>{{$data->lokasi}}</td>
 	                                    			<td>{{substr($data->abstraksi, 0, 100)}}...</td>
 													<td>
-														@if($data->kategori === 0)
+														@if($data->kategori === 0 && $data->berkas != null)
 														<a href="{{url('admin/download-dbopd/'.$data->id)}}" target="_blank"><img src="{{asset('img/icon/pdf.png')}}" width="50" height="100"  alt=""></a></td>
-														@elseif($data->kategori === 1)
+														@else
 														-
 														@endif													
 													<td>
