@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\prosedur;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use DB;
 
 class ProsedurRepository implements ProsedurRepositoryinterface
 {
@@ -46,22 +47,20 @@ protected $prosedur;
 
     public function updateProsedur($request, $id)
     {
-        $cek_prosedur = prosedur::find($id);
-        if(Storage::exists($cek_prosedur->berkas, $cek_prosedur->foto)){
-            Storage::delete($cek_prosedur->berkas);
-            Storage::disk('local')->delete('public/foto_berita/' .$cek_prosedur->foto);
-        }
-        else{
+        $id = $request->id;
+        $update = [   
+            'judul_prosedur' => $request->judul_prosedur,
+            'narasi' => $request->narasi
+        ];
 
-        
-        $nama = str_replace(' ','',$request->file('foto')->getClientOriginalName());
+        $file   = $request->file("berkas");
+            if ($request->hasfile("berkas") or $request->hasfile("berkas")) {
+                $nama = str_replace(' ','',$request->file('foto')->getClientOriginalName());
         $today1 = Carbon::today()->toDateString();
         $date1 = str_replace('-','',$today1);
     
         $ext_foto = $request->file('foto')->getClientOriginalExtension();
         $foto_file = $date1."-".$nama;
-    
-        $path = $request->file('foto')->storeAs('public/foto_berita', $foto_file);
 
         $judul_prosedur = str_replace(' ','-',$request->judul_prosedur);
         $today = Carbon::today()->toDateString();
@@ -70,6 +69,15 @@ protected $prosedur;
         $ext_berkas = $request->file('berkas')->getClientOriginalExtension();
         $berkas_file = $date."-".$judul_prosedur.".". $ext_berkas;
 
+        $update['berkas'] = $request->file('berkas')->storeAs('berkas-prosedur', $berkas_file);
+        $update['foto'] = $request->file('foto')->storeAs('public/foto_berita', $foto_file);
+
+        }
+        DB::table('prosedur')->where('id', $id)->update($update);
+
+        
+        
+
         $prosedur = prosedur::find($id);
         $prosedur->judul_prosedur = $request->input('judul_prosedur');
         $prosedur->narasi = $request->input('narasi');
@@ -77,7 +85,7 @@ protected $prosedur;
         $prosedur->berkas = $request->file('berkas')->storeAs('berkas-prosedur', $berkas_file);
         $prosedur->save();
         
-        }
+        
     }
 
     public function destroyProsedur($id)

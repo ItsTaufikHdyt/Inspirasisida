@@ -38,7 +38,7 @@ class storeFormIndInovasiRequest extends FormRequest
             'izin_sekolah'       =>'required|mimes:jpeg,jpg|max:512',
             'surat_pernyataan'   =>'required|mimes:jpeg,jpg,png|max:512',
             'alamat'             =>'required',
-            // 'proposal'           =>'required|mimes:pdf|max:5024',
+            'proposal'           =>'mimes:pdf|max:5024',
             // 'url_proposal'       =>'required',
             'captcha'            => 'required|captcha'
         ];

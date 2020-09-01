@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\dbmasyarakat;
 use App\dbopd;
 Use Carbon\carbon;
+Use DB;
 
 class DatabaseRepository implements DatabaseRepositoryInterface
 {
@@ -25,6 +26,8 @@ protected $dbopd;
 
     public function storeDbOpd($request)
     {
+        
+        if($request->kategori === '0'){
         $nama = str_replace(' ','',$request->file('berkas')->getClientOriginalName());
         $today = Carbon::today()->toDateString();
         $date = str_replace('-','',$today);
@@ -40,31 +43,43 @@ protected $dbopd;
         'kategori'   => $request->kategori,
         'berkas'     => $request->file('berkas')->storeAs('database-opd', $berkas),
         ]);
+        }
+        else{
+        $dbopd = dbopd::create([
+        'judul'      => $request->judul,
+        'tahun'      => $request->tahun,
+        'opd'        => $request->opd,
+        'lokasi'     => $request->lokasi,
+        'abstraksi'  => $request->abstraksi,
+        'kategori'   => $request->kategori,
+        'berkas'     => null
+        ]);
+        }
     }
 
     public function updateDbOpd($request, $id)
-    {
-        $cek_dbopd = dbopd::find($id);
-        if(Storage::exists($cek_dbopd->berkas)){
-            Storage::delete($cek_dbopd->berkas);
-        }
-        else{
-        $nama = str_replace(' ','',$request->file('berkas')->getClientOriginalName());
-        $today = Carbon::today()->toDateString();
-        $date = str_replace('-','',$today);
+    {       $cek_dbopd = dbopd::find($id);
+            $id = $request->id;
+            $update = [   
+                'judul' => $request->judul,
+                'tahun' => $request->tahun,
+                'opd' => $request->opd,
+                'lokasi' => $request->lokasi,
+                'abstraksi' => $request->abstraksi,
+                'kategori' => $request->kategori
+            ];
 
-        $berkas = $date."-".$nama;
-
-        $dbopd = dbopd::find($id);
-        $dbopd->judul = $request->input('judul');
-        $dbopd->tahun = $request->input('tahun');
-        $dbopd->opd = $request->input('opd');
-        $dbopd->lokasi = $request->input('lokasi');
-        $dbopd->abstraksi = $request->input('abstraksi');
-        $dbopd->kategori = $request->input('kategori');
-        $dbopd->berkas = $request->file('berkas')->storeAs('database-opd', $berkas);
-        $dbopd->save();
-        }
+            $file   = $request->file("berkas");
+            if ($request->hasfile("berkas")) {
+                Storage::delete($cek_dbopd->berkas);
+                $nama = str_replace(' ','',$request->file('berkas')->getClientOriginalName());
+                $today = Carbon::today()->toDateString();
+                $date = str_replace('-','',$today);
+                $berkas = $date."-".$nama;
+                $update['berkas'] = $request->file('berkas')->storeAs('database-opd', $berkas);
+            }
+            DB::table('dbopd')->where('id', $id)->update($update);
+        
     }
 
     public function downloadDbOpd($id)

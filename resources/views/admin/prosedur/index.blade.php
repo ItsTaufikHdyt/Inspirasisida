@@ -153,9 +153,9 @@ Inspirasi Sida | Admin
 																		<div class="input prepend-small-btn">
 																			<div class="file-button">
 																				Browse
-																				<input type="file" name="foto" required onchange="document.getElementById('prepend-small-btn5').value = this.value;">
+																				<input type="file" name="foto" onchange="document.getElementById('prepend-small-btn5').value = this.value;">
 																			</div>
-																			<input type="text" name="file" id="prepend-small-btn5" value="{{$data->foto}}" placeholder="no file selected" required>
+																			<input type="text" name="file" id="prepend-small-btn5" value="{{$data->foto}}" placeholder="no file selected" >
 																		</div>
 																	</div>
 																</td>
@@ -171,7 +171,7 @@ Inspirasi Sida | Admin
 					                                                            Browse
 					                                                            <input type="file" name="berkas" onchange="document.getElementById('prepend-small-btn').value = this.value;">
 					                                                        </div>
-					                                                        <input type="text" name="berkas" id="prepend-small-btn" value="{{$data->berkas}}" required placeholder="no file selected">
+					                                                        <input type="text" name="berkas" id="prepend-small-btn" value="{{$data->berkas}}" placeholder="no file selected">
 					                                                    </div>
 					                                                </div>
 										                        </td>

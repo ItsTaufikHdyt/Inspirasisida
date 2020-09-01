@@ -97,9 +97,9 @@
 																		<div class="input prepend-small-btn">
 																			<div class="file-button">
 																				Browse
-																				<input type="file" name="berkas" required onchange="document.getElementById('prepend-small-btn').value = this.value;">
+																				<input type="file" name="berkas" onchange="document.getElementById('prepend-small-btn').value = this.value;">
 																			</div>
-																			<input type="text" name="berkas" id="prepend-small-btn" placeholder="no file selected" required>
+																			<input type="text" name="berkas" id="prepend-small-btn" placeholder="no file selected">
 																		</div>
 																	</div>
 																</td>
@@ -141,7 +141,12 @@
 	                                    			<td>{{$data->opd}}</td>
 													<td>{{$data->lokasi}}</td>
 	                                    			<td>{{substr($data->abstraksi, 0, 100)}}...</td>
-													<td><a href="{{url('admin/download-dbopd/'.$data->id)}}" target="_blank"><img src="{{asset('img/icon/pdf.png')}}" width="50" height="100"  alt=""></a></td>
+													<td>
+														@if($data->kategori === 0)
+														<a href="{{url('admin/download-dbopd/'.$data->id)}}" target="_blank"><img src="{{asset('img/icon/pdf.png')}}" width="50" height="100"  alt=""></a></td>
+														@elseif($data->kategori === 1)
+														-
+														@endif													
 													<td>
 														@if($data->kategori === 0)
 														<label class="label label-success">Inovasi</label>
@@ -219,15 +224,12 @@
 																					<div class="input prepend-small-btn">
 																						<div class="file-button">
 																							Browse
-																							<input type="file" name="berkas" required onchange="document.getElementById('prepend-small-btn2').value = this.value;">
+																							<input type="file" name="berkas"onchange="document.getElementById('prepend-small-btn2').value = this.value;">
 																						</div>
-																						<input type="text" name="berkas" id="prepend-small-btn2" placeholder="no file selected" required>
+																						<input type="text" name="berkas" id="prepend-small-btn2" value="{{$data->berkas}}" placeholder="no file selected">
 																					</div>
 																				</div>
 																			</td>
-																		</tr>
-																		<tr>
-																			<font style="color:red;"> * Silahkan Upload Ulang Berkas </font>
 																		</tr>
 																	</table>
 																</div>
