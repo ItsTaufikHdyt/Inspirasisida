@@ -27,7 +27,7 @@ class storeProsedurRequest extends FormRequest
         return [
         'judul_prosedur' => 'required',
         'narasi'         => 'required',	
-        'berkas'         => 'mimes:pdf|max:5024'
+        
 
         ];
     }

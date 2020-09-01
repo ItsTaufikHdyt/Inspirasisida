@@ -98,7 +98,6 @@ Inspirasi Sida | Admin
 	                        <th data-field="id">No.</th>
 	                        <th data-field="name">Judul Pengumuman</th>
 	                        <th data-field="narasi">Narasi</th>
-							<th data-field="foto" >Foto</th>
 	                        <th data-field="phone">Tanggal Dibuat</th>
 	                        <th data-field="action">Aksi</th>
 	                    </tr>
@@ -112,7 +111,6 @@ Inspirasi Sida | Admin
 							<td>{{$no++}}</td>
 	                    	<td>{{$data->judul_prosedur}}</td>
 	                    	<td>{{substr($data->narasi, 0, 100)}}...</td>
-							<td><img src="{{url('storage/foto_berita/'.$data->foto)}}" width="300" height="200"></td>
 	                    	<td>{{$data->created_at}}</td>
 	                    	<td>
 	                    				<button type="button" class="btn btn-custon-four btn-primary btn-xs" data-toggle="modal" data-target="#PrimaryModalalert{{$data->id}}"><i class="fa fa-pencil"></i></button>
@@ -176,9 +174,7 @@ Inspirasi Sida | Admin
 					                                                </div>
 										                        </td>
 					                                		</tr>
-															<tr>
-																<font style="color:red;"> * Silahkan Upload Ulang Foto dan Berkas </font>
-															</tr>
+															
 				                                    	</table>
 				                                    </div>
 				                                    <div class="modal-footer">
@@ -212,7 +208,24 @@ Inspirasi Sida | Admin
 				                                </div>
 				                            </div>
 				                        </div>
-	                    			</td>		
+
+										<button type="button" class="btn btn-custon-four btn-warning btn-xs" data-toggle="modal" data-target="#ViewModalalert{{$data->id}}"><i class="fa fa-eye"></i></button>
+	                    				<div id="ViewModalalert{{$data->id}}" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
+				                            <div class="modal-dialog">
+				                                <div class="modal-content">
+													<div class="modal-close-area modal-close-df">
+				                                        <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+				                                    </div>
+				                                    <div class="modal-body">
+				                                        <img src="{{asset('storage/foto_berita/'.$data->foto)}}" alt="">
+				                                    </div>
+				                                    <div class="modal-footer danger-md">
+				                                    </div>
+				                                	</form>
+				                                </div>
+				                            </div>
+				                        </div>
+	                    	</td>		
 	                    </tr>
 	                    @empty
 						<tr><td colspan="6"><center>Data Tidak Ada</center></td></tr>

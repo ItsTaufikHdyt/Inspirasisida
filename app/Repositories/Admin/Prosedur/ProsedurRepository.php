@@ -47,15 +47,22 @@ protected $prosedur;
 
     public function updateProsedur($request, $id)
     {
+
         $id = $request->id;
         $update = [   
             'judul_prosedur' => $request->judul_prosedur,
             'narasi' => $request->narasi
         ];
 
+        $cek_prosedur = prosedur::find($id);
+
         $file   = $request->file("berkas");
-            if ($request->hasfile("berkas") or $request->hasfile("berkas")) {
-                $nama = str_replace(' ','',$request->file('foto')->getClientOriginalName());
+        $foto   = $request->file("foto");
+        if ($request->hasfile("berkas") && $request->hasfile("foto")) {
+        //Update Foto & Berkas
+        Storage::delete($cek_prosedur->berkas);
+        Storage::disk('local')->delete('public/foto_berita/' .$cek_prosedur->foto);
+        $nama = str_replace(' ','',$request->file('foto')->getClientOriginalName());
         $today1 = Carbon::today()->toDateString();
         $date1 = str_replace('-','',$today1);
     
@@ -69,23 +76,42 @@ protected $prosedur;
         $ext_berkas = $request->file('berkas')->getClientOriginalExtension();
         $berkas_file = $date."-".$judul_prosedur.".". $ext_berkas;
 
-        $update['berkas'] = $request->file('berkas')->storeAs('berkas-prosedur', $berkas_file);
-        $update['foto'] = $request->file('foto')->storeAs('public/foto_berita', $foto_file);
+        $path = $request->file('foto')->storeAs('public/foto_berita', $foto_file);
 
+        $update['berkas'] = $request->file('berkas')->storeAs('berkas-prosedur', $berkas_file);
+        $update['foto'] = $foto_file;
+
+        }elseif($request->hasfile("foto") && $request->berkas = $cek_prosedur->berkas){
+        //Update Foto 
+        Storage::disk('local')->delete('public/foto_berita/' .$cek_prosedur->foto);
+
+        $nama = str_replace(' ','',$request->file('foto')->getClientOriginalName());
+        $today1 = Carbon::today()->toDateString();
+        $date1 = str_replace('-','',$today1);
+    
+        $ext_foto = $request->file('foto')->getClientOriginalExtension();
+        $foto_file = $date1."-".$nama;
+
+        $path = $request->file('foto')->storeAs('public/foto_berita', $foto_file);
+
+        $update['foto'] = $foto_file ;
+             
+        }elseif($request->hasfile("berkas") && $request->foto = $cek_prosedur->foto){
+        //Update Berkas
+        Storage::delete($cek_prosedur->berkas);
+
+        $judul_prosedur = str_replace(' ','-',$request->judul_prosedur);
+        $today = Carbon::today()->toDateString();
+        $date = str_replace('-','',$today);
+    
+        $ext_berkas = $request->file('berkas')->getClientOriginalExtension();
+        $berkas_file = $date."-".$judul_prosedur.".". $ext_berkas;
+        
+        $update['berkas'] = $request->file('berkas')->storeAs('berkas-prosedur', $berkas_file);
         }
         DB::table('prosedur')->where('id', $id)->update($update);
 
-        
-        
-
-        $prosedur = prosedur::find($id);
-        $prosedur->judul_prosedur = $request->input('judul_prosedur');
-        $prosedur->narasi = $request->input('narasi');
-        $prosedur->foto = $foto_file;
-        $prosedur->berkas = $request->file('berkas')->storeAs('berkas-prosedur', $berkas_file);
-        $prosedur->save();
-        
-        
+             
     }
 
     public function destroyProsedur($id)
