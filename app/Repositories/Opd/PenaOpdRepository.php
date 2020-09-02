@@ -9,7 +9,7 @@ use Auth;
 use Storage;
 use Carbon\Carbon;
 
-class PenaOpdRepository implements PenaOpdRepositoryinterface
+class PenaOpdRepository implements PenaOpdRepositoryInterface
 {
     protected $penaopd;
 

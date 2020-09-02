@@ -2,14 +2,14 @@
 
 namespace App\Repositories\Admin\Prosedur;
 
-use App\Repositories\Admin\Core\Prosedur\ProsedurRepositoryinterface;
+use App\Repositories\Admin\Core\Prosedur\ProsedurRepositoryInterface;
 use Illuminate\Http\Request;
 use App\prosedur;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use DB;
 
-class ProsedurRepository implements ProsedurRepositoryinterface
+class ProsedurRepository implements ProsedurRepositoryInterface
 {
 
 protected $prosedur;

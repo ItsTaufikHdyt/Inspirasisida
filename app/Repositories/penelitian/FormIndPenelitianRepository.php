@@ -11,7 +11,7 @@ use Auth;
 use Storage;
 use Carbon\Carbon;
 
-class FormIndPenelitianRepository implements FormIndPenelitianRepositoryinterface
+class FormIndPenelitianRepository implements FormIndPenelitianRepositoryInterface
 {
 
     protected $pendaftaran;

@@ -1,7 +1,7 @@
 @extends('homepage::layouts.app')
 
 @section('htmlheader_title')
-	eLitbang
+	Inspirasi Sida
 @endsection
 @section('navbar')
 <ul class="navbar-nav mr-auto w-100 justify-content-end">

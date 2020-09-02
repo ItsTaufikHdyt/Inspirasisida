@@ -11,7 +11,7 @@ use Auth;
 use Storage;
 use Carbon\Carbon;
 
-class FormIndInovasiRepository implements FormIndInovasiRepositoryinterface
+class FormIndInovasiRepository implements FormIndInovasiRepositoryInterface
 {
 
     protected $pendaftaran;

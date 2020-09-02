@@ -11,7 +11,7 @@ use Auth;
 use Storage;
 use Carbon\Carbon;
 
-class FormLmbInovasiRepository implements FormLmbInovasiRepositoryinterface
+class FormLmbInovasiRepository implements FormLmbInovasiRepositoryInterface
 {
 
     protected $lembaga;

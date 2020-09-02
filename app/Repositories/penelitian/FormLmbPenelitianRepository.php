@@ -11,7 +11,7 @@ use Auth;
 use Storage;
 use Carbon\Carbon;
 
-class FormLmbPenelitianRepository implements FormLmbPenelitianRepositoryinterface
+class FormLmbPenelitianRepository implements FormLmbPenelitianRepositoryInterface
 {
 
     protected $lembaga;

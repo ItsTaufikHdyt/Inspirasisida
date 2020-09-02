@@ -2,14 +2,14 @@
 
 namespace App\Repositories\Admin\DataSipeena;
 
-use App\Repositories\Admin\Core\DataSipeena\DataSipeenaRepositoryinterface;
+use App\Repositories\Admin\Core\DataSipeena\DataSipeenaRepositoryInterface;
 use Illuminate\Http\Request;
 
 use App\pendaftaran;
 use App\lembaga;
 use App\penaopd;
 
-class DataSipeenaRepository implements DataSipeenaRepositoryinterface
+class DataSipeenaRepository implements DataSipeenaRepositoryInterface
 {
 
 protected   $pendaftaran;

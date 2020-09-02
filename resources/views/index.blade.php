@@ -125,7 +125,7 @@
             <a href="#" data-toggle="modal" data-target="#dbinovasi">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
                 <div class="icon color-1">
-                <img src="{{asset('img/icon/dbinovasi.png')}}" height="188" width="188" alt="">
+                <img src="{{asset('img/icon/dbinovasi.png')}}" height="200" width="290" alt="">
                 </div>
                 <h4>Database Inovasi</h4>
               </div>
@@ -137,7 +137,7 @@
             <a href="{{route('sipeena')}}">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
                 <div class="icon color-2">
-                  <img src="{{asset('img/logo/peenfin2.png')}}" alt="">
+                  <img src="{{asset('img/logo/peenfin2.png')}}" height="200" alt="">
                 </div>
                 <h4>SiPEENA</h4>
               </div>
@@ -149,7 +149,7 @@
             <a href="#" data-toggle="modal" data-target="#dbpenelitian">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
                 <div class="icon color-1">
-                <img src="{{asset('img/icon/dbpenelitian.png')}}" height="188" width="188" alt="">
+                <img src="{{asset('img/icon/dbpenelitian.png')}}" height="200" width="290" alt="">
                 </div>
                 <h4>Database Penelitian</h4>
               </div>

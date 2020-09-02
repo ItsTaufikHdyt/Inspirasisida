@@ -2,11 +2,11 @@
 
 namespace App\Repositories\Admin\Opd;
 
-use App\Repositories\Admin\Core\Opd\DataOpdRepositoryinterface;
+use App\Repositories\Admin\Core\Opd\DataOpdRepositoryInterface;
 use Illuminate\Http\Request;
 use App\unitkerja;
 
-class DataOpdRepository implements DataOpdRepositoryinterface
+class DataOpdRepository implements DataOpdRepositoryInterface
 {
 
 protected $unitkerja;
