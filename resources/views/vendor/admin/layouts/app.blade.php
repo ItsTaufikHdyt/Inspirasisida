@@ -21,8 +21,9 @@
                 </div>
             </div>
         </div>   
-      
+        
     @include('admin::layouts.partials.footer')
+    @include('sweetalert::alert')
 
 @section('scripts')
     @include('admin::layouts.partials.scripts')

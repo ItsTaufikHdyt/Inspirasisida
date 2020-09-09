@@ -1,5 +1,5 @@
     <script src="{{asset('js/jquery-min.js')}}"></script>
-    <script src="{{asset('js/popper.min.js')}}"></script>
+    <!-- <script src="{{asset('js/popper.min.js')}}"></script> -->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/classie.js')}}"></script>
     <!-- <script src="{{asset('js/color-switcher.js')}}"></script> -->
@@ -19,10 +19,9 @@
     <script src="{{asset('js/contact-form-script.js')}}"></script>   
     <script src="{{asset('js/main.js')}}"></script>
     <script src="{{asset('js/bootstrap-toggle.min.js')}}"></script>
-    <script src="{{asset('particlesjs/particles.min.js')}}"></script>
     
     <script src="{{asset('js/data-table/dataTables.bootstrap4.min.js')}}"></script>
     <script src="{{asset('js/data-table/jquery.dataTables.min.js')}}"></script>
-   
+     
 
 @yield('custom_scripts')

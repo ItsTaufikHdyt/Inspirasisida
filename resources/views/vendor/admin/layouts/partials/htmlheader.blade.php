@@ -77,4 +77,5 @@
     <link rel="stylesheet" href="{{asset('admin/css/tabs.css')}}">
 
     <link rel="stylesheet" href="{{asset('admin/css/bootstrap-toggle.min.css')}}">
+
 </head>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 31, 2020 at 07:01 AM
+-- Generation Time: Sep 02, 2020 at 02:31 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -337,7 +337,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `nama`, `password`, `email`, `email_verified_at`, `email_verification_token`, `level`, `last_login`, `created_at`, `email_verified`, `updated_at`) VALUES
-(174, NULL, 'Admin Bapelitbang', '$2y$10$xTWLhknOQjndAvTb1.taa.tG5y/Aw6ooTj3PNs8v0K98GfHXskFXm', 'bapelitbang@bontangkota.go.id', '2020-08-25 05:57:46', '', 1, '2020-08-30 22:59:43', '2020-08-31 06:59:43', 1, '2020-08-31 06:59:43'),
+(176, NULL, 'Taufik Hidayat', '$2y$10$cqKPGSLssSgM0jJe0.ahW.rlxkaymOrgPf3.mCr6rMhlM9pZx8QSa', 'taufikhdyt2332@gmail.com', '2020-08-31 04:21:45', '', 2, '2020-08-31 04:22:14', '2020-08-31 12:22:14', 1, '2020-08-31 12:22:14'),
+(174, NULL, 'Admin Bapelitbang', '$2y$10$xTWLhknOQjndAvTb1.taa.tG5y/Aw6ooTj3PNs8v0K98GfHXskFXm', 'bapelitbang@bontangkota.go.id', '2020-08-25 05:57:46', '', 1, '2020-09-01 18:08:00', '2020-09-02 02:08:00', 1, '2020-09-02 02:08:00'),
 (175, NULL, 'Admin Kominfo', '$2y$10$H9CEhGfSb9Zwh3OqGm9bGeBqnPANsthHAsJGOoVPs5PwSUN1lpaLe', 'kominfo@bontangkota.go.id', '2020-08-25 05:59:44', '', 1, '2020-08-30 17:50:02', '2020-08-31 01:50:02', 1, '2020-08-31 01:50:02');
 
 --
@@ -424,13 +425,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `dbmasyarakat`
 --
 ALTER TABLE `dbmasyarakat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `dbopd`
 --
 ALTER TABLE `dbopd`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `galeri`
@@ -460,7 +461,7 @@ ALTER TABLE `pena_opd`
 -- AUTO_INCREMENT for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
 -- AUTO_INCREMENT for table `penelitian`
@@ -478,7 +479,7 @@ ALTER TABLE `permohonan`
 -- AUTO_INCREMENT for table `prosedur`
 --
 ALTER TABLE `prosedur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `unitkerja`
@@ -490,7 +491,7 @@ ALTER TABLE `unitkerja`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

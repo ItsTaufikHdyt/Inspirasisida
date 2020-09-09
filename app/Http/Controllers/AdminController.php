@@ -21,6 +21,10 @@ use App\Repositories\Admin\Galeri\GaleriRepository;
 
 use App\Repositories\Admin\User\UserRepository;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
+use App\Exceptions\Handler;
+
 use App\prosedur;
 use App\unitkerja;
 use App\pendaftaran;
@@ -354,7 +358,14 @@ class AdminController extends Controller
 
     public function storeGaleri(storeGaleriRequest $request)
     {
-        $galeri = $this->galeriRepository->storeGaleri($request);
+        
+        try{
+            $galeri = $this->galeriRepository->storeGaleri($request);
+            alert()->success('Galeri','Upload Galeri Berhasil');
+        }catch (Exception $e) {
+            alert()->error('Galeri', $e->getMessage());
+        }
+        
         return redirect()->route('admin.galeri');
     }
 

@@ -1,6 +1,6 @@
-    <!-- jquery
+   <!-- jquery
 		============================================ -->
-        <script src="{{asset('admin/js/vendor/jquery-1.12.4.min.js')}}"></script>
+    <script src="{{asset('admin/js/vendor/jquery-1.12.4.min.js')}}"></script>
     <!-- bootstrap JS
 		============================================ -->
     <script src="{{asset('admin/js/bootstrap.min.js')}}"></script>
@@ -77,4 +77,5 @@
     <script src="{{asset('admin/js/editable/xediable-active.js')}}"></script>
     <script src="{{asset('admin/js/bootstrap-toggle.min.js')}}"></script>
     <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+
 @yield('custom_scripts')

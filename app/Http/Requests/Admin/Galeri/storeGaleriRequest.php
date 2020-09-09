@@ -25,16 +25,17 @@ class storeGaleriRequest extends FormRequest
     public function rules()
     {
         return [
-            'foto'         =>'required',
+            'foto'             =>'required|mimes:jpeg,jpg,png|max:512',
             'kategori'         =>'required',
         ];
     }
 
     public function message()
     {
-      return [
-          
-
-      ];
+        return [
+            'foto.required' => 'Foto Tidak Boleh Kosong!',
+            'foto.mimes' => 'Foto Harus Berekstensi JPEG, JPG, PNG!',
+            
+        ];
     }
 }
