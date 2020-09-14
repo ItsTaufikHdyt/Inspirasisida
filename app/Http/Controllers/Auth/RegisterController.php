@@ -59,12 +59,12 @@ class RegisterController extends Controller
             
         \Mail::to($user->email)->send(new VerificationEmail($user));
 
-        session()->flash('message', 'Silahkan Cek Email Anda');
+        Alert::success('Registrasi Berhasil', 'Silahkan Periksa Email Anda');
 
         return redirect()->back();
 
         }catch(Exception $e){
-            session()->flash('message', 'Silahkan Hubungin Admin');
+            Alert::error('Eror', 'Gagal mengirim Email Verfikasi, Silahkan Hubungin Admin');
             return redirect()->back();
         }
        

@@ -11,6 +11,7 @@ use App\Validation\AuthRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\Auth\loginRequest;
+Use Alert;
 
 class LoginController extends Controller
 {
@@ -104,9 +105,7 @@ class LoginController extends Controller
            }
         }
 
-        session()->flash('message', 'Data Yang Anda Masukkan Salah, Silahkan Periksa Kembali');
-
-        session()->flash('type', 'danger');
+        Alert::error('Error Login', 'Data Yang Anda Masukkan Salah, Silahkan Periksa Kembali');
 
         return redirect()->back();
     }

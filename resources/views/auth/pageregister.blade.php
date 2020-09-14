@@ -5,21 +5,8 @@ Inpirasi Sida | Register
 @endsection
 @include('homepage::layouts.partials.htmlheader')
   <body>
+  @include('sweetalert::alert')
   <!-- Subcribe Section Start -->
-  @if ($errors->any())
-      <div class="alert alert-success">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-      </div>
-@endif
-@if(session()->has('message'))
-      <div class="alert alert-success">
-          <li>{{ session('message') }}</li>
-      </div>
-@endif
     <div class="counters section bg-defult">
       <div class="container">
         <div class="row justify-content-left">
