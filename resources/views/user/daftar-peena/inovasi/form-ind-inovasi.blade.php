@@ -114,15 +114,8 @@ Inspirasi Sida
 			<td width="30%" height="45px" valign="top">
 			<input id="if" name="proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="file" required>
 			<input id="iu" name="url_proposal" class="form-control" placeholder="http://..." style="padding: 3px 3px; border-radius: 15px; display: none;" type="text" >
-			</td> 
-			
+			</td> 			
 		</tr>
-		<!-- <tr>
-			<td width="20%" height="45px" valign="top">&nbsp;</td>
-			<td width="30%" height="45px" valign="top">&nbsp;</td>
-			<td width="20%" height="45px" valign="top">Alamat URL Proposal <small><font color="red">*</font></small></td>
-			<td width="30%" height="45px" valign="top"><input id="iu" name="url_proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="text" required></td>
-		</tr> -->
 		<tr>
 	        <td colspan="4" align="center">
 				<div class="captcha">
