@@ -25,19 +25,19 @@ Inpirasi Sida | Register
                     <div class="col-12 form-line">
                       <div class="form-group">
                         Nama Lengkap
-                        <input type="text" class="form-control" name="nama" style="text-transform: capitalize;" required placeholder=" Nama Lengkap">
+                        <input type="text" class="form-control" name="nama" style="text-transform: capitalize;" required >
                       </div>
                     </div>
                     <div class="col-md-12 form-line">
                       <div class="form-group">
                         Email
-                        <input type="text" class="form-control" name="email" required placeholder=" Email">
+                        <input type="text" class="form-control" name="email" required >
                       </div>
                     </div>
                     <div class="col-md-12 form-line">
                       <div class="form-group">
                         Password
-                        <input id="pwd" type="password" class="form-control" name="password" required placeholder=" Password">
+                        <input id="pwd" type="password" class="form-control" name="password" required >
                         <div id="progressBar">
                           <div id="progress-bar"></div>
                         </div>

@@ -22,6 +22,7 @@ use App\Http\Requests\Opd\penaOpdRequest;
 
 use App\unitkerja;
 use Auth;
+use Alert;
 
 
 
@@ -80,9 +81,16 @@ class SipeenaController extends Controller
 
     public function storeFormIndInovasi(storeFormIndInovasiRequest $request)
     {
+        try{
         $pendaftaran = $this->formIndInovasiRepository->storeIndInovasiForm($request);
-      
+        Alert::success('Inovasi Individu', 'Success');
         return view ('user.daftar-peena.inovasi.form-ind-inovasi');
+        }catch(Throwable $e){
+            report($e);
+        Alert::error('Inovasi Individu', $e);
+        return view ('user.daftar-peena.inovasi.form-ind-inovasi');
+        }
+        
     }
 
     public function formKlpInovasi()

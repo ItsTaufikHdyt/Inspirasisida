@@ -4,6 +4,7 @@
     @include('homepage::layouts.partials.htmlheader')
 @show
     <body>
+    @include('sweetalert::alert')
         @include('homepage::layouts.partials.mainheader')
        
             @yield('main-content')

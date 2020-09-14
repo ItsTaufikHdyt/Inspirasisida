@@ -112,8 +112,8 @@ Inspirasi Sida
 				</label>
 			</td>
 			<td width="30%" height="45px" valign="top">
-			<input id="if" name="proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="file" >
-			<input id="iu" name="url_proposal" class="form-control" placeholder="http://..." style="padding: 3px 3px; border-radius: 15px; display: none;" type="text">
+			<input id="if" name="proposal" class="form-control" style="padding: 3px 3px; border-radius: 15px;" type="file" required>
+			<input id="iu" name="url_proposal" class="form-control" placeholder="http://..." style="padding: 3px 3px; border-radius: 15px; display: none;" type="text" >
 			</td> 
 			
 		</tr>
@@ -150,11 +150,15 @@ document.getElementById('toggle').addEventListener('change', function() {
 	// toge nya disini, sesuaikan aja mana yg mau
   // di tampilin duluan input (file / url)
   if (this.checked == true) {
-    document.getElementById('iu').style.display = 'block'
-    document.getElementById('if').style.display = 'none'
+	document.getElementById('iu').style.display = 'block'
+	document.getElementById('iu').required = true;
+	document.getElementById('if').style.display = 'none'
+	document.getElementById('if').required = false;
   } else {
-    document.getElementById('iu').style.display = 'none'
-    document.getElementById('if').style.display = 'block'
+	document.getElementById('iu').style.display = 'none'
+	document.getElementById('iu').required = false;
+	document.getElementById('if').style.display = 'block'
+	document.getElementById('if').required = true;
   }
 })
 
