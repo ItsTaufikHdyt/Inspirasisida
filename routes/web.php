@@ -10,6 +10,7 @@
 |
 */
 
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('index');
@@ -142,7 +143,24 @@ Route::group(["prefix"=>"sipeena/"], function(){
     Route::get('/profil', 'SipeenaController@profil')->name('profil');
     //--------------- Profil -------------------
 });
-
-
     
 Route::get('/home', 'HomeController@index')->name('home');
+
+//------------------ Clear ------------
+Route::get('/clear', function() {
+
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+ 
+    return "Cleared!";
+ 
+ });
+
+ //------------------ Storage Link ------------
+Route::get('/storagelink', function () {
+    Artisan::call('storage:link');
+
+    return "Success Storage Link!";
+});

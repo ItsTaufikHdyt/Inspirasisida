@@ -362,11 +362,13 @@ class AdminController extends Controller
         try{
             $galeri = $this->galeriRepository->storeGaleri($request);
             alert()->success('Galeri','Upload Galeri Berhasil');
+            return redirect()->route('admin.galeri');
         }catch (Exception $e) {
-            alert()->error('Galeri', $e->getMessage());
+            
+            return 'Eror';
         }
+ 
         
-        return redirect()->route('admin.galeri');
     }
 
     public function destroyGaleri($id)

@@ -1,7 +1,7 @@
  <!-- Go To Top Link -->
- <a href="#" class="back-to-top">
+ <!-- <a href="#" class="back-to-top">
       <i class="lni-arrow-up"></i>
-    </a>
+    </a> -->
 
     <div id="loader">
       <div class="spinner">

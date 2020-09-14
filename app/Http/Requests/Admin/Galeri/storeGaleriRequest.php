@@ -30,7 +30,7 @@ class storeGaleriRequest extends FormRequest
         ];
     }
 
-    public function message()
+    public function messages()
     {
         return [
             'foto.required' => 'Foto Tidak Boleh Kosong!',

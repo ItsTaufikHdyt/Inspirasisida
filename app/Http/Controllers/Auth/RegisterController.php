@@ -44,6 +44,7 @@ class RegisterController extends Controller
 
     public function HandleRegister(registerRequest $request)
     {
+        
         $this->inputDataSanitization($request->all());
 
         $user = User::create([
@@ -53,12 +54,21 @@ class RegisterController extends Controller
             'level' => 2,
             'email_verification_token' => Str::random(32)
         ]);
+
+        try{
             
         \Mail::to($user->email)->send(new VerificationEmail($user));
 
         session()->flash('message', 'Silahkan Cek Email Anda');
-       
+
         return redirect()->back();
+
+        }catch(Exception $e){
+            session()->flash('message', 'Silahkan Hubungin Admin');
+            return redirect()->back();
+        }
+       
+
 
     }
 }
