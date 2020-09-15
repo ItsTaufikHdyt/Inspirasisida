@@ -26,21 +26,35 @@ class penaOpdRequest extends FormRequest
     {
         return [
             'nama'               =>'required',
-            'captcha'            => 'required|captcha',
+            'tgjawab'              =>'required',
+            'nip'                =>'required',
+            'jabatan'            =>'required',
             'email'              =>'required|email:rfc,dns',
             'telp'               =>'required',
-            'surat_pernyataan'   =>'required|mimes:jpeg,jpg,png|max:512',
+            'surat_pernyataan'   =>'required|mimes:jpeg,jpg,png|max:5024',
             'alamat'             =>'required',
             'proposal'           =>'required|mimes:pdf|max:5024',
-            'url_proposal'       =>'required'
+            'url_proposal'       =>'required',
+            'captcha'            => 'required|captcha'
         ];
     }
 
-    public function message()
+    public function messages()
     {
       return [
-          
-
+          'nama.required'   => 'Nama Tidak Boleh Kosong!',
+          'tgjawab.required'    => 'Nama Penanggung Jawab Tidak Boleh Kosong!',
+          'nip.required'  => 'NIP Tidak Boleh Kosong!',
+          'jabatan.required' => 'Jabatan Tidak Boleh Kosong',
+          'email.required' => 'Email Tidak Boleh Kosong',
+          'tlp.required' => 'Nomer Telepon Tidak Boleh Kosong',
+          'surat_pernyataan.required' => 'Surat Pernyataan Tidak Boleh Kosong',
+          'surat_pernyataan.mimes' => 'Surat Pernyataan Harus Berekstensi JPEG, JPG, PNG',
+          'surat_pernyataan.max' => 'Size File Surat Pernyataan Maksimal 5 Mb',
+          'alamat.required' => 'Alamat Tidak Boleh Kosong',
+          'proposal.mimes' => 'Proposal Harus Berekstensi PDF',
+          'proposa.max' => 'Size File Proposal Maksimal 5 Mb',
+          'captcha.required' => 'Captcha Tidak Boleh Kosong'
       ];
     }
 }

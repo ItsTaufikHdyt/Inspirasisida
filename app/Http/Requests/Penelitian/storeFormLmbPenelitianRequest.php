@@ -28,9 +28,9 @@ class storeFormLmbPenelitianRequest extends FormRequest
             'nama_lembaga'       =>'required',
             'nama'               =>'required',
             'email'              =>'required|email:rfc,dns',
-            'ktp'                =>'required|mimes:jpeg,jpg|max:512',
+            'ktp'                =>'required|mimes:jpeg,jpg|max:5024',
             'telp'               =>'required',
-            'surat_pernyataan'   =>'required|mimes:jpeg,jpg,png|max:512',
+            'surat_pernyataan'   =>'required|mimes:jpeg,jpg,png|max:55024',
             'alamat'             =>'required',
             'proposal'           =>'required|mimes:pdf|max:5024',
             'url_proposal'       =>'required',
@@ -38,14 +38,22 @@ class storeFormLmbPenelitianRequest extends FormRequest
         ];
     }
 
-    public function message()
+    public function messages()
     {
       return [
           'nama.required'   => 'Nama Tidak Boleh Kosong!',
-          'ttl.required'    => 'Tempat Tanggal Lahir Tidak Boleh Kosong!',
-          'agama.required'  => 'Agama Tidak Boleh Kosong!',
-          
-
+          'nama_lembaga.required'   => 'Nama Lembaga Tidak Boleh Kosong!',
+          'email.required' => 'Email Tidak Boleh Kosong',
+          'ktp.required' => 'KTP Tidak Boleh Kosong',
+          'ktp.mimes' => 'KTP Harus Berekstensi JPEG, JPG',
+          'ktp.max' => 'Size File KTP Maksimal 5 Mb ',
+          'surat_pernyataan.required' => 'Surat Pernyataan Tidak Boleh Kosong',
+          'surat_pernyataan.mimes' => 'Surat Pernyataan Harus Berekstensi JPEG, JPG, PNG',
+          'surat_pernyataan.max' => 'Size File Surat Pernyataan Maksimal 5 Mb',
+          'alamat.required' => 'Alamat Tidak Boleh Kosong',
+          'proposal.mimes' => 'Proposal Harus Berekstensi PDF',
+          'proposa.max' => 'Size File Proposal Maksimal 5 Mb',
+          'captcha.required' => 'Captcha Tidak Boleh Kosong'
       ];
     }
 }

@@ -39,7 +39,6 @@ class storeFormIndInovasiRequest extends FormRequest
             'surat_pernyataan'   =>'required|mimes:jpeg,jpg,png|max:5024',
             'alamat'             =>'required',
             'proposal'           =>'mimes:pdf|max:5024',
-            // 'url_proposal'       =>'required',
             'captcha'            => 'required|captcha'
         ];
     }
@@ -68,9 +67,6 @@ class storeFormIndInovasiRequest extends FormRequest
           'proposal.mimes' => 'Proposal Harus Berekstensi PDF',
           'proposa.max' => 'Size File Proposal Maksimal 5 Mb',
           'captcha.required' => 'Captcha Tidak Boleh Kosong'
-
-
-
       ];
     }
 }
