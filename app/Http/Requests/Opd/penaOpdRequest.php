@@ -31,10 +31,9 @@ class penaOpdRequest extends FormRequest
             'jabatan'            =>'required',
             'email'              =>'required|email:rfc,dns',
             'telp'               =>'required',
-            'surat_pernyataan'   =>'required|mimes:jpeg,jpg,png|max:5024',
+            'surat_pernyataan'   =>'required|mimes:jpeg,jpg,png,pdf|max:5024',
             'alamat'             =>'required',
-            'proposal'           =>'required|mimes:pdf|max:5024',
-            'url_proposal'       =>'required',
+            'proposal'           =>'mimes:pdf|max:5024',
             'captcha'            => 'required|captcha'
         ];
     }
@@ -49,7 +48,7 @@ class penaOpdRequest extends FormRequest
           'email.required' => 'Email Tidak Boleh Kosong',
           'tlp.required' => 'Nomer Telepon Tidak Boleh Kosong',
           'surat_pernyataan.required' => 'Surat Pernyataan Tidak Boleh Kosong',
-          'surat_pernyataan.mimes' => 'Surat Pernyataan Harus Berekstensi JPEG, JPG, PNG',
+          'surat_pernyataan.mimes' => 'Surat Pernyataan Harus Berekstensi JPEG, JPG, PNG, PDF',
           'surat_pernyataan.max' => 'Size File Surat Pernyataan Maksimal 5 Mb',
           'alamat.required' => 'Alamat Tidak Boleh Kosong',
           'proposal.mimes' => 'Proposal Harus Berekstensi PDF',

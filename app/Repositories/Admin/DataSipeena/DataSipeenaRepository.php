@@ -45,12 +45,6 @@ protected   $penaopd;
         $opd->delete();
     }
 
-    // public function updateOpd($request, $id)
-    // {
-    //     $unitkerja = unitkerja::find($id);
-    //     $unitkerja->nama_uk = $request->input('nama_uk');
-    //     $unitkerja->save();
-    // }
 
     
 }

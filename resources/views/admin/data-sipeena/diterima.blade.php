@@ -58,7 +58,13 @@ Inspirasi Sida | Admin
 	                                    			<td>{{$data->nama}}</td>
 	                                    			<td>{{$data->email}}</td>
 	                                    			<td>{{$data->ttl}}</td>
-	                                    			<td>{{$data->kategori_peena}}</td>
+	                                    			<td>
+													@if($data->kategori_peena === 0)
+														<span class="label label-success">Inovasi</span>	
+													@else
+													<span class="label label-warning">Penelitian</span>
+													@endif
+													</td>
 	                                    			<td><a href="{{url('admin/acc-pendaftaran/'.$data->id)}}" target="_blank">
 	                                    				<button class="btn btn-custon-four btn-warning btn-xs">
 												        <i class="fa fa-eye"></i>
@@ -129,7 +135,13 @@ Inspirasi Sida | Admin
 	                                    			<td>{{$data->nama}}</td>
 	                                    			<td>{{$data->email}}</td>
 	                                    			<td>{{$data->ttl}}</td>
-	                                    			<td>{{$data->kategori_peena}}</td>
+	                                    			<td>
+													@if($data->kategori_peena === 0)
+														<span class="label label-success">Inovasi</span>	
+													@else
+													<span class="label label-warning">Penelitian</span>
+													@endif
+													</td>
 	                                    			<td><a href="{{url('admin/acc-pendaftaran/'.$data->id)}}" target="_blank">
 	                                    				<button class="btn btn-custon-four btn-warning btn-xs">
 												        <i class="fa fa-eye"></i>
@@ -200,7 +212,13 @@ Inspirasi Sida | Admin
 	                                    			<td>{{$data->nama}}</td>
 	                                    			<td>{{$data->nama_lembaga}}</td>
 	                                    			<td>{{$data->email}}</td>
-	                                    			<td>{{$data->kategori_peena}}</td>
+	                                    			<td>
+													@if($data->kategori_peena === 0)
+														<span class="label label-success">Inovasi</span>	
+													@else
+													<span class="label label-warning">Penelitian</span>
+													@endif
+													</td>
 	                                    			<td><a href="{{url('admin/acc-lembaga/'.$data->id)}}" target="_blank">
 	                                    				<button class="btn btn-custon-four btn-warning btn-xs">
 												        <i class="fa fa-eye"></i>

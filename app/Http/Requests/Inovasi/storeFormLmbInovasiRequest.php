@@ -32,8 +32,7 @@ class storeFormLmbInovasiRequest extends FormRequest
             'telp'               =>'required',
             'surat_pernyataan'   =>'required|mimes:jpeg,jpg,png|max:55024',
             'alamat'             =>'required',
-            'proposal'           =>'required|mimes:pdf|max:5024',
-            'url_proposal'       =>'required',
+            'proposal'           =>'mimes:pdf|max:5024',
             'captcha'            => 'required|captcha'
         ];
     }

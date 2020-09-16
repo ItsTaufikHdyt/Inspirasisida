@@ -23,6 +23,7 @@ class FormLmbPenelitianRepository implements FormLmbPenelitianRepositoryInterfac
 
     public function storeLmbPenelitianForm($request)
     {
+        if($request->has('proposal')){
             $nama = str_replace(' ','-',$request->nama);
             $today = Carbon::today()->toDateString();
             $date = str_replace('-','',$today);
@@ -46,11 +47,36 @@ class FormLmbPenelitianRepository implements FormLmbPenelitianRepositoryInterfac
             'surat_pernyataan'   =>$request->file('surat_pernyataan')->storeAs('surat-pernyataan', $surat_pernyataan_file),
             'alamat'             =>$request->alamat,
             'proposal'           =>$request->file('proposal')->storeAs('proposal', $proposal_file),
+            'url_proposal'       =>null,
+            'verifikasi'         => 0,
+            'kategori_peena'     => 1
+            ]);
+           }
+           if($request->has('url_proposal')){
+            $nama = str_replace(' ','-',$request->nama);
+            $today = Carbon::today()->toDateString();
+            $date = str_replace('-','',$today);
+            //ktp
+            $ext_ktp = $request->file('ktp')->getClientOriginalExtension();
+            $ktp_file = $date."-".$nama."-ktp"."".".". $ext_ktp;
+            //Surat Pernyataan
+            $ext_surat_pernyataan = $request->file('surat_pernyataan')->getClientOriginalExtension();
+            $surat_pernyataan_file = $date."-".$nama."-surat-pernyataan"."".".". $ext_surat_pernyataan;
+
+           $lembaga = lembaga::create([
+            'nama'               =>$request->nama,
+            'nama_lembaga'       =>$request->nama_lembaga,
+            'email'              =>$request->email,
+            'ktp'                =>$request->file('ktp')->storeAs('ktp', $ktp_file),
+            'telp'               =>$request->telp,
+            'surat_pernyataan'   =>$request->file('surat_pernyataan')->storeAs('surat-pernyataan', $surat_pernyataan_file),
+            'alamat'             =>$request->alamat,
+            'proposal'           =>null,
             'url_proposal'       =>$request->url_proposal,
             'verifikasi'         => 0,
-            'kelompok'           => 1,
-            'kategori_peena'      =>'penelitian'
-            ]);
+            'kategori_peena'     => 1
+           ]);
+           }
     }
 
 }
