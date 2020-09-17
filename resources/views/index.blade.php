@@ -78,10 +78,10 @@
               <img src="{{asset('img/slider/bg-11.jpg')}}" width="100%">
               <div class="carousel-caption text-left">
                 <!-- <h3>&nbsp;</h3> -->
-                <h2 class="wow fadeInRight" data-wow-delay="0.2s"><font color="#af6cf7" style="-webkit-text-stroke: 1px white;">Inspirasi Sida</font></h2>
+                <!-- <h2 class="wow fadeInRight" data-wow-delay="0.2s"><font color="#af6cf7" style="-webkit-text-stroke: 1px white;">Inspirasi Sida</font></h2> -->
+                <h2><img class="wow fadeInRight" data-wow-delay="0.2s" src="{{asset('img/logo/sida.png')}}" width="350" height="120"></h2>
                 <h4 class="wow fadeInRight" data-wow-delay="0.4s"><font color="#ffffff">
-                Sistem Informasi Penelitian, Pengembangan dan Kreasi Inovasi daerah</font></h4>
-                
+                Sistem Informasi Penelitian, Pengembangan dan Kreasi Inovasi daerah</font></h4>                
               </div>
             </div>
             <div class="carousel-item">
