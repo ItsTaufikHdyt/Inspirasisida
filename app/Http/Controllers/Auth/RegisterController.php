@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Auth\registerRequest;
+use Alert;
 
 
 class RegisterController extends Controller
@@ -47,6 +48,7 @@ class RegisterController extends Controller
         
         $this->inputDataSanitization($request->all());
 
+        try {
         $user = User::create([
             'nama' => trim($request->input('nama')),
             'email' => strtolower($request->input('email')),
@@ -54,19 +56,22 @@ class RegisterController extends Controller
             'level' => 2,
             'email_verification_token' => Str::random(32)
         ]);
-
-        try{
-            
-        \Mail::to($user->email)->send(new VerificationEmail($user));
-
-        Alert::success('Registrasi Berhasil', 'Silahkan Periksa Email Anda');
-
-        return redirect()->back();
-
-        }catch(Exception $e){
-            Alert::error('Eror', 'Gagal mengirim Email Verfikasi, Silahkan Hubungin Admin');
-            return redirect()->back();
+        }catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
         }
+
+
+        // try{
+            
+        // \Mail::to($user->email)->send(new VerificationEmail($user));
+
+        // Alert::success('Registrasi Berhasil', 'Silahkan Periksa Email Anda');
+
+        // return redirect()->back();
+
+        // }catch(Exception $e){
+        //     dd($e);
+        // }
        
 
 

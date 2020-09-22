@@ -25,8 +25,18 @@ class loginRequest extends FormRequest
     {
         return [
             'email' => 'required',
-            'captcha' => 'required|captcha',
-            'password' => 'required'
+            'password' => 'required',
+            'captcha' => 'required|captcha'
         ];
+    }
+
+    public function messages()
+    {
+      return [
+          'email.required' => 'Email Tidak Boleh Kosong',
+          'password.required' => 'Password Tidak Boleh Kosong',
+          'captcha.required' => 'Captcha Tidak Boleh Kosong',
+          'captcha.captcha' => 'Captcha Salah'
+      ];
     }
 }

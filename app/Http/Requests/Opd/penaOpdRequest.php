@@ -53,7 +53,8 @@ class penaOpdRequest extends FormRequest
           'alamat.required' => 'Alamat Tidak Boleh Kosong',
           'proposal.mimes' => 'Proposal Harus Berekstensi PDF',
           'proposa.max' => 'Size File Proposal Maksimal 5 Mb',
-          'captcha.required' => 'Captcha Tidak Boleh Kosong'
+          'captcha.required' => 'Captcha Tidak Boleh Kosong',
+          'captcha.captcha' => 'Captcha Salah'
       ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\User;
 
 class registerRequest extends FormRequest
 {
@@ -25,9 +26,21 @@ class registerRequest extends FormRequest
     {
         return [
            'nama' => 'required',
-           'email' => 'required',
+           'email' => 'required|unique:users,email',
            'password' => 'required|min:6',
            'captcha' => 'required|captcha'
         ];
+    }
+
+    public function messages()
+    {
+      return [
+          'nama.required'   => 'Nama Tidak Boleh Kosong!',
+          'email.required' => 'Email Tidak Boleh Kosong',
+          'email.unique' => 'Email Sudah Teregistrasi, Silahkan Gunakan Email Lain',
+          'password.required' => 'Password Tidak Boleh Kosong',
+          'captcha.required' => 'Captcha Tidak Boleh Kosong',
+          'captcha.captcha' => 'Captcha Salah'
+      ];
     }
 }
