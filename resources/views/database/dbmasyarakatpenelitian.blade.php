@@ -3,7 +3,13 @@
 @section('htmlheader_title')
 Inpirasi Sida
 @endsection
-
+@section('navbar')
+<ul class="navbar-nav mr-auto w-100 justify-content-end">
+    <li class="nav-item">
+        <a class="nav-link page-scroll" href="{{route('index')}}">Home</a>
+    </li>
+</ul>
+@endsection
 @section('main-content')
 <div class="col col-lg-12 col-md-12 bg-home">
     <section id="features" class="section ">

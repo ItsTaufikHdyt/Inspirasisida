@@ -9,13 +9,13 @@ Inpirasi Sida | Register
   <!-- Subcribe Section Start -->
     <div class="counters section bg-defult">
     
+      <!--- Alert Modal -->
       @if ($errors->any())      
-      <!--- Pop up Poster -->
-    <div class="modal fade" id="poster" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="alert-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header" style="background-color: #f65656;">
-          <font class="modal-title" id="exampleModalLongTitle" style="color: #ffffff; font-size: 30px;">Oops, Error Register</font>
+          <font class="modal-title" id="exampleModalLongTitle" style="color: #ffffff; font-size: 30px; font-family: Arial Black;">Oops, Error Register</font>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -26,15 +26,15 @@ Inpirasi Sida | Register
           </center>
             <ul>
               @foreach ($errors->all() as $error)
-                  <li><font style="font-size: 25px;">{{ $error }}</font></li>
+                  <li><font style="font-size: 18px;font-family: Comic Sans MS;">{{ $error }}</font></li>
               @endforeach
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <!--- End up Poster -->
     @endif
+    <!--- End Alert Modal -->
 
     
       
@@ -102,7 +102,7 @@ Inpirasi Sida | Register
     <!-- Subcribe Section End -->
     @include('homepage::layouts.partials.scripts')
     <script type="text/javascript">
-     $('#poster').modal('show');
+     $('#alert-modal').modal('show');
         $('#refresh').click(function(){
           $.ajax({
             type:'GET',

@@ -1,6 +1,7 @@
    <!-- jquery
 		============================================ -->
-    <script src="{{asset('admin/js/vendor/jquery-1.12.4.min.js')}}"></script>
+    <script src="{{asset('admin/js/jquery-min.js')}}"></script>
+    <!-- <script src="{{asset('admin/js/vendor/jquery-1.12.4.min.js')}}"></script> -->
     <!-- bootstrap JS
 		============================================ -->
     <script src="{{asset('admin/js/bootstrap.min.js')}}"></script>

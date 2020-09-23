@@ -7,6 +7,33 @@
   <body>
   @include('sweetalert::alert')
   <div class="counters section bg-defult">
+  <!--- Alert Modal -->
+  @if ($errors->any())      
+    <div class="modal fade" id="alert-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #f65656;">
+          <font class="modal-title" id="exampleModalLongTitle" style="color: #ffffff; font-size: 30px; font-family: Arial Black;">Oops, Error Register</font>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <center>
+            <img src="{{asset('img/icon/danger-alert.svg')}}" width="200" height="200">
+          </center>
+            <ul>
+              @foreach ($errors->all() as $error)
+                  <li><font style="font-size: 18px;font-family: Comic Sans MS;">{{ $error }}</font></li>
+              @endforeach
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    @endif
+    <!--- End Alert Modal -->
+
       <div class="container">
         <div class="row justify-content-left">
           <div class="col-lg-5 col-md-12 col-xs-12">
@@ -60,6 +87,7 @@
     <!-- Subcribe Section End -->
     @include('homepage::layouts.partials.scripts')
     <script type="text/javascript">
+    $('#alert-modal').modal('show');
         $('#refresh').click(function(){
           $.ajax({
             type:'GET',
