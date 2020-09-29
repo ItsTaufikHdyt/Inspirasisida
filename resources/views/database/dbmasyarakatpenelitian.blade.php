@@ -78,7 +78,6 @@ Inpirasi Sida
                     </td>
                     <td>{{$data->tahun}}</td>
                     <td>{{$data->nama}}</td>
-                    <td>{{$data->kriteria}}</td>
                 </tr>
                 @empty
                 <tr>
