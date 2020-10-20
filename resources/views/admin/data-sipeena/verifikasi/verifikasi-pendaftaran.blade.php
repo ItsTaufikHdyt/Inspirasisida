@@ -126,8 +126,8 @@ Inspirasi Sida | Admin
                             <div class="review-content-section">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="content-profile">
- 
+                                    <img src="{{ url('storage/app/'.$pendaftaran->ktp) }}"> 
+                                         <!-- <img src="<?php echo asset("storage/app/$pendaftaran->ktp")?>"></img> -->
                                         </div>
                                     </div>
                                 </div>

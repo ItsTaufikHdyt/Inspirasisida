@@ -25,6 +25,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 use App\Exceptions\Handler;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\VerifikasiSipeenaUmum;
+
 use App\prosedur;
 use App\unitkerja;
 use App\pendaftaran;
@@ -64,8 +67,8 @@ class AdminController extends Controller
 
 
     public function index()
-    {   $inovasi = pendaftaran::where('kategori_peena','=', 'inovasi')->count();
-        $penelitian = pendaftaran::where('kategori_peena','=','penelitian')->count();
+    {   $inovasi = pendaftaran::where('kategori_peena','=',0)->count();
+        $penelitian = pendaftaran::where('kategori_peena','=',1)->count();
         $penaopd = penaopd::count();
         return view ('admin.index',['inovasi' => $inovasi,'penelitian' => $penelitian, 'penaopd' => $penaopd]);
     }
@@ -108,6 +111,10 @@ class AdminController extends Controller
         $pendaftaran->verifikasi = $request->kdverif;
         $pendaftaran->ket = $request->komen;
         $pendaftaran->save();
+
+        Mail::to($pendaftaran->email)->send(new VerifikasiSipeenaUmum($pendaftaran));
+
+        Alert::success('Verifikasi', 'Success');
         return redirect()->route('admin.verifikasi');
     }
 

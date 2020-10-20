@@ -164,3 +164,15 @@ Route::get('/storagelink', function () {
 
     return "Success Storage Link!";
 });
+Route::get('/ktplink', function () {
+    // $target = storage_path('app\ktp');
+    // $link = public_path('ktp');
+    // symlink($target, $link);
+
+$targetFolder = $_SERVER['DOCUMENT_ROOT'].'/storage/app/ktp';
+$linkFolder = $_SERVER['DOCUMENT_ROOT'].'/public/ktp';
+symlink($targetFolder,$linkFolder);
+echo 'Symlink process successfully completed';
+
+    return "Success Storage Link!";
+});
