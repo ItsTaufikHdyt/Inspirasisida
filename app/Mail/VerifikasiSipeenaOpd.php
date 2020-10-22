@@ -11,14 +11,11 @@ class VerifikasiSipeenaOpd extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $opd;
+
+    public function __construct($opd)
     {
-        //
+        $this->opd = $opd;
     }
 
     /**
