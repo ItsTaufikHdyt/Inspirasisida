@@ -46,7 +46,7 @@ Inspirasi Sida | Admin
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="address-hr">
                             <p align="center"><b>Link Proposal</b><br />
-                                <a href="{{url('#')}}">Berkas Proposal</a>
+                                <a href="{{$pendaftaran->url_proposal}}">Berkas Proposal</a>
                             </p>
                         </div>
                     </div>
@@ -112,21 +112,23 @@ Inspirasi Sida | Admin
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
             <ul id="myTabedu1" class="tab-review-design">
-                <li class="active"><a href="#description">KTP</a></li>
+                <li class="active"><a href="#ktp">KTP</a></li>
                 <li><a href="#pernyataan">Surat Pernyataan</a></li>
-                <li><a href="#reviews">Izin Ortu</a></li>
+                <li><a href="#izinortu">Izin Ortu</a></li>
                 <li><a href="#izinsekolah">Izin Sekolah</a></li>
                 <li><a href="#proposal">Proposal</a></li>
             </ul>
             <div id="myTabContent" class="tab-content custom-product-edit st-prf-pro">
-                <div class="product-tab-list tab-pane fade active in" id="description">
+                <div class="product-tab-list tab-pane fade active in" id="ktp">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="review-content-section">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="content-profile">
- 
+                                            <a href="{{url('admin/downloadKtpPendaftaran/'.$pendaftaran->id)}}">
+                                                <img src="{{asset('img/icon/ktp.svg')}}" width="450" height="450" alt="">
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +136,74 @@ Inspirasi Sida | Admin
                         </div>
                     </div>
                 </div>
-                
+                <div class="product-tab-list tab-pane fade" id="pernyataan">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="review-content-section">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="content-profile">
+                                            <a href="{{url('admin/downloadSuratPernyataanPendaftaran/'.$pendaftaran->id)}}">
+                                                <img src="{{asset('img/icon/file_suratpernyataan.svg')}}" width="450" height="450" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-tab-list tab-pane fade" id="izinortu">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="review-content-section">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="content-profile">
+                                            <a href="{{url('admin/downloadIzinOrtuPendaftaran/'.$pendaftaran->id)}}">
+                                                <img src="{{asset('img/icon/file_izinortu.svg')}}" width="450" height="450" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-tab-list tab-pane fade" id="izinsekolah">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="review-content-section">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="content-profile">
+                                            <a href="{{url('admin/downloadIzinSekolahPendaftaran/'.$pendaftaran->id)}}">
+                                                <img src="{{asset('img/icon/file_izinsekolah.svg')}}" width="450" height="450" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-tab-list tab-pane fade" id="proposal">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="review-content-section">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="content-profile">
+                                            <a href="{{url('admin/downloadProposalPendaftaran/'.$pendaftaran->id)}}">
+                                                <img src="{{asset('img/icon/proposal.svg')}}" width="450" height="450" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

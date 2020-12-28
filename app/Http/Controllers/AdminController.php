@@ -37,6 +37,7 @@ use App\dbopd;
 use App\dbmasyarakat;
 Use App\galeri;
 Use App\user;
+Use Storage;
 
 class AdminController extends Controller
 {
@@ -74,6 +75,33 @@ class AdminController extends Controller
     }
 
     // ---------------- Data SiPeena ------------------------
+    
+    // ---------------- Download Pendaftaran ------------------------
+    public function downloadKtpPendaftaran($id){
+        $pendaftaran = pendaftaran::find($id);
+        return Storage::download($pendaftaran->ktp);
+    }
+
+    public function downloadSuratPernyataanPendaftaran($id){
+        $pendaftaran = pendaftaran::find($id);
+        return Storage::download($pendaftaran->surat_pernyataan);
+    }
+
+    public function downloadIzinOrtuPendaftaran($id){
+        $pendaftaran = pendaftaran::find($id);
+        return Storage::download($pendaftaran->izin_ortu);
+    }
+
+    public function downloadIzinSekolahPendaftaran($id){
+        $pendaftaran = pendaftaran::find($id);
+        return Storage::download($pendaftaran->izin_sekolah);
+    }
+
+    public function downloadProposalPendaftaran($id){
+        $pendaftaran = pendaftaran::find($id);
+        return Storage::download($pendaftaran->proposal);
+    }
+
     public function verifikasi()
     {   
         $perorangan = pendaftaran::where('kelompok','=', 0)
@@ -138,6 +166,7 @@ class AdminController extends Controller
     //-------------------- ACC -------------------
     public function accPendaftaran($id)
     { 
+
         $pendaftaran = pendaftaran::find($id);
         return view ('admin.data-sipeena.verifikasi.acc-pendaftaran',compact('pendaftaran'));
     }

@@ -39,6 +39,12 @@ Route::get('register/refreshcaptcha', 'Auth\RegisterController@refreshCaptcha');
 //--------------- Admin -------------------
 Route::group(['middleware' => 'cekstatus',"prefix"=>"admin/"], function(){
     Route::get('dashboard', 'AdminController@index')->name('admin.dashboard');
+//---------------- Download Data Pendaftaran-------------------
+Route::get('downloadKtpPendaftaran/{id}', 'AdminController@downloadKtpPendaftaran')->name('admin.downloadKtpPendaftaran');
+Route::get('downloadSuratPernyataanPendaftaran/{id}', 'AdminController@downloadSuratPernyataanPendaftaran')->name('admin.downloadSuratPernyataanPendaftaran');
+Route::get('downloadIzinOrtuPendaftaran/{id}', 'AdminController@downloadIzinOrtuPendaftaran')->name('admin.downloadIzinOrtuPendaftaran');
+Route::get('downloadIzinSekolahPendaftaran/{id}', 'AdminController@downloadIzinSekolahPendaftaran')->name('admin.downloadIzinSekolahPendaftaran');
+Route::get('downloadProposalPendaftaran/{id}', 'AdminController@downloadProposalPendaftaran')->name('admin.downloadProposalPendaftaran');
 //--------------- Data SiPeena ---------------------
     Route::get('verifikasi', 'AdminController@verifikasi')->name('admin.verifikasi');
     Route::get('diterima', 'AdminController@diterima')->name('admin.diterima');

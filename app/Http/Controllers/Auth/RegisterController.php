@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\VerificationEmail;
 use App\User;
 use App\Validation\AuthRequest;
@@ -61,17 +62,17 @@ class RegisterController extends Controller
         }
 
 
-        // try{
+        try{
             
-        // \Mail::to($user->email)->send(new VerificationEmail($user));
+        Mail::to($user->email)->send(new VerificationEmail($user));
 
-        // Alert::success('Registrasi Berhasil', 'Silahkan Periksa Email Anda');
+        Alert::success('Registrasi Berhasil', 'Silahkan Periksa Email Anda');
 
-        // return redirect()->back();
+        return redirect()->back();
 
-        // }catch(Exception $e){
-        //     dd($e);
-        // }
+        }catch(Exception $e){
+            dd($e);
+        }
        
 
 
