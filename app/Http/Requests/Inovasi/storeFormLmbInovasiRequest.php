@@ -27,7 +27,7 @@ class storeFormLmbInovasiRequest extends FormRequest
         return [
             'nama_lembaga'       =>'required',
             'nama'               =>'required',
-            'email'              =>'required|email:rfc,dns',
+            'email'              =>'required',
             'ktp'                =>'required|mimes:jpeg,jpg|max:5024',
             'telp'               =>'required',
             'surat_pernyataan'   =>'required|mimes:jpeg,jpg,png|max:55024',

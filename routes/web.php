@@ -104,6 +104,7 @@ Route::get('downloadProposalPendaftaran/{id}', 'AdminController@downloadProposal
     Route::delete('delete-galeri/{id}', 'AdminController@destroyGaleri')->name('admin.destroyGaleri');
 //---------------- Activation User -------------
     Route::get('activateduser', 'AdminController@user')->name('admin.user');
+    Route::get('getuser', 'AdminController@getUser')->name('admin.getuser');
     Route::put('activated/{id}', 'AdminController@activatedUser')->name('admin.activated');  
 
 });

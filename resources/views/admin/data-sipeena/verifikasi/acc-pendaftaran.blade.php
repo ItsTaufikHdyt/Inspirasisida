@@ -13,30 +13,30 @@ Inspirasi Sida | Admin
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="{{url('admin/update-acc-pendaftaran/'.$pendaftaran->id)}}" method="post">
-            <input type="hidden" name="_method" value="PUT">
-			@csrf
-			<div class="modal-close-area modal-close-df">
-                <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-            </div>
-            <div class="modal-body">
-                <p style="text-align: left;">Verifikasi siPeena </p>
-                <select class="form-control custom-select-value" name="kdverif" required>
-                    <option>-Pilih Verifikasi-</option>
-                    <option value="1">Diterima</option>
-                    <option value="2">Finalis</option>
-                </select>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
-                <button type="submit" name="verif" class="btn btn-custon-four btn-danger btn-md"><i class="fa fa-save"></i> Done</button>
-            </div>
+                <input type="hidden" name="_method" value="PUT">
+                @csrf
+                <div class="modal-close-area modal-close-df">
+                    <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                </div>
+                <div class="modal-body">
+                    <p style="text-align: left;">Verifikasi siPeena </p>
+                    <select class="form-control custom-select-value" name="kdverif" required>
+                        <option>-Pilih Verifikasi-</option>
+                        <option value="1">Diterima</option>
+                        <option value="2">Finalis</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+                    <button type="submit" name="verif" class="btn btn-custon-four btn-danger btn-md"><i class="fa fa-save"></i> Done</button>
+                </div>
             </form>
         </div>
     </div>
 </div>
 
 <div class="row">
-	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="profile-info-inner">
             <div class="profile-img">
                 <img src="{{asset('img/pas-foto.jpg')}}" alt="">
@@ -114,7 +114,7 @@ Inspirasi Sida | Admin
             <ul id="myTabedu1" class="tab-review-design">
                 <li class="active"><a href="#ktp">KTP</a></li>
                 <li><a href="#pernyataan">Surat Pernyataan</a></li>
-                <li><a href="#izinortu">Izin Ortu</a></li>
+                <li><a href="#izin-ortu">Izin Ortu</a></li>
                 <li><a href="#izinsekolah">Izin Sekolah</a></li>
                 <li><a href="#proposal">Proposal</a></li>
             </ul>
@@ -125,79 +125,60 @@ Inspirasi Sida | Admin
                             <div class="review-content-section">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="content-profile">
-                                            <a href="{{url('admin/downloadKtpPendaftaran/'.$pendaftaran->id)}}">
-                                                <img src="{{asset('img/icon/ktp.svg')}}" width="450" height="450" alt="">
-                                            </a>
-                                        </div>
+                                        <img src="{{asset('storage/ktp/'.$pendaftaran->ktp)}}" width="450" height="450" alt="">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="product-tab-list tab-pane fade" id="pernyataan">
+                <div class="product-tab-list tab-pane fade in" id="pernyataan">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="review-content-section">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="content-profile">
-                                            <a href="{{url('admin/downloadSuratPernyataanPendaftaran/'.$pendaftaran->id)}}">
-                                                <img src="{{asset('img/icon/file_suratpernyataan.svg')}}" width="450" height="450" alt="">
-                                            </a>
-                                        </div>
+                                        <img src="{{asset('storage/surat-pernyataan/'.$pendaftaran->surat_pernyataan)}}" width="450" height="450" alt="">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="product-tab-list tab-pane fade" id="izinortu">
+                <div class="product-tab-list tab-pane fade in" id="izin-ortu">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="review-content-section">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="content-profile">
-                                            <a href="{{url('admin/downloadIzinOrtuPendaftaran/'.$pendaftaran->id)}}">
-                                                <img src="{{asset('img/icon/file_izinortu.svg')}}" width="450" height="450" alt="">
-                                            </a>
-                                        </div>
+                                        <img src="{{asset('storage/izin-ortu/'.$pendaftaran->izin_ortu)}}" width="450" height="450" alt="">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="product-tab-list tab-pane fade" id="izinsekolah">
+                <div class="product-tab-list tab-pane fade in" id="izin-sekolah">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="review-content-section">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="content-profile">
-                                            <a href="{{url('admin/downloadIzinSekolahPendaftaran/'.$pendaftaran->id)}}">
-                                                <img src="{{asset('img/icon/file_izinsekolah.svg')}}" width="450" height="450" alt="">
-                                            </a>
-                                        </div>
+                                        <img src="{{asset('storage/izin-sekolah/'.$pendaftaran->izin_sekolah)}}" width="450" height="450" alt="">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="product-tab-list tab-pane fade" id="proposal">
+                <div class="product-tab-list tab-pane fade in" id="proposal">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="review-content-section">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="content-profile">
-                                            <a href="{{url('admin/downloadProposalPendaftaran/'.$pendaftaran->id)}}">
-                                                <img src="{{asset('img/icon/proposal.svg')}}" width="450" height="450" alt="">
-                                            </a>
-                                        </div>
+                                        <a href="#" class="btn btn-danger">Download</a>
+                                        <iframe src="{{url('storage/proposal/'.$pendaftaran->proposal)}}" height="100%" width="100%" frameborder="0"></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +186,7 @@ Inspirasi Sida | Admin
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-</div>
-@endsection
+    @endsection

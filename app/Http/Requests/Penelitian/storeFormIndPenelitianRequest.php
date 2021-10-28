@@ -29,7 +29,7 @@ class storeFormIndPenelitianRequest extends FormRequest
             'ttl'                =>'required',
             'agama'              =>'required',
             'pekerjaan'          =>'required',
-            'email'              =>'required|email:rfc,dns',
+            'email'              =>'required',
             'pendidikan'         =>'required',
             'nation'             =>'required',
             'ktp'                =>'required|mimes:jpeg,jpg|max:5024',

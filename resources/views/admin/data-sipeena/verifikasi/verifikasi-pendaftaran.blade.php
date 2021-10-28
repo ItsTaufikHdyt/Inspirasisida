@@ -13,31 +13,31 @@ Inspirasi Sida | Admin
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="{{url('admin/update-verifikasi-pendaftaran/'.$pendaftaran->id)}}" method="post">
-            <input type="hidden" name="_method" value="PUT">
-			@csrf
-			<div class="modal-close-area modal-close-df">
-                <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-            </div>
-            <div class="modal-body">
-                <p style="text-align: left;">Verifikasi siPeena </p>
-                <select class="form-control custom-select-value" name="kdverif" required>
-                    <option>-Pilih Verifikasi-</option>
-                    <option value="-1">Tolak</option>
-                    <option value="1">ACC</option>
-                </select>
-                <p style="text-align: left;">Komentar</p>
-                <textarea name="komen" cols="62" rows="10" style="text-align: left;" placeholder="Komentar"></textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
-                <button type="submit" name="verif" class="btn btn-custon-four btn-danger btn-md"><i class="fa fa-save"></i> Done</button>
-            </div>
+                <input type="hidden" name="_method" value="PUT">
+                @csrf
+                <div class="modal-close-area modal-close-df">
+                    <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                </div>
+                <div class="modal-body">
+                    <p style="text-align: left;">Verifikasi siPeena </p>
+                    <select class="form-control custom-select-value" name="kdverif" required>
+                        <option>-Pilih Verifikasi-</option>
+                        <option value="-1">Tolak</option>
+                        <option value="1">ACC</option>
+                    </select>
+                    <p style="text-align: left;">Komentar</p>
+                    <textarea name="komen" cols="62" rows="10" style="text-align: left;" placeholder="Komentar"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+                    <button type="submit" name="verif" class="btn btn-custon-four btn-danger btn-md"><i class="fa fa-save"></i> Done</button>
+                </div>
             </form>
         </div>
     </div>
 </div>
 <div class="row">
-	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="profile-info-inner">
             <div class="profile-img">
                 <img src="{{asset('img/pas-foto.jpg')}}" alt="">
@@ -47,7 +47,7 @@ Inspirasi Sida | Admin
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="address-hr">
                             <p align="center"><b>Link Proposal</b><br />
-                                <a href="{{url('#')}}">Berkas Proposal</a>
+                                <a href="{{'$pendaftaran->url_proposal' ?? '#'}}">Berkas Proposal</a>
                             </p>
                         </div>
                     </div>
@@ -113,31 +113,83 @@ Inspirasi Sida | Admin
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
             <ul id="myTabedu1" class="tab-review-design">
-                <li class="active"><a href="#description">KTP</a></li>
+                <li class="active"><a href="#ktp">KTP</a></li>
                 <li><a href="#pernyataan">Surat Pernyataan</a></li>
-                <li><a href="#reviews">Izin Ortu</a></li>
+                <li><a href="#izin-ortu">Izin Ortu</a></li>
                 <li><a href="#izinsekolah">Izin Sekolah</a></li>
                 <li><a href="#proposal">Proposal</a></li>
             </ul>
             <div id="myTabContent" class="tab-content custom-product-edit st-prf-pro">
-                <div class="product-tab-list tab-pane fade active in" id="description">
+                <div class="product-tab-list tab-pane fade active in" id="ktp">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="review-content-section">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                    <img src="{{ url('storage/app/'.$pendaftaran->ktp) }}"> 
-                                         <!-- <img src="<?php echo asset("storage/app/$pendaftaran->ktp")?>"></img> -->
-                                        </div>
+                                        <img src="{{asset('storage/ktp/'.$pendaftaran->ktp)}}" width="450" height="450" alt="">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+                <div class="product-tab-list tab-pane fade in" id="pernyataan">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="review-content-section">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <img src="{{asset('storage/surat-pernyataan/'.$pendaftaran->surat_pernyataan)}}" width="450" height="450" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-tab-list tab-pane fade in" id="izin-ortu">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="review-content-section">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <img src="{{asset('storage/izin-ortu/'.$pendaftaran->izin_ortu)}}" width="450" height="450" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-tab-list tab-pane fade in" id="izin-sekolah">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="review-content-section">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <img src="{{asset('storage/izin-sekolah/'.$pendaftaran->izin_sekolah)}}" width="450" height="450" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-tab-list tab-pane fade in" id="proposal">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="review-content-section">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <a href="#" class="btn btn-danger">Download</a>
+                                        <iframe src="{{url('storage/proposal/'.$pendaftaran->proposal)}}" height="100%" width="100%" frameborder="0"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
+</div>
 </div>
 @endsection

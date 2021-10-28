@@ -42,15 +42,14 @@ class SipeenaController extends Controller
     public function __construct(
         FormIndInovasiRepository $formIndInovasiRepository,
         FormKlpInovasiRepository $formKlpInovasiRepository,
-        FormLmbInovasiRepository $formLmbInovasiRepository, 
+        FormLmbInovasiRepository $formLmbInovasiRepository,
 
         FormIndPenelitianRepository $formIndPenelitianRepository,
         FormKlpPenelitianRepository $formKlpPenelitianRepository,
         FormLmbPenelitianRepository $formLmbPenelitianRepository,
 
         PenaOpdRepository $penaOpdRepository
-    )
-    {
+    ) {
         $this->middleware('auth');
         $this->formIndInovasiRepository = $formIndInovasiRepository;
         $this->formKlpInovasiRepository = $formKlpInovasiRepository;
@@ -62,154 +61,184 @@ class SipeenaController extends Controller
 
         $this->penaOpdRepository = $penaOpdRepository;
     }
-    
+
     public function index()
     {
-        return view ('user.daftar-peena.index');
+        return view('user.daftar-peena.index');
     }
 
     // ---------------- Inovasi --------------------
     public function inovasi()
-    {   
-        return view ('user.daftar-peena.inovasi.index');
+    {
+        return view('user.daftar-peena.inovasi.index');
     }
 
     public function formIndInovasi()
     {
-        return view ('user.daftar-peena.inovasi.form-ind-inovasi');
+        return view('user.daftar-peena.inovasi.form-ind-inovasi');
     }
 
     public function storeFormIndInovasi(storeFormIndInovasiRequest $request)
     {
-        try{
-        $pendaftaran = $this->formIndInovasiRepository->storeIndInovasiForm($request);
-        Alert::success('Inovasi Individu', 'Success');
-        return view ('user.daftar-peena.inovasi.form-ind-inovasi');
-        }catch(Throwable $e){
+        try {
+            $pendaftaran = $this->formIndInovasiRepository->storeIndInovasiForm($request);
+            Alert::success('Inovasi Individu', 'Success');
+            return view('user.daftar-peena.inovasi.form-ind-inovasi');
+        } catch (Throwable $e) {
             report($e);
-        Alert::error('Inovasi Individu', $e);
-        return view ('user.daftar-peena.inovasi.form-ind-inovasi');
+            Alert::error('Inovasi Individu', $e);
+            return view('user.daftar-peena.inovasi.form-ind-inovasi');
         }
-        
     }
 
     public function formKlpInovasi()
     {
-        return view ('user.daftar-peena.inovasi.form-klp-inovasi');
+        return view('user.daftar-peena.inovasi.form-klp-inovasi');
     }
 
     public function storeFormKlpInovasi(storeFormKlpInovasiRequest $request)
     {
-        $pendaftaran = $this->formKlpInovasiRepository->storeKlpInovasiForm($request);
-
-        return view ('user.daftar-peena.inovasi.form-klp-inovasi');
+        try {
+            $pendaftaran = $this->formKlpInovasiRepository->storeKlpInovasiForm($request);
+            Alert::success('Inovasi Kelompok', 'Success');
+            return view('user.daftar-peena.inovasi.form-klp-inovasi');
+        } catch (Throwable $e) {
+            Alert::error('Inovasi Kelompok', $e);
+            return view('user.daftar-peena.inovasi.form-klp-inovasi');
+        }
     }
 
     public function formLmbInovasi()
     {
-        return view ('user.daftar-peena.inovasi.form-lmb-inovasi');
+        return view('user.daftar-peena.inovasi.form-lmb-inovasi');
     }
 
     public function storeFormLmbInovasi(storeFormLmbInovasiRequest $request)
     {
-        $lembaga = $this->formLmbInovasiRepository->storeLmbInovasiForm($request);
-
-        return view ('user.daftar-peena.inovasi.form-lmb-inovasi');
+        try {
+            $lembaga = $this->formLmbInovasiRepository->storeLmbInovasiForm($request);
+            Alert::success('Inovasi Lembaga', 'Success');
+            return view('user.daftar-peena.inovasi.form-lmb-inovasi');
+        } catch (Throwable $e) {
+            Alert::error('Inovasi Lembaga', $e);
+            return view('user.daftar-peena.inovasi.form-lmb-inovasi');
+        }
     }
 
-   // ---------------- Penelitian --------------------
-   public function penelitian()
-   {
-       return view ('user.daftar-peena.penelitian.index');
-   }
-   public function formIndPenelitian()
-   {
-       return view ('user.daftar-peena.penelitian.form-ind-research');
-   }
-
-   public function storeFormIndPenelitian(storeFormIndPenelitianRequest $request)
+    // ---------------- Penelitian --------------------
+    public function penelitian()
     {
-        $pendaftaran = $this->formIndPenelitianRepository->storeIndPenelitianForm($request);
-      
-        return view ('user.daftar-peena.penelitian.form-ind-research');
+        return view('user.daftar-peena.penelitian.index');
+    }
+    public function formIndPenelitian()
+    {
+        return view('user.daftar-peena.penelitian.form-ind-research');
     }
 
-   public function formKlpPenelitian()
-   {
-       return view ('user.daftar-peena.penelitian.form-klp-research');
-   }
+    public function storeFormIndPenelitian(storeFormIndPenelitianRequest $request)
+    {
+        try {
+            $pendaftaran = $this->formIndPenelitianRepository->storeIndPenelitianForm($request);
+            Alert::success('Penelitian Individu', 'Success');
+            return view('user.daftar-peena.penelitian.form-ind-research');
+        } catch (Throwable $e) {
+            Alert::error('Penelitian Individu', $e);
+            return view('user.daftar-peena.penelitian.form-ind-research');
+        }
+    }
 
-   public function storeFormKlpPenelitian(storeFormKlpPenelitianRequest $request)
-   {
-       $pendaftaran = $this->formKlpPenelitianRepository->storeKlpPenelitianForm($request);
+    public function formKlpPenelitian()
+    {
+        return view('user.daftar-peena.penelitian.form-klp-research');
+    }
 
-       return view ('user.daftar-peena.penelitian.form-klp-research');
-   }
+    public function storeFormKlpPenelitian(storeFormKlpPenelitianRequest $request)
+    {
+        try {
+            $pendaftaran = $this->formKlpPenelitianRepository->storeKlpPenelitianForm($request);
+            Alert::success('Penelitian Kelompok', 'Success');
+            return view('user.daftar-peena.penelitian.form-klp-research');
+        } catch (Throwable $e) {
+            Alert::error('Penelitian Individu', $e);
+            return view('user.daftar-peena.penelitian.form-klp-research');
+        }
+    }
 
-   public function formLmbPenelitian()
-   {
-       return view ('user.daftar-peena.penelitian.form-lmb-research');
-   }
+    public function formLmbPenelitian()
+    {
+        return view('user.daftar-peena.penelitian.form-lmb-research');
+    }
 
-   public function storeFormLmbPenelitian(storeFormLmbPenelitianRequest $request)
-   {
-       $lembaga = $this->formLmbPenelitianRepository->storeLmbPenelitianForm($request);
+    public function storeFormLmbPenelitian(storeFormLmbPenelitianRequest $request)
+    {
+        try {
+            $lembaga = $this->formLmbPenelitianRepository->storeLmbPenelitianForm($request);
+            Alert::success('Penelitian Lembaga', 'Success');
+            return view('user.daftar-peena.penelitian.form-lmb-research');
+        } catch (Throwable $e) {
+            Alert::error('Penelitian Lembaga', $e);
+            return view('user.daftar-peena.penelitian.form-lmb-research');
+        }
+    }
 
-       return view ('user.daftar-peena.penelitian.form-lmb-research');
-   }
-
-   // ---------------- Skpd ------------------------
-   public function opd()
+    // ---------------- Skpd ------------------------
+    public function opd()
     {
         $unitkerja = unitkerja::all();
-        return view ('user.daftar-peena.opd.index',compact('unitkerja'));
+        return view('user.daftar-peena.opd.index', compact('unitkerja'));
     }
 
     public function storeOpd(PenaOpdRequest $request)
     {
         $unitkerja = unitkerja::all();
-        $penaopd = $this->penaOpdRepository->storePenaOpd($request);
-        return view ('user.daftar-peena.opd.index',compact('unitkerja'));
+        try {
+            $penaopd = $this->penaOpdRepository->storePenaOpd($request);
+            Alert::success('OPD', 'Success');
+            return view('user.daftar-peena.opd.index', compact('unitkerja'));
+        } catch (Throwable $e) {
+            Alert::error('OPD', $e);
+            return view('user.daftar-peena.opd.index', compact('unitkerja'));
+        }
     }
 
     // ---------------- refreshCaptcha ------------------------
     public function refreshCaptcha()
     {
-        return response()->json(['captcha'=> captcha_img('math')]);
+        return response()->json(['captcha' => captcha_img('math')]);
     }
 
-   // ---------------- Riwayat ------------------------
-   public function riwayat()
+    // ---------------- Riwayat ------------------------
+    public function riwayat()
     {
         $created_at_user = Auth::user()->created_at;
-        return view ('user.akun.riwayat',['created_at_user' => $created_at_user]);
+        return view('user.akun.riwayat', ['created_at_user' => $created_at_user]);
     }
 
-   // ---------------- Profil ------------------------
-   public function profil()
+    // ---------------- Profil ------------------------
+    public function profil()
     {
-        return view ('user.akun.profil');
+        return view('user.akun.profil');
     }
-   // ---------------- Profil ------------------------
-    
-   public function store(Request $request)
+    // ---------------- Profil ------------------------
+
+    public function store(Request $request)
     {
         //
     }
 
-  
+
     public function show($id)
     {
         //
     }
 
-    
+
     public function edit($id)
     {
         //
     }
 
-    
+
     public function update(Request $request, $id)
     {
         //

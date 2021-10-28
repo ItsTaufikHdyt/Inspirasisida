@@ -49,7 +49,7 @@
                   <div class="row">
                     <div class="col-12 form-line">
                       <div class="form-group">
-                        <input type="text" class="form-control" name="email" required placeholder="Email">
+                        <input type="text" class="form-control" name="email" value="{{old('email')}}" required placeholder="Email">
                       </div>
                     </div>
                     <div class="col-md-12 form-line">

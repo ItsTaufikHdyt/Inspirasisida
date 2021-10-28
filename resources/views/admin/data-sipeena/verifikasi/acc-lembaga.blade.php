@@ -115,7 +115,7 @@ Inspirasi Sida | Admin
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="content-profile">
-                                            xxx
+                                           <iframe src="{{$lembaga->surat_pernyataan}}" frameborder="0"></iframe>
                                         </div>
                                     </div>
                                 </div>

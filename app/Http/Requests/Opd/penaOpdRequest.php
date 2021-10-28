@@ -29,7 +29,7 @@ class penaOpdRequest extends FormRequest
             'tgjawab'              =>'required',
             'nip'                =>'required',
             'jabatan'            =>'required',
-            'email'              =>'required|email:rfc,dns',
+            'email'              =>'required',
             'telp'               =>'required',
             'surat_pernyataan'   =>'required|mimes:jpeg,jpg,png,pdf|max:5024',
             'alamat'             =>'required',

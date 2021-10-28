@@ -38,6 +38,7 @@ use App\dbmasyarakat;
 Use App\galeri;
 Use App\user;
 Use Storage;
+use Yajra\DataTables\DataTables;
 
 class AdminController extends Controller
 {
@@ -140,7 +141,7 @@ class AdminController extends Controller
         $pendaftaran->ket = $request->komen;
         $pendaftaran->save();
 
-        Mail::to($pendaftaran->email)->send(new VerifikasiSipeenaUmum($pendaftaran));
+        // Mail::to($pendaftaran->email)->send(new VerifikasiSipeenaUmum($pendaftaran));
 
         Alert::success('Verifikasi', 'Success');
         return redirect()->route('admin.verifikasi');
@@ -416,8 +417,10 @@ class AdminController extends Controller
     public function user()
     {
         $user =  user::where('level', '=', 2)->get();
+        
         return view ('admin.user.index',compact('user'));
     }
+
 
      public function activatedUser(request $request,$id)
     {
