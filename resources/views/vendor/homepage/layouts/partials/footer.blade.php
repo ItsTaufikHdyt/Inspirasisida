@@ -9,7 +9,7 @@
                 <p>Crafted by <a href="http://uideck.com" rel="nofollow">UIdeck</a></p>
               </div>              
               <div class="float-right">  
-                Copyright &copy; <?php echo date('Y'); ?> Dinas Kominfo Kota Bontang
+                Copyright &copy;2020 Dinas Kominfo Kota Bontang
               </div>
             </div>
           </div>

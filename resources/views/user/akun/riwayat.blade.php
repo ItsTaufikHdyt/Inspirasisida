@@ -1,7 +1,7 @@
 @extends('homepage::layouts.app')
 
 @section('htmlheader_title')
-	eLitbang
+Inspirasi Sida
 @endsection
 
 @section('main-content')
@@ -15,7 +15,7 @@
         <br>
         <div class="row">       
           <div class="col-lg-4 col-md-6 col-xs-12">
-            <!-- kosong -->
+     
           </div> 
           <div class="col-lg-4 col-md-6 col-xs-12">
             <ul class="events">
@@ -30,7 +30,7 @@
             </ul>
           </div> 
           <div class="col-lg-4 col-md-6 col-xs-12">
-            <!-- kosong -->
+          
           </div>  
         </div>        
       </div>

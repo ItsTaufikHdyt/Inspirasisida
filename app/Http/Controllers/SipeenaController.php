@@ -21,8 +21,10 @@ use App\Repositories\Opd\PenaOpdRepository;
 use App\Http\Requests\Opd\penaOpdRequest;
 
 use App\unitkerja;
+use App\User;
 use Auth;
 use Alert;
+use DB;
 
 
 
@@ -218,6 +220,25 @@ class SipeenaController extends Controller
     public function profil()
     {
         return view('user.akun.profil');
+    }
+
+    // ---------------- UpdateProfil ------------------------
+    public function updateProfil(Request $request,$id)
+    {
+
+        $getUser = Auth::user()->id;
+        $data = [];
+        if($request->has('username')){
+            $data['username'] = $request->username;
+        }
+        if($request->has('password')){
+            $data['password'] = bcrypt($request->password);
+        }
+        $tes = DB::table('users')
+        ->where('id', $getUser) 
+        ->update($data);
+        Alert::success('Update Profile', 'Success');
+        return redirect()->route('profil');
     }
     // ---------------- Profil ------------------------
 

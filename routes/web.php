@@ -148,6 +148,7 @@ Route::group(["prefix"=>"sipeena/"], function(){
     
     //--------------- Profil -------------------
     Route::get('/profil', 'SipeenaController@profil')->name('profil');
+    Route::put('/updateProfil/{id}', 'SipeenaController@updateProfil')->name('profil.update');
     //--------------- Profil -------------------
 });
     

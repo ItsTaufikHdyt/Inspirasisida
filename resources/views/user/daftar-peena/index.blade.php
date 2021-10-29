@@ -61,7 +61,7 @@
         </div>
       </div>
 </section>
-<!-- <section id="akun" class="section bg-gallery">
+<section id="akun" class="section bg-gallery">
       <div class="container">
         <div class="section-header">          
           <h2 class="section-title">Akun siPeena</h2>
@@ -92,7 +92,7 @@
           </div>
         </div>
       </div>
-</section> -->
+</section>
     <!-- Contact Section Start -->
     <section id="contact" class="section">      
       <div class="contact-form">
