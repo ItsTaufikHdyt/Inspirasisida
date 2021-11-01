@@ -347,8 +347,8 @@ class AdminController extends Controller
 
     public function getOpd()
     {
-        $data = unitkerja::select('id', 'nama_uk');
-        return DataTables::of($data)
+        $opd = unitkerja::select('id', 'nama_uk');
+        return DataTables::of($opd)
             ->addIndexColumn()
             ->editColumn('action', function ($data) {
                 $btn = '<a href="" class="btn btn-warning" id="editOpd" data-toggle="modal" data-target="#opd_modal" data-id=' . $data->id . '>Edit</a>';
@@ -375,13 +375,13 @@ class AdminController extends Controller
     public function updateOpd(storeDataOpdRequest $request, $id)
     {
         $unitkerja = $this->dataOpdRepository->updateOpd($request, $id);
-        return response()->json([ 'success' => true ]);
+        return response()->json(['success' => true]);
     }
 
     public function destroyOpd($id)
     {
         $unitkerja = $this->dataOpdRepository->destroyOpd($id);
-        return response()->json([ 'success' => true ]);
+        return response()->json(['success' => true]);
     }
 
     // ---------------- Database ------------------------
@@ -441,6 +441,24 @@ class AdminController extends Controller
         return view('admin.galeri.index', compact('galeri'));
     }
 
+    public function getGaleri()
+    {
+        $galeri =  galeri::select('id', 'foto', 'kategori', 'created_at', 'updated_at');
+        return DataTables::of($galeri)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<button onclick="deleteItem(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('kategori', function ($data) {
+                if ($data->kategori == 0) return '<span class="badge badge-success">Foto</span>';
+                if ($data->kategori == 1) return '<span class="badge badge-warning">Poster</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
     public function storeGaleri(storeGaleriRequest $request)
     {
 
@@ -452,12 +470,24 @@ class AdminController extends Controller
 
             return 'Eror';
         }
+        
+    }
+
+    public function editGaleri($id)
+    {
+        $galeri = galeri::find($id);
+        return response()->json([
+            'success' => true,
+            'data' => $galeri,
+        ]);
     }
 
     public function destroyGaleri($id)
     {
         $galeri = $this->galeriRepository->destroyGaleri($id);
-        return redirect()->route('admin.galeri');
+        return response()->json([
+            'success' => true
+        ]);
     }
     // ---------------- Activated User ------------------------
     public function user()

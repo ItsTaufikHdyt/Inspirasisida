@@ -107,6 +107,7 @@ Route::group(['middleware' => 'cekstatus', "prefix" => "admin/"], function () {
     Route::delete('delete-dbmasyarakat/{id}', 'AdminController@destroyDbMasyarakat')->name('admin.deleteDbMasyarakat');
     //---------------- Galeri-------------
     Route::get('galeri', 'AdminController@galeri')->name('admin.galeri');
+    Route::get('get-galeri', 'AdminController@getGaleri')->name('admin.getGaleri');
     Route::post('store-galeri', 'AdminController@storeGaleri')->name('admin.storeGaleri');
     Route::delete('delete-galeri/{id}', 'AdminController@destroyGaleri')->name('admin.destroyGaleri');
     //---------------- Activation User -------------

@@ -68,7 +68,7 @@ Inspirasi Sida | Admin
 						</div>
 					</div>
 				</div>
-				<table id="opd" class="table table-bordered table-responsive">
+				<table id="opd" class="table table-bordered table-hover table-responsive">
 					<thead>
 						<tr>
 							<th>No.</th>
@@ -104,11 +104,7 @@ Inspirasi Sida | Admin
 </div>
 @endsection
 @section('custom_scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script type="text/javascript">
 	$('#alert-modal').modal('show');
 	//--------------Fungsi Yajra DataTables------------
