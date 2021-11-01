@@ -281,7 +281,7 @@ Inspirasi Sida | Admin
 		});
 
 
-		//--------------Fungsi Edit & Update ------------
+		//--------------Fungsi Edit & Update  Belum Selesai------------
 		$('body').on('click', '#editProsedur', function(event) {
 
 			event.preventDefault();
@@ -311,7 +311,8 @@ Inspirasi Sida | Admin
 				type: "PUT",
 				data: {
 					id: id,
-					nama_uk: nama_uk,
+					judul_prosedur: judul_prosedur,
+					narasi: narasi,
 					'_token': token
 				},
 				dataType: 'json',

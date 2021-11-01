@@ -322,12 +322,12 @@ class AdminController extends Controller
 
     public function getProsedur()
     {
-        $opd = prosedur::select('id', 'judul_prosedur','narasi','foto','berkas','created_at','updated_at');
+        $opd = prosedur::select('id', 'judul_prosedur', 'narasi', 'foto', 'berkas', 'created_at', 'updated_at');
         return DataTables::of($opd)
             ->addIndexColumn()
             ->editColumn('action', function ($data) {
                 $btn = '<a href="" class="btn btn-warning" id="editProsedur" data-toggle="modal" data-target="#prosedur_modal" data-id=' . $data->id . '>Edit</a>';
-                $btn =  $btn. '<a href="" class="btn btn-primary" id="showProsedur" data-toggle="modal" data-target="#show_modal" data-id=' . $data->id . '>Show</a>';
+                $btn =  $btn . '<a href="" class="btn btn-primary" id="showProsedur" data-toggle="modal" data-target="#show_modal" data-id=' . $data->id . '>Show</a>';
                 $btn = $btn . '<button onclick="deleteItem(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
                 return $btn;
             })
@@ -351,10 +351,10 @@ class AdminController extends Controller
 
     public function updateProsedur(storeProsedurRequest $request, $id)
     {
-        $prosedur= $this->prosedurRepository->updateProsedur($request, $id);
-       return response()->json([
-           'success' => true,
-       ]);
+        $prosedur = $this->prosedurRepository->updateProsedur($request, $id);
+        return response()->json([
+            'success' => true,
+        ]);
     }
 
     public function destroyProsedur($id)
@@ -497,7 +497,6 @@ class AdminController extends Controller
 
             return 'Eror';
         }
-        
     }
 
     public function editGaleri($id)
@@ -524,11 +523,52 @@ class AdminController extends Controller
         return view('admin.user.index', compact('user'));
     }
 
+    public function getUser()
+    {
+        $user =  user::select('id', 'username', 'nama', 'email', 'level', 'email_verified', 'last_login');
+        return DataTables::of($user)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a href="" class="btn btn-warning" id="editUser" data-toggle="modal" data-target="#user_modal" data-id=' . $data->id . '>Edit</a>';
+                $btn = $btn . ' <button onclick="deleteItem(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('level', function ($data) {
+                if ($data->level == 1) return '<span class="badge badge-success">Admin</span>';
+                if ($data->level == 2) return '<span class="badge badge-primary">User</span>';
+            })
+            ->editColumn('status', function ($data) {
+                if ($data->email_verified == 0) return '<span class="badge badge-danger">Tidak Aktif</span>';
+                if ($data->email_verified == 1) return '<span class="badge badge-info">Aktif</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function editUser($id)
+    {
+        $user = user::find($id);
+        return response()->json([
+            'success' => true,
+            'data' => $user,
+        ]);
+    }
 
     public function activatedUser(request $request, $id)
     {
         $user = $this->userRepository->activatedUser($request, $id);
-        Alert::success('User', 'Success');
-        return redirect()->route('admin.user');
+        return response()->json([
+            'success' => true
+        ]);
     }
+
+    public function destroyUser($id)
+    {
+        $user = $this->userRepository->destroyUser($id);
+        return response()->json([
+            'success' => true
+        ]);
+    }
+    
 }

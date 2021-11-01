@@ -51,7 +51,7 @@ protected $dbopd;
         'lokasi'     => $request->lokasi,
         'abstraksi'  => $request->abstraksi,
         'kategori'   => $request->kategori,
-        'berkas'     => $request->file('berkas')->storeAs('database-opd', $berkas),
+        'berkas'     => $request->file('berkas')->storeAs('publc/database-opd', $berkas),
         ]);
         }
         else{
@@ -86,7 +86,7 @@ protected $dbopd;
                 $today = Carbon::today()->toDateString();
                 $date = str_replace('-','',$today);
                 $berkas = $date."-".$nama;
-                $update['berkas'] = $request->file('berkas')->storeAs('database-opd', $berkas);
+                $update['berkas'] = $request->file('berkas')->storeAs('public/database-opd', $berkas);
             }
             DB::table('dbopd')->where('id', $id)->update($update);
         

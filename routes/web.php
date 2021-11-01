@@ -114,8 +114,10 @@ Route::group(['middleware' => 'cekstatus', "prefix" => "admin/"], function () {
     Route::delete('delete-galeri/{id}', 'AdminController@destroyGaleri')->name('admin.destroyGaleri');
     //---------------- Activation User -------------
     Route::get('activateduser', 'AdminController@user')->name('admin.user');
-    Route::get('getuser', 'AdminController@getUser')->name('admin.getuser');
+    Route::get('get-user', 'AdminController@getUser')->name('admin.getuser');
+    Route::get('edit-user/{id}', 'AdminController@editUser')->name('admin.edituser');
     Route::put('activated/{id}', 'AdminController@activatedUser')->name('admin.activated');
+    Route::delete('delete-user/{id}', 'AdminController@destroyUser')->name('admin.destroyUser');
 });
 
 //--------------- Sipena -------------------

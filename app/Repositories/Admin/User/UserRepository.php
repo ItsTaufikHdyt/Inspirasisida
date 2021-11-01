@@ -22,8 +22,11 @@ class UserRepository implements UserRepositoryInterface
     public function activatedUser($request, $id)
     {
         $data = [];
+        if ($request->has('username')) {
+            $data['username'] = $request->username;
+        }
         if ($request->has('email_verified')) {
-            $data['username'] = $request->activated;
+            $data['email_verified'] = $request->email_verified;
             $data['email_verification_token'] = '';
             $data['email_verified_at'] = Carbon::now();
         }
@@ -33,5 +36,11 @@ class UserRepository implements UserRepositoryInterface
         DB::table('users')
             ->where('id', $id)
             ->update($data);
+    }
+
+    public function destroyUser($id)
+    {
+        $user = user::find($id);
+        $user->delete();
     }
 }
