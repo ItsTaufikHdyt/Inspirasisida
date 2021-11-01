@@ -320,22 +320,49 @@ class AdminController extends Controller
         return view('admin.prosedur.index', compact('prosedur'));
     }
 
+    public function getProsedur()
+    {
+        $opd = prosedur::select('id', 'judul_prosedur','narasi','foto','berkas','created_at','updated_at');
+        return DataTables::of($opd)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a href="" class="btn btn-warning" id="editProsedur" data-toggle="modal" data-target="#prosedur_modal" data-id=' . $data->id . '>Edit</a>';
+                $btn =  $btn. '<a href="" class="btn btn-primary" id="showProsedur" data-toggle="modal" data-target="#show_modal" data-id=' . $data->id . '>Show</a>';
+                $btn = $btn . '<button onclick="deleteItem(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
+    }
+
     public function storeProsedur(storeProsedurRequest $request)
     {
         $prosedur = $this->prosedurRepository->storeProsedur($request);
         return redirect()->route('admin.prosedur');
     }
 
+    public function editProsedur($id)
+    {
+        $prosedur = prosedur::find($id);
+        return response()->json([
+            'data' => $prosedur
+        ]);
+    }
+
     public function updateProsedur(storeProsedurRequest $request, $id)
     {
-        $unitkerja = $this->prosedurRepository->updateProsedur($request, $id);
-        return redirect()->route('admin.prosedur');
+        $prosedur= $this->prosedurRepository->updateProsedur($request, $id);
+       return response()->json([
+           'success' => true,
+       ]);
     }
 
     public function destroyProsedur($id)
     {
         $prosedur = $this->prosedurRepository->destroyProsedur($id);
-        return redirect()->route('admin.prosedur');
+        return response()->json([
+            'success' => true,
+        ]);
     }
 
     // ---------------- OPD ------------------------
@@ -364,7 +391,7 @@ class AdminController extends Controller
         $unitkerja = unitkerja::find($id);
         return response()->json([
             'data' => $unitkerja
-        ]);;
+        ]);
     }
     public function storeOpd(storeDataOpdRequest $request)
     {

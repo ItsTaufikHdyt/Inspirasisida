@@ -83,9 +83,11 @@ Route::group(['middleware' => 'cekstatus', "prefix" => "admin/"], function () {
 
     //--------------- Prosedur ---------------------
     Route::get('prosedur', 'AdminController@prosedur')->name('admin.prosedur');
+    Route::get('get-prosedur', 'AdminController@getProsedur')->name('admin.getProsedur');
     Route::post('storeProsedur', 'AdminController@storeProsedur')->name('admin.storeProsedur');
+    Route::get('edit-prosedur/{id}', 'AdminController@editProsedur')->name('admin.editProsedur');
     Route::put('update-prosedur/{id}', 'AdminController@updateProsedur')->name('admin.updateProsedur');
-    Route::delete('delete-prosedur/{id}', 'AdminController@destroyProsedur')->name('admin.destroyProsedurS');
+    Route::delete('delete-prosedur/{id}', 'AdminController@destroyProsedur')->name('admin.destroyProsedur');
 
     //--------------- OPD ---------------------
     Route::get('data-opd', 'AdminController@opd')->name('admin.opd');
