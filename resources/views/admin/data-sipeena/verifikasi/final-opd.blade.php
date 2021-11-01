@@ -72,34 +72,32 @@ Inspirasi Sida | Admin
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
             <ul id="myTabedu1" class="tab-review-design">
-                <li class="active"><a href="#description">Surat Pernyataan</a></li>
-                <li><a href="#proposal">File Proposal</a></li>
+                <li><a href="#pernyataan">Surat Pernyataan</a></li>
+                <li><a href="#proposal">Proposal</a></li>
             </ul>
             <div id="myTabContent" class="tab-content custom-product-edit st-prf-pro">
-                <div class="product-tab-list tab-pane fade active in" id="description">
+                <div class="product-tab-list tab-pane fade active in" id="pernyataan">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="review-content-section">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="content-profile">
-                                            xxx
-                                        </div>
+                                    <a href="{{route('admin.display.surat-pernyataan-penaopd',$penaopd->id)}}" class="btn btn-warning">View</a>
+                                        <iframe src="{{url('storage/surat-pernyataan/'.$penaopd->proposal)}}" height="100%" width="100%" frameborder="0"></iframe>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="product-tab-list tab-pane fade" id="proposal">
+                <div class="product-tab-list tab-pane fade in" id="proposal">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="review-content-section">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="content-profile">
-                                            xxxx
-                                        </div>
+                                        <a href="{{route('admin.display.proposal-penaopd',$penaopd->id)}}" class="btn btn-warning">View</a>
+                                        <iframe src="{{url('storage/proposal/'.$penaopd->proposal)}}" height="100%" width="100%" frameborder="0"></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -107,6 +105,7 @@ Inspirasi Sida | Admin
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

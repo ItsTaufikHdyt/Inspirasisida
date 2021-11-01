@@ -7,11 +7,11 @@
     <meta name="author" content="Grayrids">
     <title>@yield('htmlheader_title', 'Your title here')</title>
     <link href="{{asset('img/i-logo.png')}}" rel="shortcut icon">
-     <!-- ============================================ -->
-    <!-- <link rel="stylesheet" href="{{asset('css/data-table/dataTables.bootstrap4.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/data-table/bootstrap.css')}}"> -->
+    <!-- ============================================ -->
+    <link rel="stylesheet" href="{{asset('css/data-table/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/data-table/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('css/data-table/jquery.dataTables.min.css')}}">
-    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('fontawesome/css/all.css')}}">
@@ -24,10 +24,14 @@
 
     <!-- <link rel="stylesheet" href="{{asset('css/color-switcher.css')}}"> -->
     <link rel="stylesheet" href="{{asset('css/menu_sideslide.css')}}">
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">    
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-toggle.min.css')}}">
 
-   
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+    
+
+
+
 
   </head>

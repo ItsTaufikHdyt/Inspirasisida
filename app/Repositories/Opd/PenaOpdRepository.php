@@ -46,9 +46,9 @@ class PenaOpdRepository implements PenaOpdRepositoryInterface
             //proposal
             $ext_proposal = $request->file('proposal')->getClientOriginalExtension();
             $proposal_file = $date . "-" . $nama . "-proposal" . "" . "." . $ext_proposal;
-            $request->file('surat_pernyataan')->storeAs('surat-pernyataan', $surat_pernyataan_file);
+            $request->file('surat_pernyataan')->storeAs('public/surat-pernyataan', $surat_pernyataan_file);
             $data['surat_pernyataan'] = $surat_pernyataan_file;
-            $request->file('proposal')->storeAs('proposal', $proposal_file);
+            $request->file('proposal')->storeAs('public/proposal', $proposal_file);
             $data['proposal'] = $proposal_file;
         }
 
@@ -61,8 +61,9 @@ class PenaOpdRepository implements PenaOpdRepositoryInterface
             $ext_surat_pernyataan = $request->file('surat_pernyataan')->getClientOriginalExtension();
             $surat_pernyataan_file = $date . "-" . $nama . "-surat-pernyataan" . "" . "." . $ext_surat_pernyataan;
 
-            $request->file('surat_pernyataan')->storeAs('surat-pernyataan', $surat_pernyataan_file);
+            $request->file('surat_pernyataan')->storeAs('public/surat-pernyataan', $surat_pernyataan_file);
             $data['surat_pernyataan'] = $surat_pernyataan_file;
+            $data['url_proposal']= $request->url_proposal;
         }
         DB::table('pena_opd')->insert($data);
     }

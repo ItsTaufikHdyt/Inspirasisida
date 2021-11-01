@@ -178,7 +178,7 @@ Inspirasi Sida | Admin
                             <div class="review-content-section">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <a href="#" class="btn btn-danger">Download</a>
+                                        <a href="{{route('admin.display.proposal-pendaftaran',$pendaftaran->id)}}" class="btn btn-warning">View</a>
                                         <iframe src="{{url('storage/proposal/'.$pendaftaran->proposal)}}" height="100%" width="100%" frameborder="0"></iframe>
                                     </div>
                                 </div>

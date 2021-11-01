@@ -359,5 +359,5 @@ Inspirasi Sida | Admin
 @section('custom_scripts')
 <script type="text/javascript">
 	$('#alert-modal').modal('show');
-<script>
+</script>
 @endsection

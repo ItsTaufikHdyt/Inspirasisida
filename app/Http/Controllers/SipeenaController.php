@@ -24,7 +24,11 @@ use App\unitkerja;
 use App\User;
 use Auth;
 use Alert;
+use App\pendaftaran;
+use App\lembaga;
+use App\penaopd;
 use DB;
+use Yajra\DataTables\DataTables;
 
 
 
@@ -212,8 +216,15 @@ class SipeenaController extends Controller
     // ---------------- Riwayat ------------------------
     public function riwayat()
     {
-        $created_at_user = Auth::user()->created_at;
-        return view('user.akun.riwayat', ['created_at_user' => $created_at_user]);
+        $pendaftaranInovasi = pendaftaran::where('user_id', '=', Auth::user()->id)
+            ->where('kategori_peena', '=', 0)
+            ->paginate(10);
+        $pendaftaranPenelitian = pendaftaran::where('user_id', '=', Auth::user()->id)
+            ->where('kategori_peena', '=', 1)
+            ->paginate(10);
+        $lembaga = lembaga::where('user_id', '=', Auth::user()->id)->paginate(10);
+        $pena_opd = penaopd::where('user_id', '=', Auth::user()->id)->paginate(10);
+        return view('user.akun.riwayat', compact('pendaftaranInovasi','pendaftaranPenelitian', 'lembaga', 'pena_opd'));
     }
 
     // ---------------- Profil ------------------------
@@ -223,20 +234,20 @@ class SipeenaController extends Controller
     }
 
     // ---------------- UpdateProfil ------------------------
-    public function updateProfil(Request $request,$id)
+    public function updateProfil(Request $request, $id)
     {
 
         $getUser = Auth::user()->id;
         $data = [];
-        if($request->has('username')){
+        if ($request->has('username')) {
             $data['username'] = $request->username;
         }
-        if($request->has('password')){
+        if ($request->has('password')) {
             $data['password'] = bcrypt($request->password);
         }
         $tes = DB::table('users')
-        ->where('id', $getUser) 
-        ->update($data);
+            ->where('id', $getUser)
+            ->update($data);
         Alert::success('Update Profile', 'Success');
         return redirect()->route('profil');
     }
