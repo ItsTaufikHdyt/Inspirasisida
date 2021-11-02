@@ -47,14 +47,33 @@ Route::group(['middleware' => 'cekstatus', "prefix" => "admin/"], function () {
     Route::get('downloadProposalPendaftaran/{id}', 'AdminController@downloadProposalPendaftaran')->name('admin.downloadProposalPendaftaran');
     //--------------- Data SiPeena ---------------------
     Route::get('verifikasi', 'AdminController@verifikasi')->name('admin.verifikasi');
+    Route::get('get-verifikasi-individu', 'AdminController@getVerifikasiIndividu')->name('admin.getVerifikasiIndividu');
+    Route::get('get-verifikasi-kelompok', 'AdminController@getVerifikasiKelompok')->name('admin.getVerifikasiKelompok');
+    Route::get('get-verifikasi-lembaga', 'AdminController@getVerifikasiLembaga')->name('admin.getVerifikasiLembaga');
+    Route::get('get-verifikasi-opd', 'AdminController@getVerifikasiOpd')->name('admin.getVerifikasiOpd');
+
     Route::get('diterima', 'AdminController@diterima')->name('admin.diterima');
+    Route::get('get-diterima-individu', 'AdminController@getDiterimaIndividu')->name('admin.getDiterimaIndividu');
+    Route::get('get-diterima-kelompok', 'AdminController@getDiterimaKelompok')->name('admin.getDiterimaKelompok');
+    Route::get('get-diterima-lembaga', 'AdminController@getDiterimaLembaga')->name('admin.getDiterimaLembaga');
+    Route::get('get-diterima-opd', 'AdminController@getDiterimaOpd')->name('admin.getDiterimaOpd');
+
     Route::get('ditolak', 'AdminController@ditolak')->name('admin.ditolak');
+    Route::get('get-ditolak-individu', 'AdminController@getDitolakIndividu')->name('admin.getDitolakIndividu');
+    Route::get('get-ditolak-kelompok', 'AdminController@getDitolakKelompok')->name('admin.getDitolakKelompok');
+    Route::get('get-ditolak-lembaga', 'AdminController@getDitolakLembaga')->name('admin.getDitolakLembaga');
+    Route::get('get-ditolak-opd', 'AdminController@getDitolakOpd')->name('admin.getDitolakOpd');
+
     Route::get('finalis', 'AdminController@finalis')->name('admin.finalis');
-   //--------------- Display Proposal ---------------------
-   Route::get('displayproposal-pendaftaran/{id}', 'AdminController@displayProposalPendaftaran')->name('admin.display.proposal-pendaftaran');
-   Route::get('displayproposal-lembaga/{id}', 'AdminController@displayProposalLembaga')->name('admin.display.proposal-lembaga');
-   Route::get('displayproposal-opd/{id}', 'AdminController@displayProposalOPD')->name('admin.display.proposal-penaopd');
-   Route::get('displaySuratPernyataan-opd/{id}', 'AdminController@displaySuratPernyataanOPD')->name('admin.display.surat-pernyataan-penaopd');
+    Route::get('get-finalis-individu', 'AdminController@getFinalisIndividu')->name('admin.getFinalisIndividu');
+    Route::get('get-finalis-kelompok', 'AdminController@getFinalisKelompok')->name('admin.getFinalisKelompok');
+    Route::get('get-finalis-lembaga', 'AdminController@getFinalisLembaga')->name('admin.getFinalisLembaga');
+    Route::get('get-finalis-opd', 'AdminController@getFinalisOpd')->name('admin.getFinalisOpd');
+    //--------------- Display Proposal ---------------------
+    Route::get('displayproposal-pendaftaran/{id}', 'AdminController@displayProposalPendaftaran')->name('admin.display.proposal-pendaftaran');
+    Route::get('displayproposal-lembaga/{id}', 'AdminController@displayProposalLembaga')->name('admin.display.proposal-lembaga');
+    Route::get('displayproposal-opd/{id}', 'AdminController@displayProposalOPD')->name('admin.display.proposal-penaopd');
+    Route::get('displaySuratPernyataan-opd/{id}', 'AdminController@displaySuratPernyataanOPD')->name('admin.display.surat-pernyataan-penaopd');
     //--------------- Verifikasi -----------------------
     Route::get('verifikasi-pendaftaran/{id}', 'AdminController@verifikasiPendaftaran')->name('admin.verifikasiPendaftaran');
     Route::get('verifikasi-opd/{id}', 'AdminController@verifikasiOpd')->name('admin.verifikasiOpd');

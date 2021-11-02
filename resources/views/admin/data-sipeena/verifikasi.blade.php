@@ -53,71 +53,18 @@ Inspirasi Sida | Admin
 							<div class="review-content-section">
 								<div class="row">
 									<div class="col-lg-12">
-										<table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+										<table id="individu" class="table table-bordered table-hover table-responsive">
 											<thead>
 												<tr>
-													<th data-field="id">No.</th>
-													<th data-field="name">Nama Pendaftar</th>
-													<th data-field="email">Email</th>
-													<th data-field="ttl">Tempat Tanggal Lahir</th>
-													<th data-field="job">Kategori siPeena</th>
-													<th data-field="action">Aksi</th>
+													<th>No.</th>
+													<th>Nama Pendaftar</th>
+													<th>Email</th>
+													<th>Tempat Tanggal Lahir</th>
+													<th>Kategori siPeena</th>
+													<th>Aksi</th>
 												</tr>
 											</thead>
 											<tbody>
-												@php
-												$no = 1;
-												@endphp
-
-												@forelse($perorangan as $data)
-												<tr>
-
-													<td style="width: 5px;">{{$no++}}</td>
-													<td>{{$data->nama}}</td>
-													<td>{{$data->email}}</td>
-													<td>{{$data->ttl}}</td>
-													<td>
-														@if($data->kategori_peena === 0)
-														<span class="label label-success">Inovasi</span>
-														@else
-														<span class="label label-warning">Penelitian</span>
-														@endif
-													</td>
-													<td><a href="{{url('admin/verifikasi-pendaftaran/'.$data->id)}}" target="_blank">
-															<button class="btn btn-custon-four btn-warning btn-xs">
-																<i class="fa fa-eye"></i>
-															</button></a>
-														<button type="button" class="btn btn-custon-four btn-danger btn-xs" data-toggle="modal" data-target="#DangerModalalert{{$data->id}}"><i class="fa fa-trash"></i></button>
-														<div id="DangerModalalert{{$data->id}}" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
-															<div class="modal-dialog">
-																<div class="modal-content">
-																	<form action="{{url('admin/delete-data-sipeena-pendaftaran/'.$data->id)}}" method="post">
-																		<input type="hidden" name="_method" value="DELETE">
-																		@csrf
-																		<div class="modal-close-area modal-close-df">
-																			<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-																		</div>
-																		<div class="modal-body">
-																			<input type="hidden" name="id" class="form-control" value="{{$data->id}}">
-																			<p>Yakin akan menghapus data user {{$data->nama}}?</p>
-																		</div>
-																		<div class="modal-footer danger-md">
-																			<button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
-																			<button type="submit" name="del1" class="btn btn-custon-four btn-danger btn-md"><i class="fa fa-trash"></i> Delete</button>
-																		</div>
-																	</form>
-																</div>
-															</div>
-														</div>
-													</td>
-												</tr>
-												@empty
-												<tr>
-													<td colspan="6">
-														<center>Data Tidak Ada</center>
-													</td>
-												</tr>
-												@endforelse
 											</tbody>
 										</table>
 									</div>
@@ -132,70 +79,18 @@ Inspirasi Sida | Admin
 							<div class="review-content-section">
 								<div class="row">
 									<div class="col-lg-12">
-										<table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+										<table id="kelompok" class="table table-bordered table-hover table-responsive">
 											<thead>
 												<tr>
-													<th data-field="id">No.</th>
-													<th data-field="name">Nama Ketua</th>
-													<th data-field="email">Email</th>
-													<th data-field="ttl">Tempat Tanggal Lahir</th>
-													<th data-field="job">Kategori Penelitian</th>
-													<th data-field="action">Aksi</th>
+													<th>No.</th>
+													<th>Nama Pendaftar</th>
+													<th>Email</th>
+													<th>Tempat Tanggal Lahir</th>
+													<th>Kategori siPeena</th>
+													<th>Aksi</th>
 												</tr>
 											</thead>
 											<tbody>
-												@php
-												$no = 1;
-												@endphp
-
-												@forelse($kelompok as $data)
-												<tr>
-													<td style="width: 5px;">{{$no++}}</td>
-													<td>{{$data->nama}}</td>
-													<td>{{$data->email}}</td>
-													<td>{{$data->ttl}}</td>
-													<td>
-														@if($data->kategori_peena === 0)
-														<span class="label label-success">Inovasi</span>
-														@else
-														<span class="label label-warning">Penelitian</span>
-														@endif
-													</td>
-													<td><a href="{{url('admin/verifikasi-pendaftaran/'.$data->id)}}" target="_blank">
-															<button class="btn btn-custon-four btn-warning btn-xs">
-																<i class="fa fa-eye"></i>
-															</button></a>
-														<button type="button" class="btn btn-custon-four btn-danger btn-xs" data-toggle="modal" data-target="#DangerModalalert{{$data->id}}"><i class="fa fa-trash"></i></button>
-														<div id="DangerModalalert{{$data->id}}" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
-															<div class="modal-dialog">
-																<div class="modal-content">
-																	<form action="{{url('admin/delete-data-sipeena-pendaftaran/'.$data->id)}}" method="post">
-																		<input type="hidden" name="_method" value="DELETE">
-																		@csrf
-																		<div class="modal-close-area modal-close-df">
-																			<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-																		</div>
-																		<div class="modal-body">
-																			<input type="hidden" name="id" class="form-control" value="{{$data->id}}">
-																			<p>Yakin akan menghapus data user {{$data->nama}}?</p>
-																		</div>
-																		<div class="modal-footer danger-md">
-																			<button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
-																			<button type="submit" name="del2" class="btn btn-custon-four btn-danger btn-md"><i class="fa fa-trash"></i> Delete</button>
-																		</div>
-																	</form>
-																</div>
-															</div>
-														</div>
-													</td>
-												</tr>
-												@empty
-												<tr>
-													<td colspan="6">
-														<center>Data Tidak Ada</center>
-													</td>
-												</tr>
-												@endforelse
 											</tbody>
 										</table>
 									</div>
@@ -210,70 +105,18 @@ Inspirasi Sida | Admin
 							<div class="review-content-section">
 								<div class="row">
 									<div class="col-lg-12">
-										<table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+										<table id="lembaga" class="table table-bordered table-hover table-responsive">
 											<thead>
 												<tr>
-													<th data-field="id">No.</th>
-													<th data-field="name">Nama Pendaftar</th>
-													<th data-field="lmb">Nama Lembaga</th>
-													<th data-field="email">Email</th>
-													<th data-field="ttl">Kategori siPeena</th>
-													<th data-field="action">Aksi</th>
+													<th>No.</th>
+													<th>Nama Pendaftar</th>
+													<th>Nama Lembaga</th>
+													<th>Email</th>
+													<th>Kategori siPeena</th>
+													<th>Aksi</th>
 												</tr>
 											</thead>
 											<tbody>
-												@php
-												$no = 1;
-												@endphp
-
-												@forelse($lembaga as $data)
-												<tr>
-													<td style="width: 5px;">{{$no++}}</td>
-													<td>{{$data->nama}}</td>
-													<td>{{$data->nama_lembaga}}</td>
-													<td>{{$data->email}}</td>
-													<td>
-														@if($data->kategori_peena === 0)
-														<span class="label label-success">Inovasi</span>
-														@else
-														<span class="label label-warning">Penelitian</span>
-														@endif
-													</td>
-													<td><a href="{{url('admin/verifikasi-lembaga/'.$data->id)}}" target="_blank">
-															<button class="btn btn-custon-four btn-warning btn-xs">
-																<i class="fa fa-eye"></i>
-															</button></a>
-														<button type="button" class="btn btn-custon-four btn-danger btn-xs" data-toggle="modal" data-target="#DangerModalalert{{$data->id}}"><i class="fa fa-trash"></i></button>
-														<div id="DangerModalalert{{$data->id}}" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
-															<div class="modal-dialog">
-																<div class="modal-content">
-																	<form action="{{url('admin/delete-data-sipeena-lembaga/'.$data->id)}}" method="post">
-																		<input type="hidden" name="_method" value="DELETE">
-																		@csrf
-																		<div class="modal-close-area modal-close-df">
-																			<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-																		</div>
-																		<div class="modal-body">
-																			<input type="hidden" name="id" class="form-control" value="{{$data->id}}">
-																			<p>Yakin akan menghapus data Lembaga {{$data->nama_lembaga}}?</p>
-																		</div>
-																		<div class="modal-footer danger-md">
-																			<button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
-																			<button type="submit" name="del3" class="btn btn-custon-four btn-danger btn-md"><i class="fa fa-trash"></i> Delete</button>
-																		</div>
-																	</form>
-																</div>
-															</div>
-														</div>
-													</td>
-												</tr>
-												@empty
-												<tr>
-													<td colspan="6">
-														<center>Data Tidak Ada</center>
-													</td>
-												</tr>
-												@endforelse
 											</tbody>
 										</table>
 									</div>
@@ -288,66 +131,18 @@ Inspirasi Sida | Admin
 							<div class="review-content-section">
 								<div class="row">
 									<div class="col-lg-12">
-										<table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+										<table id="opd" class="table table-bordered table-hover table-responsive">
 											<thead>
 												<tr>
-													<th data-field="id">No.</th>
-													<th data-field="name">Nama OPD</th>
-													<th data-field="lmb">Nama Pendaftar</th>
-													<th data-field="nip">NIP</th>
-													<th data-field="email">Email</th>
-													<th data-field="ttl">Telepon</th>
-													<th data-field="action">Aksi</th>
+													<th>No.</th>
+													<th>Nama OPD</th>
+													<th>Nama Pendaftar</th>
+													<th>NIP</th>
+													<th>Email</th>
+													<th>Aksi</th>
 												</tr>
 											</thead>
 											<tbody>
-												@php
-												$no = 1;
-												@endphp
-
-												@forelse($pena_opd as $data)
-												<tr>
-													<td style="width: 5px;">{{$no++}}</td>
-													<td>{{$data->nama}}</td>
-													<td>{{$data->tgjawab}}</td>
-													<td>{{$data->nip}}</td>
-													<td>{{$data->email}}</td>
-													<td>{{$data->telp}}</td>
-													<td><a href="{{url('admin/verifikasi-opd/'.$data->id)}}" target="_blank">
-															<button class="btn btn-custon-four btn-warning btn-xs">
-																<i class="fa fa-eye"></i>
-															</button></a>
-														<button type="button" class="btn btn-custon-four btn-danger btn-xs" data-toggle="modal" data-target="#DangerModalalert{{$data->id}}"><i class="fa fa-trash"></i></button>
-														<div id="DangerModalalert{{$data->id}}" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
-															<div class="modal-dialog">
-																<div class="modal-content">
-																	<form action="{{url('admin/delete-data-sipeena-opd/'.$data->id)}}" method="post">
-																		<input type="hidden" name="_method" value="DELETE">
-																		@csrf
-																		<div class="modal-close-area modal-close-df">
-																			<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-																		</div>
-																		<div class="modal-body">
-																			<input type="hidden" name="id" class="form-control" value="{{$data->id}}">
-																			<p>Yakin akan menghapus data OPD {{$data->nama}}?</p>
-																		</div>
-																		<div class="modal-footer danger-md">
-																			<button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
-																			<button type="submit" name="del4" class="btn btn-custon-four btn-danger btn-md"><i class="fa fa-trash"></i> Delete</button>
-																		</div>
-																	</form>
-																</div>
-															</div>
-														</div>
-													</td>
-												</tr>
-												@empty
-												<tr>
-													<td colspan="7">
-														<center>Data Tidak Ada</center>
-													</td>
-												</tr>
-												@endforelse
 											</tbody>
 										</table>
 									</div>
@@ -365,5 +160,315 @@ Inspirasi Sida | Admin
 @section('custom_scripts')
 <script type="text/javascript">
 	$('#alert-modal').modal('show');
+	$(function() {
+		var table = $('#individu').DataTable({
+			responsive: true,
+			processing: true,
+			serverSide: true,
+			ajax: "{{ route('admin.getVerifikasiIndividu') }}",
+			columns: [{
+					name: 'DT_RowIndex',
+					data: 'DT_RowIndex',
+					orderable: false,
+					searchable: false
+				},
+				{
+					name: 'nama',
+					data: 'nama',
+				},
+				{
+					name: 'email',
+					data: 'email',
+				},
+				{
+					name: 'ttl',
+					data: 'ttl',
+				},
+				{
+					name: 'kategori_peena',
+					data: 'kategori_peena',
+				},
+				{
+					name: 'action',
+					data: 'action',
+					orderable: false,
+					searchable: false
+				},
+			],
+		});
+	});
+
+	$(function() {
+		var table = $('#kelompok').DataTable({
+			responsive: true,
+			processing: true,
+			serverSide: true,
+			ajax: "{{ route('admin.getVerifikasiKelompok') }}",
+			columns: [{
+					name: 'DT_RowIndex',
+					data: 'DT_RowIndex',
+					orderable: false,
+					searchable: false
+				},
+				{
+					name: 'nama',
+					data: 'nama',
+				},
+				{
+					name: 'email',
+					data: 'email',
+				},
+				{
+					name: 'ttl',
+					data: 'ttl',
+				},
+				{
+					name: 'kategori_peena',
+					data: 'kategori_peena',
+				},
+				{
+					name: 'action',
+					data: 'action',
+					orderable: false,
+					searchable: false
+				},
+			],
+		});
+	});
+
+	$(function() {
+		var table = $('#lembaga').DataTable({
+			responsive: true,
+			processing: true,
+			serverSide: true,
+			ajax: "{{ route('admin.getVerifikasiLembaga') }}",
+			columns: [{
+					name: 'DT_RowIndex',
+					data: 'DT_RowIndex',
+					orderable: false,
+					searchable: false
+				},
+				{
+					name: 'nama',
+					data: 'nama',
+				},
+				{
+					name: 'nama_lembaga',
+					data: 'nama_lembaga',
+				},
+				{
+					name: 'email',
+					data: 'email',
+				},
+				{
+					name: 'kategori_peena',
+					data: 'kategori_peena',
+				},
+				{
+					name: 'action',
+					data: 'action',
+					orderable: false,
+					searchable: false
+				},
+			],
+		});
+	});
+
+	$(function() {
+		var table = $('#opd').DataTable({
+			responsive: true,
+			processing: true,
+			serverSide: true,
+			ajax: "{{ route('admin.getVerifikasiOpd') }}",
+			columns: [{
+					name: 'DT_RowIndex',
+					data: 'DT_RowIndex',
+					orderable: false,
+					searchable: false
+				},
+				{
+					name: 'nama',
+					data: 'nama',
+				},
+				{
+					name: 'tgjawab',
+					data: 'tgjawab',
+				},
+				{
+					name: 'nip',
+					data: 'nip',
+				},
+				{
+					name: 'email',
+					data: 'email',
+				},
+				{
+					name: 'action',
+					data: 'action',
+					orderable: false,
+					searchable: false
+				},
+			],
+		});
+	});
+	//--------------Fungsi Delete ------------
+	function deleteItemPendaftaran(e) {
+
+		let id = e.getAttribute('data-id');
+		let token = '{{ csrf_token() }}';
+
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonText: 'Yes, delete it!',
+			cancelButtonText: 'No, cancel!',
+			reverseButtons: true
+		}).then((result) => {
+			if (result.value) {
+				if (result.isConfirmed) {
+
+					$.ajax({
+						type: "DELETE",
+						url: '{{ url("admin/delete-data-sipeena-pendaftaran")}}' + '/' + id,
+						data: {
+							id: id,
+							'_token': token
+						},
+						success: function(data) {
+							if (data.success) {
+								Swal.fire(
+									'Deleted!',
+									'Your file has been deleted.',
+									"success"
+								);
+								$("#" + id + "").remove();
+								window.location.reload(true); // you can add name div to remove
+							}
+
+						}
+					});
+
+				}
+
+			} else if (
+				result.dismiss === Swal.DismissReason.cancel
+			) {
+				Swal.fire(
+					'Cancelled',
+					'Your imaginary file is safe :)',
+					'error'
+				);
+			}
+		});
+
+	}
+
+	function deleteItemLembaga(e) {
+
+		let id = e.getAttribute('data-id');
+		let token = '{{ csrf_token() }}';
+
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonText: 'Yes, delete it!',
+			cancelButtonText: 'No, cancel!',
+			reverseButtons: true
+		}).then((result) => {
+			if (result.value) {
+				if (result.isConfirmed) {
+
+					$.ajax({
+						type: "DELETE",
+						url: '{{ url("admin/delete-data-sipeena-lembaga")}}' + '/' + id,
+						data: {
+							id: id,
+							'_token': token
+						},
+						success: function(data) {
+							if (data.success) {
+								Swal.fire(
+									'Deleted!',
+									'Your file has been deleted.',
+									"success"
+								);
+								$("#" + id + "").remove();
+								window.location.reload(true); // you can add name div to remove
+							}
+
+						}
+					});
+
+				}
+
+			} else if (
+				result.dismiss === Swal.DismissReason.cancel
+			) {
+				Swal.fire(
+					'Cancelled',
+					'Your imaginary file is safe :)',
+					'error'
+				);
+			}
+		});
+
+	}
+
+	function deleteItemOpd(e) {
+
+		let id = e.getAttribute('data-id');
+		let token = '{{ csrf_token() }}';
+
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonText: 'Yes, delete it!',
+			cancelButtonText: 'No, cancel!',
+			reverseButtons: true
+		}).then((result) => {
+			if (result.value) {
+				if (result.isConfirmed) {
+
+					$.ajax({
+						type: "DELETE",
+						url: '{{ url("admin/delete-data-sipeena-opd")}}' + '/' + id,
+						data: {
+							id: id,
+							'_token': token
+						},
+						success: function(data) {
+							if (data.success) {
+								Swal.fire(
+									'Deleted!',
+									'Your file has been deleted.',
+									"success"
+								);
+								$("#" + id + "").remove();
+								window.location.reload(true); // you can add name div to remove
+							}
+
+						}
+					});
+
+				}
+
+			} else if (
+				result.dismiss === Swal.DismissReason.cancel
+			) {
+				Swal.fire(
+					'Cancelled',
+					'Your imaginary file is safe :)',
+					'error'
+				);
+			}
+		});
+
+	}
 </script>
 @endsection

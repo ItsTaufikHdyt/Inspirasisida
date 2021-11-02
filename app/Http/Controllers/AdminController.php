@@ -111,7 +111,7 @@ class AdminController extends Controller
 
     public function verifikasi()
     {
-        $perorangan = pendaftaran::where('kelompok', '=', 0)
+        $individu = pendaftaran::where('kelompok', '=', 0)
             ->where('verifikasi', '=', 0)
             ->get();
         $kelompok = pendaftaran::where('kelompok', '=', 1)
@@ -119,7 +119,89 @@ class AdminController extends Controller
             ->get();
         $lembaga = lembaga::where('verifikasi', 0)->get();
         $pena_opd = penaopd::where('verifikasi', 0)->get();
-        return view('admin.data-sipeena.verifikasi', compact('perorangan', 'kelompok', 'lembaga', 'pena_opd'));
+        return view('admin.data-sipeena.verifikasi', compact('individu', 'kelompok', 'lembaga', 'pena_opd'));
+    }
+
+    public function getVerifikasiIndividu()
+    {
+        $individu = pendaftaran::select('id', 'nama', 'email', 'ttl', 'kategori_peena')
+            ->where('kelompok', '=', 0,)
+            ->where('verifikasi', '=', 0);
+
+        return DataTables::of($individu)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.verifikasiPendaftaran', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemPendaftaran(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('kategori_peena', function ($data) {
+                if ($data->kategori_peena == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori_peena == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function getVerifikasiKelompok()
+    {
+        $kelompok = pendaftaran::select('id', 'nama', 'email', 'ttl', 'kategori_peena')
+            ->where('kelompok', '=', 1,)
+            ->where('verifikasi', '=', 0);
+
+        return DataTables::of($kelompok)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.verifikasiPendaftaran', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemPendaftaran(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('kategori_peena', function ($data) {
+                if ($data->kategori_peena == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori_peena == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function getVerifikasiLembaga()
+    {
+        $lembaga = lembaga::select('id', 'nama', 'nama_lembaga', 'email', 'kategori_peena')
+            ->where('verifikasi', 0);
+
+        return DataTables::of($lembaga)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.verifikasiLembaga', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemLembaga(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('kategori_peena', function ($data) {
+                if ($data->kategori_peena == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori_peena == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function getVerifikasiOpd()
+    {
+        $opd = penaopd::select('id', 'nama', 'tgjawab', 'nip', 'email')
+            ->where('verifikasi', 0);
+
+        return DataTables::of($opd)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.verifikasiOpd', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemOpd(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
     }
     //-------------------- Verifikasi -------------------
     public function verifikasiPendaftaran($id)
@@ -259,19 +341,25 @@ class AdminController extends Controller
     public function destroySipeenaPendaftaran($id)
     {
         $pendaftaran = $this->dataSipeenaRepository->destroySipeenaPendaftaran($id);
-        return redirect()->route('admin.verifikasi');
+        return response()->json([
+            'success' => true
+        ]);
     }
 
     public function destroySipeenaLembaga($id)
     {
         $lembaga = $this->dataSipeenaRepository->destroySipeenaLembaga($id);
-        return redirect()->route('admin.verifikasi');
+        return response()->json([
+            'success' => true
+        ]);
     }
 
     public function destroySipeenaOpd($id)
     {
         $opd = $this->dataSipeenaRepository->destroySipeenaOpd($id);
-        return redirect()->route('admin.verifikasi');
+        return response()->json([
+            'success' => true
+        ]);
     }
 
     public function diterima()
@@ -287,6 +375,88 @@ class AdminController extends Controller
         return view('admin.data-sipeena.diterima', compact('perorangan', 'kelompok', 'lembaga', 'pena_opd'));
     }
 
+    public function getDiterimaIndividu()
+    {
+        $individu = pendaftaran::select('id', 'nama', 'email', 'ttl', 'kategori_peena')
+            ->where('kelompok', '=', 0,)
+            ->where('verifikasi', '=', 1);
+
+        return DataTables::of($individu)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.AccPendaftaran', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemPendaftaran(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('kategori_peena', function ($data) {
+                if ($data->kategori_peena == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori_peena == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function getDiterimaKelompok()
+    {
+        $kelompok = pendaftaran::select('id', 'nama', 'email', 'ttl', 'kategori_peena')
+            ->where('kelompok', '=', 1,)
+            ->where('verifikasi', '=', 1);
+
+        return DataTables::of($kelompok)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.AccPendaftaran', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemPendaftaran(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('kategori_peena', function ($data) {
+                if ($data->kategori_peena == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori_peena == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function getDiterimaLembaga()
+    {
+        $lembaga = lembaga::select('id', 'nama', 'nama_lembaga', 'email', 'kategori_peena')
+            ->where('verifikasi', 1);
+
+        return DataTables::of($lembaga)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.AccLembaga', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemLembaga(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('kategori_peena', function ($data) {
+                if ($data->kategori_peena == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori_peena == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function getDiterimaOpd()
+    {
+        $opd = penaopd::select('id', 'nama', 'tgjawab', 'nip', 'email')
+            ->where('verifikasi', 1);
+
+        return DataTables::of($opd)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.AccOpd', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemOpd(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
     public function ditolak()
     {
         $perorangan = pendaftaran::where('kelompok', '=', 0)
@@ -300,6 +470,88 @@ class AdminController extends Controller
         return view('admin.data-sipeena.ditolak', compact('perorangan', 'kelompok', 'lembaga', 'pena_opd'));
     }
 
+    public function getDitolakIndividu()
+    {
+        $individu = pendaftaran::select('id', 'nama', 'email', 'ttl', 'kategori_peena')
+            ->where('kelompok', '=', 0,)
+            ->where('verifikasi', '=', -1);
+
+        return DataTables::of($individu)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.verifikasiPendaftaran', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemPendaftaran(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('kategori_peena', function ($data) {
+                if ($data->kategori_peena == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori_peena == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function getDitolakKelompok()
+    {
+        $kelompok = pendaftaran::select('id', 'nama', 'email', 'ttl', 'kategori_peena')
+            ->where('kelompok', '=', 1,)
+            ->where('verifikasi', '=', -1);
+
+        return DataTables::of($kelompok)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.verifikasiPendaftaran', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemPendaftaran(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('kategori_peena', function ($data) {
+                if ($data->kategori_peena == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori_peena == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function getDitolakLembaga()
+    {
+        $lembaga = lembaga::select('id', 'nama', 'nama_lembaga', 'email', 'kategori_peena')
+            ->where('verifikasi', -1);
+
+        return DataTables::of($lembaga)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.verifikasiLembaga', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemLembaga(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('kategori_peena', function ($data) {
+                if ($data->kategori_peena == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori_peena == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function getDitolakOpd()
+    {
+        $opd = penaopd::select('id', 'nama', 'tgjawab', 'nip', 'email')
+            ->where('verifikasi', -1);
+
+        return DataTables::of($opd)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.verifikasiOpd', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemOpd(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
     public function finalis()
     {
         $perorangan = pendaftaran::where('kelompok', '=', 0)
@@ -311,6 +563,88 @@ class AdminController extends Controller
         $lembaga = lembaga::where('verifikasi', 2)->get();
         $pena_opd = penaopd::where('verifikasi', 2)->get();
         return view('admin.data-sipeena.finalis', compact('perorangan', 'kelompok', 'lembaga', 'pena_opd'));
+    }
+
+    public function getFinalisIndividu()
+    {
+        $individu = pendaftaran::select('id', 'nama', 'email', 'ttl', 'kategori_peena')
+            ->where('kelompok', '=', 0,)
+            ->where('verifikasi', '=', 2);
+
+        return DataTables::of($individu)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.FinalPendaftaran', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemPendaftaran(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('kategori_peena', function ($data) {
+                if ($data->kategori_peena == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori_peena == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function getFinalisKelompok()
+    {
+        $kelompok = pendaftaran::select('id', 'nama', 'email', 'ttl', 'kategori_peena')
+            ->where('kelompok', '=', 1,)
+            ->where('verifikasi', '=', 2);
+
+        return DataTables::of($kelompok)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.FinalPendaftaran', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemPendaftaran(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('kategori_peena', function ($data) {
+                if ($data->kategori_peena == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori_peena == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function getFinalisLembaga()
+    {
+        $lembaga = lembaga::select('id', 'nama', 'nama_lembaga', 'email', 'kategori_peena')
+            ->where('verifikasi', 2);
+
+        return DataTables::of($lembaga)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.FinalLembaga', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemLembaga(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('kategori_peena', function ($data) {
+                if ($data->kategori_peena == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori_peena == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function getFinalisOpd()
+    {
+        $opd = penaopd::select('id', 'nama', 'tgjawab', 'nip', 'email')
+            ->where('verifikasi', 2);
+
+        return DataTables::of($opd)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a class="btn btn-warning" href="' . route('admin.FinalOpd', $data->id) . '" target="_blank">Show</a>';
+                $btn = $btn . ' <button onclick="deleteItemOpd(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
     }
 
     // ---------------- Prosedur ------------------------
@@ -421,46 +755,46 @@ class AdminController extends Controller
 
     public function getDatabaseMasyarakat()
     {
-        $dbmasyarakat = dbmasyarakat::select('id','judul','tahun','nama','lokasi','abstraksi','kategori');
+        $dbmasyarakat = dbmasyarakat::select('id', 'judul', 'tahun', 'nama', 'lokasi', 'abstraksi', 'kategori');
         return DataTables::of($dbmasyarakat)
-        ->addIndexColumn()
-        ->editColumn('action', function ($data) {
-            $btn = '<a href="" class="btn btn-warning" id="editDbMasyarakat" data-toggle="modal" data-target="#dbmasyarakat_modal" data-id=' . $data->id . '>Edit</a>';
-            $btn = $btn.' <button onclick="deleteItemMasyarakat(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
-            return $btn;
-        })
-        ->editColumn('abstraksi', function ($data) {
-            return Str::limit($data->abstraksi,50);
-        })
-        ->editColumn('kategori', function ($data) {
-            if ($data->kategori == 0) return '<span class="badge badge-success">Inovasi</span>';
-            if ($data->kategori == 1) return '<span class="badge badge-warning">Penelitian</span>';
-        })
-        ->rawColumns(['action'])
-        ->escapeColumns([])
-        ->make(true);
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a href="" class="btn btn-warning" id="editDbMasyarakat" data-toggle="modal" data-target="#dbmasyarakat_modal" data-id=' . $data->id . '>Edit</a>';
+                $btn = $btn . ' <button onclick="deleteItemMasyarakat(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('abstraksi', function ($data) {
+                return Str::limit($data->abstraksi, 50);
+            })
+            ->editColumn('kategori', function ($data) {
+                if ($data->kategori == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
     }
 
     public function getDatabaseOpd()
     {
-        $dbopd = dbopd::select('id','judul','tahun','opd','lokasi','berkas','abstraksi','kategori');
+        $dbopd = dbopd::select('id', 'judul', 'tahun', 'opd', 'lokasi', 'berkas', 'abstraksi', 'kategori');
         return DataTables::of($dbopd)
-        ->addIndexColumn()
-        ->editColumn('action', function ($data) {
-            $btn = '<a href="" class="btn btn-warning" id="editDbOpd" data-toggle="modal" data-target="#dbopd_modal" data-id=' . $data->id . '>Edit</a>';
-            $btn = $btn.' <button onclick="deleteItemOpd(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
-            return $btn;
-        })
-        ->editColumn('abstraksi', function ($data) {
-            return Str::limit($data->abstraksi,50);
-        })
-        ->editColumn('kategori', function ($data) {
-            if ($data->kategori == 0) return '<span class="badge badge-success">Inovasi</span>';
-            if ($data->kategori == 1) return '<span class="badge badge-warning">Penelitian</span>';
-        })
-        ->rawColumns(['action'])
-        ->escapeColumns([])
-        ->make(true);
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a href="" class="btn btn-warning" id="editDbOpd" data-toggle="modal" data-target="#dbopd_modal" data-id=' . $data->id . '>Edit</a>';
+                $btn = $btn . ' <button onclick="deleteItemOpd(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                return $btn;
+            })
+            ->editColumn('abstraksi', function ($data) {
+                return Str::limit($data->abstraksi, 50);
+            })
+            ->editColumn('kategori', function ($data) {
+                if ($data->kategori == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori == 1) return '<span class="badge badge-warning">Penelitian</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
     }
     // ---------------- Database OPD ------------------------
     public function storeDbOpd(storeDbOpdRequest $request)
@@ -630,5 +964,4 @@ class AdminController extends Controller
             'success' => true
         ]);
     }
-    
 }
