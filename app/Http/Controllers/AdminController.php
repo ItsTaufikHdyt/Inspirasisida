@@ -27,7 +27,7 @@ use App\Exceptions\Handler;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\VerifikasiSipeenaUmum;
-
+use Illuminate\Support\Str;
 use App\prosedur;
 use App\unitkerja;
 use App\pendaftaran;
@@ -327,8 +327,8 @@ class AdminController extends Controller
             ->addIndexColumn()
             ->editColumn('action', function ($data) {
                 $btn = '<a href="" class="btn btn-warning" id="editProsedur" data-toggle="modal" data-target="#prosedur_modal" data-id=' . $data->id . '>Edit</a>';
-                $btn =  $btn . '<a href="" class="btn btn-primary" id="showProsedur" data-toggle="modal" data-target="#show_modal" data-id=' . $data->id . '>Show</a>';
-                $btn = $btn . '<button onclick="deleteItem(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                $btn =  $btn . ' <a href="" class="btn btn-primary" id="showProsedur" data-toggle="modal" data-target="#show_modal" data-id=' . $data->id . '>Show</a>';
+                $btn = $btn . ' <button onclick="deleteItem(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
                 return $btn;
             })
             ->rawColumns(['action'])
@@ -379,7 +379,7 @@ class AdminController extends Controller
             ->addIndexColumn()
             ->editColumn('action', function ($data) {
                 $btn = '<a href="" class="btn btn-warning" id="editOpd" data-toggle="modal" data-target="#opd_modal" data-id=' . $data->id . '>Edit</a>';
-                $btn = $btn . '<button onclick="deleteItem(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+                $btn = $btn . ' <button onclick="deleteItem(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
                 return $btn;
             })
             ->rawColumns(['action'])
@@ -419,6 +419,27 @@ class AdminController extends Controller
         return view('admin.database.index', compact('dbopd', 'dbmasyarakat'));
     }
 
+    public function getDatabaseMasyarakat()
+    {
+        $dbmasyarakat = dbmasyarakat::select('id','judul','tahun','nama','lokasi','abstraksi','kategori');
+        return DataTables::of($dbmasyarakat)
+        ->addIndexColumn()
+        ->editColumn('action', function ($data) {
+            $btn = '<a href="" class="btn btn-warning" id="editDbMasyarakat" data-toggle="modal" data-target="#dbmasyarakat_modal" data-id=' . $data->id . '>Edit</a>';
+            $btn = $btn.' <button onclick="deleteItem(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+            return $btn;
+        })
+        ->editColumn('abstraksi', function ($data) {
+            return Str::limit($data->abstraksi,50);
+        })
+        ->editColumn('kategori', function ($data) {
+            if ($data->kategori == 0) return '<span class="badge badge-success">Inovasi</span>';
+            if ($data->kategori == 1) return '<span class="badge badge-warning">Penelitian</span>';
+        })
+        ->rawColumns(['action'])
+        ->escapeColumns([])
+        ->make(true);
+    }
     // ---------------- Database OPD ------------------------
     public function storeDbOpd(storeDbOpdRequest $request)
     {
@@ -429,13 +450,17 @@ class AdminController extends Controller
     public function updateDbOpd(storeDbOpdRequest $request, $id)
     {
         $dbopd = $this->databaseRepository->updateDbOpd($request, $id);
-        return redirect()->route('admin.database');
+        return response()->json([
+            'success' => true
+        ]);
     }
 
     public function destroyDbOpd($id)
     {
         $dbopd = $this->databaseRepository->destroyDbOpd($id);
-        return redirect()->route('admin.database');
+        return response()->json([
+            'success' => true
+        ]);
     }
 
     public function downloadDbOpd($id)
@@ -446,20 +471,33 @@ class AdminController extends Controller
     // ---------------- Database Masyarakat Inovasi ------------------------
     public function storeDbMasyarakat(storeDbMasyarakatRequest $request)
     {
-        $dbopd = $this->databaseRepository->storeDbMasyarakat($request);
+        $dbmasyarakat = $this->databaseRepository->storeDbMasyarakat($request);
         return redirect()->route('admin.database');
     }
 
     public function updateDbMasyarakat(storeDbMasyarakatRequest $request, $id)
     {
-        $dbopd = $this->databaseRepository->updateDbMasyarakat($request, $id);
-        return redirect()->route('admin.database');
+        $dbmasyarakat = $this->databaseRepository->updateDbMasyarakat($request, $id);
+        return response()->json([
+            'success' => true
+        ]);
+    }
+
+    public function editDbMasyarakat($id)
+    {
+        $dbmasyarakat = dbmasyarakat::find($id);
+        return response()->json([
+            'success' => true,
+            'data' => $dbmasyarakat
+        ]);
     }
 
     public function destroyDbMasyarakat($id)
     {
-        $dbopd = $this->databaseRepository->destroyDbMasyarakat($id);
-        return redirect()->route('admin.database');
+        $dbmasyarakat = $this->databaseRepository->destroyDbMasyarakat($id);
+        return response()->json([
+            'success' => true
+        ]);
     }
     // ---------------- Galeri ------------------------
     public function galeri()

@@ -160,7 +160,7 @@ Inspirasi Sida | Admin
 													<div class="input prepend-small-btn">
 														<div class="file-button">
 															Browse
-															<input type="file" name="foto" onchange="document.getElementById('prepend-small-btn5').value = this.value;">
+															<input type="file" id="foto" name="foto" onchange="document.getElementById('prepend-small-btn5').value = this.value;">
 														</div>
 														<input type="text" name="file" id="prepend-small-btn5" value="" placeholder="no file selected">
 													</div>
@@ -176,7 +176,7 @@ Inspirasi Sida | Admin
 													<div class="input prepend-small-btn">
 														<div class="file-button">
 															Browse
-															<input type="file" name="berkas" onchange="document.getElementById('prepend-small-btn').value = this.value;">
+															<input type="file" id="berkas" name="berkas" onchange="document.getElementById('prepend-small-btn').value = this.value;">
 														</div>
 														<input type="text" name="berkas" id="prepend-small-btn" value="" placeholder="no file selected">
 													</div>
@@ -304,15 +304,21 @@ Inspirasi Sida | Admin
 			var id = $("#prosedur_id").val();
 			var judul_prosedur = $("#judul_prosedur").val();
 			var narasi = $("#narasi").val();
+			// var foto = $("#foto")[0].files[0];
+			// var berkas = $("#berkas")[0].files[0];
+			var foto = new FormData(document.getElementById("foto"));
+			var berkas = new FormData(document.getElementById("berkas"));
 			var token = '{{ csrf_token() }}';
 
 			$.ajax({
-				url: '{{url("admin/update-data-opd")}}' + '/' + id,
+				url: '{{url("admin/update-prosedur")}}' + '/' + id,
 				type: "PUT",
 				data: {
 					id: id,
 					judul_prosedur: judul_prosedur,
 					narasi: narasi,
+					// foto: foto,
+					// berkas: berkas,
 					'_token': token
 				},
 				dataType: 'json',
