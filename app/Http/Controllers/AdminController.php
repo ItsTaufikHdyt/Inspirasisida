@@ -426,7 +426,29 @@ class AdminController extends Controller
         ->addIndexColumn()
         ->editColumn('action', function ($data) {
             $btn = '<a href="" class="btn btn-warning" id="editDbMasyarakat" data-toggle="modal" data-target="#dbmasyarakat_modal" data-id=' . $data->id . '>Edit</a>';
-            $btn = $btn.' <button onclick="deleteItem(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+            $btn = $btn.' <button onclick="deleteItemMasyarakat(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
+            return $btn;
+        })
+        ->editColumn('abstraksi', function ($data) {
+            return Str::limit($data->abstraksi,50);
+        })
+        ->editColumn('kategori', function ($data) {
+            if ($data->kategori == 0) return '<span class="badge badge-success">Inovasi</span>';
+            if ($data->kategori == 1) return '<span class="badge badge-warning">Penelitian</span>';
+        })
+        ->rawColumns(['action'])
+        ->escapeColumns([])
+        ->make(true);
+    }
+
+    public function getDatabaseOpd()
+    {
+        $dbopd = dbopd::select('id','judul','tahun','opd','lokasi','berkas','abstraksi','kategori');
+        return DataTables::of($dbopd)
+        ->addIndexColumn()
+        ->editColumn('action', function ($data) {
+            $btn = '<a href="" class="btn btn-warning" id="editDbOpd" data-toggle="modal" data-target="#dbopd_modal" data-id=' . $data->id . '>Edit</a>';
+            $btn = $btn.' <button onclick="deleteItemOpd(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
             return $btn;
         })
         ->editColumn('abstraksi', function ($data) {

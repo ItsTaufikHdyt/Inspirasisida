@@ -99,12 +99,13 @@ Route::group(['middleware' => 'cekstatus', "prefix" => "admin/"], function () {
     //--------------- Database ---------------------
     Route::get('database', 'AdminController@database')->name('admin.database');
     //---------------- Database Inovasi Perangkat Daerah -------------
+    Route::get('get-database-dbopd', 'AdminController@getDatabaseOpd')->name('admin.databaseOpd');
     Route::post('store-dbopd', 'AdminController@storeDbOpd')->name('admin.storeDbOpd');
     Route::put('update-dbopd/{id}', 'AdminController@updateDbOpd')->name('admin.updateDbOpd');
     Route::delete('delete-dbopd/{id}', 'AdminController@destroyDbOpd')->name('admin.deleteDbOpd');
     Route::get('download-dbopd/{id}', 'AdminController@downloadDbOpd')->name('admin.downloadDbOpd');
     //---------------- Database Inovasi Masyarakat -------------
-    Route::get('get-database-masyarakat', 'AdminController@getDatabaseMasyarakat')->name('admin.databaseMasyarakat');
+    Route::get('get-database-dbmasyarakat', 'AdminController@getDatabaseMasyarakat')->name('admin.databaseMasyarakat');
     Route::post('store-dbmasyarakat', 'AdminController@storeDbMasyarakat')->name('admin.storeDbMasyarakat');
     Route::get('edit-dbmasyarakat/{id}', 'AdminController@editDbMasyarakat')->name('admin.editDbMasyarakat');
     Route::put('update-dbmasyarakat/{id}', 'AdminController@updateDbMasyarakat')->name('admin.updateDbMasyarakat');

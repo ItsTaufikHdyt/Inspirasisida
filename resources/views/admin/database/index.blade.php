@@ -133,167 +133,85 @@ Inspirasi Sida | Admin
 												</div>
 											</div>
 										</div>
-										<table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+										<table id="tabel-opd" class="table table-bordered table-hover table-responsive">
 											<thead>
 												<tr>
-													<th data-field="id">No.</th>
-													<th data-field="name">Judul</th>
-													<th data-field="thn">Tahun</th>
-													<th data-field="opd">Perangkat Daerah</th>
-													<th data-field="location">Lokasi Kegiatan</th>
-													<th data-field="abstraksi">Abstraksi/Profil Inovasi</th>
-													<th data-field="file">Berkas</th>
-													<th data-field="category">Kategori</th>
-													<th data-field="action">Aksi</th>
+													<th>No.</th>
+													<th>Judul</th>
+													<th>Tahun</th>
+													<th>Perangkat Daerah</th>
+													<th>Lokasi Kegiatan</th>
+													<th>Abstraksi/Profil Inovasi</th>
+													<th>Berkas</th>
+													<th>Kategori</th>
+													<th>Aksi</th>
 												</tr>
 											</thead>
 											<tbody>
-												@php
-												$no = 1;
-												@endphp
-												@forelse($dbopd as $data)
-												<tr>
-													<td style="width: 5px;">{{$no++}}</td>
-													<td>{{$data->judul}}</td>
-													<td>{{$data->tahun}}</td>
-													<td>{{$data->opd}}</td>
-													<td>{{$data->lokasi}}</td>
-													<td>{{substr($data->abstraksi, 0, 100)}}...</td>
-													<td>
-														@if($data->kategori === 0 && $data->berkas != null)
-														<a href="{{url('admin/download-dbopd/'.$data->id)}}" target="_blank"><img src="{{asset('img/icon/pdf.png')}}" width="50" height="100" alt=""></a>
-													</td>
-													@else
-													-
-													@endif
-													<td>
-														@if($data->kategori === 0)
-														<label class="label label-success">Inovasi</label>
-														@elseif($data->kategori === 1)
-														<label class="label label-warning">Penelitian</label>
-														@endif
-													</td>
-													<td>
-														<button type="button" class="btn btn-custon-four btn-primary btn-xs" data-toggle="modal" data-target="#PrimaryModalalert{{$data->id}}"><i class="fa fa-pencil"></i></button>
-														<div id="PrimaryModalalert{{$data->id}}" class="modal modal-xl  fade" role="dialog">
-															<div class="modal-dialog">
-																<div class="modal-content">
-																	<form action="{{url('admin/update-dbopd/'.$data->id)}}" method="post" enctype="multipart/form-data">
-																		<input type="hidden" name="_method" value="PUT">
-																		@csrf
-																		<div class="modal-close-area modal-close-df">
-																			<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-																		</div>
-																		<div class="modal-body">
-																			<table width="100%">
-																				<tr>
-																					<td>Judul</td>
-																				</tr>
-																				<tr>
-																					<td><input type="text" name="judul" value="{{$data->judul}}" class="form-control" placeholder="Judul Inovasi / Penelitian..." required></td>
-																				</tr>
-																				<tr>
-																					<td>Tahun</td>
-																				</tr>
-																				<tr>
-																					<td><input type="text" name="tahun" value="{{$data->tahun}}" class="form-control" placeholder="Tahun..." required></td>
-																				</tr>
-																				<tr>
-																					<td>Perangkat Daerah</td>
-																				</tr>
-																				<tr>
-																					<td><input type="text" name="opd" value="{{$data->opd}}" class="form-control" placeholder="Perangkat Daerah..." required></td>
-																				</tr>
-																				<tr>
-																					<td>Lokasi Daerah</td>
-																				</tr>
-																				<tr>
-																					<td><input type="text" name="lokasi" value="{{$data->lokasi}}" class="form-control" placeholder="Lokasi Daerah..." required></td>
-																				</tr>
-																				<tr>
-																					<td>Abstraksi / Profil Inovasi</td>
-																				</tr>
-																				<tr>
-																					<td>
-																						<textarea name="abstraksi" cols="60" rows="10" class="form-control" placeholder="Abstraksi..." required>{{$data->abstraksi}}</textarea>
-																					</td>
-																				</tr>
-																				<tr>
-																					<td>Kategori</td>
-																				</tr>
-																				<tr>
-																					<td>
-																						<select name="kategori" class="form-control" id="">
-																							@if($data->kategori === 0)
-																							<option value="0" selected>Inovasi</option>
-																							<option value="1">Penelitian</option>
-																							@elseif($data->kategori === 1)
-																							<option value="0">Inovasi</option>
-																							<option value="1" selected>Penelitian</option>
-																							@endif
-																						</select>
-																					</td>
-																				</tr>
-																				<tr>
-																					<td>Upload File</td>
-																				</tr>
-																				<tr>
-																					<td>
-																						<div class="file-upload-inner ts-forms">
-																							<div class="input prepend-small-btn">
-																								<div class="file-button">
-																									Browse
-																									<input type="file" name="berkas" onchange="document.getElementById('prepend-small-btn2').value = this.value;">
-																								</div>
-																								<input type="text" name="berkas" id="prepend-small-btn2" value="{{$data->berkas}}" placeholder="no file selected">
-																							</div>
-																						</div>
-																					</td>
-																				</tr>
-																			</table>
-																		</div>
-																		<div class="modal-footer">
-																			<button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
-																			<button type="submit" name="edit" class="btn btn-custon-four btn-primary btn-md"><i class="fa fa-pencil"></i> Edit</button>
-																		</div>
-																	</form>
-																</div>
-															</div>
-														</div>
-
-														<button type="button" class="btn btn-custon-four btn-danger btn-xs" data-toggle="modal" data-target="#DangerModalalert{{$data->id}}"><i class="fa fa-trash"></i></button>
-														<div id="DangerModalalert{{$data->id}}" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
-															<div class="modal-dialog">
-																<div class="modal-content">
-																	<form action="{{url('admin/delete-dbopd/'.$data->id)}}" method="post">
-																		<input type="hidden" name="_method" value="DELETE">
-																		@csrf
-																		<div class="modal-close-area modal-close-df">
-																			<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-																		</div>
-																		<div class="modal-body">
-																			<input type="hidden" name="id" class="form-control" value="{{$data->id}}">
-																			<p>Yakin akan menghapus {{$data->judul}}?</p>
-																		</div>
-																		<div class="modal-footer danger-md">
-																			<button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
-																			<button type="submit" name="del" class="btn btn-custon-four btn-danger btn-md"><i class="fa fa-trash"></i> Delete</button>
-																		</div>
-																	</form>
-																</div>
-															</div>
-														</div>
-													</td>
-												</tr>
-												@empty
-												<tr>
-													<td colspan="8">
-														<center>Data Tidak Ada</center>
-													</td>
-												</tr>
-												@endforelse
 											</tbody>
 										</table>
+										<div class="modal modal-xl  fade" role="dialog" id="dbopd_modal">
+											<div class="modal-dialog">
+												<form id="companydata">
+													<div class="modal-content">
+														<input type="hidden" id="dbopd_id" name="dbopd_id" value="">
+														<div class="modal-close-area modal-close-df">
+															<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+														</div>
+														<div class="modal-body">
+															<table width="100%">
+																<tr>
+																	<td>Judul</td>
+																</tr>
+																<tr>
+																	<td><input type="text" id="judul" name="judul" value="" class="form-control" placeholder="Judul Inovasi / Penelitian..." required></td>
+																</tr>
+																<tr>
+																	<td>Tahun</td>
+																</tr>
+																<tr>
+																	<td><input type="text" id="tahun" name="tahun" value="" class="form-control" placeholder="Tahun..." required></td>
+																</tr>
+																<tr>
+																	<td>OPD</td>
+																</tr>
+																<tr>
+																	<td><input type="text" id="opd" name="opd" value="" class="form-control" placeholder="Nama Peserta..." required></td>
+																</tr>
+																<tr>
+																	<td>Lokasi Kegiatan</td>
+																</tr>
+																<tr>
+																	<td><input type="text" id="lokasi" name="lokasi" value="" class="form-control" placeholder="Lokasi Kegiatan..." required></td>
+																</tr>
+																<tr>
+																	<td>Abstraksi / Profil Inovasi</td>
+																</tr>
+																<tr>
+																	<td>
+																		<textarea id="abstraksi" name="abstraksi" class="form-control" cols="60" rows="10" placeholder="Abstraksi..." required></textarea>
+																	</td>
+																</tr>
+																<tr>
+																	<td>Kategori</td>
+																</tr>
+																<tr>
+																	<td>
+																		<select name="kategori" class="form-control" id="kategori">
+																			<option value="0">Inovasi</option>
+																			<option value="1">Penelitian</option>
+																		</select>
+																	</td>
+																</tr>
+															</table>
+														</div>
+														<div class="modal-footer">
+															<input type="submit" value="Submit" id="submit-edit-dbmasyarakat" class="btn btn-custon-four btn-primary btn-md">
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -429,7 +347,7 @@ Inspirasi Sida | Admin
 																</tr>
 																<tr>
 																	<td>
-																		<textarea id="abstraksi" name="abstraksi" class="form-control" cols="60" rows="10" placeholder="Abstraksi..." required>{{$data->abstraksi}}</textarea>
+																		<textarea id="abstraksi" name="abstraksi" class="form-control" cols="60" rows="10" placeholder="Abstraksi..." required></textarea>
 																	</td>
 																</tr>
 																<tr>
@@ -556,7 +474,7 @@ Inspirasi Sida | Admin
 			event.preventDefault()
 			var id = $("#dbmasyarakat_id").val();
 			var tahun = $("#tahun").val();
-			var judul= $("#judul").val();
+			var judul = $("#judul").val();
 			var nama = $("#nama").val();
 			var lokasi = $("#lokasi").val();
 			var abstraksi = $("#abstraksi").val();
@@ -588,8 +506,7 @@ Inspirasi Sida | Admin
 	});
 
 	//--------------Fungsi Delete ------------
-
-	function deleteItem(e) {
+	function deleteItemMasyarakat(e) {
 
 		let id = e.getAttribute('data-id');
 		let token = '{{ csrf_token() }}';
@@ -643,5 +560,116 @@ Inspirasi Sida | Admin
 	}
 
 	//Database OPD
+	//--------------Fungsi Yajra DataTables------------
+	$(function() {
+		var table = $('#tabel-opd').DataTable({
+			responsive: true,
+			processing: true,
+			serverSide: true,
+			ajax: "{{ route('admin.databaseOpd') }}",
+			columns: [{
+					data: 'DT_RowIndex',
+					name: 'DT_RowIndex',
+					orderable: false,
+					searchable: false
+				},
+				{
+					data: 'judul',
+					name: 'judul',
+				},
+				{
+					data: 'tahun',
+					name: 'tahun',
+				},
+				{
+					data: 'opd',
+					name: 'opd',
+				},
+				{
+					data: 'lokasi',
+					name: 'lokasi',
+				},
+				{
+					data: 'abstraksi',
+					name: 'abstraksi',
+				},
+				{
+					data: 'berkas',
+					name: 'berkas',
+				},
+				{
+					data: 'kategori',
+					name: 'kategori',
+				},
+				{
+					data: 'action',
+					name: 'action',
+					orderable: false,
+					searchable: false
+				},
+			],
+			columnDefs: [{
+				targets: 5,
+				function(data, type, row) {
+					return data.substr(0, 50);
+				}
+			}]
+		});
+
+	});
+
+	//--------------Fungsi Delete ------------
+	function deleteItemOpd(e) {
+
+		let id = e.getAttribute('data-id');
+		let token = '{{ csrf_token() }}';
+
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonText: 'Yes, delete it!',
+			cancelButtonText: 'No, cancel!',
+			reverseButtons: true
+		}).then((result) => {
+			if (result.value) {
+				if (result.isConfirmed) {
+
+					$.ajax({
+						type: "DELETE",
+						url: '{{ url("admin/delete-dbopd")}}' + '/' + id,
+						data: {
+							id: id,
+							'_token': token
+						},
+						success: function(data) {
+							if (data.success) {
+								Swal.fire(
+									'Deleted!',
+									'Your file has been deleted.',
+									"success"
+								);
+								$("#" + id + "").remove();
+								window.location.reload(true); // you can add name div to remove
+							}
+
+						}
+					});
+
+				}
+
+			} else if (
+				result.dismiss === Swal.DismissReason.cancel
+			) {
+				Swal.fire(
+					'Cancelled',
+					'Your imaginary file is safe :)',
+					'error'
+				);
+			}
+		});
+
+	}
 </script>
 @endsection
