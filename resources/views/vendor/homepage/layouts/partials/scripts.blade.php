@@ -23,6 +23,11 @@
 <script src="{{asset('js/contact-form-script.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/bootstrap-toggle.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- <script src="{{asset('js/popper.min.js')}}"></script> -->
 <!-- <script src="{{asset('js/color-switcher.js')}}"></script> -->

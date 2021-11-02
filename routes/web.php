@@ -177,6 +177,14 @@ Route::group(["prefix" => "sipeena/"], function () {
 
     //--------------- Riwayat -------------------
     Route::get('/riwayat', 'SipeenaController@riwayat')->name('riwayat');
+    Route::get('/getPendaftaranInovasi', 'SipeenaController@getPendaftaranInovasi')->name('riwayat.getPendaftaranInovasi');
+    Route::get('/showPendaftaranInovasi/{id}', 'SipeenaController@showPendaftaranInovasi')->name('riwayat.showPendaftaranInovasi');
+    Route::get('/getPendaftaranPenelitian', 'SipeenaController@getPendaftaranPenelitian')->name('riwayat.getPendaftaranPenelitian');
+    Route::get('/showPendaftaranPenelitian/{id}', 'SipeenaController@showPendaftaranPenelitian')->name('riwayat.showPendaftaranPenelitian');
+    Route::get('/getLembaga', 'SipeenaController@getLembaga')->name('riwayat.getLembaga');
+    Route::get('/showLembaga/{id}', 'SipeenaController@showLembaga')->name('riwayat.showLembaga');
+    Route::get('/getOpd', 'SipeenaController@getOpd')->name('riwayat.getOpd');
+    Route::get('/showOpd/{id}', 'SipeenaController@showOpd')->name('riwayat.showOpd');
     //--------------- Riwayat -------------------
 
     //--------------- Profil -------------------

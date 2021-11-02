@@ -189,7 +189,7 @@ class AdminController extends Controller
 
     public function getVerifikasiOpd()
     {
-        $opd = penaopd::select('id', 'nama', 'tgjawab', 'nip', 'email')
+        $opd = penaopd::select('id', 'nama', 'tgjawab','verifikasi', 'nip', 'email')
             ->where('verifikasi', 0);
 
         return DataTables::of($opd)

@@ -224,8 +224,145 @@ class SipeenaController extends Controller
             ->paginate(10);
         $lembaga = lembaga::where('user_id', '=', Auth::user()->id)->paginate(10);
         $pena_opd = penaopd::where('user_id', '=', Auth::user()->id)->paginate(10);
-        return view('user.akun.riwayat', compact('pendaftaranInovasi','pendaftaranPenelitian', 'lembaga', 'pena_opd'));
+        return view('user.akun.riwayat', compact('pendaftaranInovasi', 'pendaftaranPenelitian', 'lembaga', 'pena_opd'));
     }
+
+    public function getPendaftaranInovasi()
+    {
+        $pendaftaranInovasi = pendaftaran::select('id', 'nama', 'email', 'verifikasi', 'kelompok', 'ket')->where('user_id', '=', Auth::user()->id)
+            ->where('kategori_peena', '=', 0);
+
+        return DataTables::of($pendaftaranInovasi)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a href="" class="btn btn-warning" id="showInovasi" data-toggle="modal" data-target="#showDataInovasi_modal" data-id=' . $data->id . '>Show</a>';
+                return $btn;
+            })
+            ->editColumn('verifikasi', function ($data) {
+                if ($data->verifikasi == 0) return '<span class="badge badge-dark">Sedang Proses</span>';
+                if ($data->verifikasi == 1) return '<span class="badge badge-info">ACC</span>';
+                if ($data->verifikasi == -1) return '<span class="badge badge-danger">Ditolak</span>';
+                if ($data->verifikasi == 2) return '<span class="badge badge-success">Finalis</span>';
+            })
+            ->editColumn('status', function ($data) {
+                if ($data->kelompok == 0) return '<span class="badge badge-success">Individu</span>';
+                if ($data->kelompok == 1) return '<span class="badge badge-warning">Kelompok</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function showPendaftaranInovasi($id)
+    {
+        $data = pendaftaran::find($id);
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+        ]);
+    }
+
+    public function getPendaftaranPenelitian()
+    {
+        $pendaftaranInovasi = pendaftaran::select('id', 'nama', 'email', 'verifikasi', 'kelompok', 'ket')->where('user_id', '=', Auth::user()->id)
+            ->where('kategori_peena', '=', 1);
+
+        return DataTables::of($pendaftaranInovasi)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a href="" class="btn btn-warning" id="showPenelitian" data-toggle="modal" data-target="#showDataPenelitian_modal" data-id=' . $data->id . '>Show</a>';
+                return $btn;
+            })
+            ->editColumn('verifikasi', function ($data) {
+                if ($data->verifikasi == 0) return '<span class="badge badge-dark">Sedang Proses</span>';
+                if ($data->verifikasi == 1) return '<span class="badge badge-info">ACC</span>';
+                if ($data->verifikasi == -1) return '<span class="badge badge-danger">Ditolak</span>';
+                if ($data->verifikasi == 2) return '<span class="badge badge-success">Finalis</span>';
+            })
+            ->editColumn('status', function ($data) {
+                if ($data->kelompok == 0) return '<span class="badge badge-success">Individu</span>';
+                if ($data->kelompok == 1) return '<span class="badge badge-warning">Kelompok</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function showPendaftaranPenelitian($id)
+    {
+        $data = pendaftaran::find($id);
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+        ]);
+    }
+
+    public function getLembaga()
+    {
+        $lembaga = lembaga::select('id', 'nama', 'nama_lembaga', 'verifikasi', 'email', 'kategori_peena', 'ket')
+            ->where('user_id', '=', Auth::user()->id);
+
+        return DataTables::of($lembaga)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a href="" class="btn btn-warning" id="showLembaga" data-toggle="modal" data-target="#showDataLembaga_modal" data-id=' . $data->id . '>Show</a>';
+                return $btn;
+            })
+            ->editColumn('verifikasi', function ($data) {
+                if ($data->verifikasi == 0) return '<span class="badge badge-dark">Sedang Proses</span>';
+                if ($data->verifikasi == 1) return '<span class="badge badge-info">ACC</span>';
+                if ($data->verifikasi == -1) return '<span class="badge badge-danger">Ditolak</span>';
+                if ($data->verifikasi == 2) return '<span class="badge badge-success">Finalis</span>';
+            })
+            ->editColumn('kategori_peena', function ($data) {
+                if ($data->kategori_peena == 0) return '<span class="badge badge-success">Inovasi</span>';
+                if ($data->kategori_peena == 1) return '<span class="badge badge-warning">Lembaga</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function showLembaga($id)
+    {
+        $data = lembaga::find($id);
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+        ]);
+    }
+
+    public function getOpd()
+    {
+        $lembaga = penaopd::select('id', 'nama', 'tgjawab', 'nip', 'jabatan', 'email', 'verifikasi',)
+            ->where('user_id', '=', Auth::user()->id);
+
+        return DataTables::of($lembaga)
+            ->addIndexColumn()
+            ->editColumn('action', function ($data) {
+                $btn = '<a href="" class="btn btn-warning" id="showOpd" data-toggle="modal" data-target="#showDataOpd_modal" data-id=' . $data->id . '>Show</a>';
+                return $btn;
+            })
+            ->editColumn('verifikasi', function ($data) {
+                if ($data->verifikasi == 0) return '<span class="badge badge-dark">Sedang Proses</span>';
+                if ($data->verifikasi == 1) return '<span class="badge badge-info">ACC</span>';
+                if ($data->verifikasi == -1) return '<span class="badge badge-danger">Ditolak</span>';
+                if ($data->verifikasi == 2) return '<span class="badge badge-success">Finalis</span>';
+            })
+            ->rawColumns(['action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function showOpd($id)
+    {
+        $data = penaopd::find($id);
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+        ]);
+    }
+
 
     // ---------------- Profil ------------------------
     public function profil()
@@ -250,34 +387,5 @@ class SipeenaController extends Controller
             ->update($data);
         Alert::success('Update Profile', 'Success');
         return redirect()->route('profil');
-    }
-    // ---------------- Profil ------------------------
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-
-    public function show($id)
-    {
-        //
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
     }
 }
