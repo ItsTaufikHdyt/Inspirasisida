@@ -189,7 +189,7 @@ class AdminController extends Controller
 
     public function getVerifikasiOpd()
     {
-        $opd = penaopd::select('id', 'nama', 'tgjawab','verifikasi', 'nip', 'email')
+        $opd = penaopd::select('id', 'nama', 'tgjawab', 'verifikasi', 'nip', 'email')
             ->where('verifikasi', 0);
 
         return DataTables::of($opd)
@@ -295,29 +295,53 @@ class AdminController extends Controller
     //--------------------- Update ACC --------------
     public function updateAccPendaftaran(Request $request, $id)
     {
-        $pendaftaran = pendaftaran::find($id);
-        $pendaftaran->verifikasi = $request->kdverif;
-        $pendaftaran->ket = $request->komen;
-        $pendaftaran->save();
+        $data = [];
+        if ($request->has('kdverif') == 2) {
+            $data['ket'] = 'Selamat Anda menjadi Finalis';
+        }
+        $data['verifikasi'] = $request->kdverif;
+        DB::table('pendaftaran')
+            ->where('id', $id)
+            ->update($data);
         return redirect()->route('admin.verifikasi');
+        // $pendaftaran = pendaftaran::find($id);
+        // $pendaftaran->verifikasi = $request->kdverif;
+        // $pendaftaran->ket = $request->komen;
+        // $pendaftaran->save();
     }
 
     public function updateAccLembaga(Request $request, $id)
     {
-        $lembaga = lembaga::find($id);
-        $lembaga->verifikasi = $request->kdverif;
-        $lembaga->ket = $request->komen;
-        $lembaga->save();
+        $data = [];
+        if ($request->has('kdverif') == 2) {
+            $data['ket'] = 'Selamat Anda menjadi Finalis';
+        }
+        $data['verifikasi'] = $request->kdverif;
+        DB::table('lembaga')
+            ->where('id', $id)
+            ->update($data);
         return redirect()->route('admin.verifikasi');
+        // $lembaga = lembaga::find($id);
+        // $lembaga->verifikasi = $request->kdverif;
+        // $lembaga->ket = $request->komen;
+        // $lembaga->save();
     }
 
     public function updateAccOpd(Request $request, $id)
     {
-        $opd = penaopd::find($id);
-        $opd->verifikasi = $request->kdverif;
-        $opd->ket = $request->komen;
-        $opd->save();
+        $data = [];
+        if ($request->has('kdverif') == 2) {
+            $data['ket'] = 'Selamat Anda menjadi Finalis';
+        }
+        $data['verifikasi'] = $request->kdverif;
+        DB::table('pendaftaran')
+            ->where('id', $id)
+            ->update($data);
         return redirect()->route('admin.verifikasi');
+        // $opd = penaopd::find($id);
+        // $opd->verifikasi = $request->kdverif;
+        // $opd->ket = $request->komen;
+        // $opd->save();
     }
     //-------------------- Finalis -------------------
     public function finalPendaftaran($id)
@@ -802,6 +826,15 @@ class AdminController extends Controller
     {
         $dbopd = $this->databaseRepository->storeDbOpd($request);
         return redirect()->route('admin.database');
+    }
+
+    public function editDbOpd($id)
+    {
+        $dbopd = dbopd::find($id);
+        return response()->json([
+            'success' => true,
+            'data' => $dbopd
+        ]);
     }
 
     public function updateDbOpd(storeDbOpdRequest $request, $id)

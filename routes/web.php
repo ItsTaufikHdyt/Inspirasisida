@@ -22,10 +22,18 @@ Route::get('downloadDbOpd/{id}', 'HomeController@downloadDbOpd')->name('home.dow
 
 //------------------------ Database Masyarakat --------------------------
 Route::get('dbmasyarakatinovasi', 'HomeController@dbMasyarakatInovasi')->name('home.dbMasyarakatInovasi');
+Route::get('getdbmasyarakatinovasi', 'HomeController@getDbMasyarakatInovasi')->name('home.getDbMasyarakatInovasi');
+Route::get('showdbmasyarakatinovasi/{id}', 'HomeController@showDbMasyarakatInovasi')->name('home.showDbMasyarakatInovasi');
 Route::get('dbmasyarakatpenelitian', 'HomeController@dbMasyarakatPenelitian')->name('home.dbMasyarakatPenelitian');
+Route::get('getdbmasyarakatpenelitian', 'HomeController@getDbMasyarakatPenelitian')->name('home.getDbMasyarakatPenelitian');
+Route::get('showdbmasyarakatpenelitian/{id}', 'HomeController@showDbMasyarakatPenelitian')->name('home.showDbMasyarakatPenelitian');
 //------------------------ Database OPD --------------------------
 Route::get('dbopdinovasi', 'HomeController@dbOpdInovasi')->name('home.dbOpdInovasi');
+Route::get('getdbopdinovasi', 'HomeController@getDbOpdInovasi')->name('home.getDbOpdInovasi');
+Route::get('showdbopdinovasi/{id}', 'HomeController@showDbOpdInovasi')->name('home.showDbOpdInovasi');
 Route::get('dbopdpenelitian', 'HomeController@dbOpdPenelitian')->name('home.dbOpdPenelitian');
+Route::get('getdbopdpenelitian', 'HomeController@getDbOpdPenelitian')->name('home.getDbOpdPenelitian');
+Route::get('showdbopdpenelitian/{id}', 'HomeController@showDbOpdPenelitian')->name('home.showDbOpdPenelitian');
 //--------------- Verify -------------------
 Route::get('/user-register', 'Auth\RegisterController@ShowRegisterForm')->name('userRegister');
 Route::post('/user-register', 'Auth\RegisterController@HandleRegister')->name('prosesRegister');
@@ -120,6 +128,7 @@ Route::group(['middleware' => 'cekstatus', "prefix" => "admin/"], function () {
     //---------------- Database Inovasi Perangkat Daerah -------------
     Route::get('get-database-dbopd', 'AdminController@getDatabaseOpd')->name('admin.databaseOpd');
     Route::post('store-dbopd', 'AdminController@storeDbOpd')->name('admin.storeDbOpd');
+    Route::get('edit-dbopd/{id}', 'AdminController@editDbOpd')->name('admin.editDbOpd');
     Route::put('update-dbopd/{id}', 'AdminController@updateDbOpd')->name('admin.updateDbOpd');
     Route::delete('delete-dbopd/{id}', 'AdminController@destroyDbOpd')->name('admin.deleteDbOpd');
     Route::get('download-dbopd/{id}', 'AdminController@downloadDbOpd')->name('admin.downloadDbOpd');

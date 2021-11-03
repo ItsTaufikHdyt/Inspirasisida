@@ -294,7 +294,7 @@
                 <ul class="menu">
                   <li><a href="http://bapelitbang.bontangkota.go.id/" target="_blank">Bapelitbang Kota Bontang</a></li>
                   <li><a href="http://ppid.bontangkota.go.id/" target="_blank">PPID Kota Bontang</a></li>
-                  <li><a href="http://portal.bontangkota.go.id/" target="_blank">Portal Kota Bontang</a></li>
+                  <li><a href="https://www.bontangkota.go.id/" target="_blank">Portal Kota Bontang</a></li>
                 </ul>
               </div>
             </div>

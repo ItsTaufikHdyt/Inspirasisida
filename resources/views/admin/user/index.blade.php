@@ -37,7 +37,7 @@ Inspirasi Sida | Admin
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="sparkline13-graph">
 			<div class="datatable-dashv1-list custom-datatable-overright">
-				<table id="user" class="table table-bordered table-hover table-responsive">
+				<table id="user" class="table table-bordered table-hover table-responsive" style="width: 100%;">
 					<thead>
 						<tr>
 							<th>No.</th>

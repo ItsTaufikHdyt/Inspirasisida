@@ -110,7 +110,7 @@ Inspirasi Sida | Admin
 						</div>
 					</div>
 				</div>
-				<table id="prosedur" class="table table-bordered table-hover table-responsive">
+				<table id="prosedur" class="table table-bordered table-hover table-responsive" style="width: 100%;">
 					<thead>
 						<tr>
 							<th>No.</th>
@@ -301,11 +301,11 @@ Inspirasi Sida | Admin
 		$('body').on('click', '#submit-edit', function(event) {
 			event.preventDefault()
 			var data = new FormData();
-			// data.append('id', $("#prosedur_id").val());
-			// data.append('judul_prosedur', $("#judul_prosedur").val());
-			// data.append('narasi', $("#narasi").val());
-			// data.append('foto', $("#foto")[0].files[0]);
-			// data.append('berkas', $("#berkas")[0].files[1]);
+			data.append('id', $("#prosedur_id").val());
+			data.append('judul_prosedur', $("#judul_prosedur").val());
+			data.append('narasi', $("#narasi").val());
+			data.append('foto', $("#foto")[0].files[0]);
+			data.append('berkas', $("#berkas")[0].files[1]);
 
 			var id = $("#prosedur_id").val();
 			// var judul_prosedur = $("#judul_prosedur").val();

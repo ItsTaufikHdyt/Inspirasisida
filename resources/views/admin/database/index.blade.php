@@ -133,7 +133,8 @@ Inspirasi Sida | Admin
 												</div>
 											</div>
 										</div>
-										<table id="tabel-opd" class="table table-bordered table-hover table-responsive">
+										<br><br><br>
+										<table id="tabel-opd" class="table table-bordered table-hover table-responsive" style="width: 100%;">
 											<thead>
 												<tr>
 													<th>No.</th>
@@ -203,10 +204,26 @@ Inspirasi Sida | Admin
 																		</select>
 																	</td>
 																</tr>
+																<tr>
+																	<td>Upload Berkas</td>
+																</tr>
+																<tr>
+																	<td>
+																		<div class="file-upload-inner ts-forms">
+																			<div class="input prepend-small-btn">
+																				<div class="file-button">
+																					Browse
+																					<input type="file" id="berkas" name="berkas" onchange="document.getElementById('prepend-small-btn5').value = this.value;">
+																				</div>
+																				<input type="text" name="file" id="prepend-small-btn5" value="" placeholder="no file selected">
+																			</div>
+																		</div>
+																	</td>
+																</tr>
 															</table>
 														</div>
 														<div class="modal-footer">
-															<input type="submit" value="Submit" id="submit-edit-dbmasyarakat" class="btn btn-custon-four btn-primary btn-md">
+															<input type="submit" value="Submit" id="submit-edit-opd" class="btn btn-custon-four btn-primary btn-md">
 														</div>
 													</div>
 												</form>
@@ -243,19 +260,19 @@ Inspirasi Sida | Admin
 																	<td>Judul</td>
 																</tr>
 																<tr>
-																	<td><input type="text" name="judul" class="form-control" placeholder="Judul Inovasi / Penelitian..." required></td>
+																	<td><input id="judul" type="text" name="judul" class="form-control" placeholder="Judul Inovasi / Penelitian..." required></td>
 																</tr>
 																<tr>
 																	<td>Tahun</td>
 																</tr>
 																<tr>
-																	<td><input type="text" name="tahun" class="form-control" placeholder="Tahun..." required></td>
+																	<td><input id="" type="text" name="tahun" class="form-control" placeholder="Tahun..." required></td>
 																</tr>
 																<tr>
-																	<td>Nama</td>
+																	<td>OPD</td>
 																</tr>
 																<tr>
-																	<td><input type="text" name="nama" class="form-control" placeholder="Nama..." required></td>
+																	<td><input type="text" name="opd" class="form-control" placeholder="Nama..." required></td>
 																</tr>
 																<tr>
 																	<td>Lokasi Kegiatan</td>
@@ -292,7 +309,8 @@ Inspirasi Sida | Admin
 												</div>
 											</div>
 										</div>
-										<table id="tabel-masyarakat" class="table table-bordered table-hover table-responsive">
+										<br><br><br>
+										<table id="tabel-masyarakat" class="table table-bordered table-hover table-responsive" style="width: 100%;">
 											<thead>
 												<tr>
 													<th>No.</th>
@@ -322,32 +340,32 @@ Inspirasi Sida | Admin
 																	<td>Judul</td>
 																</tr>
 																<tr>
-																	<td><input type="text" id="judul" name="judul" value="" class="form-control" placeholder="Judul Inovasi / Penelitian..." required></td>
+																	<td><input type="text" id="judul-dbmasyarakat" name="judul" value="" class="form-control" placeholder="Judul Inovasi / Penelitian..." required></td>
 																</tr>
 																<tr>
 																	<td>Tahun</td>
 																</tr>
 																<tr>
-																	<td><input type="text" id="tahun" name="tahun" value="" class="form-control" placeholder="Tahun..." required></td>
+																	<td><input type="text" id="tahun-dbmasyarakat" name="tahun" value="" class="form-control" placeholder="Tahun..." required></td>
 																</tr>
 																<tr>
 																	<td>Nama</td>
 																</tr>
 																<tr>
-																	<td><input type="text" id="nama" name="nama" value="" class="form-control" placeholder="Nama Peserta..." required></td>
+																	<td><input type="text" id="nama-dbmasyarakat" name="nama" value="" class="form-control" placeholder="Nama Peserta..." required></td>
 																</tr>
 																<tr>
 																	<td>Lokasi Kegiatan</td>
 																</tr>
 																<tr>
-																	<td><input type="text" id="lokasi" name="lokasi" value="" class="form-control" placeholder="Lokasi Kegiatan..." required></td>
+																	<td><input type="text" id="lokasi-dbmasyarakat" name="lokasi" value="" class="form-control" placeholder="Lokasi Kegiatan..." required></td>
 																</tr>
 																<tr>
 																	<td>Abstraksi / Profil Inovasi</td>
 																</tr>
 																<tr>
 																	<td>
-																		<textarea id="abstraksi" name="abstraksi" class="form-control" cols="60" rows="10" placeholder="Abstraksi..." required></textarea>
+																		<textarea id="abstraksi-dbmasyarakat" name="abstraksi" class="form-control" cols="60" rows="10" placeholder="Abstraksi..." required></textarea>
 																	</td>
 																</tr>
 																<tr>
@@ -355,7 +373,7 @@ Inspirasi Sida | Admin
 																</tr>
 																<tr>
 																	<td>
-																		<select name="kategori" class="form-control" id="kategori">
+																		<select name="kategori" class="form-control" id="kategori-dbmasyarakat">
 																			<option value="0">Inovasi</option>
 																			<option value="1">Penelitian</option>
 																		</select>
@@ -364,7 +382,7 @@ Inspirasi Sida | Admin
 															</table>
 														</div>
 														<div class="modal-footer">
-															<input type="submit" value="Submit" id="submit-edit-dbmasyarakat" class="btn btn-custon-four btn-primary btn-md">
+															<input type="submit" value="Submit" id="submit-edit-masyarakat" class="btn btn-custon-four btn-primary btn-md">
 														</div>
 													</div>
 												</form>
@@ -458,27 +476,27 @@ Inspirasi Sida | Admin
 				console.log(data);
 				$('#userCrudModal').html("Database Masyarakat");
 				$('#submit-edit').val("Database Masyarakat");
-				$('#databasemasyarakat_modal').modal('show');
+				$('#dbmasyarakat_modal').modal('show');
 				$('#dbmasyarakat_id').val(data.data.id);
-				$('#judul').val(data.data.judul);
-				$('#tahun').val(data.data.tahun);
-				$('#nama').val(data.data.nama);
-				$('#lokasi').val(data.data.lokasi);
-				$('#abstraksi').val(data.data.abstraksi);
-				$('#kategori').val(data.data.kategori);
+				$('#judul-dbmasyarakat').val(data.data.judul);
+				$('#tahun-dbmasyarakat').val(data.data.tahun);
+				$('#nama-dbmasyarakat').val(data.data.nama);
+				$('#lokasi-dbmasyarakat').val(data.data.lokasi);
+				$('#abstraksi-dbmasyarakat').val(data.data.abstraksi);
+				$('#kategori-dbmasyarakat').val(data.data.kategori);
 			})
 		});
 
 
-		$('body').on('click', '#submit-edit-dbmasyarakat', function(event) {
+		$('body').on('click', '#submit-edit-masyarakat', function(event) {
 			event.preventDefault()
 			var id = $("#dbmasyarakat_id").val();
-			var tahun = $("#tahun").val();
-			var judul = $("#judul").val();
-			var nama = $("#nama").val();
-			var lokasi = $("#lokasi").val();
-			var abstraksi = $("#abstraksi").val();
-			var kategori = $("#kategori").val();
+			var tahun = $("#tahun-dbmasyarakat").val();
+			var judul = $("#judul-dbmasyarakat").val();
+			var nama = $("#nama-dbmasyarakat").val();
+			var lokasi = $("#lokasi-dbmasyarakat").val();
+			var abstraksi = $("#abstraksi-dbmasyarakat").val();
+			var kategori = $("#kategori-dbmasyarakat").val();
 			var token = '{{ csrf_token() }}';
 
 			$.ajax({
@@ -616,6 +634,76 @@ Inspirasi Sida | Admin
 			}]
 		});
 
+	});
+
+	//--------------Fungsi Edit & Update ------------
+	$(document).ready(function() {
+
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+
+		$('body').on('click', '#editDbOpd', function(event) {
+
+			event.preventDefault();
+			var id = $(this).data('id');
+			console.log(id)
+			$.get('{{url("admin/edit-dbopd")}}' + '/' + id, function(data) {
+				console.log(data);
+				$('#userCrudModal').html("Database Opd");
+				$('#submit-edit').val("Database Opd");
+				$('#dbopd_modal').modal('show');
+				$('#dbopd_id').val(data.data.id);
+				$('#judul').val(data.data.judul);
+				$('#tahun').val(data.data.tahun);
+				$('#opd').val(data.data.opd);
+				$('#lokasi').val(data.data.lokasi);
+				$('#abstraksi').val(data.data.abstraksi);
+				$('#kategori').val(data.data.kategori);
+			})
+		});
+
+
+		$('body').on('click', '#submit-edit-opd', function(event) {
+			event.preventDefault();
+			var formData = new FormData();
+			var id = $("#dbopd_id").val();
+			// var judul = $("#judul").val();
+			// var tahun = $("#tahun").val();
+			// var opd = $("#opd").val();
+			// var lokasi = $("#lokasi").val();
+			// var abstraksi = $("#abstraksi").val();
+			// var kategori = $("#kategori").val();
+			// var token = '{{ csrf_token() }}';
+
+			// {
+			// 		id: id,
+			// 		tahun: tahun,
+			// 		judul: judul,
+			// 		nama: nama,
+			// 		lokasi: lokasi,
+			// 		abstraksi: abstraksi,
+			// 		kategori: kategori,
+			// 		'_token': token
+			// 	}
+
+			$.ajax({
+				url: '{{url("admin/update-dbopd/")}}' + '/' + id,
+				type: "PUT",
+				processData: false,
+				contentType: false,
+				data: formData,
+				dataType: 'json',
+				success: function(data) {
+
+					$('#opddata').trigger("reset");
+					$('#databasemasyarakat_modal').modal('hide');
+					window.location.reload(true);
+				}
+			});
+		});
 	});
 
 	//--------------Fungsi Delete ------------
