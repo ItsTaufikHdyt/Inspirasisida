@@ -53,7 +53,7 @@ Inspirasi Sida | Admin
 							<div class="review-content-section">
 								<div class="row">
 									<div class="col-lg-12">
-										<table id="individu" class="table table-bordered table-hover table-responsive">
+										<table id="individu" class="table table-bordered table-hover table-responsive" style="width: 100%;">
 											<thead>
 												<tr>
 													<th>No.</th>
@@ -79,7 +79,7 @@ Inspirasi Sida | Admin
 							<div class="review-content-section">
 								<div class="row">
 									<div class="col-lg-12">
-										<table id="kelompok" class="table table-bordered table-hover table-responsive">
+										<table id="kelompok" class="table table-bordered table-hover table-responsive" style="width: 100%;">
 											<thead>
 												<tr>
 													<th>No.</th>
@@ -105,7 +105,7 @@ Inspirasi Sida | Admin
 							<div class="review-content-section">
 								<div class="row">
 									<div class="col-lg-12">
-										<table id="lembaga" class="table table-bordered table-hover table-responsive">
+										<table id="lembaga" class="table table-bordered table-hover table-responsive" style="width: 100%;">
 											<thead>
 												<tr>
 													<th>No.</th>
@@ -131,7 +131,7 @@ Inspirasi Sida | Admin
 							<div class="review-content-section">
 								<div class="row">
 									<div class="col-lg-12">
-										<table id="opd" class="table table-bordered table-hover table-responsive">
+										<table id="opd" class="table table-bordered table-hover table-responsive" style="width: 100%;">
 											<thead>
 												<tr>
 													<th>No.</th>

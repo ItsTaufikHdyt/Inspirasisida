@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Alert;
 
 class VerifyController extends Controller
 {
@@ -37,7 +38,7 @@ class VerifyController extends Controller
        ]);
        
        	session()->flash('message', 'Your account is activated, you can log in now');
-
+        Alert::success('Akun Berhasil Aktif', 'Silahkan Login dengan username dan email yang telah dibuat');
         return redirect()->route('login');
 
     }

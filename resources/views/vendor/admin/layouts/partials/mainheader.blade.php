@@ -3,7 +3,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="logo-pro">
-                        <a href="index.php"><img class="main-logo" src="{{asset('admin/img/logo/logo.png')}}" width="180"></a>
+                        <a href="index.php"><img class="main-logo" src="{{asset('admin/img/logo/inspirasisida.png')}}" width="180"></a>
                     </div>
                 </div>
             </div>

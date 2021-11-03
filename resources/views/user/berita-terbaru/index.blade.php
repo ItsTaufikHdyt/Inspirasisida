@@ -1,7 +1,7 @@
 @extends('homepage::layouts.app')
 
 @section('htmlheader_title')
-	eLitbang
+	Inspirasisida
 @endsection
 
 @section('main-content')

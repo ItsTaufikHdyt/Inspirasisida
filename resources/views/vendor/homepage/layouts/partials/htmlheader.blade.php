@@ -29,9 +29,6 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap-toggle.min.css')}}">
 
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
-    
-
-
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
   </head>

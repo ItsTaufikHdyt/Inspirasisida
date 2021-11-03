@@ -242,7 +242,7 @@
                       </div>
                       @forelse($galeri_poster as $data)
                       <div class="carousel-item">
-                        <image style="height: 420px; width: 350px; object-fit: fill; border-radius: 5px;" src="{{url('storage/galeri/' .$data->foto)}}">
+                        <image style="height: 420px; width: 350px; object-fit: fill; border-radius: 5px;" src="{{asset('storage/galeri/' .$data->foto)}}">
                       </div>
                     @empty
                     @endforelse

@@ -126,7 +126,7 @@ Inspirasi Sida | Admin
 				<!-- Show Modal -->
 				<div class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog" id="prosedur_modal">
 					<div class="modal-dialog">
-						<form id="companydata">
+						<form id="prosedurData" enctype="multipart/form-data">
 							<div class="modal-content">
 								<input type="hidden" id="prosedur_id" name="opd_id" value="">
 								<div class="modal-close-area modal-close-df">
@@ -197,9 +197,8 @@ Inspirasi Sida | Admin
 				<!-- Show Modal -->
 				<div class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog" id="show_modal">
 					<div class="modal-dialog">
-						<form id="companydata">
+						<form id="companydata" >
 							<div class="modal-content">
-								<input type="hidden" id="opd_id" name="opd_id" value="">
 								<div class="modal-close-area modal-close-df">
 									<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
 								</div>
@@ -289,8 +288,8 @@ Inspirasi Sida | Admin
 			console.log(id)
 			$.get('{{url("admin/edit-prosedur")}}' + '/' + id, function(data) {
 				console.log(data);
-				$('#userCrudModal').html("Edit category");
-				$('#submit-edit').val("Edit category");
+				$('#userCrudModal').html("Edit Prosedur");
+				$('#submit-edit').val("Edit Prosedur");
 				$('#opd_modal').modal('show');
 				$('#prosedur_id').val(data.data.id);
 				$('#judul_prosedur').val(data.data.judul_prosedur);
@@ -301,31 +300,39 @@ Inspirasi Sida | Admin
 
 		$('body').on('click', '#submit-edit', function(event) {
 			event.preventDefault()
-			var id = $("#prosedur_id").val();
-			var judul_prosedur = $("#judul_prosedur").val();
-			var narasi = $("#narasi").val();
-			// var foto = $("#foto")[0].files[0];
-			// var berkas = $("#berkas")[0].files[0];
-			var foto = new FormData(document.getElementById("foto"));
-			var berkas = new FormData(document.getElementById("berkas"));
-			var token = '{{ csrf_token() }}';
+			var data = new FormData();
+			// data.append('id', $("#prosedur_id").val());
+			// data.append('judul_prosedur', $("#judul_prosedur").val());
+			// data.append('narasi', $("#narasi").val());
+			// data.append('foto', $("#foto")[0].files[0]);
+			// data.append('berkas', $("#berkas")[0].files[1]);
 
+			var id = $("#prosedur_id").val();
+			// var judul_prosedur = $("#judul_prosedur").val();
+			// var narasi = $("#narasi").val();
+			// var foto = new FormData(document.getElementById('foto')[0].files[0]);
+			// var berkas = new FormData(document.getElementById('berkas')[0].files[0]);
+			// var token = '{{ csrf_token() }}';
+
+			// {
+			// 		id: id,
+			// 		judul_prosedur: judul_prosedur,
+			// 		narasi: narasi,
+			// 		foto: foto,
+			// 		berkas: berkas,
+			// 		_token: token,
+			// 	}
 			$.ajax({
 				url: '{{url("admin/update-prosedur")}}' + '/' + id,
+				processData: false,
+				contentType: false,
 				type: "PUT",
-				data: {
-					id: id,
-					judul_prosedur: judul_prosedur,
-					narasi: narasi,
-					// foto: foto,
-					// berkas: berkas,
-					'_token': token
-				},
+				data: data,
 				dataType: 'json',
 				success: function(data) {
 
-					$('#opddata').trigger("reset");
-					$('#show_modal').modal('hide');
+					$('#prosedurdata').trigger("reset");
+					$('#prosedur_modal').modal('hide');
 					window.location.reload(true);
 				}
 			});

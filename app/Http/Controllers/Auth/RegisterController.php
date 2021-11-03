@@ -57,6 +57,7 @@ class RegisterController extends Controller
             'level' => 2,
             'email_verification_token' => Str::random(32)
         ]);
+        Alert::success('Registrasi Berhasil', 'Jika Tidak ada email masuk,Silahkan hubungi Admin');
         }catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
@@ -71,6 +72,7 @@ class RegisterController extends Controller
         return redirect()->back();
 
         }catch(Exception $e){
+            Alert::success('Registrasi Berhasil', 'Jika Tidak ada email masuk,Silahkan hubungi Admin');
             dd($e);
         }
        
