@@ -26,10 +26,7 @@ class storeProsedurRequest extends FormRequest
     {
         return [
         'judul_prosedur' => 'required',
-        'narasi'         => 'required',	
-        
-
-        ];
+        'narasi'         => 'required',	];
     }
 
     public function message()

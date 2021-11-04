@@ -28,7 +28,7 @@
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <!-- <script src="{{asset('js/popper.min.js')}}"></script> -->
 <!-- <script src="{{asset('js/color-switcher.js')}}"></script> -->
 

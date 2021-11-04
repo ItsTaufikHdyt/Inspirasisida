@@ -127,6 +127,7 @@ Inspirasi Sida | Admin
 				<div class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog" id="prosedur_modal">
 					<div class="modal-dialog">
 						<form id="prosedurData" enctype="multipart/form-data">
+							@csrf
 							<div class="modal-content">
 								<input type="hidden" id="prosedur_id" name="opd_id" value="">
 								<div class="modal-close-area modal-close-df">
@@ -197,7 +198,7 @@ Inspirasi Sida | Admin
 				<!-- Show Modal -->
 				<div class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog" id="show_modal">
 					<div class="modal-dialog">
-						<form id="companydata" >
+						<form id="companydata">
 							<div class="modal-content">
 								<div class="modal-close-area modal-close-df">
 									<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
@@ -259,7 +260,6 @@ Inspirasi Sida | Admin
 
 	//--------------Fungsi Show Gambar ------------
 	$(document).ready(function() {
-
 		$.ajaxSetup({
 			headers: {
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -300,28 +300,18 @@ Inspirasi Sida | Admin
 
 		$('body').on('click', '#submit-edit', function(event) {
 			event.preventDefault()
+			var token = '{{ csrf_token() }}';
+			var id = $("#prosedur_id").val();
 			var data = new FormData();
 			data.append('id', $("#prosedur_id").val());
 			data.append('judul_prosedur', $("#judul_prosedur").val());
 			data.append('narasi', $("#narasi").val());
 			data.append('foto', $("#foto")[0].files[0]);
-			data.append('berkas', $("#berkas")[0].files[1]);
+			data.append('berkas', $("#berkas")[0].files[0]);
+			// data.append('_token', token);
+			console.log(data);
 
-			var id = $("#prosedur_id").val();
-			// var judul_prosedur = $("#judul_prosedur").val();
-			// var narasi = $("#narasi").val();
-			// var foto = new FormData(document.getElementById('foto')[0].files[0]);
-			// var berkas = new FormData(document.getElementById('berkas')[0].files[0]);
-			// var token = '{{ csrf_token() }}';
 
-			// {
-			// 		id: id,
-			// 		judul_prosedur: judul_prosedur,
-			// 		narasi: narasi,
-			// 		foto: foto,
-			// 		berkas: berkas,
-			// 		_token: token,
-			// 	}
 			$.ajax({
 				url: '{{url("admin/update-prosedur")}}' + '/' + id,
 				processData: false,

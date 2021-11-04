@@ -709,7 +709,6 @@ class AdminController extends Controller
 
     public function updateProsedur(storeProsedurRequest $request, $id)
     {
-        dd($request->all());
         $prosedur = $this->prosedurRepository->updateProsedur($request, $id);
         return response()->json([
             'success' => true,

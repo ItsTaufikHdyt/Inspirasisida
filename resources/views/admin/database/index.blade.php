@@ -204,7 +204,7 @@ Inspirasi Sida | Admin
 																		</select>
 																	</td>
 																</tr>
-																<tr>
+																<!-- <tr>
 																	<td>Upload Berkas</td>
 																</tr>
 																<tr>
@@ -219,7 +219,7 @@ Inspirasi Sida | Admin
 																			</div>
 																		</div>
 																	</td>
-																</tr>
+																</tr> -->
 															</table>
 														</div>
 														<div class="modal-footer">
