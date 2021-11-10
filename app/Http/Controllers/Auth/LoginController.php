@@ -11,7 +11,8 @@ use App\Validation\AuthRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\Auth\loginRequest;
-Use Alert;
+use Alert;
+use PhpParser\Node\Stmt\Catch_;
 
 class LoginController extends Controller
 {
@@ -60,53 +61,62 @@ class LoginController extends Controller
     // ---------------- refreshCaptcha ------------------------
     public function refreshCaptcha()
     {
-        return response()->json(['captcha'=> captcha_img('math')]);
+        return response()->json(['captcha' => captcha_img('math')]);
     }
 
     public function ShowLoginForm()
     {
-    	return view('auth.pagelogin');
+        return view('auth.pagelogin');
     }
 
     public function HandleLogin(loginRequest $request)
     {
-    	
-        $this->loginDataSanitization($request->except(['_token']));
+        try {
 
-        $credentials = $request->except(['_token','login','captcha']);
+            $this->loginDataSanitization($request->except(['_token']));
 
-        $user = User::where('email',$request->email)->first();
+            $credentials = $request->except(['_token', 'login', 'captcha']);
 
-        if($user->email_verified == 1 && $user->level == 1){
+            $user = User::where('email', $request->email)->first();
+            if ($request->email == $user->email) {
 
-        if (auth()->attempt($credentials)) {
+                if ($user->email_verified == 1 && $user->level == 1) {
 
-                 $user = auth()->user();
+                    if (auth()->attempt($credentials)) {
 
-                 $user->last_login = Carbon::now();
+                        $user = auth()->user();
 
-                 $user->save();
+                        $user->last_login = Carbon::now();
 
-                 return redirect()->route('admin.dashboard');
+                        $user->save();
 
+                        return redirect()->route('admin.dashboard');
+                    }
+                } else if ($user->email_verified == 1 && $user->level == 2) {
+                    if (auth()->attempt($credentials)) {
+
+                        $user = auth()->user();
+
+                        $user->last_login = Carbon::now();
+
+                        $user->save();
+
+                        return redirect()->route('sipeena');
+                    }
+                } else {
+                    Alert::error('Error Login', 'Data Yang Anda Masukkan Salah, Silahkan Periksa Kembali');
+
+                    return redirect()->route('userLogin');
+                }
+            } else {
+                Alert::error('Error Login', 'Data Yang Anda Masukkan Salah, Silahkan Periksa Kembali');
+
+                return redirect()->route('userLogin');
             }
-           
-        }else if($user->email_verified == 1 && $user->level == 2){
-            if (auth()->attempt($credentials)) {
+        } catch (Exception $e) {
+            Alert::error('Error Login', 'Data Yang Anda Masukkan Salah, Silahkan Periksa Kembali');
 
-                $user = auth()->user();
-
-                $user->last_login = Carbon::now();
-
-                $user->save();
-
-                return redirect()->route('sipeena');
-
-           }
+            return redirect()->route('userLogin');
         }
-
-        Alert::error('Error Login', 'Data Yang Anda Masukkan Salah, Silahkan Periksa Kembali');
-
-        return redirect()->back();
     }
 }

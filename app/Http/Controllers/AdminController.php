@@ -684,8 +684,8 @@ class AdminController extends Controller
         return DataTables::of($opd)
             ->addIndexColumn()
             ->editColumn('action', function ($data) {
-                $btn = '<a href="" class="btn btn-warning" id="editProsedur" data-toggle="modal" data-target="#prosedur_modal" data-id=' . $data->id . '>Edit</a>';
-                $btn =  $btn . ' <a href="" class="btn btn-primary" id="showProsedur" data-toggle="modal" data-target="#show_modal" data-id=' . $data->id . '>Show</a>';
+                // $btn = '<a href="" class="btn btn-warning" id="editProsedur" data-toggle="modal" data-target="#prosedur_modal" data-id=' . $data->id . '>Edit</a>';
+                $btn =' <a href="" class="btn btn-primary" id="showProsedur" data-toggle="modal" data-target="#show_modal" data-id=' . $data->id . '>Show</a>';
                 $btn = $btn . ' <button onclick="deleteItem(this)" class="btn btn-danger" data-id=' . $data->id . '>Delete</button>';
                 return $btn;
             })

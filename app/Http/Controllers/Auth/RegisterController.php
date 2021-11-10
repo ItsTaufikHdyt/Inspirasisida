@@ -18,14 +18,14 @@ use Alert;
 
 class RegisterController extends Controller
 {
-  
+
 
     use AuthRequest;
 
-  
+
     protected $redirectTo = RouteServiceProvider::HOME;
 
-  
+
     public function __construct()
     {
         $this->middleware('guest');
@@ -34,49 +34,47 @@ class RegisterController extends Controller
     // ---------------- refreshCaptcha ------------------------
     public function refreshCaptcha()
     {
-        return response()->json(['captcha'=> captcha_img('math')]);
+        return response()->json(['captcha' => captcha_img('math')]);
     }
 
     public function ShowRegisterForm()
     {
-    	return view('auth.pageregister');
+        return view('auth.pageregister');
     }
 
-    
+
 
     public function HandleRegister(registerRequest $request)
     {
-        
+
         $this->inputDataSanitization($request->all());
 
         try {
-        $user = User::create([
-            'nama' => trim($request->input('nama')),
-            'email' => strtolower($request->input('email')),
-            'password' => Hash::make($request->input('password')),
-            'level' => 2,
-            'email_verification_token' => Str::random(32)
-        ]);
-        Alert::success('Registrasi Berhasil', 'Jika Tidak ada email masuk,Silahkan hubungi Admin');
-        }catch (ModelNotFoundException $exception) {
-            return back()->withError($exception->getMessage())->withInput();
-        }
-
-
-        try{
-            
-        Mail::to($user->email)->send(new VerificationEmail($user));
-
-        Alert::success('Registrasi Berhasil', 'Silahkan Periksa Email Anda');
-
-        return redirect()->back();
-
-        }catch(Exception $e){
+            $user = User::create([
+                'nama' => trim($request->input('nama')),
+                'email' => strtolower($request->input('email')),
+                'password' => Hash::make($request->input('password')),
+                'level' => 2,
+                'email_verification_token' => Str::random(32)
+            ]);
             Alert::success('Registrasi Berhasil', 'Jika Tidak ada email masuk,Silahkan hubungi Admin');
-            dd($e);
+        } catch (ModelNotFoundException $exception) {
+            //return back()->withError($exception->getMessage())->withInput();
+            Alert::success('Registrasi Berhasil', 'Jika Tidak ada email masuk,Silahkan hubungi Admin');
         }
-       
 
 
+        try {
+
+            Mail::to($user->email)->send(new VerificationEmail($user));
+
+            Alert::success('Registrasi Berhasil', 'Silahkan Periksa Email Anda');
+
+            return redirect()->back();
+        } catch (Exception $e) {
+            Alert::success('Registrasi Berhasil', 'Jika Tidak ada email masuk,Silahkan hubungi Admin');
+        }
+
+        Alert::info('Hubungi Admin', 'Jika Tidak ada email masuk, Silahkan hubungi Admin');
     }
 }

@@ -41,11 +41,16 @@ class DataSipeenaRepository implements DataSipeenaRepositoryInterface
         // Storage::delete($pendaftaran->surat_pernyataan);
         // $pendaftaran->delete();
         $pendaftaran = pendaftaran::find($id);
-        Storage::delete($pendaftaran->izin_ortu);
-        Storage::delete($pendaftaran->izin_sekolah);
-        Storage::delete($pendaftaran->proposal);
-        Storage::delete($pendaftaran->ktp);
-        Storage::delete($pendaftaran->surat_pernyataan);
+        Storage::disk('local')->delete('public/izin-ortu/' .$pendaftaran->izin_ortu);
+        Storage::disk('local')->delete('public/izin-sekolah/' .$pendaftaran->izin_sekolah);
+        Storage::disk('local')->delete('public/proposal/' .$pendaftaran->proposal);
+        Storage::disk('local')->delete('public/ktp/' .$pendaftaran->ktp);
+        Storage::disk('local')->delete('public/surat-pernyataan/' .$pendaftaran->surat_pernyataan);
+        // Storage::delete($pendaftaran->izin_ortu);
+        // Storage::delete($pendaftaran->izin_sekolah);
+        // Storage::delete($pendaftaran->proposal);
+        // Storage::delete($pendaftaran->ktp);
+        // Storage::delete($pendaftaran->surat_pernyataan);
         $pendaftaran->delete();
     }
 
@@ -60,9 +65,12 @@ class DataSipeenaRepository implements DataSipeenaRepositoryInterface
         // $lembaga->delete();
 
         $lembaga = lembaga::find($id);
-        Storage::delete($lembaga->proposal);
-        Storage::delete($lembaga->ktp);
-        Storage::delete($lembaga->surat_pernyataan);
+        Storage::disk('local')->delete('public/proposal/' .$lembaga->proposal);
+        Storage::disk('local')->delete('public/ktp/' .$lembaga->ktp);
+        Storage::disk('local')->delete('public/surat-pernyataan/' .$lembaga->surat_pernyataan);
+        // Storage::delete($lembaga->proposal);
+        // Storage::delete($lembaga->ktp);
+        // Storage::delete($lembaga->surat_pernyataan);
         $lembaga->delete();
     }
 
@@ -76,8 +84,10 @@ class DataSipeenaRepository implements DataSipeenaRepositoryInterface
         // Storage::delete($opd->surat_pernyataan);
         // $opd->delete();
         $opd = penaopd::find($id);
-        Storage::delete($opd->proposal);
-        Storage::delete($opd->surat_pernyataan);
+        Storage::disk('local')->delete('public/proposal/' .$opd->proposal);
+        Storage::disk('local')->delete('public/surat-pernyataan/' .$opd->surat_pernyataan);
+        // Storage::delete($opd->proposal);
+        // Storage::delete($opd->surat_pernyataan);
         $opd->delete();
     }
 }

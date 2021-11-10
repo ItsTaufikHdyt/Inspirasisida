@@ -180,6 +180,11 @@ Route::group(["prefix" => "sipeena/"], function () {
 
     //--------------- OPD -------------------
 
+    //--------------- Display-proposal -------------------
+    Route::get('displayproposal-pendaftaran/{id}', 'SipeenaController@displayProposalPendaftaran')->name('sipeena.display.proposal-pendaftaran');
+    Route::get('displayproposal-lembaga/{id}', 'SipeenaController@displayProposalLembaga')->name('sipeena.display.proposal-lembaga');
+    Route::get('displayproposal-opd/{id}', 'SipeenaController@displayProposalOPD')->name('sipeena.display.proposal-penaopd');
+
     //--------------- Captcha-------------------
     Route::get('/refreshcaptcha', 'SipeenaController@refreshCaptcha');
     //--------------- Captcha -------------------
@@ -209,8 +214,9 @@ Route::get('/clear', function () {
 
     Artisan::call('cache:clear');
     Artisan::call('config:clear');
-    Artisan::call('config:cache');
+    Artisan::call('route:clear');
     Artisan::call('view:clear');
+    Artisan::call('config:cache');
 
     return "Cleared!";
 });
@@ -221,15 +227,10 @@ Route::get('/storagelink', function () {
 
     return "Success Storage Link!";
 });
-Route::get('/ktplink', function () {
-    // $target = storage_path('app\ktp');
-    // $link = public_path('ktp');
-    // symlink($target, $link);
 
-    $targetFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage/app/ktp';
-    $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/public/ktp';
-    symlink($targetFolder, $linkFolder);
-    echo 'Symlink process successfully completed';
+//------------------ Key Generate ------------
+Route::get('/keygenerate', function () {
+    Artisan::call('key:generate');
 
-    return "Success Storage Link!";
+    return "Success Generate!";
 });

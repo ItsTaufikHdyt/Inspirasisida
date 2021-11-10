@@ -91,8 +91,9 @@ Inpirasi Sida | Register
                       </div>
                     </div>
                   </div>
-                </form>
+                </form>               
               </div>
+              <font style="color:red;">*hubungi admin jika tidak menerima email verifikasi</font>
             </div>
           </div>
           

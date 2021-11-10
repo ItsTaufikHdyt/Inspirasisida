@@ -1,52 +1,92 @@
--- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
---
--- Host: localhost:3306
--- Generation Time: Sep 02, 2020 at 02:31 AM
--- Server version: 5.7.24
--- PHP Version: 7.2.19
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `inspirasisida`
---
-
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               5.7.24 - MySQL Community Server (GPL)
+-- Server OS:                    Win64
+-- HeidiSQL Version:             10.2.0.5599
 -- --------------------------------------------------------
 
---
--- Table structure for table `dbmasyarakat`
---
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-CREATE TABLE `dbmasyarakat` (
-  `id` int(11) NOT NULL,
+
+-- Dumping database structure for inspirasisida
+CREATE DATABASE IF NOT EXISTS `inspirasisida` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE `inspirasisida`;
+
+-- Dumping structure for table inspirasisida.dbmasyarakat
+CREATE TABLE IF NOT EXISTS `dbmasyarakat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `judul` text NOT NULL,
   `tahun` int(11) NOT NULL,
-  `nama` varchar(50) NOT NULL,
+  `nama` text NOT NULL,
   `lokasi` text NOT NULL,
   `abstraksi` text NOT NULL,
   `kategori` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=160 DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+-- Dumping data for table inspirasisida.dbmasyarakat: 49 rows
+/*!40000 ALTER TABLE `dbmasyarakat` DISABLE KEYS */;
+REPLACE INTO `dbmasyarakat` (`id`, `judul`, `tahun`, `nama`, `lokasi`, `abstraksi`, `kategori`, `created_at`, `updated_at`) VALUES
+	(109, 'Smart Home Sistem Pengamanan Rumah Berbasis Teknologi', 2018, 'Firdaus Surya Pradana, Muhammad Alfian Yulianto, Audi Nugraha dan Catur Sugiarto', 'Kota Bontang', 'Smart home adalah sistem pertahanan/keamanan terintegrasi, yang secara otomatisasi memberikan informasi keadaaan suatu peristiwa atau kondisi kepada pemiliknya untuk melindungi rumah dari berbagai ancaman. Ancaman yang mungkin terjadi seperti pencurian disaat pemiliknya berpergian jauh.\nPada prinsipnya smart home ini menggunakan beberapa buah sensor yang akan memberikan peringatan pada saat ada terjadinya pencurian dirumah pemilik. Jika ada penyusup yang masuk kedalam rumah tanpa izin smart home akan mengirimkan pesan kepada pemiliknya jika rumahnya telah terjadi pencurian.\nSistem keamanan smart home ini dapat terkoneksi dengan beberapa handphone. Jika pemilik tinggal didaerah perumahan maka sistem smart home dapat dikoneksikan kepemilik dan dikoneksikan ke satuan pengamanan perumahan (Satpam) tersebut. Agar disaat terjadi pencurian satuan pengamanan perumahan langsung dapat mengambil tindakan jika sang pemilik rumah sedang pergi jauh dari rumahnya.', 0, '2020-09-11 19:54:42', '2021-11-03 02:54:44'),
+	(110, 'PEMANFAATAN BUAH NYIRIH (Xylocarpus granatum) SEBAGAI BAHAN DASAR PEMBUATAN MASKER TRADISIONAL', 2018, 'Drs. Choirur Rozi, M.Pd, 2.Moh. Khoirul Fatikhin, S.Pd, 3.Tia Puput Lestari,ST, Leni Ayu Rosalinda, Adam. S.Pd.I', 'Kota Bontang', 'Kalimantan Timur merupakan wilayah yang terletak di kawasan Indonesia Timur, dengan hutan mangrove yang sangat luas dan tumbuh subur. Tanaman mangrove di Kalimantan Timur khususnya Kota Bontang sangat kurang dalam pemanfaatannya. Terlebih lagi dalam hal pemanfaatan buah Nyirih (Xylocarpus granatum) yang merupakan jenis tanaman mangrove dengan jumlah populasi cukup besar. Sementara ini buahnya banyak yang jatuh dan dibiarkan membusuk begitu saja, dari realita itulah kami berfikir untuk melakukan inovasi dengan memanfaatkan buah Nyirih (Xylocarpus granatum) sebagai bahan dasar pembuatan masker alami. Buah Nyirih (Xylocarpus granatum) mempunyai kandungan senyawa Flavonoid yang merupakan senyawa fenol yang berfungsi sebagai anti oksidan dan dapat menetralisir serta mensterilkan radikal bebas sehingga tidak dapat merusak sel-sel dan jaringan kulit. Selain itu dalam buah nyirih  (Xylocarpus granatum) juga terdapat kandungan Tanin yang bersifat sebagai anti mikroba dan methanol sebagai penghambat terhadap bakteri. Apabila semua kandungan buah nyirih (Xylocarpus granatum) tersebut dicampur dengan tepung beras, maka akan menghasilkan masker wajah yang dapat berguna sebagai pencegah jerawat, flek hitam, dan melembabkan kulit wajah', 0, '2020-09-11 21:09:54', '2020-09-11 23:35:12'),
+	(111, 'PENGAMANAN RUMAH BERBASIS TEKHNOLOGI', 2018, 'Firdaus Surya Pradana, Muhammad Alfian Yulianto, Audi Nugraha, Catur Sugiarto', 'Kota Bontang', 'Smart home adalah sistem pertahanan/keamanan terintegrasi, yang secara otomatisasi memberikan informasi keadaaan suatu peristiwa atau kondisi kepada pemiliknya untuk melindungi rumah dari berbagai ancaman. Ancaman yang mungkin terjadi seperti pencurian disaat pemiliknya berpergian jauh. Pada prinsipnya smart home ini menggunakan beberapa buah sensor yang akan memberikan peringatan pada saat ada terjadinya pencurian dirumah pemilik. Jika ada penyusup yang masuk kedalam rumah tanpa izin smart home akan mengirimkan pesan kepada pemiliknya jika rumahnya telah terjadi pencurian. Sistem keamanan smart home ini dapat terkoneksi dengan beberapa handphone. Jika pemilik tinggal didaerah perumahan maka sistem smart home dapat dikoneksikan kepemilik dan dikoneksikan ke satuan pengamanan perumahan (Satpam) tersebut. Agar disaat terjadi pencurian satuan pengamanan perumahan langsung dapat mengambil tindakan jika sang pemilik rumah sedang pergi jauh dari rumahnya.', 0, '2020-09-11 23:39:30', '2020-09-11 23:39:30'),
+	(112, 'PEMANFAATAN LIMBAH TULANG IKAN TUNA (Thunnus sp) MENJADI KERIPIK TULANG IKAN UNTUK MENINGKATKAN NILAI EKONOMI MASYARAKAT NELAYAN  DALAM MENUNJANG INDUSTRI MARITIM  DI KOTA BONTANG', 2018, 'KISTO, S.ST.Pi.,M.Si, SUPADMI ASIH, A.Pi', 'Kota Bontang', 'Anggapan bahwa tulang ikan adalah limbah, terjadi karena orang-orang tidak terlalu tertarik pada tulang ikan. Selain itu, hasil olahan dari tulang ikan masih jarang dijumpai. Padahal, di dalam tulang ikan ini memiliki kandungan kalsium tinggi yang dapat membantu memenuhi kebutuhan asupan kalsium bagi manusia utamanya kalsium pada tulang ikan tuna. Tulang ikan tuna memiliki kandungan kalsium tertinggi dibanding ikan lainnya yaitu berkisar antara 12,9%-39,24%. Oleh karena itu dalam rangka meningkatkan nilai ekonomi masyarakat nelayan, maka solusi yang kami tawarkan adalah Pemanfaatan Limbah Tulang Ikan Tuna (Thunus sp) menjadi Keripik Tulang Ikan.', 0, '2020-09-11 23:45:07', '2020-09-11 23:45:07'),
+	(113, 'Pemanfaatan Kulit Udang menjadi Penyedap Rasa Makanan tanpa MSG', 2018, 'Mirnawati dan Wahyu Juli Hastuti, M.Pd', 'Kota Bontang', 'Masyarakat pada umumnya menggunakan monosodium glutamate (MSG) sebagai penyedap rasa makanan, karena kebanyakan masyarakat jika tidak menggunakan penyedap rasa, merasakan makanan yang dimakannya tidak enak, sehingga tidak menggugah selera makan. Namun, penyedap rasa makanan tidak terlalu baik untuk kesehatan, sebagaimana diketahui MSG mempunyai pengaruh yang buruk terhadap kesehatan otak. MSG itu sendiri hanya bertugas untuk memperkuat rasa. Urusan memperkuat rasa sebenarnya adalah urusan selera lidah masing masing orang terhadap kelezatan makanan. Sebagaimana diketahui bahwasanya udang mempunyai kelezatan tersendiri, sehingga sangat berpotensi sebagai pengganti MSG yang biasanya dikomsumsi oleh masyarakat.  \r\nKota Bontang sendiri adalah salah satu daerah pesisir yang memiliki sumberdaya kekayaan laut maupun tambak, yaitu udang. Udang merupakan makanan yang sangat digemari oleh masyarakat. Selama ini udang dikomsumsi secara segar oleh masyarakat, belum dilakukan pengolahan lebih lanjut. Komsumsi udang secara segar oleh masyarakat sendiri menghasilkan limbah berupa kulit dan kepala udang. Limbah tersebut sangat jarang digunakan oleh masyarakat. Sehingga penulis melakukan inovasi dalam memanfaatkan udang menjadi penyedap rasa tanpa MSG yang aman bagi kesehatan masyarakat.', 0, '2020-09-12 22:40:59', '2020-09-12 22:40:59'),
+	(114, 'Field Balancing Premium , From Bontang to the World', 2018, 'Nosal Nugroho Pratama  dan Hamzah', 'Kota Bontang', 'Pengembangan aplikasi field balancing premium didasari oleh adanya kebutuhan untuk melakukan kegiatan corrective maintenance pada rotating equipment yang mengalami permasalahan unbalance (ketidakseimbangan) pada bagian rotor (impeller, blade, sudu baling-baling, kipas, poros penggerak, kopling dll) secara mandiri di lapangan (onsite) tanpa harus membawa peralatan kita ke workshop yang lokasinya jauh sehingga membutuhkan waktu tunggu yang lama dan biaya yang besar. Kegiatan corrective maintenance pada unbalance rotating equipment di lapangan itu sendiri biasanya memerlukan teknologi yang canggih untuk melakukan pekerjaanya sehingga membutuhkan biaya yang sangat besar.', 0, '2020-09-12 22:44:37', '2020-09-12 22:44:37'),
+	(115, 'Pengembangan teknologi limbah plastik (polyethylene, polypropylene dan polystyrene) dari TPA kelurahan Bontang Lestari, Kecamatan Bontang Selatan menjadi bahan bakar hidrokarbon cair sebagai sumber energy baru dan terbarukan untuk pembangkit listrik dan kebutuhan energi umum.', 2018, 'Nosal Nugroho Pratama, Bangkit Widayat  dan Reno', 'Kota Bontang', 'Limbah Plastik merupakan salah satu jenis limbah yang sangat sulit diuraikan. Proses penguraian limbah plastik di alam memerlukan waktu puluhan bahkan hingga ratusan tahun. Hal ini membuat limbah plastik menjadi limbah yang merusak lingkungan karena sifatnya yang sulit diuraikan secara alami di dalam tanah dan akan terus menjadi bahan pencemar di lingkungan. Pemerintah Republik Indonesia, melalui Kementrian Negara Riset dan Teknologi (KNRT) sudah merencanakan untuk mendukung programprogram yang terkait dengan pemanfaatan limbah plastik menjadi Energi, terutama listrik untuk menjadi bagian dari bauran energy baru dan terbarukan periode pengembangan tahun 2016 – 2025.', 0, '2020-09-12 22:48:59', '2020-09-12 22:48:59'),
+	(116, 'DARI SAMPAH MENJADI UANG / FROM WASTE TO CASH', 2018, 'Rian Gunawan, Pahri Khalid, Taufiq Rahman Anas', 'Kota Bontang', 'Bank sampah adalah suatu tempat yang digunakan untuk mengumpulkan sampah yang sudah dipilah-pilah.  Hasil dari pengumpulan sampah yang sudah dipilah akan disetorkan ke tempat pembuatan kerajinan dari sampah atau ke tempat pengepul sampah.  Bank sampah dikelola menggunakan sistem seperti perbankkan yang dilakukan oleh petugas Bank Sampah. Sistem ini juga diharapkan dapat mengubah pola hidup masyarakat yang tidak mencintai lingkungan karena selalu membuang sampah tidak pada tempatnya, dan memotivasi masyarakat untuk sering  menabung di bank sampah. Tentunya hal ini sejalan dengan upaya meningkatkan kesadaran perlindungan alam dari tercemarnya sampah di Kota Bontang.', 0, '2020-09-12 22:51:12', '2020-09-12 22:51:12'),
+	(117, 'PENDETEKSI BORAKS BERBAHAN PATAHAN POHON MANGROVE', 2018, 'Wahyu Juli Hastuti, M.Pd, Eka Putri Jenitasari', 'Kota Bontang', 'Hampir semua obat ataupun zat yang masuk melalui oral mengalami metabolisme di dalam hepar. Bahan toksik yang dikonsumsi akan masuk ke hepar dan akan mengalami proses detoksikasi. Bahan-bahan toksik ini akan menyebabkan kerusakan dan kematian sel-sel hepar. Mengingat bahayanya boraxs bagi kesehatan, maka masyarakat sebagai konsumen harus berhati-hati dalam mengkomsumsi suatu produk makanan. Contoh langkah nyata dalam berhati-hati memilih produk makanan, adalah antara lain tidak membeli tahu yang berwarna terlalu putih dan terlalu keras, tidak mengkomsumsi tahu yang tidak basi dalam waktu 1 X 24 jam pada suhu kamar, tidak membeli sayuran matang yang berwarna hijau terang dan lain-lain. Dalam upaya untuk membantu masyarakat mendeteksi keberadaan boraks, maka peneliti mencoba membuat indikator pendeteksi boraks pada makanan dengan menggunakan zat warna pada patahan pohon mangrove. Alasan peneliti memilih akar mangrove adalah karena akar mangrove persediaan di kota Bontang sangatlah melimpah, sangat mudah diperoleh, dan pemanfaatannya belum optimal. \r\nPerlu diketahui akar mangrove yang dimaksud penulis adalah akar patahan mangrove yang sudah tidak berfungsi sebagai penahan abrasi, sehingga tidak merusak lingkungan. Selain kemampuan akar mangrove untuk menahan abrasi, berdasarkan penelitian Sugiyanto (2016) dinyatakan bahwasanya akar mangrove mempunyai kemampuan untuk mengikat logam berat Cu dan Pb, sehingga akan sangat dimungkinkan apabila patahan batang mangrove juga dapat mengikat boraks.', 1, '2020-09-12 23:01:21', '2020-09-12 23:01:21'),
+	(118, 'PEMBUATAN TEPUNG TULANG IKAN KAYA KALSIUM', 2018, 'Wahyu Juli Hastuti, M.Pd, Eka Putri Jenitasari', 'Kota Bontang', 'Sebagaimana kita ketahui bahwasanya limbah organik berpotensi menambah kuantitas jumlah sampah di Kota Bontang, disamping itu juga menimbulkan estetika yang buruk bagi lingkungan seperti pemandangan yang tidak menarik dan bau yang tidak sedap. Untuk itulah diperlukan ide kreatif untuk mengolah tulang ikan tersebut. Berdasarkan literatur tulang ikan mengandung banyak kalsium yang sangat baik bagi kesehatan tulang manusia, sehingga peneliti melakukan penelitian terhadap tulang ikan agar dapat dimanfaatkan menjadi sumber makanan baru yaitu tepung tulang ikan. Tepung tulang ikan dapat diolah enjadi empek- empek, maupun cimol. Dengan sedikit sentuhan tenaga profesional diharapkan olahan tepung tulang ikan ini dapat menjadi olahan khas bagi Kota Bontang.', 0, '2020-09-12 23:03:30', '2020-09-12 23:03:30'),
+	(119, 'Analisis Daya Ikat Mangrove terhadap Logam Besi', 2018, 'Wahyu Juli Hastuti, M.Pd, Herawati, S.Pd', 'Kota Bontang', 'Selain untuk mengatasi abrasi, mangrove ternyata dapat digunakan untuk bahan bangunan, maupun untuk obat dan sumber makanan. Telah banyak diadakan pelatihan pada masyarakat untuk pengolahan mangrove itu sendiri, sehingga dapat menambah kehidupan ekonomi masyarakat. Sebagaimana diketahui mangrove telah banyak dibuat untuk bahan sirup, untuk bahan teh seduh, tepung yang dibuat kripik dan lain sebagainya. Keberadaan olahan mangrove tersebut, tentunya dapat menarik wisatawan untuk datang ke Bontang. Selain mangrove berguna sebagai bahan makanan, ternyata berdasarkan literature, akar mangrove mempunyai kemampuan untuk mengikat logam berat. Hal inilah yang menjadi ide dasar dari penelitian ini, yaitu sangat memungkinkan apabila akar mangrove juga dapat mengikat atau mengadsorpsi keberadaan logam besi. Namun sangat tidak etis, apabila dalam penelitian ini, peneliti memotong akar mangrove yang jelas harus dijaga keberadannya. Untuk itulah peneliti berinisiatif untuk memanfaatkan patahan mangrove untuk mengadsorpi logam besi. Logam besi yang dimaksud, adalah residu endapan kuning yang sering terikut pada air PDAM di Kota Bontang, sehingga perlu dicarikan solusi, yaitu salah satunya mengadsorpsi logam besi tersebut dengan patahan pohon mangrove yang merusak estetika kehidupan laut.', 1, '2020-09-12 23:07:18', '2020-09-12 23:08:41'),
+	(120, 'Pemanfaatan Batang Patahan Mangrove sebagai Bioetanol', 2018, 'Wahyu Juli Hastuti, M.Pd, Mirnawati', 'Kota Bontang', 'Kota Bontang merupakan daerah pesisir yang memiliki banyak pohon mangrove sebagai penahan abrasi, selain sebagai penahan abrasi wilayah dengan banyak pohon mangrove digunakan sebagai tempat rekreasi masyarakat. Banyak batang patahan pohon yang berserakan mengganggu pemandangan dan menjadi limbah. Sehingga perlu dicari solusi untuk mengurangi limbah dari batang patahan pohon mangrove, salah satunya dengan cara mengolah batang patahan pohon mangrove menjadi energi terbarukan, yaitu bioetanol. Bioetanol merupakan energi yang dapat dimanfaatkan oleh masyarakat sebagai bahan bakar pengganti energi fosil.', 0, '2020-09-12 23:17:19', '2020-09-12 23:17:19'),
+	(121, 'PERANCANGAN ALAT PENGERING  OLAHAN RUMPUT LAUT YANG HEMAT  ENERGI, TENAGA DAN WAKTU', 2018, 'Agus Salim', 'Kota Bontang', 'Sebagian besar luas kota Bontang adalah terdiri dari laut, dengan potensi hasil laut dan budidaya rumput laut yang cukup bagus. Hal ini dapat dilihat semakin meningkatnya produksi budidaya rumput laut dengan kualitas sangat baik dan produksi budidaya yang cukup baik. \r\nNamun nilai tambah dari rumput laut tersebut masih sangat kurang, karena masih dijual dalam bentuk mentah. Hal ini berakibat kurang terserapnya tenaga kerja secara maksimal dan kurang besarnya pendapatan yang diperoleh dari penjualan produk mentah tersebut. \r\nPada saat ini, pemerintah kota Bontang sangat menggalakkan upaya peningkatan pendapatan masyarakat dari hasil laut  dengan melaksanakan kegiatan pelatihan pengolahan hasil laut  dengan harapan akan tumbuh berbagai kelompok pengolah hasil laut untuk semakin meningkatkan nilai tambah dari hasil laut tersebut. \r\nSemangat masyarakat kelurahan Bontang Baru dalam mendukung program pemerintah kota Bontang tersebut sangat respon secara positif, dengan wirausaha olahan rumput laut dan olahan ikan yang dapat menciptakan lapangan pekerjaan dan peningkatan kesejahteraan keluarga.  \r\nNamun dalam proses pengeringan produk yang menggunakan matahari, masih tergantung cuaca dan membutuhkan waktu yang lama, sehingga menghambat proses produksi.', 0, '2020-09-12 23:18:56', '2020-09-12 23:18:56'),
+	(122, 'Computer Based Test (CBT) For All Of Bontang Education', 2018, 'Muhammad Ridwan', 'Kota Bontang', 'Konsentrasi untuk mewujudkan adanya peningkatan kualitas SDM yang paling tepat adalah perubahan pelayanan pendidikan. Hal tersebut karena pendidikan sebagai titik awal dimulainya suatu perubahan dan penentu terhadap maju dan mundurnya suatu bangsa. Berkaitan dengan pendidikan, guru hadir untuk memberikan kegiatan pembelajaran, membekali siswa dengan etika, moral serta memberikan evaluasi terhadap kemampuan siswa.  Evaluasi yang dilakukan oleh guru sementara ini diketahui masih secara paper tes dan baru dapat memanfaatkan Computer Based Test (CBT) apabila telah tiba waktunya ujian nasional (UNBK). Peran guru dalam UNBK menitberatkan hanya sebagai pengawas dengan tanpa melakukan tindaklanjut untuk menggunakan komputer sebagaimana pelaksanaan UNBK. Dengan kata lain, guru menempatkan dirinya sebagai pengguna sistem. Untuk mengatasi hal tersebut maka peneliti akan melakukan penelitian untuk merancang CBT yang mempermudahkan guru untuk terlibat langsung dalam pembuatan CBT-nya. Dengan pelibatan guru maka peningkatan kualitas SDM dapat diwujudkan oleh Kota Bontang. Dengan terlaksananya kegiatan ini maka Smart Teknologi dalam konsep Smart City untuk menjadikan Bontang Jago dapat dengan cepat terlaksana di lingkungan Pendidikan Kota Bontang.', 0, '2020-09-12 23:21:13', '2020-09-12 23:21:13'),
+	(123, 'PENGEMBANGAN WEBSITE TOKO ONLINE “BONTANGERS” BAGI PELAKU UMKM BONTANG', 2018, 'Suiza Ixan Saputro', 'Kota Bontang', 'Sebagai seseorang yang bisa melihat peluang, maka kita harus melihatnya dari arah sebaliknya. Yaitu ketika sebuah trend sedang bergerak menuju ke online shopping, maka kita bisa memanfaatkan hal tersebut untuk mendapatkan pendapatan tambahan melalui internet. Semakin banyak orang memiliki akses ke internet, semakin besar pula peluang bisnis yang bisa kita lakukan melalui internet.Hal ini dapat pula diterapkan oleh berbagai UMKM yang ada di Bontang, apapun bisa dijual melalui toko online baik produk barang ataupun jasa. Peluang untuk mendapatkan omzet melalui toko online akan lebih besar karena dapat menjangkau calon pelanggan yang lebih luas.Untuk itu, sejalan dengan visi Creative City dan Smart City Kota Bontang, maka diperlukan sebuah website toko online sebagai etalase produk barang dan jasa yang dijual oleh UMKM Bontang agar dapat dikenal luas oleh netizen dengan ciri khas produk unggulan Bontang dengan nama Bontangers “Bontang Marketers” yang bermakna kumpulan pedagang online dari Bontang.', 0, '2020-09-12 23:23:24', '2020-09-12 23:23:24'),
+	(124, 'Granulisasi Rumput Laut untuk Minuman Sehat Sebagai Oleh-oleh Khas Kota Bontang', 2018, 'Sutarto', 'Kota Bontang', 'Bontang sebagai kota industri berbasis migas dengan letak di pesisir laut banyak dikunjungi oleh tamu dari pemerintahan atau perusahan dari luar Bontang. Hal ini membuka peluang produk-produk lokal kota Bontang bisa menjadi alternative oleh-oleh bagi para tamu. Hasil laut dari kota Bontang yang salah satunya rumput laut dapat digunakan oleh-oleh yang memikat para tamu/pengunjung kota Bontang. Hasil olahan rumput laut banyak disenangi pengunjung karena alami dan menyehatkan. Masyakat kota Bontang dalam mengolah rumput laut masih dilakukan secara tradisional yaitu di keringkan , dikemas lalu dijual langsung ke konsumen. Rumput laut dapat diolah dan dikemas dengan metode granulisasi sehingga praktis dan menarik konsumen.', 0, '2020-09-12 23:24:39', '2020-09-12 23:24:39'),
+	(125, 'PEMANFAATAN SUMBER AIR LAUT UNTUK PEMBANGKIT LISTRIK  TENAGA AIR LAUT 0,5 MEGA WATT DALAM RANGKA  MEWUJUDKAN BONTANG SEBAGAI GREEN CITY', 2018, 'Taiyeb Ibrahim', 'Kota Bontang', 'Potensi kelautan kota Bontang dibidang energi untuk mewujudkan green city belumlah tersentuh sama sekali pada hal kita mempunyai sumber green energy dan terbaharukan yaitu potensi air laut sisa (waste) pendingin kondenser di perusahaan yang memanfaat kan air laut sebagai media pendingin misalnya PT. PKT, PT. Badak, PT. KMI dan lain-lain, estimasi awal sumber energi tersebut sebesar 0,5 Mega Watt mungkin lebih. Green energy 0,5 Mega Watt sepanjang tahun terbuang percuma (waste). Hasil  pemanfaatan green energy ini selanjutnya dikembalikan lagi keperusahaan untuk digunakan sebagai sumber energi pengerak mobil listrik operasional. Memang investasi awalnya mahal dan titik impas investasi berjangka sekitar 10 tahun, tapi apa mau menunggu harga murah dan situasi semangkin sulit? Ingat, gaung era mobil listrik sudah terdengar nyaring di mana mana! Apa yang diperoleh pemerintah kota Bontang? Yaitu mendapat reward sebagai salah satu inovator kota pencetus gagasan green city. Kesemuanya itu sejalan harapan pemerintah pusat dan harapan warga bumi.', 1, '2020-09-12 23:29:34', '2020-09-12 23:29:34'),
+	(126, 'PENYERAP GAS AMONIA', 2018, 'Wahyu Juli Hastuti, M.Pd', 'Kota Bontang', 'Alat Penyerap Gas Amonia adalah suatu alat yang dapat mendeteksi keberadaan gas amonia, sekaligus untuk mengurangi konsentrasi polutannya. Cara kerjanya yaitu dengan cara menaruh Alat Penyerap Gas Amonia di daerah yang kemungkinan terdampak gas Amoniak. Kemudian alat ini mencoba mengadsorpsinya dengan bantuan silica gel, untuk kemudian alat ini melaporkan hasilnya, baik konsentrasi sebelum adsorpsi maupun konsentrasi setelah adsorpsi melalui layar display yang terdapat pada alat, maupun perangkat gawai. Jadi alat ini dapat digunakan sebagai indikator paparan amonia agar dapat dilakukan penanggulangan, atau bahkan pengurangan konsentrasi amoniak melalui adsorbsi silica gel yang terdapat dalam Alat Penyerap Gas Amonia. Apabila dalam display menunjukkan ambang batas maksimal yaitu sebesar 50 ppm ke atas, maka sangat diperlukan bagi para nelayan, atau rumah rumah di kawasan yang terpapar untuk menggunakan masker  yang dilapisi silica gel, atau blok-blok silica gel.', 0, '2020-09-12 23:32:23', '2020-09-12 23:32:23'),
+	(127, 'Si Kinai (AplikaSi Kinerja Pegawai)', 2018, 'Wahyu Juli Hastuti, M.Pd', 'Kota Bontang', 'Masalah kinerja pegawai meruapakan hal yang sangat rumit untuk dibicarakan, terkadang penilaian yang harus selalu naik secara kuantitas meskipun tidak berkualitas, adalah hal yang membuat penilaian seakan-akan adalah sebuah tradisi yang penting ada nilai. Adalah sebuah ketidak adilan, bila mana terdapat pegawai yang rajin bekerja dengan pegawai yang malas malasan mendapatkan nilai normatif yang cenderung sama dan kurang bermakna. Kenyataan tersebut dapat terjadi dikarenakan instrumen penilaian yang masih berbasis kertas, maupun komputerisasi yang sedikit rumit. Akan menjadi mudah apabila kinerja pegawai dapat dilakukan penilaian setiap saat dengan menggunakan gawai atau berbasis android. Hal ini memudahkan penginputan data setiap saat ketika ada kejadian yang dilihat maupun dirasakan. Hasil input tersebut, tentunya didapatkan rekapan yang menggambarkan kinerja pegawai yang bersangkutan.Untuk itulah penulis membuat sebuah aplikasi yang bernama Si Kinai yang artinya Aplikasi Kinerja Pegawai. Dalam aplikasi tersebut terdapat poin-poin kewajiban sebagai pegawai. Aplikasi ini tentunya hanya dapat digunakan oleh pejabat yang berwenang untuk menilai pegawainya.', 0, '2020-09-12 23:34:17', '2020-09-12 23:34:17'),
+	(128, 'Kelarutan CO2 di Raw Condensate sebagai Media Pembiakan Mikroalgae', 2018, 'Arif R. Hakim QSHE Engineer PT. Kaltim Parna Industri', 'Kota Bontang', 'Karbon dioksida (CO2) menjadi masalah tersendiri bagi pabrik amoniak yang tidak terintegrasi dengan pabrik urea. Emisi CO2 dari  CO2 Stripper tidak dapat terserap dengan baik sehingga menambah jumlah gas rumah kaca dan turut andil dalam pemanasan global. Kesadaran masyarakat dunia dalam upaya menurunkan tingkat emisi CO2 telah tumbuh seiring dengan semakin banyaknya negara yang meratifikasi Protokol Kyoto. Mereka berkomitmen untuk mengurangi empat jenis gas rumah kaca yaitu Carbondioxide (CO2), Methane (CH4), Nitrous Oxide (N2O), Sulphur Hexafluoride (SF6) dan dua kelompok gas yaitu Hydrofluorocarbons (HFCs) dan Perfluorocarbons (PFCs). Pemerintah Indonesia pun telah ambil bagian dengan mengeluarkan Peraturan Presiden (PerPres) No. 61 tahun 2011 tentang Rencana Aksi Nasional Penurunan Emisi Gas Rumah Kaca (RAN-GRK) dengan target penurunan emisi CO2 nasional per dasawarsa hingga 2040 sebanyak 41%.Kalangan industri berusaha membantu pemerintah mencapai target tersebut dengan berbagai cara. PT. Kaltim Parna Industri (KPI) memiliki beberapa pilihan dalam pemanfaatan CO2 dan perlu dikaji lebih jauh untuk mementukan mana yang paling feasible untuk ditindaklanjuti. Fokus perhatian dalam kajian ini adalah penyerapan CO2 sebagai feed mikroalgae.Mikroalgae dapat menangkap CO2 di dalam air sebagai makanan dalam bentuk senyawa bikarbonat. Bikarbonat dengan mudah didapat apabila mereaksikan asam karbonat dengan mineral yang terkandung di dalam air. Asam karbonat sendiri merupakan hasil dari reaksi antara CO2 dengan air', 1, '2020-09-12 23:37:01', '2020-09-12 23:37:01'),
+	(129, 'EPIL (Efisiensi Pemakaian Energi Listrik)', 2018, 'Moh. Bahri, S.Pd.Si,', 'Kota Bontang', 'Pemerintah mengalihkan subsidi energi untuk kebutuhan lain yang lebih diperlukan. Adanya pengurangan subsidi tersebut menyebabkan biaya yang harus dikeluarkan oleh masyarakat semakin besar. Konsumsi energi listrik untuk memenuhi kebutuhan masyarakat di Kota Bontang cukup tinggi sekitar 20 megawatt. sementara suplay enegri listrik yang dilakukan oleh PLN belum mencukupi, sehingga sering terjadi pemadaman. Selain itu masyarakat dalam memakai energi listrik banyak yang boros dan tidak efisien. Misalnya tidak tepat waktu dalam mematikan lampu luar rumah, lampu kamar mandi, lampu dapur, lampu taman dan sebagainya.Untuk mengatasi permasalahan itu perlu dipemakaian listrik secara efisien, yang tentunya diperlukan alat efisiensi listrik yang murah, mudah digunakan oleh masyarakat.', 0, '2020-09-12 23:39:24', '2020-09-12 23:39:24'),
+	(130, 'PENGEMBANGAN USAHA SOUVENIR OLEH OLEH KHAS BONTANG  (Dampak langsung perkembangan industri pariwisata bagi masyarakat Bontang)', 2019, 'Anindya Riezky Ayu Pribadi', 'Kota Bontang', 'Kondisi masyarakat Kota Bontang yang heterogen terdiri dari berbagai macam suku serta latar belakang pendidikan dan budaya merupakan gambaran Indonesia mini yang membuat Kota Bontang kaya dengan budaya dari berbagai daerah, hal tersebut merupakan salah satu faktor yang mendorong kemajuan pertumbuhan Kota Bontang semakin cepat. Kota Bontang dianugerahi dengan bentang alam yang sangat indah terutama disektor kelautan, dan sampai saat ini Pemerintah terus berupaya untuk melestarikan wilayah pesisir agar tetap terjaga sehingga dapat memberikan nilai tambah bagi masyarakat itu sendiri.Alam telah memberikan segalanya yang diperlukan oleh manusia, maka tugas kita bersama untuk menjaga dan melestarikan lingkungan kita sesuai dengan nilai nilai kearifan lokal yang telah ditanamkan sejak jaman nenek moyang kita. Memanfaatkan alam tidak harus dengan cara merusak agar dapat dimanfaatkan secara arif dan bijaksana sampai ke anak cucu.', 0, '2020-09-12 23:50:04', '2020-09-13 00:00:43'),
+	(131, 'KURANGI PLASTIK DENGAN BELANJA NYAMAN  DI PASAR CITRA MAS BARU', 2019, 'ANITA ISTIQAROH, S.HUM, MBA', 'Kota Bontang', 'Pusat perdagangan merupakan lokasi penyumbang sampah plastik terbesar karena dari proses jual beli disanalah plastik-plastik tersebut berasal. Jika toko-toko swalayan di Kota Bontang telah dilarang penggunaan kantong plastiknya, maka lain hal dengan pasar tradisional yang masih menggunakan kantong plastik sebagai wadah penyimpanan barang belanjaan. Banyak yang ragu apakah pasar tradisional juga mampu seperti toko swalayan dalam upaya pengurangan kantong plastik. Sangat tidak menutup kemungkinan jika pasar juga mampu, karena telah ada beberapa contoh pasar tradisional di Indonesia yang mampu mengurangi penggunaan kantong plastik dalam proses jual belinya.', 1, '2020-09-13 00:00:17', '2020-09-13 00:00:17'),
+	(132, 'pemanfaatan limbah tulang ikan lele sebagai sumber mineral serta peningkatan nilai tambah menjadi produk olahan yang bernilai ekonomis yaitu Tulang Ikan Lele (TuILe)cookies', 2019, 'Astril Wedy, Sukirman, Syahril, Asmawati, Asriadi', 'Kota Bontang', 'Hasil olahan ikan segar lele menjadi olahan siap saji yang nikmat ini menyimpan permasalahan setelah proses pengolahan yaitu sisa-sisa bahan baku yang tidak terpakai atau limbah. Limbah ikan lele ini diantarax adalah tulang duri dan  kulit ikan lele. Melihat hal ini terlintas bahwa ingin melakukan “pemanfaatan limbah tulang ikan lele sebagai sumber mineral serta peningkatan nilai tambah menjadi produk olahan yang bernilai ekonomis yaitu Tulang Ikan Lele (TuILe)cookies”.', 0, '2020-09-13 00:25:25', '2020-09-13 00:25:25'),
+	(133, 'Pemanfaatan Limbah Kepala Ikan & Tulang Ikan menjadi olahan Aneka Krupuk yang  Bernilai Ekonomi', 2019, 'Cipuk Artanika', 'Kota Bontang', 'Bontang merupakan daerah yang wilayahnya di kelilingi lautan yang menghasilkan ikan laut yang melimpah. Masyarakat Bontang pecinta Ikan bisa mendapatkannya dengan membeli di pasar-pasar di Bontang. Biasanya pedagang ikan melayani ikan di bersihkan atau di kerok dagingnya.Limbah Kepala ikan, tulang duri,sisik,kotoran ikan terkadang hanya di buang di pasar yang kemudian akan dibersihkan oleh petugas pasar yang selanjutnya dibuang di pembuangan sampah.Melihat kondisi ini, maka inovator memiliki rancangan pengembangan inovasi yang memanfaatkan limbah ikan berupa Krupuk dari kepala ikan dan tulang ikan, selain itu pembuatan bahan ini tidak memerlukan biaya yang tinggi, dan ketersediaan bahannya mudah untuk didapatkan.di pasar - pasar di kota Bontang', 1, '2020-09-13 00:27:19', '2020-09-13 00:28:10'),
+	(134, 'INOVASI PENGOLAHAN DAN PEMANFAATAN LIMBAH PADAT AMPAS TAHU MENJADI PRODUK “TORTILLA AMPAS TAHU”', 2019, 'Imam Suhadi', 'Kota Bontang', 'Ampas tahu merupakan limbah dalam bentuk padatan dari bubur kedelai yang diperas dan tidak berguna lagi dalam pembuatan tahu dan cukup potensial dipakai sebagai bahan makanan karena ampas tahu masih mengandung gizi yang baik. Penggunaan ampas tahu masih sangat terbatas bahkan sering sekali menjadi limbah yang tidak termanfaatkan sama sekali (Winarno, 2003). Ampas tahu sebagai bahan sisa dari ekstraksi kedelai nilai gizinya relative tinggi. Penggunaan ampas tahu masih sangat terbatas, hal ini mungkin disebabkan rasanya yang kurang enak yaitu pahit dan getir serta tidak terjamin kebersihannya, karena sanitasi perusahaan pada umumnya tidak baik. Bila produksi berlebihan ampas tahu ini sering dibuang begitu saja, sehingga akan dapat menambah beban pencemaran lingkungan (Wilarso, 1999). Pengolahan ampas tahu untuk bahan pangan (makanan) dapat meningkatkan program pemerintah dalam membantu meningkatkan gizi masyarakat pada. Ampas tahu yang berkadar air tinggi sisa pembuatan tahu menjadi sarang bakteri jika dibuang ditempat lembab dan berair, disertai bau khas sehingga menimbulkan pencemaran lingkungan dan berpengaruh negatif pada kelestarian lingkungan hidup. Pencemaran lingkungan tersebut dapat dicegah dengan memanfaatkan limbah sebaik-baiknya (Handasari, 2010).', 0, '2020-09-13 00:31:49', '2020-09-13 00:31:49'),
+	(135, 'Daur Ulang Kertas', 2019, 'Isminasriyati, Andriana, Siti Zuhroul , M. Noor', 'Kota Bontang', 'Sampah merupakan hal kecil yang sering dilupakan. Dalam hal ini sampah kertas merupakan masalah yang sering ditemui masyarakat, hal ini dikarenakan kertas merupakan benda yang paling banyak digunakan manusia dan tentunya paling banyak dibuang dan menghasilkan sampah. Saat mendengar kata sampah mungkin hal yang ada di benak kita hanyalah benda kotor dan tidak berguna. Namun anggapan seperti itu tidak selalu benar, sampah juga dapat dimanfaatkan untuk menjadi barang yang bernilai jual dan menguntungkan. Salah satunya briket daur ulang, kotak buah kotak tissu merupakan produk dari bahan kertas bekas. Bahan untuk membuat briket daur ulang dapat berupa sampah koran, kardus ,dan lain-lain. Untuk membuat briket, mangkok daur ulang tidak membutuhkan proses yang rumit dan bahan yang mahal. Tahapan pertama kertas bekas yang sudah dikumpulkan, direndam dalam air untuk menghancurkan kertas. Kemudian, kertas yang sudah hancur kemudian dicampur dengan lem. Setelah melalui tahap pencampuran, adonan tersebut kemudian di cetak menggunakan cetakan khusus agar rapi dan tipis. Setelah di cetak kertas kemudian di jemur agar kering dan dapat dimanfaatkan, biasanya hasil daur ulang seperti ini dijual ke pengguna. Dengan demikian maka kita dapat menaggulangi masalah sampah yang ada di sekitar kita, dan dapat memperoleh keuntungan dari hasil pemanfaatan sampah.', 0, '2020-09-13 00:40:34', '2020-09-13 00:40:34'),
+	(136, 'Pengaplikasian Dye Sensitized Solar Cell dengan menggunakan Dye Ekstrak Buah Naga Sebagai Sumber Energi Alternatif dan Konsep Smart City untuk Kota Bontang', 2019, 'ken ninez n.p', 'Kota Bontang', 'Dye sensitized solar cell (DSSC) atau biasa disebut Grätzel-solar cell adalah jenis sel surya photoelectrochemical yang menggunakan pewarna (dye) untuk mentransfer sinar matahari ke energi listrik. DSSC adalah sel surya berbiaya rendah dan oleh karena itu, memiliki banyak keuntungan yang berbanding terbalik dengan sel surya lainnya. Fitur ini dan efisiensinya dari sel surya ini, membuatnya menarik. Pertama-tama, sel surya mudah diproduksi. Mereka diproduksi dengan menggunakan teknik cetak mencetak konvensional yang berbeda dengan pencetakan. Selain itu, materialnya semi transparan dan semi fleksibel memungkinkannya disesuaikan dengan dimensi. Konstruksi DSSC sangat mudah sehingga bahkan ada yang melakukannya sendiri untuk membangun DSSC di rumah. Sel yang dirancang oleh O’Regan dan Grätzel hanya terdiri dari tiga bagian. Bagian atas adalah anoda timah dioksida transparan, diletakkan di atas piring kaca. Di sisi lain piring ini adalah lapisan tipis titanium dioksida yang terikat oleh sintering. Lapisan ini hanya menyerap foton UV dari spektrum. Plat ditempatkan dalam pewarna (dye) rutenium-polipiridin fotosensitif dengan pelarut. Lapisan pewarna (dye) kemudian menempel pada lapisan TiO2. Pelat lain dibangun dengan lapisan elektrolit iodida pada logam konduktif. Akhirnya, plat saling menempel. Lapisan pewarna juga bisa diganti dengan ekstrak buah naga agar pengaplikasian di Indonesia lebih mudah diterapkan. Pengaplikasian dye sensitized solar cell dengan menggunakan ekstrak buah naga merupakan salah satu alternatif yang prospektif untuk digunakan di Kota Bontang. Hal ini dikarenakan ongkos proses produksi yang rendah.  Tidak berhenti sampai disitu, untuk menjadikan kota Bontang sebagai kota yang mandiri, konsep smart city juga perlu diterapkan di Kota Bontang. Pada proposal ini juga akan dijelaskan lebih detail tentang konsep smart city.', 0, '2020-09-13 00:46:41', '2020-09-13 00:46:41'),
+	(137, 'PEMANFAATAN LIMBAH TULANG IKAN TUNA (Thunnus sp) MENJADI KERIPIK TULANG IKAN UNTUK MENINGKATKAN NILAI EKONOMI MASYARAKAT NELAYAN YANG BERWAWASAN LINGKUNGAN   DI KOTA BONTANG', 2019, 'KISTO, S.ST.Pi.,M.Si', 'Kota Bontang', 'Selama ini masyarakat menganggap tulang ikan hanya dipandang sebelah mata dan merupakan limbah yang harus dibuang dan disingkirkan. Anggapan bahwa tulang ikan adalah limbah, terjadi karena orang-orang tidak terlalu tertarik pada tulang ikan. Selain itu, hasil olahan dari tulang ikan masih jarang dijumpai. Padahal, di dalam tulang ikan ini memiliki kandungan kalsium tinggi yang dapat membantu memenuhi kebutuhan asupan kalsium bagi manusia utamanya kalsium pada tulang ikan tuna. Tulang ikan tuna memiliki kandungan kalsium tertinggi dibanding ikan lainnya yaitu berkisar antara 12,9%-39,24%. Oleh karena itu dalam rangka meningkatkan nilai ekonomi masyarakat nelayan, maka solusi yang kami tawarkan adalah Pemanfaatan Limbah Tulang Ikan Tuna (Thunus sp) menjadi Keripik Tulang Ikan.', 0, '2020-09-13 00:48:38', '2020-09-13 00:48:38'),
+	(138, 'PENAMBAHAN DIFFERENTIAL KIJANG KF 40 Th  1990 UNTUK  MENGANGKUT HASIL KEBUN', 2019, 'MICHAEL DHARMAWAN,   ROSMIATI,   NURUL HIDAYAH', 'Kota Bontang', 'Differential atau sering dikenal dengan nama gardan adalah komponen pada mobil yang berfungsi untuk meneruskan tenaga mesin ke poros roda. Urutan perpindahan tenaga dan putaran dari mesin sampai ke roda, sehingga kendaraan atau mobil dapat berjalan. Putaran roda semuanya berasal dari proses pembakaran yang terjadi dalam ruang bakar. Proses pembakaran inilah yang kemudian akan menggerakkan piston untuk bergerak naik turun. Lalu  gerak naik turun piston ini akan diteruskan untuk memutar poros engkol. Gerak putar poros engkol ini akan diteruskan untuk memutar roda gila / flywheel. Putaran roda gila akan diteruskan untuk memutar kopling kemudian diteruskan memutar transmisi ke poros kopel lalu ke gardan. Gardan akan meneruskan putaran ini ke poros roda dan poros roda akan memutar roda, sehingga kendaraan dapat berjalan. Kondisi wilayah Kalimantan  yang merupakan daerah pegunungan  mayoritas jalannya belum teraspal misalnya di daerah  perkebunan. Dengan kondisi jalan yang licin dan berlumpur serta tanjakan menyebabkan mobil standar yang memuat hasil perkebunan tidak dapat melewati jalan tersebut dikarenakan tenaga penggerak rodanya rendah. Selama ini masyarakat mengangkut hasil kebun menggunakan sepeda motor dengan kapasitas angkut yang kecil serta memerlukan waktu yang lama dikarenakan pengangkutan dilakukan beberapa kali dengan daya angkut yang kecil. Selain motor, terdapat juga mobil yang biasa digunakan yaitu mobil kijang keluaran tahun 1990, namun kekurangannya adalah tidak dapat melewati jalan yang berlumpur dan licin sehingga mobil ini hanya dapat dipakai saat jalanan memungkinkan.  Melihat kondisi tersebut  penulis tertarik untuk melakukan inovasi dengan memodifikasi differnsial  mobil Toyota kijang seri KF 40 keluaran tahun 1990  sehingga tenaga penggerak rodanya bertambah dan dapat melewati jalan dengan kondisi yang berat.', 0, '2020-09-13 00:57:00', '2020-09-13 00:57:00'),
+	(139, 'Pemanfaatan 	Kulit 	Rajungan 	sebagai 	Masker 	Adsorbance  “MASDAKURA”.', 2019, 'Wahyu Juli Hastuti, M.Pd , Mochamad Cahyoh Harianto,  Mikel Owen,  Wahyu Retno Anjani,  Nurhaida', 'Kota Bontang', 'Pembuangan limbah kulit rajungan ke laut tentunya akan menimbulkan dampak lingkungan berupa sampah organik. Dampak sampah organik diperairan akan menyebabkan beberapa organisme termasuk ikan dapat mati sehingga beberapa spesien akan lenyap, hal ini akan menyebabkan berubahnya ekosistem perairan biologis. Penguaraian sampah organik yang berada di perairan laut akan menyebabkan asam organik dan gas cair organik seperti metana yang menyebabkan bau yang kurang sedap dan dalam konsentrasi tinggi dapat menyebabkan ledakan (Hartono,2008). \r\nMengingat dampak sampah organik yang begitu besar, membuat penulis terinspirasi untuk mengolah kulit rajungan yang bertujuan untuk mengurangi dampak yang ditimbulkan dari industri pengolahan rajungan dengan membuat inovasi Adsorban Kulit Rajungan yang bernama \r\n“MASDAKURA”.', 0, '2020-09-13 01:01:56', '2020-09-13 01:01:56'),
+	(140, 'PEMBELAJARAN KIMIA ERA 4.0 DENGAN APLIKASI SILC  (Smart in Learning Chemistry)', 2019, 'Moh. Bahri, S.Pd.Si', 'Kota Bontang', 'Di era milenial digital 4.0 seperti saat ini, salah satu penyebab rendahnya mutu pendidikan di Indonesia terutama di daerah perkotaan yaitu penggunaan teknologi yang kurang bijak. Masyarakat Indonesia banyak yang terlena akan kecanggihan teknologi masa kini dengan hanya memanfaatkannya sebagai media hiburan semata  seperti game, sosial media, musik, video atau fotografi. Padahal sebenarnya dengan adanya teknologi,  kegiatan belajar juga bisa dilaksanakan melalui gadget atau Smartphone . Kita dapat dengan mudah mengakses materi pembelajaran dengan menggunakan teknologi e-book. Materi pembelajaran kimia merupakan salah satu hal yang tidak disukai bahkan ditakuti oleh para siswa. Hal ini karena ilmu kimia merupakan hal yang rumit, abstrak dan kebanyakan sumber belajarnya tidak lengkap dan tidak memadai. Selain itu, guru-guru yang mengajar cenderung monoton dan tidak menarik karena menggunakan metode dan alat yang sudah ketinggalan zaman. Untuk mengatasi permasalahan tersebut, perlu sebuah inovasi yang sesuai era saat ini dengan menggunakan teknologi terutama gadget atau Smartphone untuk meningkatkan mutu pendidikan terutama pelajaran kimia. Teknologi atau aplikasi yang dikembangkan tentunya harus mudah digunakan, biayanya murah atau bahkan gratis, namun tampilannya menarik sehingga para siswa semangat dan antusias dalam memanfaatkannya dengan baik.', 0, '2020-09-13 01:04:56', '2020-09-13 01:04:56'),
+	(141, 'LESS PLASTIK IS FUN”TASTIC” “MERUBAH BOTOL PLASTIK MENJADI MOTOR KLASIK”', 2019, 'Muhammad Saipul, S.Hut', 'Kota Bontang', 'Pengembangan karakter Bina Cinta Lingkungan adalah pengembangan karakter peduli terhadap lingkungan seperti pengelolaan sampah yang dikemas dalam bentuk Pendidikan Lingkungan Hidup. Pendidikan Lingkungan Hidup adalah mengubah pandangan dan perilaku seseorang terhadap lingkungan. Orang yang tadinya masa bodoh dengan lingkungan diharapkan berubah menjadi peduli dengan lingkungannya. Orang tadinya hanya menjadi pemerhati pasif berubah menjadi pelaku aktif dalam upaya pelestarian lingkungan, bahkan diharapkan juga orang yang tadinya berperan dalam perusakan dapat berubah menjadi pelaku aktif upaya pelestarian lingkungan, upaya mengubah perilaku seseorang melalui pendidikan bukanlah hal yang dapat terlaksana dengan mudah dan dalam waktu yang singkat. Oleh karena itu hasilnya tidak dapat diukur atau dinilai dalam kurun waktu yang pendek. \r\nDengan melihat latar belakang masalah sampah botol plastik yang masih banyak di Kota Bontang, maka kami tergerak untuk dapat mengurai permasalahan yang ada dengan membuat kerajinan Daur Ulang Botol Plastik menjadi Motor Klasik.', 0, '2020-09-13 01:07:57', '2020-09-13 01:07:57'),
+	(142, 'TAMAN WISATA AIR  KOTA  SEBAGAI  PENANGGULANGAN BANJIR CADANGAN AIR BERSIH   LINGKUNGAN KOTA', 2019, 'Nadia Bernabas', 'Kota Bontang', 'Berawal  dari  keluh  kesah  masyarakat   yang  terkena  dampak  banjir dihampir sebagian kota Bontang, harus menjadi perhatian serius bagi Pemerintah Kota Bontang dimasa mendatang. hasil menyebutkan permasalahan yang mengerucut, yaitu sungai yang ada saat  ini masih belum mampu  menampung luapan air hujan pada saat curah hujan tinggi, sehingga menyebabkan banjir diarea masyarakat yang berdekatan dengan jalur sungai dan didaerah dataran rendah namun, disisi yang berbeda, kota Bontang diprediksi krisis air atau tidak mampu mencukupi kebutuhan air bersih yang diperlukan oleh masyarakat.', 0, '2020-09-13 01:21:08', '2020-09-13 01:21:08'),
+	(143, 'DARI LIMBAH JADI BERKAH ” KERIPIK KULIT IKAN BANDENG”', 2019, 'NINIEK RAKHMAWATI Z', 'Kota Bontang', 'IKM Saputra Snack merupakan industri kecil perorangan yang didirikan oleh ibu Niniek beserta suami dengan produk unggulan Keripik Kulit Ikan Bandengdengan brand / merek Pak Ucil yang diambil dari nama panggilan akrab suami. Lucu dan mudah di ingat menjadi alasan pendukung agar produk dapat mudah di ingat dan diterima oleh konsumen. Tahun 2011 mengawali produksi dengan membuat krupuk puli, dan baru ditahun 2012 beralih dengan memproduksi snack stik bawang dan kemudian pemilik dengan melihat potensi perikanan Kota Bontang yang melimpah. Ide usaha muncul karena melimpahnya ikan bawis kecil yang tidak dimanfaatkan dan dibuang kembali ke laut. Pada tahun 2013 Saputra Snack mulai berinovasi dengan mengolah kulit bandeng menjadi keripik kuli bandeng. Kami berinisiatif mengolah limbah dari kulit ikan bandeng karena banyaknya limbah tersebut di kolong-kolong rumah pengrajin pengerok ikan. Dari sana kami berpikir apakah limbah tersebut tidak menyebabkan bau apabila terus menerus ditumpuk atau di buang ke laut. Akhirnya saya berfikir untuk mencari solusi dan berinisiatif untuk membuat olahan dari kripik kulit ikan bandeng.', 0, '2020-09-13 01:24:26', '2020-09-13 01:24:26'),
+	(144, 'Inovasi minuman “ICE DROVE” dari sirup mangrove.', 2019, 'Wahyu Juli Hastuti, M.Pd, Nova Yunita Putri Olii , Raefaldi Fadillah, Yusril Novisano AP, Siti Zulaiha, Syilfa Adistya Zahra', 'Kota Bontang', 'Kota Bontang memiliki kekayaan sumber daya alam (SDA) yang besar di Indonesia terutama pohon mangrove, dimana pohon mangrove hanya dijadikan sebagai penahan abrasi Pantai. Namun, pemanfaatan pohon mangrove dinilai belum maksimal karena hanya dijadikan objek wisata saja di Kota Bontang. Penulis membuat inovasi yaitu minuman berbahan dasar sirup mangrove yang kami sebut dengan Ice Drove.  \r\nIce Drove merupakan minuman yang berbahan dasar sirup mangrove. Pohon mangrove dipilih karena kelimpahan serta manfaatnya yang begitu banyak. Salah satunya kandungan vitamin C yang tinggi yang dapat membantu menjaga daya tahan tubuh. Maka dari itu penulis berinisiatif membuat minuman dari sirup mangrove ini.  \r\nAlasan penulis membuat inovasi Ice Drove ini tidak lain dikarenakan masyarakat bontang yang sangat sering mengonsumsi minuman dari bahan-bahan impor. Sedangkan di Kota Bontang sendiri terdapat berbagai SDA yang seharusnya dimanfaatkan dengan maksimal.  Dengan demikian, Ice Drove merupakan cara cerdas untuk memaksimalkan pemanfaatan SDA yang ada di Kota Bontang yaitu mangrove.', 0, '2020-09-13 01:28:03', '2020-09-13 01:28:03'),
+	(145, 'Pencapaian PROPERNAS Emas Beyond Compllance Melalui Program CSR PT Pupuk Kaltim dengan membuat Alat Pengolahan Air Bersih Malahing', 2019, '(PT. PUPUK KALTIM) Alvina Elysia D, Muh. Gani Putra,  Wildan Habibi,  Novian Johan Perdana,  Diana,  Irma Safni, Sugiyanto,  Jefri Limeisa P, Devi Paramitha', 'Kota Bontang', 'Sebagai perusahaan pupuk terbesar di Indonesia, PKT berpartisipasi aktif dalam memperhatikan konsep 3P “Triple Bottom Line” yaitu People, Profit, Planet. Konsep ini merumuskan bahwa keberlangsungan dan pertumbuhan perusahaan tidak semata-mata bergantung pada laba usaha (profit) saja, melainkan juga tindakan nyata yang dilakukan perusahaan terhadap lingkungan (planet), dan kesejahteraan masyarakat (people). Hal tersebut telah dilakukan PKT secara berkelanjutan dan konsisten terutama di wilayah terdampak salah satunya adalah di perkampungan \r\npesisir. \r\nSalah satu daerah pesisir yang menjadi perhatian PKT untuk dikembangkan potensinya adalah Kampung Malahing yang berada di RT 30 Kel. Tanjung Laut Indah \r\nBontang. Sebagai perkampungan yang baru muncul di tahun 2001 dan sekarang telah dihuni 50 Kepala Keluarga (KK), Malahing terus mengalami fase penyesuaian agar potensi yang ada disana dapat dikembangkan. Kehidupan masyarakat di Malahing masuk dalam kategori menengah kebawah, sehingga atas dasar hal tersebut PKT menyusun program CSR bernama Better Living in Malahing. Diharapkan program ini dapat meningkatkan taraf kehidupan di Kampung Malahing menjadi lebih baik. \r\nWarga Malahing dahulu termasuk kelompok masyarakat marjinal. Betapa tidak, anak-anak mengalami kesulitan untuk mengakses sekolah ke darat, kurangnya sarana dan prasarana yang mendukung seperti kebutuhan air bersih, listrik, toilet komunal, dan belum ada penerapan Perilaku Hidup Bersih dan Sehat (PHBS). Belum lagi pengetahuan dan skill kerja warga yang juga sangat terbatas karena sebagian besar warga tidak tamat Sekolah Dasar (SD). Semenjak kehadiran PKT melalui program CSR, perusahaan pun terus berupaya membawa perubahan bagi Kampung ini untuk menjadi tempat tinggal dimana masyarakatnya akan memiliki kehidupan yang lebih baik. Output utama dari program Better Living in Malahing hingga tahun 2022 nanti adalah menjadikan Malahing sebagai Kampung Ekowisata Pesisir yang mandiri dan berkelanjutan.', 0, '2020-09-13 01:39:07', '2020-09-13 01:39:07'),
+	(146, 'BUDI DAYA BSF ( Black Soldier Fly ) sebagai Vitamin / Pakan Tambahan bagi Ternak Ayam Organic', 2019, 'Rendy Irawan, Natsir', 'Kota Bontang', 'Berawal dari keinginan untuk menghemat konsumsi voer (pakan utama ayam), dan mempercepat waktu pemanenan ayam, kami memperhatikan beberapa ayam yang berada diluar kandang (di kolong kandang ayam), yang hanya makan maggot setiap harinya,  dengan harapan waktu produksi/panen ayam dengan bobot ayam antara 8,5 ons sd 1 kg bisa lebih cepat. Akan tetapi sebelum menggunakan maggot BSF sebagai vitamin/makanan tambahan bagi ayam kami, yang terjadi adalah pertumbuhan ayam kami lambat, serta jumlah voer yang digunakan over, dengan demikian akan menambah cost produksi atau operasional kami dari segi jumlah voer nya. Belum lagi masalah yang lainnya yaitu semakin lama ayam berada di kandang, maka akan semakin berbahaya, dikarenakan dikhawatirkan akan muncul bakteri yang dapat menyerang ayam, sehingga kemungkinan terburuknya mengundang penyakit di tubuh ayam dan lama kelamaan ayam akan mati. \r\n \r\nOleh karena itu kami memutar otak untuk kemudian mencoba beternak Black Soldier Fly (BSF), sebagai cara yang efektif untuk keberlangsungan ayam organik kami. Mungkin terdengar aneh bahkan menjijikan bila kami harus beternak BSF atau lalat tentara hitam, yang membuat Black Soldier Fly ini beda adalah kemampuan BSF menghasilkan maggot berprotein tinggi. \r\nBila diawal beternak ayam kampung organik ini kami harus menghabiskan voer sebanyak 60 zak voer Hi Provite untuk 1000 ekor ayam ( 100 ekor ayam membutuhkan 6 zak voer Hi Provite ) dengan jangka waktu 60 hari panen ( bobot ayam rata-rata 8 ons saja ), sekarang kami hanya menghabiskan sekitar 50 zak voer Hi Provite, dengan jumlah ayam dan jangka waktu yang sama pula. Bahkan bobot ayam kini telah dapat mencapai 9 ons up sd 1 kg! Dengan demikan dapat dikatakan kami menghemat penggunaan voer sebesar 10 zak/ periode panen, ditambah kami memanfaatkan limbah organik sisa dapur untuk membantu ternak BSF kami. \r\nSelanjutnya design kandang BSF yang dibuat dari plywood ini juga sebagai tempat penghasil maggot yang bisa dihasilkan/dipanen setiap hari ( rutin di panen oleh kami setiap hari sebanyak 15 – 20 kg ).', 0, '2020-09-13 01:41:55', '2020-09-13 01:41:55'),
+	(147, 'Pemanfaatan Kulit Rajungan dan Petai Cina Menjadi MEMAR (Mie Marinade)', 2019, 'Wahyu Juli Hastuti, M.Pd,  Vira Fatmawati, Musdalifa Hasan, Mutiara Jasmien, Nabila Ayu Dwi Cahyani, Wanda Safitri', 'Kota Bontang', 'MEMAR merupakan mie berbahan dasar tepung dari cangkang rajungan dan daun petai cina. Petai cina dipilih karena kelimpahannya serta manfaatnya yang begitu banyak, dimana dalam 100 gram daun petai cina mengandung karbohidrat sebesar 12,4 gram, protein sebesar 12 gram, lemak sebesar 6,5 gram, zat besi sebesar 3.0 gram, dan kalsium sebesar 1500 miligram. Selain itu daun petai cina juga memiliki kandungan tinggi berupa vitamin A, Vitamin B1, dan vitamin C (Nusantaranews). Mengingat banyaknya kandungan yang bermanfaat bagi tubuh dalam daun petai cina tersebut, maka penulis berinisiatif membuat', 0, '2020-09-13 01:45:31', '2020-09-13 01:45:31'),
+	(148, 'Proposal Pengembangan Automatic Water Level  Recorder (AWLR) berbasis Internet of Things (IoT)  sebagai alat mitigasi resiko potensi bencana banjir di kota Bontang', 2019, 'KOMUNITAS PEMANTAU AIR SUNGAI (WILLIS AGUNG PERMADI)', 'Kota Bontang', 'Hujan deras yang terjadi pada kota Bontang pada kisaran tanggal 5 – 6 Juni 2019 membuat sebagian wilayah di kota Bontang mengalami banjir. Akibat dari kejadian tersebut, tidak sedikit korban terpapar banjir yang mengalami kerugian materiil. Salah satu efek yang ditimbulkan akibat banjir besar yang melanda kota Bontang adalah kesimpangsiuran informasi yang menjurus hoax terutama kondisi air di daerah aliran sungai di Bontang, banyak informasi simpang siur hadir di tengah masyarakat seperti tanggul pecah yang mengakibatkan banir susulan, dan level ketinggian air yang tidak sesuai namun informasi yang disajikan merupakan informasi yang tidak akurat . Berangkat dari kurangnya ketersediaan informasi yang minim tentang kondisi environmental kota Bontang terutama di daerah aliran sungai, tim kami menginisiasi untuk pembuatan sebuah perangkat yang dapat memberikan informasi secara terbuka untuk kondisi parameter daerah aliran sungai di Bontang . Berdasarkan alasan-alasan diatas, maka diusulkan pembuatan AWLR dengan fungsi pengukuran, transmisi, dan penyajian data real time yang akurat. Untuk sisi penyajian data, perangkat dikembangkan dengan berbasis IoT (internet of things) , dimana data hasil pembacaan dari sensor akan dikirimkan ke database secara online yang nantinya akan diolah untuk disajikan ke masyarakat berupa informasi yang dapat diakses di website.  Alat akan diinstal di beberapa titik aliran sungai kota Bontang sehingga ketersediaan informasi akan saling terkait antara hulu sampai muara sungai.', 0, '2020-09-13 01:49:25', '2020-09-13 01:49:25'),
+	(149, 'MODEL E-SERVICE LAYANAN KESEHATAN YANG  TERINTEGRASI ANTAR KLINIK  UNTUK MEMUDAHKAN PELAYANAN PASIEN DI RUMAH (HOME CARE)', 2019, 'Abadi nugroho', 'Kota Bontang', 'Implementasi aplikasi dari model e-service untuk perawatan pasien di rumah (home care) berpotensi mempunyai banyak manfaat. Manfaat tersebut di antaranya memudahkan masyarakat untuk mendapatkan informasi layanan kesehatan, kepastian mendapatkan harga layanan, mengurangi jumlah antrian di klinik dan rumah sakit, kepastian mendapatkan layanan kesehatan, memudahkan mencari bantuan tenaga kesehatan ( perawat, bidan dan fisioterapi ) serta berpeluang juga dapat membuka lapangan pekerjaan baru, tanpa disadari bisa mengurangi kemacetan di jalan yang diakibatkan karena pasien yang biasanya diantar dengan mobil tidak perlu datang lagi ke klinik atau rumah sakit untuk mendapatkan perawatan.  Setiap tenaga kesehatan (perawat, bidan dan fisioterapi) mempunyai tingkat keahlian yang berbeda-beda untuk menangani pasien. Diperlukan pengetahuan untuk memastikan layanan yang diinginkan dengan tenaga kesehatan yang sesuai. Pengalaman pribadi peneliti merasakan sendiri masih sulitnya mengakses tenaga kesehatan secara langsung yang dikarenakan masih terbatasnya informasi di dalam pencarian tenaga kesehatan. Berdasarkan dari beberapa uraian tersebut maka peneliti tertarik untuk membuat model layanan pesan tenaga kesehatan ke rumah pasien. Model yang dibuat bisa dijadikan sebagai acuan untuk membangun aplikasi e-service yang bekerjasama antar instansi kesehatan misalnya antar klinik kesehatan dengan harapan masyarakat akan lebih mudah mendapatkan layanan kesehatan terkait perawatan.', 1, '2020-09-13 01:51:21', '2020-09-13 01:51:21'),
+	(150, 'DESALINASI AIR LAUT MENGGUNAKAN ENERGI MATAHARI SEBAGAI SUMBER AIR TAWAR', 2019, 'AHMAD YANI, WAWAN GUNAWAN, EKA WAHYUDI', 'Kota Bontang', 'Meningkatnya permintaan air bersih dan terbatasnya sumber daya air bersih di Kota Bontang menyebabkan penggunaan air bersih masyarakat dibatasi, untuk itu perlu adanya upaya penyediaan air bersih yang cukup bagi kebutuhan hidup masyarakat terutama penduduk yang tinggal di daerah tengah lautan karena tidak dijangkau oleh distribusi air bersih dari PDAM Bontang. Kota Bontang memiliki daerah pesisir yang cukup panjang dan wilayah laut yang cukup luas serta memiliki pemukiman warga yang berlokasi di tengah lautan, seperti daerah Malahing dengan jumlah penduduknya 195 jiwa dan daerah Gusung jumlah penduduk sebanyak 339 jiwa. Ketersediaan air bersih untuk memenuhi kebutuhan hidup baik untuk memasak, mencuci, mandi, maupun untuk minum merupakan barang langkah dan menjadi masalah utama di daerah tersebut, sehingga masyarakat Malahing dan Gusung harus mengeluarkan biaya yang tinggi, untuk mendapatkan air bersih guna memberikan pelayanan air bersih yang lebih merata baik secara kualitatif dan kuantitatif, diperlukan pengembangan teknologi yang memadai.\r\nUpaya yang dapat dilakukan untuk penyediaan air bersih dengan cara memanfaatkan kondisi geografi daerah kepulauan, kerana berada ditengah lautan dan panas matahari yang cukup besar sebagai alternatif yang paling efektif untuk dikembangkan dengan melakukan desalinasi (penyulingan) air laut. Rata-rata air laut memiliki salinitas sebesar 35, hal ini berarti untuk setiap satu liter air laut, terdapat 35 gram garam yang terlarut di dalamnya (Alamsyah, 2007). Air dengan salinitas tersebut tentu tidak dapat dikonsumsi, sehingga perlu diolah terlebih dahulu menjadi air tawar.Ketersediaan energi matahari yang dapat dimanfaatkan sebagai sumber energi untuk pengolahan air laut menjadi air tawar sangat tepat dan cocok bagi masyarakat kepulauan yang kesulitan air bersih. Sistem desalinasi tenaga matahari merupakan serangkaian alat penyulingan sederhana, murah dan mudah dibuat.\r\nBerdasarkan uraian diatas perlu dilakukan penelitian dengan judul “Desalinasi Air Laut Menggunakan Energy Matahari Sebagai Sumber Air Tawar Masyarakat Kepulauan Kota Bontang”.', 1, '2020-09-13 01:53:56', '2020-09-13 01:53:56'),
+	(151, 'ANALISIS IMPLEMENTASI QUADRUPLE HELIX DALAM PENYEDIAAN TENAGA KERJA DI KOTA BONTANG', 2019, 'Andi Hasanuddin', 'Kota Bontang', 'Kolaborasi yang tersistem antara aktor Pemerintah (government), perguruan tinggi (intellectual), perusahaan (business) dan masyarakat (social society) sangatlah diperlukan dalam implementasi kebijakan penyediaan tenaga kerja. Penelitian ini bertujuan untuk menganalisis peran setiap aktor dalam penyediaan tenaga kerja dan bagaimana hubungan setiap aktor dalam penyediaan tenaga kerja di Kota Bontang. Teori yang digunakan dalam penelitian ini adalah  teori Quadruple Helix. Dalam teori ini dijelaskan bahwa suatu struktur perekonomian negara didasarkan pada empat pilar yang terdiri dari Akademisi, Bisnis/Industri, Government ( pemerintah ) dan Community (komunitas). Penelitian ini menggunakan pendekatan kualitatif. Data dikumpulkan melalui wawancara mendalam, observasi dan dokumentasi. Teknik Analisis Data menggunakan model interaktif ( Interactive Model of Analisis ) dari Miles dan Huberman yaitu reduksi data, penyajian data dan penarikan kesimpulan  yang divalidasi menggunakan metode Triangulasi. Dari hasil penelitian diketahui bahwa aktor Quadruple Helix yang terlibat dalam penyediaan tenaga kerja di Kota Bontang, yaitu pemerintah (government) belum maksimal memainkan perannya  sebagai fasilitator dan regulator. Begitu juga dengan peran perguruan tinggi (intellectual) dalam meningkatkan kapasitas dan pengembangan tenaga kerja  agar   terampil dan terdidik belum maksimal. Hal berbeda ditemukan, bahwa  peran perusahaan (business) yang ada di Kota Bontang sudah memainkan perannya dengan baik dalam hal kolaborasi dengan pemerintah, perguruan tinggi serta lembaga-lembaga pelatihan kerja. Demikian juga  peran masyarakat ( civil society) dalam hal ini lembaga pelatihan kerja (LPK) yang diwadahi oleh Hilsi Kota Bontang sudah menjalankan perannya dengan cukup baik. Hubungan setiap aktor Quadruple Helix dalam penyediaan tenaga kerja di Kota Bontang secara umum sudah memainkan perannya dengan cukup baik tetapi belum menghasilkan suatu program atau kegiatan yang langsung mengena pada tujuan akhir penyediaan tenaga kerja yaitu menghasilkan calon tenaga kerja atau SDM yang kompeten yang dapat langsung diserap oleh pasar kerja.', 1, '2020-09-13 01:55:47', '2020-09-13 01:55:47'),
+	(152, 'RANCANG BANGUN SISTEM DISTILASI AIR LAUT MENGGUNAKAN ENERGI SURYA DENGAN METODE DESALINASI SINGLE STAGE FLASH', 2019, 'EDDY PURNOMO, ACHMAD YANI', 'Kota Bontang', 'Kondisi daerah wilayah Indonesia yang terdiri dari pulau-pulau dengan wilayah laut yang sangat luas, dimana masih banyak daerah – daerah yang kekurangan air bersih  khususnya air minum untuk kebutuhan sehari-hari. Misalnya daerah Kota Bontang untuk memenuhi kebutuhan air khsusnya air minum pada daerah-daerah kepulaun kecil seringkali mereka harus menyeberang kepulau lain untuk mendapatkan air minum atau membuat bak penampung air hujan tetapi apabila keadaan cuaca laut yang buruk dan atau musim panas masyarakat mengalami kesulitan untuk mendapatkan air tawar untuk memenuhi kebutuhan sehari-hari. Selain itu, faktor lain yang membuat tidak adanya sumber air tawar di daerah-daerah kepulauan tersebut adalah angka curah hujan sangat kurang dan jauh dibawah angka rata-rata sedangkan panas matahari lebih banyak. Untuk mengatasi permasalahan tersebut dengan memanfaatkan kondisi geografi yang mendukung yaitu panas matahari yang ada sangat besar maka alternatif yang paling efektif untuk dikembangkan adalah melakukan distilasi (penyulingan).Distilasi dapat terjadi dengan memanfaatkan potensi alam yaitu sinar matahari (energi surya) menggantikan bahan bakar minyak untuk mengubah fase air laut. Karena suhu yang diperlukan untuk mengubah fase air laut menjadi fase uap tidak terlalu besar yaitu dibawah 1000C, maka pemanfaatan energi surya adalah solusi alternatif yang dipilih sesuai kondisi iklim pada daerah-daerah di diIndonesia dengan sinar radiasi matahari yang cukup tinggi. Berdasarkan uraian diatas perlu dilakukan pengolahan air laut menjadi air tawar dengan judul Rancang Bangun Sistem Distilasi Air Laut Menggunakan Energi  Surya dengan metode Desalinasi Single Stage Flash.', 1, '2020-09-13 01:59:02', '2020-09-13 01:59:02'),
+	(153, 'PENELITIAN MASYARAKAT“STUDI KARAKTERISTIK HABITAT PENELURUAN PENYU SISIK (Eretmochyles mbricata DI PULAU BERAS BASAH', 2019, 'Muhammad Saipul, S.Hut', 'Kota Bontang', 'Salah satu tempat peneluran penyu sisik di Kalimantan Timur adalah di Pulau Beras Basah Kota Bontang. Berdasarkan hasil temuan tukik penyu yang diidentifikasi sebagai jenis penyu sisik pada tanggal 10 Juni 2019 oleh salah satu penjaga Pulau Beras Basah,  Hal ini dapat dikatakan pulau Beras Basah  memiliki karakteristik sebagai tempat bertelur penyu terbaik di Kota Bontang. \r\nDiperlukan adanya penelitian mengenai karakteristik biofisik pada Pulau Beras Basah yang memiliki sarang telur penyu sisik. Hasil dari penelitian ini akan dijadikan acuan habitat umum yang mencirikan lokasi penyu sisik dapat bertelur dipulau tersebut. Aspek ini dapat dijadikan perbandingan untuk pulau lain, sehingga upaya konservasi penyu di Kota Bontang akan tepat sasaran. Penelitian ini juga penting untuk penerapan konservasi artificial.', 1, '2020-09-13 02:03:54', '2020-09-13 02:03:54'),
+	(154, 'PEMURNIAN MINYAK JELANTAH  DENGAN ADSORBAN AMPAS TEBU DAN PEMANFAATANNYA SEBAGAI  LILIN AROMATERAPI', 2019, 'Rismawanti, S.Si', 'Kota Bontang', 'Minyak goreng merupakan salah satu kebutuhan bahan pokok penduduk Indonesia dengan tingkat konsumsi yang mencapai lebih dari 2,5 juta ton per tahun, atau lebih dari 12 kg/orang/tahun. Menggoreng bahan pangan banyak dilakukan di Indonesia. Banyaknya jumlah permintaan akan bahan pangan digoreng merupakan suatu bukti yang nyata mengenai betapa besarnya jumlah bahan pangan digoreng yang dikonsumsi oleh lapisan masyarakat dari segala tingkat umur. Sehingga semakin banyak minyak goreng bekas yang akan menjadi limbah dan merusak lingkungan jika langsung dibuang. \r\nDewasa ini telah ditemukan suatu teknologi daur ulang mengolah minyak jelantah menjadi minyak layak pakai kembali dalam keadaan bersih tanpa kotoran, dengan menggunakan ampas tebu sebagai bahan penyerap. Bahan penyerap ampas tebu bisa langsung digunakan dengan mudah oleh ibu-ibu rumah tangga untuk memproses minyak jelantah menjadi minyak layak pakai. Penggunaan ampas tebu juga merupakan satu solusi mengurangi limbah padat perkotaan. \r\nDari hasil penelitian sebelumnya, pengolahan pemurnian minyak jelantah dapat dimanfaatkan sebagai pengharum ruangan dengan nama migel. \r\nOleh karena ini, saya berusaha untuk memanfaatkan limbah minyak goreng bekas (minyak jelantah) dimana sebelumnya dilakukan proses pemurnian terlebih dahulu dengan menggunakan adsorban ampas tebu untuk mengurangi bau tengik pada minyak dan menjernihkan minyak dengan menyerap zat pengotor yang terkandung pada minyak jelantah sehingga dapat digunakan kembali sebagai lilin ketika listrik padam yang ramah lingkungan dan bernilai ekonomis.', 1, '2020-09-13 02:06:02', '2020-09-13 02:06:02'),
+	(155, 'PEMANFAATAN LIMBAH ORGANIK UNTUK PRODUKSI BAHAN BAKAR GAS DENGAN PENAMBAHAN EFFECTIVE MICROORGANISM-4', 2019, 'AHMAD YANI, MIMIN SEPTINI , FITRIA , RATNAWATI , SARIPAH SOBAH', 'Kota Bontang', 'Konservasi energi merupakan salah satu cara untuk mengatasi krisis energi yang akan terjadi di masa yang akan datang. Saat ini bahan bakar dari sumber terbarukan mulai banyak dilirik karena sifatnya yang ramah lingkungan, biaya produksi murah, serta bahan bakunya terjamin kontinuitasnya ( Abdeshahian et al. 2016). Salah satu bahan bakar alternatif yang bahan bakunya manfaatkan limbah adalah Biogas. Biogas menggunakan limbah organik seperti sampah, sisa-sisa makanan, kotoran hewan dan limbah industri makanan (Lestari et al. 2010).\r\nAncaman limbah di Bontang menjadi masalah serius, menurut data Dinas Lingkungan Hidup Kota Bontang Tahun 2018 bahwa rata-rata jumlah limbah organik sebesar 1960,758 Ton/Bulan. Umumnya limbah organik sangat mudah diperoleh dan jumlahnya melimpah. Limbah sayur adalah salah satu limbah organik yang diperoleh dari hasil aktifitas sehari-hari seperti kegiatan pertanian atau dari pasar tradisional. Menurut Scano et al. (2014), Limbah sayur yang telah mengalami kerusakan mekanis atau terlalu matang dapat dengan cepat terdegradasi oleh mikroorganisme. Sehingga jika tidak termanfaatkan hanya akan mencemari lingkungan.\r\nUmumnya limbah organik sangat mudah diperoleh dan jumlahnya melimpah. Limbah sayur adalah salah satu limbah organik yang diperoleh dari hasil aktifitas sehari-hari seperti kegiatan pertanian atau dari pasar tradisional. Menurut Scano et al. (2014), Limbah sayur yang telah mengalami kerusakan mekanis atau terlalu matang dapat dengan cepat terdegradasi oleh mikroorganisme. Sehingga jika tidak termanfaatkan hanya akan mencemari lingkungan.\r\nBeberapa penelitian mengkombinasikan limbah pertanian dan limbah peternakan sebagai substrat dalam pembuatan biogas. Di indonesia sendiri memiliki populasi ternak yang cukup besar. Namun kotoran ternaknya belum termanfaatkan sepenuhnya, saat ini pemanfaatannya hanya sebagai pupuk kandang dan pupuk kompos. Padahal jika dilihat dari potensinya, jumlah sapi 11 juta ekor, kerbau 3 juta ekor dan kuda 500 ribu ekor. Setiap 1 ekor ternak sapi/kerbau mampu menghasilkan ± 2 m3 biogas per hari (Fahri 2011).', 1, '2020-09-13 02:09:15', '2020-09-13 02:09:15'),
+	(156, 'PENGOLAHAN LIMBAH PLASTIK MENJADI BAHAN  BAKAR MINYAK UNTUK MENGATASI SAMPAH PLASTIK DI KOTA BONTANG', 2019, 'AHMAD YANI, IRHAMNI NUHARDIN, FITRIA, RATNAWATI, IRIANTO', 'Kota Bontang', 'Sampah plastik merupakan jenis limbah anorganik yang sukar terurai dalam tanah dan membutuhkan waktu sebanyak 50-80 juta tahun untuk terurai (Ariyanto, 2017). Menurut data Dinas Lingkungan Hidup Kota Bontang Tahun 2018 dan 2019 yang penulis dapatkan bahwa rata-rata jumlah sampah plastik sebesar \r\n22.690 kg/bulan atau setara 271.865 kg/Tahun. Pembuangan sampah di Tempat Pembuangan Akhir (TPA) Bontang tidak cukup maksimal sebagai solusi pengolahan sampah plastik ini, mengingat proses penumpukan sampah yang semakin banyak dan proses degradasi yang cukup lama. Perlu adanya inovasi manajemen efektif pada siklus sampah plastik mulai dari lingkungan terkecil yaitu rumah tangga hingga skala besar yang meliputi kawasan pemerintah Kota Bontang. Ancaman sampah di Bontang menjadi masalah serius, dikarenakan setiap harinya petugas kebersihan mengangkut 90 ton sampah untuk dibawa ke Tempat Pembuangan Akhir (TPA) dan produksi sampah warga bontang mencapai 2.700 ton perbulan. Sampah plastik memberi sumbangsih 90% sampah yang ada di lautan, menyebabkan kerusakan  ekosistem pantai  sehingga terjadi degradasi ekosistem wilayah pesisir (Vatria,2013). Untuk mengantisipasi hal tersebut, Walikota Bontang Neni Moerniaeni menyiapkan produk hukum mengatur penggunaan sampah plastik yaitu melalui peraturan walikota Bontang Nomor 30 Tahun 2018 tentang pengurangan penggunaan sampah plastik sekali pakai. Salah satu upaya yang penulis lakukan untuk menanggulangi sampah plastik di Kota Bontang adalah menciptakan alat yang dapat merubah bentuk sampah plastik menjadi bahan bakar minyak, sehingga perspektif masyarakat terhadap sampah selama ini sebagai sumber pencemaran lingkungan berubah menjadi sumber berkah, karena dari sampah dapat mengasilkan bahan bakar minyak yang bernilai ekonomis, sehingga dapat meningkatkan pendapatan masyarakat Kota Bontang. Berdasarkan uraian tersebut, penulis melakukan penelitian tentang “Pengolahan limbah plastik menjadi bahan bakar minyak yang dapat menjadi solusi untuk mengatasi permasalahan sampah plastik yang ada di Kota Bontang”.', 1, '2020-09-13 02:12:21', '2020-09-13 02:12:21'),
+	(157, 'APLIKASI KEWIRAUSAHAAN SEBAGAI TEROBOSAN  PENDIDIKAN MASYARAKAT', 2019, 'Wahyu Juli Hastuti, M.Pd', 'Kota Bontang', 'Sempitnya lapangan pekerjaan tentunya akan menimbulkan banyak dampak negatif bagi kehidupan sosial masyarakat, seperti banyaknya pengangguran yang biasanya pula tidak terlepas oleh kriminalitas. Namun sebenarnya sempitnya lapangan pekerjaan bukanlah suatu masalah yang rumit, apabila mempunyai ilmu kewirausahaan. Bekal ilmu kewirausahaan tidak serta merta dapat diperoleh begitu saja, pemerintah mempunyai andil yang cukup banyak untuk mengentaskan kemiskinan akibat pengangguran, salah satunya dengan pendidikan kewirausahaan.  \r\nPendidikan kewirausahaan bagi masyarakat diharapkan membuat masyarakat tidak bergantung pada lowongan pekerjaan, namun beralih menjadi wirausaha yang tidak menutup kemungkinan dapat menciptakan lapangan pekerjaan. Pendidikan kewirausahaan diharapkan dapat membangun jiwa wirausaha. Jiwa wirausaha membantu masyarakat untuk dapat menganalisis peluang usaha, dan menghasilkan produk maupun jasa. Namun bagaimana teknik pemerintah dalam memberikan pendidikan kewirausahaan bagi masyarakat, mengingat biaya yang cukup lumayan besar, dan tidak semua masyarakat dapat tertampung dalam sebuah proses pendidikan kewirausahaan.  \r\nUntuk dapat menjangkau keseluruhan masyarakat dalam pendidikan kewirausahaan dapat dilakukan dengan pendidikan jarak jauh, dengan menggunakan media digital sebagaimana Aplikasi Marinade yang dapat dipasang di gawai pintar. Aplikasi Marinade adalah sebuah media pembelajaran yang sejalan dengan Era Revolusi Industri 4.0 yang merupakan tren otomasi yang mencakup internet untuk segala hal. Untuk itulah dalam penelitian ini, penulis melaksanakan mencoba menawarkan solusi pendidikan kewirausahaan dengan menggunakan Aplikasi Marinade.  \r\nNama Marinade dalam aplikasi diperoleh dari nama produk penyedap bumbu masakan yang tidak mengandung monosodium glutamat (MSG), dengan bahan kekayaan lokal yang merupakan hasil karya siswa SMK Negeri 1 Bontang yang belum ada di pasaran dan telah mendapatkan penghargaan sebagai Juara 1 Tingkat Kota Bontang pada jang Lomba Produk Olahan yang diselenggarakan oleh pemerintah Kota Bontang. Namun isi dari Aplikasi Marinade itu sendiri dapat penulis ubah dengan produk-produk lainnya agar ilmu mengenai kewirausahaan dapat segera tersebar dan terluaskan di seluruh lapisan masyarat', 1, '2020-09-13 02:14:03', '2020-09-13 02:14:03');
+/*!40000 ALTER TABLE `dbmasyarakat` ENABLE KEYS */;
 
---
--- Table structure for table `dbopd`
---
-
-CREATE TABLE `dbopd` (
-  `id` int(11) NOT NULL,
+-- Dumping structure for table inspirasisida.dbopd
+CREATE TABLE IF NOT EXISTS `dbopd` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `judul` text NOT NULL,
   `tahun` int(11) NOT NULL DEFAULT '0',
   `opd` varchar(50) NOT NULL,
@@ -55,160 +95,164 @@ CREATE TABLE `dbopd` (
   `berkas` varchar(100) DEFAULT NULL,
   `kategori` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
+-- Dumping data for table inspirasisida.dbopd: ~32 rows (approximately)
+/*!40000 ALTER TABLE `dbopd` DISABLE KEYS */;
+REPLACE INTO `dbopd` (`id`, `judul`, `tahun`, `opd`, `lokasi`, `abstraksi`, `berkas`, `kategori`, `created_at`, `updated_at`) VALUES
+	(2, 'Partisipasi Masyarakat Kota (SI MASKOT)', 2013, 'Badan Perencanaan Penelitian dan Pengembangan', 'Kota Bontang', 'Menghimpun partisipasi masyarakat melalui program PRODUTA (Program Lima Puluh Juta Per RT) yang dikembangkan menjadi PRODUTA (Program dua ratus juta Per RT), dimana anggaran dialokasikan untuk RT melalui Kecamatan yang penggunaannya disesuaikan dengan kebutuhan pembangunan masing-masing RT.', NULL, 0, '2020-08-30 17:33:22', '2020-08-30 17:33:22'),
+	(3, 'Gerakan Penelitian Masyarakat (GELITIK)', 2017, 'Badan Perencanaan Penelitian dan Pengembangan', 'Kota Bontang', 'Sebuah gerakan yang terdiri dari kompetisi inovasi dan penelitian, fasilitasi penelitian dan pembentukan komunitas inovator dan peneliti dan bertujuan untuk meningkatkan minat masyarakat untuk meneliti dan berinovasi.', NULL, 0, '2020-08-30 17:37:37', '2020-08-30 17:37:37'),
+	(4, 'Sinergi Membangun Bontang Bersama (SI BANGGA)', 2016, 'Badan Perencanaan Penelitian dan Pengembangan', 'Kota Bontang', 'Sinkronisasi penyelenggaraan program pembangunan yang dilakukan oleh Pemerintah Daerah dengan program-program CSR yang dilaksanakan oleh Perusahaan melalui Forum CSR. Pengembangan: CSR Kolaborasi, yaitu kolaborasi perusahaan perusahaan untuk melakukan kegiatan dengan lokus atau sasaran yang sama.', NULL, 0, '2020-08-30 17:45:15', '2020-08-30 17:45:15'),
+	(5, 'Gerakan Masyarakat Inovatif, Produktif dan Rewards Bagi Kelurahan Sehat (Gami Bawis)', 2014, 'Badan Perencanaan Penelitian dan Pengembangan', 'Kota Bontang', 'Inovasi Gerakan Masyarakat Inovatif, Produktif dan Rewards Bagi Kelurahan Sehat (GAMI TELURS) merupakan inovasi yang terdiri dari pembinaan dan pemberian penghargaan anugerah kelurahan sehat yang dilatarbelakangi oleh capaian Kota Bontang meraih penghargaan Swastisaba Wistara di tahun 2011, 2013.\r\nUntuk mempertahankan pengahargaan tersebut sekaligus mengimplementasikan kota sehat dan peningkatan perilaku masyarakat sehat perlu diadakan pembinaan dan event untuk mendorong pencapaian kota sehat yang lebih baik di tahun mendatang dan menciptakan satu kawasan pemukiman sehat di 15 kelurahan di\r\nKota Bontang. Sehingga mulai tahun 2014, Pemerintah Kota Bontang melalui Badan Perencanaan Penelitian dan Pengembangan bekerjasama dengan Forum Kota Sehat menginisiasi kegiatan Anugerah Kelurahan Sehat yang diharapkan menjadi gerakan masyarakat yang bertujuan untuk menggalang partisipasi masyarakat untuk menciptakan kawasan mereka sendiri menjadi kawasan yang tertib, sehat, aman dan\r\nnyaman untuk semua. Inovasi ini berhasil menghantarkan Kota Bontang meraih penghargaan Swastisaba Wistara kembali di tahun 2015, 2017 dan 2019', NULL, 0, '2020-08-30 17:51:05', '2020-08-30 17:51:05'),
+	(6, 'Sistem Informasi Manajemen Administrasi Kepegawaian  (SIMAK)', 2011, 'Badan Kepegawaian, Pelatihan dan SDM', 'Kota Bontang', 'Melalui SIMAK :\r\na. Menjadi media pengolahan data kepegawaian;\r\nb. Data ASN dapat diakses oleh seluruh Perangkat Daerah;\r\nc. Percepatan pengolahan data kepegawaian', NULL, 0, '2020-08-30 17:59:50', '2020-08-30 17:59:50'),
+	(7, 'Rumah Layanan Bantuan Keuangan Politik (Maya Batik)', 2018, 'Badan Kesatuan Bangsa Dan Politik', 'Kota Bontang', 'LHPBPK menyatakan ada kekurangan dalam LPJ yang disampaikan parpol penerima Bantuan Keuangan Politik. Dilaksanakan dari Agustus 2018. Modelnya: briefing dan pendampingan, mengundang parpol untuk bertemu, ada penjelasan dar Inspektorat sebagai penasehat, dilaksanakan Bimtek dengan mengundang semua perwakilan parpol. Juga dilaksanakan monev. Banpol diterima setahun sekali', NULL, 0, '2020-09-04 23:45:52', '2020-09-04 23:45:52'),
+	(8, 'Program Pendidikan Anak - Anak Pulau (PRODIKAU)', 2015, 'Dinas Pendidikan', 'Kota Bontang', 'Community boarding PRODIKAU merupakan program Pendidikan Layanan Khusus untuk mewadahi anak daerah pesisir guna mendapatkan pelayanan minimal Wajar 12 tahun, berupa :\r\na. Anak siswa dari daerah pesisir diindukkan ke sekolah-sekolah yang ada di Kota Bontang.\r\nb. Pendampingan belajar secara efektif, Parenting education, pembentukan karakter, pembekalan life skills, dan mentoring bertahap\r\nc. Adanya tambahan point sebagai nilai kemashlahatan bagi warga pesisir\r\nd. Program asrama laskar pesisir\r\ne. Program wifi dan pembangkit listrik tenaga surya', NULL, 0, '2020-09-04 23:48:48', '2020-09-04 23:48:48'),
+	(9, 'Bimbingan Belajar Gratis Kota Bontang (BINTANG)', 2018, 'Dinas Pendidikan', 'Kota Bontang', 'Masih banyaknya pelajar yang bermain maupun"nongkrong" pada jam belajar dirumah (pukul 19.00-21.00 WITA) berdampak pada menurunnya nilai siswa, maka untuk menerapkan  Peraturan Walikota Bontang Nomor 8 tahun 2008 tentang Wajib Belajar Pukul 19.00-21.00, Pemerintah Kota Bontang melalui Dinas Pendidikan melahirkan Program Bintang yang\r\nmerupakan salah satu aktivitas bimbingan belajar gratis di Kota Bontang untuk meningkatkan kualitas pendidikan. Sasaaran utamanya adalah untuk siswa yang kurang mampu untuk membayar biaya bimbingan belajar.', NULL, 0, '2020-09-04 23:49:30', '2020-09-04 23:49:30'),
+	(10, 'Internet Gratis Bagi Komunitas Nelayan dan Masyarakat Pesisir Kota Bontang (INTERKONEKSI)', 2016, 'Dinas Komunikasi dan Informatika', 'Kota Bontang', 'Pemerintah Kota Bontang melalui Dinas Komunikasi, Informatika dan Statistik menyediakan Sarana dan Prasarana yang seluas-luasnya untuk mengakses Informasi kepada seluruh lapisan Masyarakat di Kota Bontang, utamanya Masyarakat Pesisir yang selama ini belum terjangkau secara maksimal jaringan internet oleh korporasi (perusahaan komunikasi dan informasi), dan membutuhkan biaya yang mahal untuk mengaksesnya', NULL, 0, '2020-09-04 23:51:22', '2020-09-04 23:51:22'),
+	(12, 'Penyebaran Pesan Informasi Kesehatan Pangan Aman dan Depot Air Minum  (PEPES IKAN PATIN)', 2017, 'Dinas Kesehatan', 'Kota Bontang', 'program  pemberian informasi dan edukasi kepada masyarakat tentang sarana Tempat Pengelolaan Makanan (TPM) dan Depot Air Minum (DAM) yang  memenuhi 2 kriteria yaitu sudah bersertifikat pelatihan dan sudah layak Higiene Sanitasi atau juga disebut CPPB (Cara Produksi Pangan yang Baik)', NULL, 0, '2020-09-04 23:52:42', '2020-09-04 23:52:42'),
+	(13, 'Mobil Imun Goes To RT (Limun RT)', 2017, 'Dinas Kesehatan', 'Kota Bontang', 'Upaya promotif dan preventif melalui Mobil imunisasi yang hadi di lingkungan RT mengedepankan screening dini, pemantauan, pemberian informasi kesehatan, distribusi obat gizi dan pemberian imunisasi langsung di masyarakat. Selain dengan adanya kunjungan masyarakat ke Puskesmas, Puskesmas dapat pula melakukan penyuluhan/sosialisasi kepada masyarakat dalam upaya peningkatan kesadaran masyarakat\r\ndalam hal pencegahan terhadap penyakit tidak menular.', NULL, 0, '2020-09-04 23:53:26', '2020-09-04 23:53:26'),
+	(14, 'Kelompok Penjernih Air Dari Barang Bekas (Pokpir Babe)', 2017, 'Dinas Kesehatan', 'Kota Bontang', 'Membentuk kelompok masyarakat penjernih air yang menggunakan barang bekas untuk mengatasi permasalahan air bersih yang tidak memenuhi standar dengan sistem filtrasi untuk memenuhi kebutuhan air masyarakat di lingkungan Kel. Berbas Tengah.', NULL, 0, '2020-09-04 23:54:02', '2020-09-04 23:54:02'),
+	(15, 'Sistem Perizinan Elektronik (SIPERI ETNIK)', 2017, 'Dinas Penaman Modal dan PTSP', 'Kota Bontang', 'Pelaku usaha tidak perlu mendatangi kantor Pelayanan Terpadu Satu Pintu/cukup dirumah saja dalam masa pandemic C-19 (stay at home) karena pengurusan perizinan dan non perizinan dapat diakses melalui laptop/PC dan smartphone  secara during/online. Perizinan dan non perizinan yang yang didelegasikan Walikota  ke Kepala Dinas PTSP sebanyak 85 Izin dapat diakses secara online lewat inovasi “ Sistem Perizinan Elektronik (SIPERIETNIK)”.', NULL, 0, '2020-09-04 23:54:33', '2020-09-04 23:54:33'),
+	(16, 'Kampung Masyarakat Sadar Lingkungan (Kampung Mas Darling)', 2018, 'Kelurahan Telihan', 'Kota Bontang', 'Tujuan utamanya kampung ini adalah membentuk masyarakat peduli terhadap lingkungan, melalui pengolahan sampah organik menjadi kompos, pemilahan sampah plastik, pembibitan serta penghjijauan lingkungan. Melalui pendekatan community based tourism, masyarakat, Pemerintah dan PT. Badak LNG bekerjasama membangun kampung masyarakat sadar lingkungan di wilayah RT 26 Kel. Telihan yang memiliki berbagai\r\nmacam keindahan dari kontur wilayahnya. Program ini berupa kampung terapi, Penyediaan Sepeda Wisatawan, Pembangunan Kampung Main, Kampung Jajan, dan Kampung Oleh Oleh MASDARLING, Pembangunan Rumah\r\nKompos, Penataan Track Sepeda, Pembibitan Tanaman\r\nPeneduh Sayuran dan Buah, Pembuatan Tempat\r\nTanaman Sulur.', NULL, 0, '2020-09-04 23:55:25', '2020-09-04 23:55:25'),
+	(17, 'Kelompok Usaha Bersama Merubah Kampung Jorok Menjadi Sehat dan Asri (KUBE MEKAR SARI)', 2014, 'Kelurahan Guntung', 'Kota Bontang', 'Kelompok Usaha Bersama (KUBE) Mekar Sari terbentuk sejak awal tahun 2013, berdomisili di Jl Tari Gantar II RT 07 No. 10 Kelurahan Guntung Kecamatan Bontang Utara Kota Bontang.Bermula dari kepedulian anggota kelompok terhadap lingkungan sekitar yang melihat banyak daun-daun kering yang berserakan di halaman rumah di lingkungan RT 07. Inisial dari ketua RT 07 untuk memanfaatkan daun-daun kering tersebut, di sambut baik oleh ibu-ibu warga RT 07 dengan memanfaatkan daun kering tersebutmenjadi kompos.Saat ini bahan baku daun kering yang semula hanya berasal dari\r\nlingkungan RT 07, seiring dengan jumlah produksi yang terus meningkat, maka bahan baku daun kering harus diperoleh dari kawasan RTH Kel. Guntung (rumah Adat Guntung). Hingga saat ini jumlah anggota yang terlibat aktif dalam kegiatan kelompok Mekar Sari adalah sebanyak 20 orang, juga produk yang dihasilkan dari kelompok tidak hanya dalam bentuk pupuk kompos padat tetapi saat ini kelompok mekar sari mulai memproduksi jenis pupuk kompos cair.', NULL, 0, '2020-09-04 23:55:58', '2020-09-04 23:55:58'),
+	(18, 'Pencegahan, Penanganan Perempuan dan Anak yang Mengalami Taruma dan Tindak Kekerasan (3PANG LAUT)', 2016, 'Dinas Pemberdayaan Perempuan dan KB', 'Kota Bontang', '3PANG LAUT merupakan kegiatan fasilitasi pengembangan P2TP2A (Pusat Pelayanan Terpadu Pemberdayaan Perempuan dan Anak) “Bessai Berinta” Kota Bontang, dengan membuka: Layanan Penanganan pengaduan bagi perempuan dan anak korban kekerasan, yaitu melakukan serangkaian tindakan untuk menindaklanjuti laporan adanya tindak kekerasan terhadap perempuan dan anak yang diajukan korban, keluarga atau masyarakat yang kemudian dibuktikan dan ditindaklanjuti berupa: penjangkauan korban, rujukan ke pelayanan kesehatan, psikososial, bimbingan rohani, bantuan hukum, pemulangan, dan reintegrasi social.', NULL, 0, '2020-09-04 23:57:10', '2020-09-04 23:57:10'),
+	(19, 'Deteksi dan Edukasi Informatif Pencegahan Kekerasan Terhadap Anak (Detektif Cekatan) di Lingkungan', 2017, 'Dinas Pemberdayaan Perempuan dan KB', 'Kota Bontang', 'Meningkatkan kepedulian dan kesadaran lingkungan\r\nsekolah dan pondok pesantren (peserta didik, pendidik,\r\ntenaga kependidikan, orangtua, serta masyarakat di sekitar\r\nsekolah/pondok) secara bersamaan dalam pencegahan tindak kekerasan terhadap anak dengan melakukan pemberian edukasi terpadu, pemilihan agen DETEKTIF CEKATAN, penyampaian informasi edukatif tentang pencegahan kekerasan terhadap anak.', NULL, 0, '2020-09-04 23:57:44', '2020-09-04 23:57:44'),
+	(20, 'Pelayanan Maksimal Penyandang Masalah Kesejahteraan Sosial (Anak Emas)', 2007, 'Dinas Sosial dan Pemberdayaan Masyarakat', 'Kota Bontang', 'ANAK EMAS dilaksanakan melalui Petugas khusus, yang bertanggung jawab secara cepat dan tepat untuk :\r\na. Memvalidasi data kemiskinan sesuai indikator Nasional dan kearifan lokal;\r\nb. Program pendampingan secara konsisten kepada penerima bantuan UEP dan KUBE.', NULL, 0, '2020-09-04 23:58:23', '2020-09-04 23:58:23'),
+	(21, 'Lembaga Konsultansi Kesejahteraan Keluarga Langsung Bertindak (LK3LANDAK)', 2007, 'Dinas Sosial dan Pemberdayaan Masyarakat', 'Kota Bontang', 'Lembaga Konsultasi Kesejahteraan Keluarga (LK3) adalah\r\nlembaga yang memberikan pelayanan konseling, konsultasi, pemberian informasi, penjangkauan, perlindungan, dan pendampingan bagi keluarga secara profesional, termasuk merujuk sasaran ke lembaga pelayanan lain yang mampu memecahkanmasalahnya.', NULL, 0, '2020-09-04 23:59:18', '2020-09-04 23:59:18'),
+	(22, 'Program Santunan Kematian (PROSAKTI)', 2011, 'Dinas Sosial dan Pemberdayaan Masyarakat', 'Kota Bontang', 'PROSAKTI memberikan santunan kematian penduduk Kota Bontang sebesar Rp.3 juta yang diberikan kepada ahli waris, dengan member manfaat:\r\na. Tertib laporan kematian.\r\nb. Meringankan beban dan tanggung jawab ahli waris atas musibah kematian', NULL, 0, '2020-09-04 23:59:56', '2020-09-04 23:59:56'),
+	(23, 'WaJib Tanam Pohon Demi Lingkungan Oleh ASN, Pengantin Baru dan Perijinan (WAJAH LESTARI)', 2016, 'Dinas Lingkungan Hidup', 'Kota Bontang', 'Mengurangi dampak pemanasan global dengan kemampuan pohon dalam menyerap emisi karbon yang merupakan penyebab terjadinya pemanasan global mealalui kebijakan terkait penanaman pohon, antara lain; Orang/badan yang mengurus izin SITU, HO, SIUP dan IMB\r\nmemberikan minimal 1 (satu) bibit pohon untuk 1 (satu) izin yang diterbitkan, Penanaman pohon bagi calon pengantin, dan Penanaman pohon bagi calon pegawai negeri sipil yang diangkat menjadi pegawai negeri sipil, kenaikan pangkat, kenaikan gaji berkala, dan tanda kehormatan satyalencana karya satya pegawai negeri sipil.', NULL, 0, '2020-09-05 00:00:49', '2020-09-05 00:00:49'),
+	(24, 'Internet Gratis Bagi Komunitas Nelayan dan Masyarakat Pesisir Kota Bontang (INTERKONEKSI)', 2016, 'Dinas Komunikasi dan Informatika', 'Kota Bontang', 'Pemerintah Kota Bontang melalui Dinas Komunikasi, Informatika dan Statistik menyediakan Sarana dan Prasarana yang seluas-luasnya untuk mengakses Informasi kepada seluruh lapisan Masyarakat di Kota Bontang, utamanya Masyarakat Pesisir yang selama ini belum terjangkau secara maksimal jaringan internet oleh korporasi (perusahaan komunikasi dan informasi), dan membutuhkan biaya yang mahal untuk mengaksesnya', NULL, 0, '2020-09-05 00:01:27', '2020-09-05 00:01:27'),
+	(25, 'Transparansi Informasi Melalui e-Arsip (Transformer)', 2014, 'Dinas Komunikasi dan Informatika', 'Kota Bontang', 'Aplikasi ini dikembangkan dengan prinsip transparansi untuk  menciptakan tata kelola pemerintahan yang bersih dan berwibawa (good governance). Adapun informasi yang disediakan terdiri dari:\r\n- Informasi Berkala\r\n- Informasi yang Tersedia Setiap Saat\r\n- Informasi Serta Merta\r\n- Informasi yang Dikecualikan', NULL, 0, '2020-09-05 00:02:01', '2020-09-05 00:02:01'),
+	(26, 'Aplikasi Manajemen Pengelolaan JFT Pranata Humas (Ampelas)', 2019, 'Dinas Komunikasi dan Informatika', 'Kota Bontang', 'Merupakan aplikasi yang menata dan mengatur alur manajemen penjadwalan agenda kegiatan di lingkungan Pemkot Bontang. Tujuannya adalah untuk terciptanya kualitas kinerja yang lebih baik, penanganan setiap kegiatan oleh Jabatan Fungsional Pranata Humas dapat dilakukan secara cepat, tepat dan benar karena lebih fokus dan tidak lagi terkendala dengan pola kerja secara manual, serta memudahkan bagi atasan langsung atau tim penilai jabatan fungsional Pranata Kehumasan untuk melakukan pengecekan, monitoring dan evaluasi serta verifikasi dan validasi terhadap pelaksanaan kegiatan.', NULL, 0, '2020-09-11 02:44:00', '2020-09-11 02:44:00'),
+	(27, 'Sistem Three In One (SI TIO)', 2017, 'Dinas Kependudukan dan Pencatatan Sipil', 'Kota Bontang', 'Pada sistem ini, untuk satu (1) pengurusan akta kelahiran, akta kematian, dan akta perkawinan/akta perceraian, secara langsung dilakukan penyesuaian terhadap dua (2) data kependudukan yang berkaitan sehingga didapatkan 3 paket update', NULL, 0, '2020-09-11 02:44:47', '2020-09-11 02:44:47'),
+	(28, 'Pojok Edukasi Literasi (PELITA)', 2016, 'Dinas Perpustakaan dan Kearsipan', 'Kota Bontang', 'Mengembangkan pelayanan dan aksesibilitas perpustakaan dan optimalisasi minat baca masyarakat dengan cara menempatkan koleksi buku di berbagai tempat pelayanan umum, tempat berkumpulnya masyarakat, dan tempat lain yang sejenis, misalnya: Samsat, Polres, PTSP, tempat pembayaran pajak, lapas, pangkalan ojek, taman kota, dan sebagainya.', NULL, 0, '2020-09-11 02:56:44', '2020-09-11 02:56:44'),
+	(29, 'Layanan Literasi Perpustakaan Pesisir (Layar Puspita)', 2013, 'Dinas Perpustakaan dan Kearsipan', 'Kota Bontang', 'Layar Puspita (Layanan literasi perpustakaan pesisir), telah dilaksanakan dari 2013. Layanan diberikan kepada masyarakat pesisir dan pemukiman atas laut dengan mendatangi dan membuat perpustakaan. Meliputi Melahing, Gusung, Selangan, Tihi2, dan Beras Basah. Bekerjasama dgn Disporapar dan BPBD. Dalam rangka mewujudkan smart city, dalam bidang layanan literasi sampai ujung titik terluar.', NULL, 0, '2020-09-11 02:57:40', '2020-09-11 02:57:40'),
+	(30, 'Good Archival Goverment Award (GAGAS)', 2018, 'Dinas Perpustakaan dan Kearsipan', 'Kota Bontang', 'Pembinaan dan Pengawasan Kearsipan pada Perangkat Daerah melalui Good Archival Goverment Award (GAGAS)', NULL, 0, '2020-09-11 02:58:26', '2020-09-11 02:58:26'),
+	(31, 'Penyebaran Pesan Informasi Kesehatan Pangan Aman dan Depot Air Minum  (PEPES IKAN PATIN)', 2017, 'Dinas Kesehatan', 'Kota Bontang', 'program  pemberian informasi dan edukasi kepada masyarakat tentang sarana Tempat Pengelolaan Makanan (TPM) dan Depot Air Minum (DAM) yang  memenuhi 2 kriteria yaitu sudah bersertifikat pelatihan dan sudah layak Higiene Sanitasi atau juga disebut CPPB (Cara Produksi Pangan yang Baik)', NULL, 0, '2020-09-11 02:59:09', '2020-09-11 02:59:09'),
+	(34, 'KENALI SI DIA (kendalikan hipertensi, dan diabetus militus)', 2018, 'Dinas Kesehatan', 'Kota Bontang', 'Dilatarbelakangi oleh tingginya angka kesakitan dengan diagnosa hipertensi dan diabetes melitus, maka dilakukan pembinaan Kelompok HT dan DM untuk meningkatkan pengetahuan dan kemandirian individu/kelompok yang pada akhirnya dapat meningkatkan status kesehatan masyarakat.', NULL, 0, '2020-09-11 03:01:30', '2020-09-11 03:01:30'),
+	(35, 'PENCIL (Pregnacy class mobile) pendekatan pelayanan kelas ibu hamil', 2019, 'Dinas Kesehatan', 'Kota Bontang', 'Dilakukan karena  capaian kunjungan kelas ibu hamil yang rendah dibandingkan dengan jumlah sasaran ibu hamil yang bertujuan untuk meningkatkan pengetahuan, merubah sikap dan perilaku ibu agar memahami tentang kehamilan, perubahan tubuh dan keluhan selama hamil, persalinan, perawatan nifas,KB, perawatan bayi lahir , mitos, penyakit menular dan akte kelahiran. Program ini juga bermanfaat untuk menjaga kestabilan emosi dan menghilangkan stres, meningkatkan bonding ibu dan anak, serta meningkatkan kemampuan brfikir positif ibu hamil. Kegiatan ini dilakukan berpindah-pindah untuk mendekatkan ke lokasi ibu hamil.', NULL, 0, '2020-09-11 03:02:06', '2020-09-11 03:02:06'),
+	(36, 'IKAN MAKAN IKAN (KAN3)', 2017, 'Dinas Ketahanan Pangan, perikanan dan pertanian', 'Kota Bontang', 'Pemanfaatan limbah perikanan menjadi pakan ikan dan ternak. Adanya kecendrungan konsumen mengkonsumsi ikan yang siap sehingga menghasilkan antara 15 sd 20% dari berat ikan adalah limbah (kepala, tulang, sirip dan jeroan). . Sampah hasil penjualan ikan yang semula dibuang dan tidak ada nilai ekonomis dan dapat mengotori lingkungan diolah menjadi pakan ikan yang dilaksanakan oleh Koperasi Nelayan “Bontang Eta Maritim” bekerjasama dengan CSV PT. Pupuk Kaltim. Pakan ikan ini diaplikasikan pada budidaya ikan untuk meningkatkan produktivitas budidaya.', NULL, 0, '2020-09-11 03:06:45', '2020-09-11 03:06:45');
+/*!40000 ALTER TABLE `dbopd` ENABLE KEYS */;
 
---
--- Table structure for table `galeri`
---
-
-CREATE TABLE `galeri` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+-- Dumping structure for table inspirasisida.galeri
+CREATE TABLE IF NOT EXISTS `galeri` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `foto` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kategori` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
+-- Dumping data for table inspirasisida.galeri: ~0 rows (approximately)
+/*!40000 ALTER TABLE `galeri` DISABLE KEYS */;
+/*!40000 ALTER TABLE `galeri` ENABLE KEYS */;
 
---
--- Table structure for table `lembaga`
---
-
-CREATE TABLE `lembaga` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `nama_lembaga` varchar(100) NOT NULL,
-  `alamat` varchar(100) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `telp` varchar(15) NOT NULL,
-  `ktp` text NOT NULL,
+-- Dumping structure for table inspirasisida.lembaga
+CREATE TABLE IF NOT EXISTS `lembaga` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` text NOT NULL,
+  `nama_lembaga` text NOT NULL,
+  `alamat` text NOT NULL,
+  `email` text NOT NULL,
+  `telp` text NOT NULL,
+  `ktp` varchar(100) NOT NULL,
   `surat_pernyataan` text NOT NULL,
-  `proposal` varchar(100) NOT NULL,
-  `url_proposal` text NOT NULL,
-  `verifikasi` varchar(3) NOT NULL,
-  `ket` varchar(100) DEFAULT NULL,
-  `kategori_peena` varchar(15) NOT NULL,
+  `proposal` text,
+  `url_proposal` text,
+  `verifikasi` int(1) NOT NULL DEFAULT '0',
+  `ket` text,
+  `kategori_peena` int(1) NOT NULL,
   `proposal_akhr` varchar(100) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+-- Dumping data for table inspirasisida.lembaga: 0 rows
+/*!40000 ALTER TABLE `lembaga` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lembaga` ENABLE KEYS */;
 
---
--- Table structure for table `migrations`
---
-
-CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
+-- Dumping structure for table inspirasisida.migrations
+CREATE TABLE IF NOT EXISTS `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `migrations`
---
+-- Dumping data for table inspirasisida.migrations: ~0 rows (approximately)
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(1, '2020_04_06_032427_verifiy_users_migration', 1),
+	(2, '2020_08_24_121331_galeri', 2);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2020_04_06_032427_verifiy_users_migration', 1),
-(2, '2020_08_24_121331_galeri', 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pena_opd`
---
-
-CREATE TABLE `pena_opd` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `tgjawab` varchar(100) NOT NULL,
-  `nip` varchar(20) NOT NULL,
-  `jabatan` varchar(100) NOT NULL,
+-- Dumping structure for table inspirasisida.pena_opd
+CREATE TABLE IF NOT EXISTS `pena_opd` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` text NOT NULL,
+  `tgjawab` text NOT NULL,
+  `nip` varchar(25) NOT NULL,
+  `jabatan` text NOT NULL,
   `surat_pernyataan` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
+  `email` text NOT NULL,
   `telp` varchar(20) NOT NULL,
-  `alamat` varchar(100) NOT NULL,
-  `proposal` varchar(100) NOT NULL,
-  `url_proposal` text NOT NULL,
+  `alamat` text NOT NULL,
+  `proposal` varchar(100) DEFAULT NULL,
+  `url_proposal` text,
   `verifikasi` varchar(3) NOT NULL,
-  `ket` varchar(100) DEFAULT NULL,
+  `ket` text,
+  `user_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL
+  `updated_at` timestamp NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+-- Dumping data for table inspirasisida.pena_opd: ~1 rows (approximately)
+/*!40000 ALTER TABLE `pena_opd` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pena_opd` ENABLE KEYS */;
 
---
--- Table structure for table `pendaftaran`
---
-
-CREATE TABLE `pendaftaran` (
-  `id` int(11) NOT NULL,
+-- Dumping structure for table inspirasisida.pendaftaran
+CREATE TABLE IF NOT EXISTS `pendaftaran` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(100) NOT NULL,
   `ttl` varchar(50) NOT NULL,
   `pekerjaan` varchar(50) NOT NULL,
   `alamat` varchar(50) NOT NULL,
   `ktp` text NOT NULL,
   `surat_pernyataan` text NOT NULL,
-  `izin_ortu` text NOT NULL,
-  `izin_sekolah` text NOT NULL,
-  `pendidikan` varchar(15) NOT NULL,
-  `agama` varchar(15) NOT NULL,
-  `telp` varchar(15) NOT NULL,
-  `nation` varchar(20) NOT NULL,
+  `izin_ortu` text,
+  `izin_sekolah` text,
+  `pendidikan` text NOT NULL,
+  `agama` varchar(255) NOT NULL,
+  `telp` varchar(255) NOT NULL,
+  `nation` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
   `proposal` text,
   `url_proposal` text,
   `verifikasi` varchar(3) NOT NULL,
-  `ket` varchar(100) DEFAULT NULL,
+  `ket` text,
   `kelompok` int(1) NOT NULL,
-  `kategori_peena` varchar(15) NOT NULL,
+  `kategori_peena` int(1) NOT NULL,
   `proposal_akhr` varchar(100) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=173 DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+-- Dumping data for table inspirasisida.pendaftaran: 0 rows
+/*!40000 ALTER TABLE `pendaftaran` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pendaftaran` ENABLE KEYS */;
 
---
--- Table structure for table `penelitian`
---
-
-CREATE TABLE `penelitian` (
-  `id_penelitian` int(11) NOT NULL,
-  `nama` varchar(500) NOT NULL,
-  `ttl` varchar(400) NOT NULL,
-  `nation` varchar(500) NOT NULL,
-  `pekerjaan` varchar(400) NOT NULL,
-  `ktp` varchar(500) NOT NULL,
-  `instansi` varchar(500) NOT NULL,
-  `agama` varchar(400) NOT NULL,
-  `pendidikan` varchar(500) NOT NULL,
-  `email` varchar(500) NOT NULL,
-  `telp` varchar(20) NOT NULL,
-  `alamat` varchar(600) NOT NULL,
-  `judul` varchar(500) NOT NULL,
-  `lokus` varchar(500) NOT NULL,
-  `abstrak` varchar(500) NOT NULL,
-  `verifikasi` int(3) NOT NULL,
-  `ket` varchar(500) NOT NULL,
-  `tgl_input` datetime NOT NULL,
-  `tgl_edit` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `permohonan`
---
-
-CREATE TABLE `permohonan` (
-  `id_pemohon` int(11) NOT NULL,
+-- Dumping structure for table inspirasisida.permohonan
+CREATE TABLE IF NOT EXISTS `permohonan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(500) NOT NULL,
   `ttl` varchar(300) NOT NULL,
   `pekerjaan` varchar(500) NOT NULL,
@@ -230,95 +274,90 @@ CREATE TABLE `permohonan` (
   `ket` varchar(500) NOT NULL,
   `id_user` int(200) NOT NULL,
   `tgl_input` datetime NOT NULL,
-  `tgl_edit` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `tgl_edit` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+-- Dumping data for table inspirasisida.permohonan: 0 rows
+/*!40000 ALTER TABLE `permohonan` DISABLE KEYS */;
+/*!40000 ALTER TABLE `permohonan` ENABLE KEYS */;
 
---
--- Table structure for table `prosedur`
---
-
-CREATE TABLE `prosedur` (
-  `id` int(11) NOT NULL,
+-- Dumping structure for table inspirasisida.prosedur
+CREATE TABLE IF NOT EXISTS `prosedur` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `judul_prosedur` varchar(800) NOT NULL,
   `narasi` text NOT NULL,
   `foto` varchar(50) DEFAULT NULL,
   `berkas` varchar(800) NOT NULL,
   `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+-- Dumping data for table inspirasisida.prosedur: 0 rows
+/*!40000 ALTER TABLE `prosedur` DISABLE KEYS */;
+/*!40000 ALTER TABLE `prosedur` ENABLE KEYS */;
 
---
--- Table structure for table `unitkerja`
---
+-- Dumping structure for table inspirasisida.unitkerja
+CREATE TABLE IF NOT EXISTS `unitkerja` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `nama_uk` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
 
-CREATE TABLE `unitkerja` (
-  `id` int(10) NOT NULL,
-  `nama_uk` varchar(500) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+-- Dumping data for table inspirasisida.unitkerja: 45 rows
+/*!40000 ALTER TABLE `unitkerja` DISABLE KEYS */;
+REPLACE INTO `unitkerja` (`id`, `nama_uk`) VALUES
+	(1, 'Walikota Bontang'),
+	(2, 'Sekretariat Daerah'),
+	(3, 'Sekretariat DPRD'),
+	(4, 'Inspektorat Daerah'),
+	(5, 'Dinas Pendidikan dan Kebudayaan'),
+	(6, 'Dinas Kesehatan dan Keluarga Berencana'),
+	(7, 'Dinas Pekerjaan Umum dan Penataan Ruang Kota'),
+	(8, 'Dinas Perumahan Kawasan Permukiman dan Pertanahan'),
+	(9, 'Satuan Polisi Pamong Praja'),
+	(10, 'Dinas Pemadam Kebakaran'),
+	(11, 'Dinas Sosial Pemberdayaan Perempuan dan Pemberdayaan Masyarakat'),
+	(12, 'Dinas Penanaman Modal Tenaga Kerja dan Pelayanan Terpadu Satu Pintu'),
+	(13, 'Dinas Lingkungan Hidup'),
+	(14, 'Dinas Kependudukan dan Pencatatan Sipil'),
+	(15, 'Dinas Perhubungan'),
+	(16, 'Dinas Komunikasi Informatika dan Statistik'),
+	(17, 'Dinas Pemuda, Olahraga dan Pariwisata'),
+	(18, 'Dinas Perpustakaan dan Kearsipan'),
+	(19, 'Dinas Ketahanan Pangan Perikanan dan Pertanian'),
+	(20, 'Dinas Koperasi Usaha Kecil Menengah dan Perdagangan'),
+	(21, 'Badan Perencanaan Penelitian dan Pengembangan'),
+	(22, 'Badan Kepegawaian Pendidikan dan Pelatihan'),
+	(23, 'Badan Pengelolaan Keuangan Daerah'),
+	(24, 'Badan Penanggulangan Bencana Daerah'),
+	(25, 'RSUD Taman Husada Kota Bontang'),
+	(26, 'Badan Kesatuan Bangsa dan Politik'),
+	(27, 'Sekretariat KORPRI'),
+	(28, 'Kecamatan Bontang Utara'),
+	(29, 'Kecamatan Bontang Selatan'),
+	(30, 'Kecamatan Bontang Barat'),
+	(31, 'Kecamatan Bontang Baru'),
+	(32, 'Keluarahan Api - Api'),
+	(33, 'Kelurahan Gunung Elai'),
+	(34, 'Kelurahan Bontang Kuala'),
+	(35, 'Kelurahan Lhoktuan'),
+	(36, 'Kelurahan Guntung'),
+	(37, 'Kelurahan Satimpo'),
+	(38, 'Kelurahan Tanjung Laut'),
+	(39, 'Kelurahan Tanjut Laut Indah'),
+	(40, 'Kelurahan Berbas Pantai'),
+	(41, 'Kelurahan Berbas Tengahg'),
+	(42, 'Kelurahan Bontang Lestari'),
+	(43, 'Kelurahan Kanaan'),
+	(44, 'Kelurahan Gunung Telihan'),
+	(45, 'Kelurahan Belimbing');
+/*!40000 ALTER TABLE `unitkerja` ENABLE KEYS */;
 
---
--- Dumping data for table `unitkerja`
---
-
-INSERT INTO `unitkerja` (`id`, `nama_uk`) VALUES
-(1, 'Walikota Bontang'),
-(2, 'Sekretariat Daerah'),
-(3, 'Sekretariat DPRD'),
-(4, 'Inspektorat Daerah'),
-(5, 'Dinas Pendidikan dan Kebudayaan'),
-(6, 'Dinas Kesehatan dan Keluarga Berencana'),
-(7, 'Dinas Pekerjaan Umum dan Penataan Ruang Kota'),
-(8, 'Dinas Perumahan Kawasan Permukiman dan Pertanahan'),
-(9, 'Satuan Polisi Pamong Praja'),
-(10, 'Dinas Pemadam Kebakaran dan Penyelamatan'),
-(11, 'Dinas Sosial Pemberdayaan Perempuan dan Pemberdayaan Masyarakat'),
-(12, 'Dinas Penanaman Modal Tenaga Kerja dan Pelayanan Terpadu Satu Pintu'),
-(13, 'Dinas Lingkungan Hidup'),
-(14, 'Dinas Kependudukan dan Pencatatan Sipil'),
-(15, 'Dinas Perhubungan'),
-(16, 'Dinas Komunikasi Informatika dan Statistik'),
-(17, 'Dinas Pemuda, Olahraga dan Pariwisata'),
-(18, 'Dinas Perpustakaan dan Kearsipan'),
-(19, 'Dinas Ketahanan Pangan Perikanan dan Pertanian'),
-(20, 'Dinas Koperasi Usaha Kecil Menengah dan Perdagangan'),
-(21, 'Badan Perencanaan Penelitian dan Pengembangan'),
-(22, 'Badan Kepegawaian Pendidikan dan Pelatihan'),
-(23, 'Badan Pengelolaan Keuangan Daerah'),
-(24, 'Badan Penanggulangan Bencana Daerah'),
-(25, 'RSUD Taman Husada Kota Bontang'),
-(26, 'Badan Kesatuan Bangsa dan Politik'),
-(27, 'Sekretariat KORPRI'),
-(28, 'Kecamatan Bontang Utara'),
-(29, 'Kecamatan Bontang Selatan'),
-(30, 'Kecamatan Bontang Barat'),
-(31, 'Kecamatan Bontang Baru'),
-(32, 'Keluarahan Api - Api'),
-(33, 'Kelurahan Gunung Elai'),
-(34, 'Kelurahan Bontang Kuala'),
-(35, 'Kelurahan Lhoktuan'),
-(36, 'Kelurahan Guntung'),
-(37, 'Kelurahan Satimpo'),
-(38, 'Kelurahan Tanjung Laut'),
-(39, 'Kelurahan Tanjut Laut Indah'),
-(40, 'Kelurahan Berbas Pantai'),
-(41, 'Kelurahan Berbas Tengah'),
-(42, 'Kelurahan Bontang Lestari'),
-(43, 'Kelurahan Kanaan'),
-(44, 'Kelurahan Gunung Telihan'),
-(45, 'Kelurahan Belimbing');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `id` int(1) NOT NULL,
+-- Dumping structure for table inspirasisida.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(1) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT NULL,
   `nama` varchar(255) NOT NULL,
   `password` varchar(500) NOT NULL,
@@ -329,171 +368,18 @@ CREATE TABLE `users` (
   `last_login` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `email_verified` int(11) NOT NULL DEFAULT '0',
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=210 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `users`
---
+-- Dumping data for table inspirasisida.users: 4 rows
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+REPLACE INTO `users` (`id`, `username`, `nama`, `password`, `email`, `email_verified_at`, `email_verification_token`, `level`, `last_login`, `created_at`, `email_verified`, `updated_at`) VALUES
+	(197, 'taufikhdyt17', 'Taufik Hidayat', '$2y$10$FL/LpCQf7FAk/yYevO8VnuLHW9418UpAgBrC2Ltip8II2D92xyCbS', 'taufikhdyt2332@gmail.com', '2021-11-01 14:33:03', '', 2, '2021-11-04 15:59:05', '2021-11-04 23:59:05', 1, '2021-11-04 15:59:05'),
+	(174, NULL, 'Admin Bapelitbang', '$2y$10$xTWLhknOQjndAvTb1.taa.tG5y/Aw6ooTj3PNs8v0K98GfHXskFXm', 'bapelitbang@bontangkota.go.id', '2020-08-25 13:57:46', '', 1, '2021-11-05 01:59:31', '2021-11-05 09:59:31', 1, '2021-11-05 01:59:31'),
+	(175, NULL, 'Admin Kominfo', '$2y$10$H9CEhGfSb9Zwh3OqGm9bGeBqnPANsthHAsJGOoVPs5PwSUN1lpaLe', 'kominfo@bontangkota.go.id', '2020-08-25 13:59:44', '', 1, '2020-08-31 01:50:02', '2020-08-31 09:50:02', 1, '2020-08-31 01:50:02');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
-INSERT INTO `users` (`id`, `username`, `nama`, `password`, `email`, `email_verified_at`, `email_verification_token`, `level`, `last_login`, `created_at`, `email_verified`, `updated_at`) VALUES
-(176, NULL, 'Taufik Hidayat', '$2y$10$cqKPGSLssSgM0jJe0.ahW.rlxkaymOrgPf3.mCr6rMhlM9pZx8QSa', 'taufikhdyt2332@gmail.com', '2020-08-31 04:21:45', '', 2, '2020-08-31 04:22:14', '2020-08-31 12:22:14', 1, '2020-08-31 12:22:14'),
-(174, NULL, 'Admin Bapelitbang', '$2y$10$xTWLhknOQjndAvTb1.taa.tG5y/Aw6ooTj3PNs8v0K98GfHXskFXm', 'bapelitbang@bontangkota.go.id', '2020-08-25 05:57:46', '', 1, '2020-09-01 18:08:00', '2020-09-02 02:08:00', 1, '2020-09-02 02:08:00'),
-(175, NULL, 'Admin Kominfo', '$2y$10$H9CEhGfSb9Zwh3OqGm9bGeBqnPANsthHAsJGOoVPs5PwSUN1lpaLe', 'kominfo@bontangkota.go.id', '2020-08-25 05:59:44', '', 1, '2020-08-30 17:50:02', '2020-08-31 01:50:02', 1, '2020-08-31 01:50:02');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `dbmasyarakat`
---
-ALTER TABLE `dbmasyarakat`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `dbopd`
---
-ALTER TABLE `dbopd`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `galeri`
---
-ALTER TABLE `galeri`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `lembaga`
---
-ALTER TABLE `lembaga`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pena_opd`
---
-ALTER TABLE `pena_opd`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pendaftaran`
---
-ALTER TABLE `pendaftaran`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `penelitian`
---
-ALTER TABLE `penelitian`
-  ADD PRIMARY KEY (`id_penelitian`);
-
---
--- Indexes for table `permohonan`
---
-ALTER TABLE `permohonan`
-  ADD PRIMARY KEY (`id_pemohon`);
-
---
--- Indexes for table `prosedur`
---
-ALTER TABLE `prosedur`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `unitkerja`
---
-ALTER TABLE `unitkerja`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `dbmasyarakat`
---
-ALTER TABLE `dbmasyarakat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
-
---
--- AUTO_INCREMENT for table `dbopd`
---
-ALTER TABLE `dbopd`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `galeri`
---
-ALTER TABLE `galeri`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `lembaga`
---
-ALTER TABLE `lembaga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
---
--- AUTO_INCREMENT for table `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `pena_opd`
---
-ALTER TABLE `pena_opd`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pendaftaran`
---
-ALTER TABLE `pendaftaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
-
---
--- AUTO_INCREMENT for table `penelitian`
---
-ALTER TABLE `penelitian`
-  MODIFY `id_penelitian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `permohonan`
---
-ALTER TABLE `permohonan`
-  MODIFY `id_pemohon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
---
--- AUTO_INCREMENT for table `prosedur`
---
-ALTER TABLE `prosedur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
-
---
--- AUTO_INCREMENT for table `unitkerja`
---
-ALTER TABLE `unitkerja`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
-COMMIT;
-
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

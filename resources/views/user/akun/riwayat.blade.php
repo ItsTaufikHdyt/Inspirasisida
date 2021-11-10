@@ -34,6 +34,8 @@ Inspirasi Sida
             <th>Email</th>
             <th>Verifikasi</th>
             <th>Kategori</th>
+            <th>Url Proposal</th>
+            <th>Proposal</th>
             <th>Detail</th>
           </tr>
         </thead>
@@ -51,9 +53,6 @@ Inspirasi Sida
 
               </center>
             </div>
-            <div class="modal-footer danger-md">
-              <button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
-            </div>
           </div>
         </div>
       </div>
@@ -66,11 +65,13 @@ Inspirasi Sida
       <table id="penelitian" class="table">
         <thead class="thead-light">
           <tr>
-            <th>#</th>
+            <th>No</th>
             <th>Nama Penanggung Jawab</th>
             <th>Email</th>
             <th>Verifikasi</th>
-            <th>Status</th>
+            <th>Kategori</th>
+            <th>Url Proposal</th>
+            <th>Proposal</th>
             <th>Detail</th>
           </tr>
         </thead>
@@ -88,9 +89,6 @@ Inspirasi Sida
 
               </center>
             </div>
-            <div class="modal-footer danger-md">
-              <button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
-            </div>
           </div>
         </div>
       </div>
@@ -103,12 +101,14 @@ Inspirasi Sida
       <table id="lembaga" class="table">
         <thead class="thead-light">
           <tr>
-            <th>#</th>
+            <th>No</th>
             <th>Nama Penanggung Jawab</th>
             <th>Nama Lembaga</th>
             <th>Email</th>
             <th>Verifikasi</th>
             <th>Kategori</th>
+            <th>Url Proposal</th>
+            <th>Proposal</th>
             <th>Detail</th>
           </tr>
         </thead>
@@ -141,13 +141,15 @@ Inspirasi Sida
       <table id="opd" class="table">
         <thead class="thead-light">
           <tr>
-            <th>#</th>
+            <th>No</th>
             <th>Nama OPD</th>
             <th>Nama Penanggung Jawab</th>
             <th>NIP</th>
             <th>Jabatan</th>
             <th>Email</th>
             <th>Verifikasi</th>
+            <th>Url Proposal</th>
+            <th>Proposal</th>
             <th>Detail</th>
           </tr>
         </thead>
@@ -164,9 +166,6 @@ Inspirasi Sida
               <center>
 
               </center>
-            </div>
-            <div class="modal-footer danger-md">
-              <button type="button" class="btn btn-custon-four btn-default btn-md" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
             </div>
           </div>
         </div>
@@ -207,6 +206,18 @@ Inspirasi Sida
         {
           data: 'status',
           name: 'status',
+          orderable: false,
+          searchable: false
+        },
+        {
+          data: 'url_proposal',
+          name: 'url_proposal',
+          orderable: false,
+          searchable: false
+        },
+        {
+          data: 'proposal',
+          name: 'proposal',
           orderable: false,
           searchable: false
         },
@@ -262,6 +273,18 @@ Inspirasi Sida
         {
           data: 'status',
           name: 'status',
+          orderable: false,
+          searchable: false
+        },
+        {
+          data: 'url_proposal',
+          name: 'url_proposal',
+          orderable: false,
+          searchable: false
+        },
+        {
+          data: 'proposal',
+          name: 'proposal',
           orderable: false,
           searchable: false
         },
@@ -323,6 +346,18 @@ Inspirasi Sida
           name: 'kategori_peena',
         },
         {
+          data: 'url_proposal',
+          name: 'url_proposal',
+          orderable: false,
+          searchable: false
+        },
+        {
+          data: 'proposal',
+          name: 'proposal',
+          orderable: false,
+          searchable: false
+        },
+        {
           data: 'action',
           name: 'action',
           orderable: false,
@@ -382,6 +417,18 @@ Inspirasi Sida
         {
           data: 'verifikasi',
           name: 'verifikasi',
+        },
+        {
+          data: 'url_proposal',
+          name: 'url_proposal',
+          orderable: false,
+          searchable: false
+        },
+        {
+          data: 'proposal',
+          name: 'proposal',
+          orderable: false,
+          searchable: false
         },
         {
           data: 'action',

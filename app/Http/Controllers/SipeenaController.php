@@ -213,6 +213,22 @@ class SipeenaController extends Controller
         return response()->json(['captcha' => captcha_img('math')]);
     }
 
+    //display proposal
+    public function displayProposalPendaftaran($id)
+    {
+        $pendaftaran = pendaftaran::find($id);
+        return response()->file('Storage/proposal/' . $pendaftaran->proposal);
+    }
+    public function displayProposalLembaga($id)
+    {
+        $lembaga = lembaga::find($id);
+        return response()->file('Storage/proposal/' . $lembaga->proposal);
+    }
+    public function displayProposalOPD($id)
+    {
+        $pena_opd = penaopd::find($id);
+        return response()->file('Storage/proposal/' . $pena_opd->proposal);
+    }
     // ---------------- Riwayat ------------------------
     public function riwayat()
     {
@@ -229,7 +245,7 @@ class SipeenaController extends Controller
 
     public function getPendaftaranInovasi()
     {
-        $pendaftaranInovasi = pendaftaran::select('id', 'nama', 'email', 'verifikasi', 'kelompok', 'ket')->where('user_id', '=', Auth::user()->id)
+        $pendaftaranInovasi = pendaftaran::select('id', 'nama', 'email', 'verifikasi', 'kelompok', 'proposal', 'url_proposal', 'ket')->where('user_id', '=', Auth::user()->id)
             ->where('kategori_peena', '=', 0);
 
         return DataTables::of($pendaftaranInovasi)
@@ -237,6 +253,14 @@ class SipeenaController extends Controller
             ->editColumn('action', function ($data) {
                 $btn = '<a href="" class="btn btn-warning" id="showInovasi" data-toggle="modal" data-target="#showDataInovasi_modal" data-id=' . $data->id . '>Show</a>';
                 return $btn;
+            })
+            ->editColumn('url_proposal', function ($data) {
+                if ($data->url_proposal != null) return '<a href="' . $data->url_proposal . '" class="btn btn-warning">View</a>';
+                if ($data->url_proposal == null) return 'Data Not Found';
+            })
+            ->editColumn('proposal', function ($data) {
+                if ($data->proposal != null) return '<a class="btn btn-warning" href="' . route('sipeena.display.proposal-pendaftaran', $data->id) . '" target="_blank">Show</a>';
+                if ($data->proposal == null) return 'Data Not Found';
             })
             ->editColumn('verifikasi', function ($data) {
                 if ($data->verifikasi == 0) return '<span class="badge badge-dark">Sedang Proses</span>';
@@ -264,7 +288,7 @@ class SipeenaController extends Controller
 
     public function getPendaftaranPenelitian()
     {
-        $pendaftaranInovasi = pendaftaran::select('id', 'nama', 'email', 'verifikasi', 'kelompok', 'ket')->where('user_id', '=', Auth::user()->id)
+        $pendaftaranInovasi = pendaftaran::select('id', 'nama', 'email', 'verifikasi', 'proposal', 'url_proposal', 'kelompok', 'ket')->where('user_id', '=', Auth::user()->id)
             ->where('kategori_peena', '=', 1);
 
         return DataTables::of($pendaftaranInovasi)
@@ -272,6 +296,14 @@ class SipeenaController extends Controller
             ->editColumn('action', function ($data) {
                 $btn = '<a href="" class="btn btn-warning" id="showPenelitian" data-toggle="modal" data-target="#showDataPenelitian_modal" data-id=' . $data->id . '>Show</a>';
                 return $btn;
+            })
+            ->editColumn('url_proposal', function ($data) {
+                if ($data->url_proposal != null) return '<a href="' . $data->url_proposal . '" class="btn btn-warning">View</a>';
+                if ($data->url_proposal == null) return 'Data Not Found';
+            })
+            ->editColumn('proposal', function ($data) {
+                if ($data->proposal != null) return '<a class="btn btn-warning" href="' . route('sipeena.display.proposal-pendaftaran', $data->id) . '" target="_blank">Show</a>';
+                if ($data->proposal == null) return 'Data Not Found';
             })
             ->editColumn('verifikasi', function ($data) {
                 if ($data->verifikasi == 0) return '<span class="badge badge-dark">Sedang Proses</span>';
@@ -299,7 +331,7 @@ class SipeenaController extends Controller
 
     public function getLembaga()
     {
-        $lembaga = lembaga::select('id', 'nama', 'nama_lembaga', 'verifikasi', 'email', 'kategori_peena', 'ket')
+        $lembaga = lembaga::select('id', 'nama', 'nama_lembaga', 'verifikasi', 'email', 'proposal', 'url_proposal', 'kategori_peena', 'ket')
             ->where('user_id', '=', Auth::user()->id);
 
         return DataTables::of($lembaga)
@@ -307,6 +339,14 @@ class SipeenaController extends Controller
             ->editColumn('action', function ($data) {
                 $btn = '<a href="" class="btn btn-warning" id="showLembaga" data-toggle="modal" data-target="#showDataLembaga_modal" data-id=' . $data->id . '>Show</a>';
                 return $btn;
+            })
+            ->editColumn('url_proposal', function ($data) {
+                if ($data->url_proposal != null) return '<a href="' . $data->url_proposal . '" class="btn btn-warning">View</a>';
+                if ($data->url_proposal == null) return 'Data Not Found';
+            })
+            ->editColumn('proposal', function ($data) {
+                if ($data->proposal != null) return '<a class="btn btn-warning" href="' . route('sipeena.display.proposal-lembaga', $data->id) . '" target="_blank">Show</a>';
+                if ($data->proposal == null) return 'Data Not Found';
             })
             ->editColumn('verifikasi', function ($data) {
                 if ($data->verifikasi == 0) return '<span class="badge badge-dark">Sedang Proses</span>';
@@ -342,6 +382,14 @@ class SipeenaController extends Controller
             ->editColumn('action', function ($data) {
                 $btn = '<a href="" class="btn btn-warning" id="showOpd" data-toggle="modal" data-target="#showDataOpd_modal" data-id=' . $data->id . '>Show</a>';
                 return $btn;
+            })
+            ->editColumn('url_proposal', function ($data) {
+                if ($data->url_proposal != null) return '<a href="' . $data->url_proposal . '" class="btn btn-warning">View</a>';
+                if ($data->url_proposal == null) return 'Data Not Found';
+            })
+            ->editColumn('proposal', function ($data) {
+                if ($data->proposal != null) return '<a class="btn btn-warning" href="' . route('sipeena.display.proposal-penaopd', $data->id) . '" target="_blank">Show</a>';
+                if ($data->proposal == null) return 'Data Not Found';
             })
             ->editColumn('verifikasi', function ($data) {
                 if ($data->verifikasi == 0) return '<span class="badge badge-dark">Sedang Proses</span>';
