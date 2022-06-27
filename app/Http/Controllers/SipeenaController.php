@@ -217,17 +217,17 @@ class SipeenaController extends Controller
     public function displayProposalPendaftaran($id)
     {
         $pendaftaran = pendaftaran::find($id);
-        return response()->file('Storage/proposal/' . $pendaftaran->proposal);
+        return response()->file('storage/proposal/' . $pendaftaran->proposal);
     }
     public function displayProposalLembaga($id)
     {
         $lembaga = lembaga::find($id);
-        return response()->file('Storage/proposal/' . $lembaga->proposal);
+        return response()->file('storage/proposal/' . $lembaga->proposal);
     }
     public function displayProposalOPD($id)
     {
         $pena_opd = penaopd::find($id);
-        return response()->file('Storage/proposal/' . $pena_opd->proposal);
+        return response()->file('storage/proposal/' . $pena_opd->proposal);
     }
     // ---------------- Riwayat ------------------------
     public function riwayat()

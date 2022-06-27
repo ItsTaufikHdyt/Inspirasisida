@@ -56,7 +56,10 @@ Inpirasi Sida
                                             <td class="text-left" width="30%"><b>Abstraksi</b></td>
                                             <td id="abstraksi"></td>
                                         </tr>
-
+                                        <tr>
+                                            <td class="text-left" width="30%"><b>Berkas</b></td>
+                                            <td id="berkas"> <a href="" class="btn btn-warning" id="link-berkas" target="_blank">Download Berkas</a></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -117,7 +120,8 @@ Inpirasi Sida
             $('#opd').text(data.data.opd);
             $('#lokasi').text(data.data.lokasi);
             $('#abstraksi').text(data.data.abstraksi);
-
+            var berkas = (data.data.berkas);
+            $('#link-berkas').attr("href", '{{url("downloadDbOpd")}}' + '/' + id);
         })
     });
 </script>

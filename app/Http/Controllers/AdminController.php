@@ -275,17 +275,17 @@ class AdminController extends Controller
     public function displayProposalPendaftaran($id)
     {
         $pendaftaran = pendaftaran::find($id);
-        return response()->file('Storage/proposal/' . $pendaftaran->proposal);
+        return response()->file('storage/proposal/' . $pendaftaran->proposal);
     }
     public function displayProposalLembaga($id)
     {
         $lembaga = lembaga::find($id);
-        return response()->file('Storage/proposal/' . $lembaga->proposal);
+        return response()->file('storage/proposal/' . $lembaga->proposal);
     }
     public function displayProposalOPD($id)
     {
         $pena_opd = penaopd::find($id);
-        return response()->file('Storage/proposal/' . $pena_opd->proposal);
+        return response()->file('storage/proposal/' . $pena_opd->proposal);
     }
     public function displaySuratPernyataanOPD($id)
     {
@@ -779,7 +779,7 @@ class AdminController extends Controller
 
     public function getDatabaseMasyarakat()
     {
-        $dbmasyarakat = dbmasyarakat::select('id', 'judul', 'tahun', 'nama', 'lokasi', 'abstraksi', 'kategori');
+        $dbmasyarakat = dbmasyarakat::select('id', 'judul', 'tahun', 'nama', 'lokasi', 'berkas', 'abstraksi', 'kategori');
         return DataTables::of($dbmasyarakat)
             ->addIndexColumn()
             ->editColumn('action', function ($data) {
@@ -887,6 +887,11 @@ class AdminController extends Controller
         return response()->json([
             'success' => true
         ]);
+    }
+
+    public function downloadDbMasyarakat($id)
+    {
+        $dbmasyarakat = $this->databaseRepository->downloadDbMasyarakat($id);
     }
     // ---------------- Galeri ------------------------
     public function galeri()

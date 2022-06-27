@@ -76,9 +76,9 @@ Inspirasi Sida | Admin
 														<div class="input prepend-small-btn">
 															<div class="file-button">
 																Browse
-																<input type="file" name="foto" required onchange="document.getElementById('prepend-small-btn3').value = this.value;">
+																<input type="file" name="foto"  onchange="document.getElementById('prepend-small-btn3').value = this.value;">
 															</div>
-															<input type="text" name="file" id="prepend-small-btn3" placeholder="no file selected" required>
+															<input type="text" name="file" id="prepend-small-btn3" placeholder="no file selected" >
 														</div>
 													</div>
 												</td>
@@ -92,9 +92,9 @@ Inspirasi Sida | Admin
 														<div class="input prepend-small-btn">
 															<div class="file-button">
 																Browse
-																<input type="file" name="berkas" required onchange="document.getElementById('prepend-small-btn2').value = this.value;">
+																<input type="file" name="berkas" onchange="document.getElementById('prepend-small-btn2').value = this.value;">
 															</div>
-															<input type="text" name="file" id="prepend-small-btn2" placeholder="no file selected" required>
+															<input type="text" name="file" id="prepend-small-btn2" placeholder="no file selected">
 														</div>
 													</div>
 												</td>

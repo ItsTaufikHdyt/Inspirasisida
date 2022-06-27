@@ -56,7 +56,10 @@ Inpirasi Sida
                                             <td class="text-left" width="30%"><b>Abstraksi</b></td>
                                             <td id="abstraksi"></td>
                                         </tr>
-
+                                        <tr>
+                                            <td class="text-left" width="30%"><b>Berkas</b></td>
+                                            <td id="berkas"> <a href="" class="btn btn-warning" id="link-berkas" target="_blank">Downlaod Berkas</a></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -98,6 +101,7 @@ Inpirasi Sida
                     data: 'nama',
                     name: 'nama',
                 },
+                
             ],
         });
 
@@ -117,6 +121,8 @@ Inpirasi Sida
             $('#nama').text(data.data.nama);
             $('#lokasi').text(data.data.lokasi);
             $('#abstraksi').text(data.data.abstraksi);
+            var berkas = (data.data.berkas);
+            $('#link-berkas').attr("href", '{{url("downloadDbMasyarakat")}}' + '/' + id);
 
         })
     });

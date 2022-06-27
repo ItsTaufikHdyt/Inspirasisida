@@ -74,7 +74,7 @@ Inspirasi Sida | Admin
 																	<td>Tahun</td>
 																</tr>
 																<tr>
-																	<td><input type="text" name="tahun" class="form-control" placeholder="Tahun..." required></td>
+																	<td><input type="number" name="tahun" class="form-control" placeholder="Tahun..." required></td>
 																</tr>
 																<tr>
 																	<td>Perangkat Daerah</td>
@@ -171,7 +171,7 @@ Inspirasi Sida | Admin
 																	<td>Tahun</td>
 																</tr>
 																<tr>
-																	<td><input type="text" id="tahun" name="tahun" value="" class="form-control" placeholder="Tahun..." required></td>
+																	<td><input type="number" id="tahun" name="tahun" value="" class="form-control" placeholder="Tahun..." required></td>
 																</tr>
 																<tr>
 																	<td>OPD</td>
@@ -249,7 +249,7 @@ Inspirasi Sida | Admin
 										<div id="masyarakat" class="modal modal-xl  fade" role="dialog">
 											<div class="modal-dialog">
 												<div class="modal-content">
-													<form action="{{url('admin/store-dbmasyarakat')}}" method="post">
+													<form action="{{url('admin/store-dbmasyarakat')}}" method="post" enctype="multipart/form-data">
 														@csrf
 														<div class="modal-close-area modal-close-df">
 															<a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
@@ -266,13 +266,13 @@ Inspirasi Sida | Admin
 																	<td>Tahun</td>
 																</tr>
 																<tr>
-																	<td><input id="" type="text" name="tahun" class="form-control" placeholder="Tahun..." required></td>
+																	<td><input id="" type="number" name="tahun" class="form-control" placeholder="Tahun..." required></td>
 																</tr>
 																<tr>
-																	<td>OPD</td>
+																	<td>Nama</td>
 																</tr>
 																<tr>
-																	<td><input type="text" name="opd" class="form-control" placeholder="Nama..." required></td>
+																	<td><input type="text" name="nama" class="form-control" placeholder="Nama..." required></td>
 																</tr>
 																<tr>
 																	<td>Lokasi Kegiatan</td>
@@ -299,6 +299,22 @@ Inspirasi Sida | Admin
 																		</select>
 																	</td>
 																</tr>
+																<tr>
+																	<td>Upload File</td>
+																</tr>
+																<tr>
+																	<td>
+																		<div class="file-upload-inner ts-forms">
+																			<div class="input prepend-small-btn">
+																				<div class="file-button">
+																					Browse
+																					<input type="file" name="berkas" onchange="document.getElementById('prepend-small-btn-1').value = this.value;">
+																				</div>
+																				<input type="text" name="berkas" id="prepend-small-btn-1" placeholder="no file selected">
+																			</div>
+																		</div>
+																	</td>
+																</tr>
 															</table>
 														</div>
 														<div class="modal-footer">
@@ -319,6 +335,7 @@ Inspirasi Sida | Admin
 													<th>Nama Peserta</th>
 													<th>Lokasi Kegiatan</th>
 													<th>Abstraksi</th>
+													<th>Berkas</th>
 													<th>Kategori</th>
 													<th>Aksi</th>
 												</tr>
@@ -346,7 +363,7 @@ Inspirasi Sida | Admin
 																	<td>Tahun</td>
 																</tr>
 																<tr>
-																	<td><input type="text" id="tahun-dbmasyarakat" name="tahun" value="" class="form-control" placeholder="Tahun..." required></td>
+																	<td><input type="number" id="tahun-dbmasyarakat" name="tahun" value="" class="form-control" placeholder="Tahun..." required></td>
 																</tr>
 																<tr>
 																	<td>Nama</td>
@@ -436,6 +453,10 @@ Inspirasi Sida | Admin
 				{
 					data: 'abstraksi',
 					name: 'abstraksi',
+				},
+				{
+					data: 'berkas',
+					name: 'berkas',
 				},
 				{
 					data: 'kategori',

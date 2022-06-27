@@ -18,6 +18,7 @@ Route::get('prosedur/more/{id}', 'HomeController@showMore')->name('home.showMore
 Route::get('prosedur/download/{id}', 'HomeController@downloadProsedur')->name('home.downloadProsedur');
 Route::get('panduan', 'HomeController@panduan')->name('home.panduan');
 Route::get('downloadDbOpd/{id}', 'HomeController@downloadDbOpd')->name('home.downloadDbOpd');
+Route::get('downloadDbMasyarakat/{id}', 'HomeController@downloadDbMasyarakat')->name('home.downloadDbMasyarakat');
 
 
 //------------------------ Database Masyarakat --------------------------
@@ -138,6 +139,7 @@ Route::group(['middleware' => 'cekstatus', "prefix" => "admin/"], function () {
     Route::get('edit-dbmasyarakat/{id}', 'AdminController@editDbMasyarakat')->name('admin.editDbMasyarakat');
     Route::put('update-dbmasyarakat/{id}', 'AdminController@updateDbMasyarakat')->name('admin.updateDbMasyarakat');
     Route::delete('delete-dbmasyarakat/{id}', 'AdminController@destroyDbMasyarakat')->name('admin.deleteDbMasyarakat');
+    Route::get('download-dbmasyarakat/{id}', 'AdminController@downloadDbMasyarakat')->name('admin.downloadDbMasyarakat');
     //---------------- Galeri-------------
     Route::get('galeri', 'AdminController@galeri')->name('admin.galeri');
     Route::get('get-galeri', 'AdminController@getGaleri')->name('admin.getGaleri');

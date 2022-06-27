@@ -135,7 +135,7 @@ Inspirasi Sida
         <a href="#" data-toggle="modal" data-target="#dbinovasi">
           <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
             <div class="icon color-1">
-              <img src="{{asset('img/icon/dbinovasi.png')}}" height="200" width="290" alt="">
+              <img src="{{asset('img/icon/dbinovasi.png')}}" class="img-fluid" height="200" width="290" alt="">
             </div>
             <h4>Database Inovasi</h4>
           </div>
@@ -147,7 +147,7 @@ Inspirasi Sida
         <a href="{{route('sipeena')}}">
           <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
             <div class="icon color-2">
-              <img src="{{asset('img/logo/peenfin2.png')}}" height="200" alt="">
+              <img src="{{asset('img/logo/peenfin2.png')}}" class="img-fluid" height="200" alt="">
             </div>
             <h4>SiPEENA</h4>
           </div>
@@ -159,7 +159,7 @@ Inspirasi Sida
         <a href="#" data-toggle="modal" data-target="#dbpenelitian">
           <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
             <div class="icon color-1">
-              <img src="{{asset('img/icon/dbpenelitian.png')}}" height="200" width="290" alt="">
+              <img src="{{asset('img/icon/dbpenelitian.png')}}" class="img-fluid" height="200" width="290" alt="">
             </div>
             <h4>Database Penelitian</h4>
           </div>
@@ -187,7 +187,7 @@ Inspirasi Sida
           <div class="pricing-details">
             <h2>{{$data->judul_prosedur}}</h2>
             <div class="price">
-              <image height="150" width="200" src="{{asset('storage/foto_berita/' .$data->foto)}}"><br>
+              <image class="img-fluid" height="150" width="200" src="{{asset('storage/foto_berita/' .$data->foto)}}"><br>
                 <span>
                   {{$data->created_at->format('Y-m-d')}}
                   | {{$data->created_at->diffForHumans()}}
@@ -226,11 +226,15 @@ Inspirasi Sida
           <div id="galeri" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{asset('img/galeri/bp1.jpg')}}">
+                <div data-src="{{asset('img/galeri/bp1.JPG')}}" data-fancybox="galeri">
+                  <img class="d-block w-100 img-fluid" style="height: 420px; border-radius: 10px;" src="{{asset('img/galeri/bp1.JPG')}}">
+                </div>
               </div>
               @forelse($galeri_foto as $data)
               <div class="carousel-item">
-                <img class="d-block w-100" style="height: 420px; border-radius: 10px;" src="{{url('storage/galeri/' .$data->foto)}}">
+                <div data-src="{{asset('storage/galeri/' .$data->foto)}}" data-fancybox="galeri">
+                  <img class="d-block w-100 img-fluid" style="height: 420px; border-radius: 10px;" src="{{url('storage/galeri/' .$data->foto)}}">
+                </div>
               </div>
               @empty
               @endforelse
@@ -250,13 +254,13 @@ Inspirasi Sida
             <div class="carousel-inner card">
               <div class="carousel-item active">
                 <div data-src="{{asset('img/poster/poster2020.jpg')}}" data-fancybox="poster">
-                  <image style="height: 420px; width: 350px; object-fit: fill; border-radius: 5px;" src="{{asset('img/poster/poster2020.jpg')}}">
+                  <image class="img-fluid" style="height: 420px; width: 350px; object-fit: fill; border-radius: 5px;" src="{{asset('img/poster/poster2020.jpg')}}">
                 </div>
               </div>
               @forelse($galeri_poster as $data)
               <div class="carousel-item">
                 <div data-src="{{asset('storage/galeri/' .$data->foto)}}" data-fancybox="galeri">
-                  <image style="height: 420px; width: 350px; object-fit: fill; border-radius: 5px;" src="{{asset('storage/galeri/' .$data->foto)}}">
+                  <image class="img-fluid" style="height: 420px; width: 350px; object-fit: fill; border-radius: 5px;" src="{{asset('storage/galeri/' .$data->foto)}}">
                 </div>
               </div>
               @empty
@@ -322,8 +326,7 @@ Inspirasi Sida
                 <strong>Alamat :</strong> <span>Jl. Moch. Roem Gedung Graha Taman Praja Blok IV Lantai I</span>
               </li>
               <li>
-                <strong>Telephone :</strong> <span> (0548) 3030303<br>
-                  &nbsp;0813 4720 1060(Pak Yusuf) <br>  &nbsp; 0852 1373 3969(Mas Iqbal)</span>
+                <strong>Telephone :</strong> <span> &nbsp;0813 4720 1060(Pak Yusuf) <br> &nbsp; 0852 1373 3969(Mas Iqbal)</span>
               </li>
               <li>
                 <strong>Email :</strong> <span>elitbang@bontangkota.go.id</span>

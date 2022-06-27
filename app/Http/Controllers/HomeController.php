@@ -46,7 +46,7 @@ class HomeController extends Controller
 
     public function getDbMasyarakatInovasi()
     {
-        $dbmasyarakat = dbmasyarakat::select('id', 'judul', 'tahun', 'nama', 'lokasi', 'abstraksi', 'kategori')
+        $dbmasyarakat = dbmasyarakat::select('id', 'judul', 'tahun', 'nama', 'lokasi', 'abstraksi', 'berkas', 'kategori')
             ->where('kategori', 0)
             ->orderBy('tahun', 'desc');
         return DataTables::of($dbmasyarakat)
@@ -75,7 +75,7 @@ class HomeController extends Controller
 
     public function getDbMasyarakatPenelitian()
     {
-        $dbmasyarakat = dbmasyarakat::select('id', 'judul', 'tahun', 'nama', 'lokasi', 'abstraksi', 'kategori')
+        $dbmasyarakat = dbmasyarakat::select('id', 'judul', 'tahun', 'nama', 'lokasi', 'abstraksi', 'berkas', 'kategori')
             ->where('kategori', 1)
             ->orderBy('tahun', 'desc');
         return DataTables::of($dbmasyarakat)
@@ -158,6 +158,12 @@ class HomeController extends Controller
     {
         $dbopd = dbopd::find($id);
         return storage::download($dbopd->berkas);
+    }
+
+    public function downloadDbMasyarakat($id)
+    {
+        $dbmasyarakat = dbmasyarakat::find($id);
+        return storage::download($dbmasyarakat->berkas);
     }
 
     public function panduan()
