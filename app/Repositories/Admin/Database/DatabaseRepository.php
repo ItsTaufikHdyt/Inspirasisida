@@ -96,14 +96,22 @@ class DatabaseRepository implements DatabaseRepositoryInterface
         ];
 
         $file   = $request->file("berkas");
-        if ($request->hasfile("berkas")) {
+        if ($request->kategori == '0' && $request->hasfile("berkas")) {
             Storage::delete($cek_dbopd->berkas);
             $nama = str_replace(' ', '', $request->file('berkas')->getClientOriginalName());
             $today = Carbon::today()->toDateString();
             $date = str_replace('-', '', $today);
             $rand = rand(0, 99999);
             $berkas = $date . "-" . $rand . "-" . $nama;
-            $update['berkas'] = $request->file('berkas')->storeAs('/database-opd', $berkas);
+            $update['berkas'] = $request->file('berkas')->storeAs('database-opd/inovasi', $berkas);
+        }elseif ($request->kategori == '1' && $request->hasfile("berkas")) {
+            Storage::delete($cek_dbopd->berkas);
+            $nama = str_replace(' ', '', $request->file('berkas')->getClientOriginalName());
+            $today = Carbon::today()->toDateString();
+            $date = str_replace('-', '', $today);
+            $rand = rand(0, 99999);
+            $berkas = $date . "-" . $rand . "-" . $nama;
+            $update['berkas'] = $request->file('berkas')->storeAs('database-opd/penlitian', $berkas);
         }
         DB::table('dbopd')->where('id', $id)->update($update);
     }
